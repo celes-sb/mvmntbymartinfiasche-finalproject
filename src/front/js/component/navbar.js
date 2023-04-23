@@ -14,43 +14,48 @@ export const Navbar = () => {
 
 	return (
 		<>
-			<div className="nav">
-				<div className="container">
-					<div className="logo">
-						<img src={logoMartin} alt="Logo" style={{ width: "100px" }} />
-						<h1>MVMNT</h1>
-					</div>
-					<div className="list" id="myLinks">
-						<ul>
-							<li>
-								<a href="#">Inicio</a>
-							</li>
-							<li>
-								<a href="#">Nosotros</a>
-							</li>
-							<li>
-								<a href="#">Planes</a>
-							</li>
-							<li>
-								<a href="#">Testimonios</a>
-							</li>
-							<li>
-								<a href="#">Equipo</a>
-							</li>
-						</ul>
-					</div>
-					<div>
-						<button type="button">Iniciar Sesión</button>
-					</div>
-					<a
-						href="javascript:void(0);"
-						className="humb-menu"
-						onClick={myFunction}
-					>
-						<i className="fa fa-bars"></i>
-					</a>
+			<nav className="navbar navbar-expand-lg navbar-light bg-light rounded border m-3">
+				<div className="logo">
+					<img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} />
 				</div>
-			</div>
+				<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span className="navbar-toggler-icon"></span>
+				</button>
+				<div className="collapse navbar-collapse" id="navbarNav">
+					<ul className="navbar-nav">
+						<li className="nav-item active">
+							<a className="nav-link badge badge-pill badge-success text-dark" href="#">Inicio <span className="sr-only">(current)</span></a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Sobre mí</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Testimonios</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Individualizado</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Movimiento</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Acrobacia</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Eventos</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Redes Sociales</a>
+						</li>
+						<li className="nav-item">
+							<a className="nav-link badge badge-pill badge-dark text-dark" href="#">Escribime</a>
+						</li>
+					</ul>
+					<div>
+						<button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+					</div>
+				</div>
+			</nav>
 		</>
 	);
 };
