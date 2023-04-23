@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import "../../styles/home.css";
-import iphoneMockup from "../../images/iphone-mockup.png";
 import trendingUpOutline from "../../images/TrendingUpOutline.png";
 import clipboardList from "../../images/ClipboardList.png";
 import cash from "../../images/Cash.png";
-import speakerphoneOutline from "../../images/SpeakerphoneOutline.png";
 import shooTharMien from "../../images/Shoo-Thar-Mien.png";
 import shooPratMhan from "../../images/Shoo-Prat-Mhan.png";
 import shooYhanTho from "../../images/Shoo-Yhan-Tho.png";
@@ -14,22 +12,22 @@ import shooMhanTho from "../../images/Shoo-Mhan-Tho.png";
 import previousButton from "../../images/Previous-Button.png";
 import shalimaHayden from "../../images/Shalima-Hayden.png";
 import nextButton from "../../images/Next-Button.png";
-import mapIcon from "../../images/map-icon.png";
-import emailIcon from "../../images/email-icon.png";
-import phoneIcon from "../../images/phone-icon.png";
-import instagram from "../../images/instagram.png";
-import twitter from "../../images/twitter.png";
-import facebook from "../../images/facebook.png";
 import dotOrnament from "../../images/Dot-Ornament.png";
-import whiteLogo from "../../images/logo-white.png";
 import servicio1 from "../../images/Servicio-1.jpeg";
 import servicio2 from "../../images/Servicio-2.jpeg";
 import servicio3 from "../../images/Servicio-3.jpeg";
 import servicio4 from "../../images/Servicio-4.jpeg";
 import fullBody from "../../images/Full-Body-STRETCHING.jpeg";
-import fotoGrupo from "../../images/group-picture.jpeg";
-import fotoGimnasio from "../../images/foto-gimnasio.jpeg";
 
+/* 
+recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
+- cambiar iconos de entrenamientos
+- cambiar imagenes de entrenamiento
+- cuando se hayan conectado los pages y se rendericen bien, eliminar las secciones del home.js
+- SAQUE LA PARTE DE OUR AWESOME TEAM PORQUE martin es el solo... pero dejo el codigo comentado
+  en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para poner eventos... o usarlo
+  en otra parte.. me gusto el grid =P
+*/
 export const Home = () => {
 
   return (
@@ -48,7 +46,7 @@ export const Home = () => {
                 <button type="button" className="btn btn-large">Empieza ya! link a INDIVIDUALIZADO</button>
               </div>
               <div className="hero-content-photo">
-                <img src={iphoneMockup} alt="" />
+                <img src="https://i.pinimg.com/originals/4e/c8/76/4ec87619593c299f8f50623ed2e7cb25.png" alt="" />
                 <div className="circle"></div>
                 <div className="circle-yellow"></div>
                 <div className="circle-gredient"></div>
@@ -63,7 +61,7 @@ export const Home = () => {
                 <img src={servicio1} alt="" />
               </div>
               <div className="content-right">
-                <h2>Nosotros</h2>
+                <h2>Sobre mí</h2>
                 <h4>
                   <span>MVMNT by Martin Fiasche</span> es un centro de
                   entrenamiento presencial y en línea que combina distintas
@@ -97,6 +95,28 @@ export const Home = () => {
                 </p>
                 <ul>
                   <li>
+                    <img src={clipboardList} alt="" />
+                    <div className="text">
+                      <h3>Individualizado</h3>
+                      <p>
+                        Lorem impsum lorem ipsum lorem ipsum lorem ipsum
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                      </p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src={cash} alt="" />
+                    <div className="text">
+                      <h3>Movimiento</h3>
+                      <p>
+                        Lorem impsum lorem ipsum lorem ipsum lorem ipsum
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                        lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+                      </p>
+                    </div>
+                  </li>
+                  <li>
                     <img src={trendingUpOutline} alt="" />
                     <div className="text">
                       <h3>Acrobacia</h3>
@@ -107,36 +127,6 @@ export const Home = () => {
                       </p>
                     </div>
                   </li>
-                  <li>
-                    <img src={clipboardList} alt="" />
-                    <div className="text">
-                      <h3>Calistenia</h3>
-                      <p>
-                        La calistenia se puede practicar en cualquier lugar y no
-                        requiere equipo especializado, lo que la convierte en una
-                        excelente manera de mantenerse en forma.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <img src={cash} alt="" />
-                    <div className="text">
-                      <h3>Weightlifting</h3>
-                      <p>
-                        Desarrolla fuerza y resistencia muscular, reduce tu estrés
-                        y mejora la calidad del sueño.
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <img src={speakerphoneOutline} alt="" />
-                    <div className="text">
-                      <h3>Movimiento</h3>
-                      <p>
-                        Tendencia que ayuda a la fuerza, movilidad y equilibrio.
-                      </p>
-                    </div>
-                  </li>
                 </ul>
               </div>
               <div className="content-right">
@@ -144,86 +134,6 @@ export const Home = () => {
                 <img src={servicio3} alt="" /> <img src={servicio2} alt="" />{" "}
                 <img className="dot" src={dotOrnament} alt="" />
                 <img className="dot dot1" src={dotOrnament} alt="" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="our-success">
-          <div className="container">
-            <div className="our-success-content">
-              <div className="content-left">
-                <img className="img" src={fotoGrupo} alt="" />
-              </div>
-              <div className="content-right">
-                <h2>Planes</h2>
-                <p>
-                  Tenemos nuestros planes presenciales y en línea disponibles para
-                  ti 24/7
-                </p>
-                <h4 className="first">
-                  +100
-                  <br />
-                  <span>Entrenamientos</span>
-                </h4>
-                <h4 className="second col">
-                  +500
-                  <br />
-                  <span className="col-s">Alumnos activos</span>
-                </h4>
-                <h4 className="col">
-                  4
-                  <br />
-                  <span className="col-s">Sedes</span>
-                </h4>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="our-team">
-          <div className="container">
-            <div className="our-team-content">
-              <div className="text-content">
-                <h2>Our Awesome Team</h2>
-              </div>
-              <div className="team">
-                <div className="person">
-                  <img src={shooTharMien} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Martin Fiasche</h3>
-                  <p className="p-2">Fundador</p>
-                </div>
-                <div className="person">
-                  <img src={shooPratMhan} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Celeste Bareiro</h3>
-                  <p className="p-2">Frontend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooYhanTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>David Bravo</h3>
-                  <p className="p-2">Frontend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooBroTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Juan Pinto</h3>
-                  <p className="p-2">Backend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooMharNo} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Sebastian Bonilla</h3>
-                  <p className="p-2">Backend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooMhanTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Más Equipo</h3>
-                  <p className="p-2">Creative Director</p>
-                </div>
               </div>
             </div>
           </div>
@@ -264,19 +174,21 @@ export const Home = () => {
                     <div className="row-c">
                       <label for="fname">Nombre<span className="text-danger"> *</span></label>
                       <input
+                        className="input-sec"
                         type="text"
                         id="fname"
                         name="fname"
-                        placeholder="Enter your first name"
+                        placeholder="Ingresá tu nombre"
                       />
                     </div>
                     <div className="row-c">
                       <label for="lname">Apellido<span className="text-danger"> *</span></label>
                       <input
+                        className="input-sec"
                         type="text"
                         id="lname"
                         name="lname"
-                        placeholder="Enter your last name"
+                        placeholder="Ingresá tu apellido"
                       />
                     </div>
                   </div>
@@ -288,12 +200,13 @@ export const Home = () => {
                     type="email"
                     id="email"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder="Ingresá tu correo electrónico"
                   />
 
                   <label className="color" for="message">
                     Comentario o consulta<span className="text-danger"> *</span></label>
                   <textarea
+                    className="input-sec"
                     name="msg"
                     id="message"
                     placeholder="Escribí tus consultas o comentarios"
@@ -303,68 +216,11 @@ export const Home = () => {
                 </div>
               </div>
               <div className="right-content">
-                <img className="img-1" src={fotoGimnasio} alt="" />
-                <img className="img-2" src={dotOrnament} alt="" />
-                <div className="text">
-                  <img src={mapIcon} alt="" />
-                  <p>Av. Belgrano 342, Buenos Aires, Argentina</p>
-                </div>
+                <img className="img-1" alt="Contact Form Image CambiarPorLoQueDeMartin" style={{ width: "400px", height: "500px" }} src="https://c0.wallpaperflare.com/preview/821/40/875/levitation-beauty-smoke-circus.jpg" />
               </div>
             </div>
           </div>
         </section>
-
-        <footer>
-          <div className="container">
-            <div className="footer-content">
-              <div className="logo-title">
-                <img src={whiteLogo} alt="" />
-                <p>
-                  MVMNT es un centro de entrenamiento presencial y en línea que
-                  combina distintas disciplinas como calistenia, weightlifting y
-                  movimiento.
-                </p>
-              </div>
-              <div className="get-in-touch">
-                <h4>Contacto</h4>
-                <span className="mrg">
-                  <img src={emailIcon} alt="" />
-                  <p>yourmail@hello.com</p>
-                </span>
-                <span>
-                  <img src={phoneIcon} alt="" />
-                  <p>+1 386-688-3295</p>
-                </span>
-              </div>
-              <div className="social-media">
-                <h4>Redes Sociales</h4>
-                <div>
-                  <a href="#">
-                    <img src={instagram} alt="" />
-                  </a>
-                  <a href="#">
-                    <img className="mrg" src={twitter} alt="" />
-                  </a>
-                  <a href="#">
-                    <img src={facebook} alt="" />
-                  </a>
-                </div>
-              </div>
-              <div className="newsletter">
-                <h4>Suscríbete al Newsletter</h4>
-                <label for="email-sec">Correo Electrónico</label>
-                <input
-                  className="test"
-                  type="email"
-                  id="email-sec"
-                  name="email"
-                  placeholder="Enter your email"
-                />
-                <button type="submit">Subscribirse</button>
-              </div>
-            </div>
-          </div>
-        </footer>
       </div>
     </>
   );

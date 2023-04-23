@@ -4,6 +4,12 @@ import previousButton from "../../images/Previous-Button.png";
 import shalimaHayden from "../../images/Shalima-Hayden.png";
 import nextButton from "../../images/Next-Button.png";
 
+/*
+Martin dice que tiene unos videos de gente dando testimonios
+podemos no solo hacer un carousel de testimonios como el del template que ya tenemos sino que tmb
+podemos agregar los videos =) yo creo que puede quedar bien. PARA SEGUIR PENSANDO
+*/
+
 export const Testimonios = () => {
     return (
         <>
