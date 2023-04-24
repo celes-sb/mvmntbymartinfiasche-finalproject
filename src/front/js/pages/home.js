@@ -59,7 +59,7 @@ export const Home = () => {
                     <div className="circle-gredient"></div>
                   </div>
                 </div>
-                <img src={martinbw} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
+                <img className="about-us-img border border-warning" src={martinbw} alt="Martin blanco y negro" style={{ width: "100%", height: "100%" }} />
               </div>
               <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
                 <h2>Quién es Martin Fiasche?</h2>
