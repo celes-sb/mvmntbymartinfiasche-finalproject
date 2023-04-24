@@ -1,16 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext"
 import "../../styles/home.css";
 import trendingUpOutline from "../../images/TrendingUpOutline.png";
 import clipboardList from "../../images/ClipboardList.png";
 import cash from "../../images/Cash.png";
-import shooTharMien from "../../images/Shoo-Thar-Mien.png";
-import shooPratMhan from "../../images/Shoo-Prat-Mhan.png";
-import shooYhanTho from "../../images/Shoo-Yhan-Tho.png";
-import shooBroTho from "../../images/Shoo-Bro-Tho.png";
-import shooMharNo from "../../images/Shoo-Mhar-No.png";
-import shooMhanTho from "../../images/Shoo-Mhan-Tho.png";
 import previousButton from "../../images/Previous-Button.png";
-import shalimaHayden from "../../images/Shalima-Hayden.png";
 import nextButton from "../../images/Next-Button.png";
 import dotOrnament from "../../images/Dot-Ornament.png";
 import servicio1 from "../../images/Servicio-1.jpeg";
@@ -29,6 +23,19 @@ recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
   en otra parte.. me gusto el grid =P
 */
 export const Home = () => {
+  const { store, actions } = useContext(Context);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePreviousClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + store.testimonialData.length) % store.testimonialData.length);
+  };
+
+  const handleNextClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % store.testimonialData.length);
+  };
+
+  const currentTestimonial = store.testimonialData[currentIndex];
 
   return (
     <>
@@ -146,19 +153,16 @@ export const Home = () => {
                 <h2>Lo que dicen nuestros alumnos</h2>
               </div>
               <div className="bottom">
-                <img className="cursor" src={previousButton} alt="" />
+                <img className="cursor" src={previousButton} alt="" onClick={handlePreviousClick} />
                 <div className="middle">
-                  <img src={shalimaHayden} alt="" />
+                  <img src={currentTestimonial.image} alt="" />
                   <p>
-                    Trabajar con un seguimiento, con objetivos claros hace que se
-                    vean las mejoras. Eso me sucede entrenando con Martín y su
-                    método. Totalmente agradecida por la entrega en su trabajo y
-                    el compromiso brindando.
+                    {currentTestimonial.text}
                   </p>
-                  <h5>Sol Pérez Gallardo</h5>
-                  <h6>Alumna desde 2019</h6>
+                  <h5>{currentTestimonial.name}</h5>
+                  <h6>{currentTestimonial.year}</h6>
                 </div>
-                <img className="cursor" src={nextButton} alt="" />
+                <img className="cursor" src={nextButton} alt="" onClick={handleNextClick} />
               </div>
             </div>
           </div>
