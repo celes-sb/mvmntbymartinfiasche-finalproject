@@ -1,35 +1,54 @@
 import React, { Component } from "react";
 //import { Context } from "../store/appContext";
-import servicio1 from "../../images/Servicio-1.jpeg";
+import martinbw from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg"
 
 export const About = () => {
     return (
         <>
-            <h1>Ya hay algo de esto en el landing page.. homogeneizar eso con el texto que mando martin
-            </h1>
-            <section className="about-us">
-                <div className="container">
-                    <div className="about-us-content">
-                        <div className="content-left">
-                            <img src={servicio1} alt="" />
+            <section className="about-us" style={{ marginTop: "100px" }}>
+                <div className="container" style={{ display: "flex", alignItems: "center" }}>
+                    <div className="about-us-content" style={{ display: "flex", alignItems: "center" }}>
+                        <div className="content-left" style={{ flex: "1", paddingRight: "20px" }}>
+                            <div className="hero-content-photo">
+                                <div className="animation" style={{ position: "relative", height: "100%" }}>
+                                    <div className="circle"></div>
+                                    <div className="circle-yellow"></div>
+                                    <div className="circle-gredient"></div>
+                                </div>
+                            </div>
+                            <img src={martinbw} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
                         </div>
-                        <div className="content-right">
-                            <h2>Quién es Martin Fiasche? / o Quien soy? / o Sobre mi... primera o tercera persona?</h2>
+                        <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
+                            <h2>Quién es Martin Fiasche?</h2>
                             <h4>
-                                <span>MVMNT by Martin Fiasche</span> es un centro de
-                                entrenamiento presencial y en línea que combina distintas
-                                disciplinas como calistenia, weightlifting y movimiento.
+                                Docente curioso e inquieto de cualquier posibilidad que pueda ofrecer el cuerpo.
+                                Mi búsqueda es explorar las opciones de movimiento para nutrirme de su contenido sin asumir los costos de la especialización. Interpretar cuáles son los requisitos para construir un sistema abierto que permita acercar a todas las personas a una práctica que enriquezca sus posibilidades a partir de sus necesidades y no adiestrar a una persona a las condiciones de una práctica.
+
+                                Considero fundamental abordar el mejoramiento de las cualidades físicas que, aunque lo contiene, es mucho más amplio que el trabajo de fuerza y acondicionamiento – para preparar el cuerpo para los desafíos que presentan los múltiples escenarios de movimiento.
+                                Para esto, vamos a trabajar con el peso corporal en anillas u otros elementos, vamos a usar cargas libres, vamos a pararnos sobre las manos, a balancear sobre una superficie irregular o trabajar patrones rítmicos y coordinativos hasta sentir que tu cuerpo responde ante las órdenes que vos emitís.
+                                Preparar el cuerpo no es sólo poder sostener un esfuerzo desde lo metabólico, articular y muscular; sino registrar y conocer las funciones del cuerpo que te brinda todas las posibilidades.
+
+                                La propuesta esta destinada para aquellos que pretendan desarrollar su disponibilidad corporal desde un cambio de paradigma que implique estar a la misma distancia de todas las posibilidades: la intensidad, la sensibilidad, la repetición, la precisión, el arriba y el abajo, el centro y los extremos, las manos y los pies... trascendiendo una dicotomía de éxito o fracaso para abrazar un camino a recorrer como una experiencia que nos permita conocernos a nosotros mismos.
+
+                                Todas las herramientas pueden ser una opción cuando conocés cuál es el paradigma que estás persiguiendo.
                             </h4>
                             <h4>
-                                La idea nace con nuestro fundador Martin Fiasche durante la
-                                pandemia de COVID-19 en el año 2020. Su idea principal es que
-                                las personas mejoren la relación con su cuerpo a través del
-                                movimiento.
+                                <ul>Servicios
+                                    <li>Fuerza y Acondicionamiento</li>
+                                    <li>Movilidad, Flexibilidad y Control</li>
+                                    <li>El cuerpo en el  tiempo, el  espacio y los objetos</li>
+                                    <li>Ritmo y Coordinación</li>
+                                    <li>Balance</li>
+                                    <li>Acrobacia</li>
+                                    <li>Parada de Manos</li></ul>
                             </h4>
                             <h4>
-                                Nuestro objetivo es facilitar todo el saber transitado durante
-                                los últimos 20 años para ayudar los alumnos y alumnas a
-                                vincularse mejor con su cuerpo.
+                                <ul>
+                                    Clases grupales
+                                    Clases particulares
+                                    Entrenamiento a distancia
+                                    Seminarios y Workshops
+                                </ul>
                             </h4>
                             <div className="rectangle"></div>
                         </div>
