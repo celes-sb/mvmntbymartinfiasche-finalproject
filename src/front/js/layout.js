@@ -16,7 +16,7 @@ import { Footer } from "./component/footer";
 
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
-import { Signup } from "./pages/signup";
+import { Signup } from "./pages/signup.jsx";
 import injectContext from "./store/appContext";
 
 //create your first component
