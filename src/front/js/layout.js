@@ -4,14 +4,14 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Navbar } from "./component/navbar";
 import { Home } from "./pages/home";
-//import { About } from "./pages/about";
-//import { Testimonios } from "./pages/testimonios";
-//import { Individualizado } from "./pages/individualizado";
-//import { Movimiento } from "./pages/movimiento";
-//import { Acrobacia } from "./pages/acrobacia";
-//import { Eventos } from "./pages/eventos";
-//import { Socials } from "./pages/socials";
-//import { Contact } from "./pages/contact";
+import { About } from "./pages/about.jsx";
+import { Testimonios } from "./pages/testimonios.jsx";
+import { Individualizado } from "./pages/individualizado.jsx";
+import { Movimiento } from "./pages/movimiento.jsx";
+import { Acrobacia } from "./pages/acrobacia.jsx";
+import { Eventos } from "./pages/eventos.jsx";
+import { Socials } from "./pages/socials.jsx";
+import { Contact } from "./pages/contact.jsx";
 import { Footer } from "./component/footer";
 
 import { Demo } from "./pages/demo";
@@ -32,6 +32,14 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Demo />} path="/demo" />
+                        <Route element={<About />} path="/sobremi/" />
+                        <Route element={<Testimonios />} path="/testimonios" />
+                        <Route element={<Individualizado />} path="/individualizado" />
+                        <Route element={<Movimiento />} path="/movimiento" />
+                        <Route element={<Acrobacia />} path="/acrobacia" />
+                        <Route element={<Eventos />} path="/eventos" />
+                        <Route element={<Socials />} path="/redessociales" />
+                        <Route element={<Contact />} path="/escribime" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
@@ -45,12 +53,6 @@ const Layout = () => {
 export default injectContext(Layout);
 
 /*
-<Route element={<About />} path="/sobremi/" />
-<Route element={<Testimonios />} path="/testimonios" />
-<Route element={<Individualizado />} path="/individualizado" />
-<Route element={<Movimiento />} path="/movimiento" />
-<Route element={<Acrobacia />} path="/acrobacia" />
-<Route element={<Eventos />} path="/eventos" />
-<Route element={<Socials />} path="/redessociales" />
-<Route element={<Contact />} path="/escribime" />
+
+
 */

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 //import { Context } from "../store/appContext";
 import mapIcon from "../../images/map-icon.png";
-import fotoGimnasio from "../../images/foto-gimnasio.jpeg";
 
 export const Contact = () => {
     return (
