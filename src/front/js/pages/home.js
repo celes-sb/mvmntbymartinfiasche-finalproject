@@ -11,7 +11,6 @@ import servicio2 from "../../images/Servicio-2.jpeg";
 import servicio3 from "../../images/Servicio-3.jpeg";
 import servicio4 from "../../images/Servicio-4.jpeg";
 import fullBody from "../../images/Full-Body-STRETCHING.jpeg";
-import martinbw from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg"
 
 /* 
 recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
@@ -66,7 +65,7 @@ export const Home = () => {
                     <div className="circle-gredient"></div>
                   </div>
                 </div>
-                <img src={martinbw} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
+                <img src="" alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
               </div>
               <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
                 <h2>Quién es Martin Fiasche?</h2>
