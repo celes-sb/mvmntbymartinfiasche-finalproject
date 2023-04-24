@@ -4,6 +4,9 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 
+/*
+ESTO ES NECESARIO QUE ESTE ACA? PODEMOS BORRARLO?
+*/
 export const Single = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
