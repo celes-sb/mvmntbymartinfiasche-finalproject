@@ -195,48 +195,52 @@ ul {
   z-index: 2;
 }
 
-.hero .hero-content .circle {
+.about-us .about-us-content .content-left .animation .circle {
   content: "";
   position: absolute;
   overflow: hidden;
-  border: 1px solid #fced65;
+  border: 2px solid green;
   border-radius: 50%;
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
   opacity: 0.5;
-  left: 180px;
-  top: 0;
+  left: 0px;
+  top: -250px;
   animation: spinAround-inverse 5s linear infinite;
 }
 
-.hero .hero-content .circle-yellow {
+.about-us .about-us-content .content-left .animation .circle-yellow {
   content: "";
   overflow: hidden;
   position: absolute;
   width: 61px;
   height: 61px;
-  background-color: #fdec57;
+  background: linear-gradient(
+    180deg,
+    #f3e828 38.54%,
+    rgba(238, 230, 123, 0.911) 80%
+  );
   border-radius: 50%;
-  top: 248px;
-  left: 112px;
+  top: 150px;
+  right: -450px;
   animation: spinAround 5s linear infinite;
 }
 
-.hero .hero-content .circle-gredient {
+.about-us .about-us-content .content-left .animation .circle-gredient {
   content: "";
   overflow: hidden;
   position: absolute;
   width: 61px;
   height: 61px;
   border-radius: 50%;
-  top: 447px;
-  left: 313px;
+  top: 150px;
+  right: -400px;
   background: linear-gradient(
     180deg,
-    #dedede 38.54%,
-    rgba(222, 222, 222, 0) 100%
+    #1c0e88 38.54%,
+    rgba(123, 148, 238, 0.911) 80%
   );
-  animation: oneLine 5s linear infinite alternate;
+  animation: spinAround 10s linear infinite alternate;
 }
 
 .long {
