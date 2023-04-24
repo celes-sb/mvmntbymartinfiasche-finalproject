@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import fotoGimnasio from "../../images/foto-gimnasio.jpeg";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -15,64 +16,62 @@ export const Login = () => {
       >
         <div className="container">
           <div className="row m-5 no-gutters shadow-lg">
-            <div className="col-md-6 d-none d-md-block">
+            <div className="col-md-6 d-none d-md-block h-100">
               <img
-                src="https://images.unsplash.com/photo-1566888596782-c7f41cc184c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=2134&q=80"
+                src={fotoGimnasio}
                 className="img-fluid"
-                style={{ minHeight: "100%" }}
+                style={{ objectFit: "cover", height: "100%" }}
               />
             </div>
             <div className="col-md-6 bg-white p-5">
-              <h3 className="pb-3">Login Form</h3>
+              <h3 className="pb-3 text-center">Ingresa en tu cuenta</h3>
               <div className="form-style">
+                <br></br>
                 <form>
                   <div className="form-group pb-3">
                     <input
                       type="email"
-                      placeholder="Email"
+                      placeholder="Email o Usuario"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
                     />
                   </div>
+                  <br></br>
                   <div className="form-group pb-3">
                     <input
                       type="password"
-                      placeholder="Password"
+                      placeholder="Contraseña "
                       className="form-control"
                       id="exampleInputPassword1"
                     />
                   </div>
+                  <br></br>
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
                       <input name="" type="checkbox" value="" />
-                      <span className="pl-2 font-weight-bold">Remember Me</span>
+                      <span className="pl-2 font-weight-bold">Recuerdame </span>
                     </div>
                     <div>
-                      <a href="#">Forget Password?</a>
+                      <a href="#">Olvidaste la Contraseña ?</a>
                     </div>
                   </div>
+                  <br></br>
                   <div className="pb-2">
                     <button
                       type="submit"
-                      className="btn btn-dark w-100 font-weight-bold mt-2"
+                      className="btn btn-warning w-100 font-weight-bold mt-2"
                     >
-                      Submit
+                      Entrar
                     </button>
                   </div>
                 </form>
-                <div className="sideline">OR</div>
-                <div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary w-100 font-weight-bold mt-2"
-                  >
-                    <i className="fa fa-facebook" aria-hidden="true"></i> Login
-                    With Facebook
-                  </button>
-                </div>
+                <br></br>
+
                 <div className="pt-4 text-center">
-                  Get Members Benefit. <a href="#">Sign Up</a>
+                  {" "}
+                  No eres miembro? <br></br>
+                  <a href="#">Suscribete</a>
                 </div>
               </div>
             </div>
