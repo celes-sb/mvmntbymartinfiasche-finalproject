@@ -1,3 +1,5 @@
+import { testimonialStore, testimonialActions } from "./testimonialStore.js";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -13,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			...testimonialStore,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -47,7 +50,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
+			},
+			...testimonialActions(getStore, getActions, setStore),
 		}
 	};
 };
