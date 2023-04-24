@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 //import { Context } from "../store/appContext";
-import martinbw from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg"
 
 export const About = () => {
     return (
