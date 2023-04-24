@@ -7,11 +7,11 @@ import cash from "../../images/Cash.png";
 import previousButton from "../../images/Previous-Button.png";
 import nextButton from "../../images/Next-Button.png";
 import dotOrnament from "../../images/Dot-Ornament.png";
-import servicio1 from "../../images/Servicio-1.jpeg";
 import servicio2 from "../../images/Servicio-2.jpeg";
 import servicio3 from "../../images/Servicio-3.jpeg";
 import servicio4 from "../../images/Servicio-4.jpeg";
 import fullBody from "../../images/Full-Body-STRETCHING.jpeg";
+import martinbw from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg"
 
 /* 
 recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
@@ -39,57 +39,73 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container-fluid m-5">
-        <section className="header">
+      <div className="container-fluid">
+        <section className="header" style={{ backgroundImage: "url(https://martinfiasche.com.ar/wp-content/uploads/2021/06/DSC_0628-2-scaled.jpg)", position: "relative", top: 0, left: 0, width: "100%", height: "100%", objectFit: "contain" }}>
           <div className="hero">
-            <div className="bg"></div>
-            <div className="hero-content m-5">
-              <div className="hero-content-text text-dark">
+            <div className="hero-content ms-3">
+              <div className="hero-content-text bg-success bg-opacity-50 p-5 rounded">
                 <h1>
                   Estás listo para empezar a entrenar?
                 </h1>
                 <h2>Conocé una nueva forma integral de trabajar con tu cuerpo</h2>
                 <h3>Explorá los márgenes del movimiento. Aprendé a disfrutar el proceso. <span>Rompé con el molde</span> y sumate al nuevo paradigma del entrenamiento físico.</h3>
-                <button type="button" className="btn btn-large">Empieza ya! link a INDIVIDUALIZADO</button>
-              </div>
-              <div className="hero-content-photo">
-                <img src="https://i.pinimg.com/originals/4e/c8/76/4ec87619593c299f8f50623ed2e7cb25.png" alt="" />
-                <div className="circle"></div>
-                <div className="circle-yellow"></div>
-                <div className="circle-gredient"></div>
+                <button type="button" className="btn btn-success btn-large">Empieza ya! link a INDIVIDUALIZADO</button>
               </div>
             </div>
           </div>
         </section>
-        <section className="about-us">
-          <div className="container">
-            <div className="about-us-content">
-              <div className="content-left">
-                <img src={servicio1} alt="" />
+
+        <section className="about-us" style={{ marginTop: "100px" }}>
+          <div className="container" style={{ display: "flex", alignItems: "center" }}>
+            <div className="about-us-content" style={{ display: "flex", alignItems: "center" }}>
+              <div className="content-left" style={{ flex: "1", paddingRight: "20px" }}>
+                <div className="hero-content-photo">
+                  <div className="animation" style={{ position: "relative", height: "100%" }}>
+                    <div className="circle"></div>
+                    <div className="circle-yellow"></div>
+                    <div className="circle-gredient"></div>
+                  </div>
+                </div>
+                <img src={martinbw} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
               </div>
-              <div className="content-right">
-                <h2>Sobre mí</h2>
+              <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
+                <h2>Quién es Martin Fiasche?</h2>
                 <h4>
-                  <span>MVMNT by Martin Fiasche</span> es un centro de
-                  entrenamiento presencial y en línea que combina distintas
-                  disciplinas como calistenia, weightlifting y movimiento.
+                  Docente curioso e inquieto de cualquier posibilidad que pueda ofrecer el cuerpo.
+                  Mi búsqueda es explorar las opciones de movimiento para nutrirme de su contenido sin asumir los costos de la especialización. Interpretar cuáles son los requisitos para construir un sistema abierto que permita acercar a todas las personas a una práctica que enriquezca sus posibilidades a partir de sus necesidades y no adiestrar a una persona a las condiciones de una práctica.
+
+                  Considero fundamental abordar el mejoramiento de las cualidades físicas que, aunque lo contiene, es mucho más amplio que el trabajo de fuerza y acondicionamiento – para preparar el cuerpo para los desafíos que presentan los múltiples escenarios de movimiento.
+                  Para esto, vamos a trabajar con el peso corporal en anillas u otros elementos, vamos a usar cargas libres, vamos a pararnos sobre las manos, a balancear sobre una superficie irregular o trabajar patrones rítmicos y coordinativos hasta sentir que tu cuerpo responde ante las órdenes que vos emitís.
+                  Preparar el cuerpo no es sólo poder sostener un esfuerzo desde lo metabólico, articular y muscular; sino registrar y conocer las funciones del cuerpo que te brinda todas las posibilidades.
+
+                  La propuesta esta destinada para aquellos que pretendan desarrollar su disponibilidad corporal desde un cambio de paradigma que implique estar a la misma distancia de todas las posibilidades: la intensidad, la sensibilidad, la repetición, la precisión, el arriba y el abajo, el centro y los extremos, las manos y los pies... trascendiendo una dicotomía de éxito o fracaso para abrazar un camino a recorrer como una experiencia que nos permita conocernos a nosotros mismos.
+
+                  Todas las herramientas pueden ser una opción cuando conocés cuál es el paradigma que estás persiguiendo.
                 </h4>
                 <h4>
-                  La idea nace con nuestro fundador Martin Fiasche durante la
-                  pandemia de COVID-19 en el año 2020. Su idea principal es que
-                  las personas mejoren la relación con su cuerpo a través del
-                  movimiento.
+                  <ul>Servicios
+                    <li>Fuerza y Acondicionamiento</li>
+                    <li>Movilidad, Flexibilidad y Control</li>
+                    <li>El cuerpo en el  tiempo, el  espacio y los objetos</li>
+                    <li>Ritmo y Coordinación</li>
+                    <li>Balance</li>
+                    <li>Acrobacia</li>
+                    <li>Parada de Manos</li></ul>
                 </h4>
                 <h4>
-                  Nuestro objetivo es facilitar todo el saber transitado durante
-                  los últimos 20 años para ayudar los alumnos y alumnas a
-                  vincularse mejor con su cuerpo.
+                  <ul>
+                    Clases grupales
+                    Clases particulares
+                    Entrenamiento a distancia
+                    Seminarios y Workshops
+                  </ul>
                 </h4>
                 <div className="rectangle"></div>
               </div>
             </div>
           </div>
         </section>
+
 
         <section className="service">
           <div className="container">
@@ -225,7 +241,7 @@ export const Home = () => {
             </div>
           </div>
         </section>
-      </div>
+      </div >
     </>
   );
 };
