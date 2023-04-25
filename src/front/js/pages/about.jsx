@@ -15,7 +15,7 @@ export const About = () => {
                                     <div className="circle-gredient"></div>
                                 </div>
                             </div>
-                            <img src={martinbw} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
+                            <img src="" alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
                         </div>
                         <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
                             <h2>Quién es Martin Fiasche?</h2>
