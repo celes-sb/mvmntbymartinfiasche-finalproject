@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoMartin from "../../images/Logo-martin.png";
+import { Login } from "../pages/login";
 
 export const Navbar = () => {
   function myFunction() {
@@ -14,7 +15,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light rounded border m-3">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light rounded">
         <div className="logo">
           <img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} />
         </div>
@@ -52,7 +53,9 @@ export const Navbar = () => {
             </li>
           </ul>
           <div>
-            <button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+            <Link to="/login">
+              <button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+            </Link>
           </div>
         </div>
       </nav>
