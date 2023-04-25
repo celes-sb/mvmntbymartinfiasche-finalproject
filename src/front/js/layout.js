@@ -44,6 +44,7 @@ const Layout = () => {
             <Route element={<Contact />} path="/escribime" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
+            <Route element={<Login />} path="/signup" />
             <Route element={<Login />} path="/login" />
           </Routes>
           <Footer />
