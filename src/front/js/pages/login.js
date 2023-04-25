@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
-import fotoGimnasio from "../../images/foto-gimnasio.jpeg";
+
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
@@ -18,7 +18,7 @@ export const Login = () => {
           <div className="row m-5 no-gutters shadow-lg">
             <div className="col-md-6 d-none d-md-block h-100">
               <img
-                src={fotoGimnasio}
+                src={""}
                 className="img-fluid"
                 style={{ objectFit: "cover", height: "100%" }}
               />
