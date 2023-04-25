@@ -295,7 +295,7 @@ export const Signup = (props) => {
       <div className="container-fluid pt-1 text-center" style={paperstyle}>
         <p className="fs-6">
           Si ya tienes cuenta.{" "} 
-          <Link className=" fs-6" to="/" style={links}>
+          <Link className=" fs-6" to="/login" style={links}>
             Inicia sesión
           </Link>
         </p>

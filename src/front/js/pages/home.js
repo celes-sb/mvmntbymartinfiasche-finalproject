@@ -3,21 +3,21 @@ import { Context } from "../store/appContext"
 import "../../styles/home.css";
 import previousButton from "../../images/Previous-Button.png";
 import nextButton from "../../images/Next-Button.png";
-import vertiEstudiantesx3 from "/workspace/mvmnt-finalproject/src/front/images/vertiEstudiantesx3.jpg"
-import rickyMeathook1 from "/workspace/mvmnt-finalproject/src/front/images/rickyMeathook1.jpg"
-import homeSentadilla from "/workspace/mvmnt-finalproject/src/front/images/homeSentadilla.jpg"
-import homeManosPalos from "/workspace/mvmnt-finalproject/src/front/images/homeManosPalos.jpg"
-import martinygrupo2 from "/workspace/mvmnt-finalproject/src/front/images/martinygrupo2.jpg"
 
 /* 
 recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
 - cambiar iconos de entrenamientos
 - cambiar imagenes de entrenamiento
 - SAQUE LA PARTE DE OUR AWESOME TEAM PORQUE martin es el solo... pero dejo el codigo comentado
-  en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para poner eventos... o usarlo
-  en otra parte.. me gusto el grid =P
+en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para poner eventos... o usarlo
+en otra parte.. me gusto el grid =P
 */
 export const Home = () => {
+  const vertiEstudiantesx3 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/vertiEstudiantesx3.jpg"
+  const rickyMeathook1 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/rickyMeathook1.jpg"
+  const homeSentadilla = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeSentadilla.jpg"
+  const homeManosPalos = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeManosPalos.jpg"
+  const martinygrupo2 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/martinygrupo2.jpg"
   const { store, actions } = useContext(Context);
 
   const [currentIndex, setCurrentIndex] = useState(0);

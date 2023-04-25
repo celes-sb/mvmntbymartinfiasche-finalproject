@@ -13,7 +13,6 @@ import { Eventos } from "./pages/eventos.jsx";
 import { Socials } from "./pages/socials.jsx";
 import { Contact } from "./pages/contact.jsx";
 import { Footer } from "./component/footer";
-
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { Signup } from "./pages/signup.jsx";
@@ -44,7 +43,7 @@ const Layout = () => {
             <Route element={<Contact />} path="/escribime" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
-            <Route element={<Login />} path="/signup" />
+            <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
           </Routes>
           <Footer />
