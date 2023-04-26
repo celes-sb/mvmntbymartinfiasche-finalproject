@@ -14,7 +14,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light rounded border m-3">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-light rounded">
         <div className="logo">
           <img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} />
         </div>

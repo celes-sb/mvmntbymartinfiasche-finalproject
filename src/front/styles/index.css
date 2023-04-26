@@ -51,14 +51,6 @@ ul {
   }
 }
 
-.container {
-  margin: 0 auto;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
 /* hero */
 
 .hero {
