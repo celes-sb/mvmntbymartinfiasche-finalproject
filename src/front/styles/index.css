@@ -21,6 +21,20 @@
 /* global */
 .container-fluid {
   width: auto;
+  margin: 0;
+}
+
+.bodycontainer {
+  background-image: src(
+    "/workspace/mvmnt-finalproject/src/front/images/martinygrupo2.jpg"
+  );
+  background-color: rgb(227, 236, 235);
+  margin: auto;
+  padding: auto;
+}
+
+.navbar {
+  background-color: rgb(227, 236, 235);
 }
 
 ul {
@@ -59,21 +73,11 @@ ul {
   align-items: center;
 }
 
-.hero .bg {
-  position: absolute;
-  background: #121212;
-  width: 100%;
-  height: 100vh;
-  z-index: -1;
-  top: 0;
-  left: 0;
-}
-
 .hero .hero-content {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: row-reverse;
+  justify-content: right;
+  margin: none;
   z-index: 2;
 }
 
@@ -81,7 +85,6 @@ ul {
   display: flex;
   flex-direction: column;
   color: #fafafa;
-  width: 100%;
   margin-top: 47px;
 }
 
@@ -89,7 +92,7 @@ ul {
   font-size: 40px;
   font-weight: 700;
   line-height: 50px;
-  width: 85%;
+  text-align: right;
 }
 
 .hero .hero-content .hero-content-text h3 span {
@@ -102,7 +105,7 @@ ul {
   font-size: 16px;
   font-weight: 200;
   line-height: 22px;
-  width: 71.5%;
+  text-align: right;
   margin: 30px 0;
 }
 
@@ -111,80 +114,6 @@ ul {
   color: #ffffff;
   border-radius: 10px;
   border: none;
-}
-
-.hero .hero-content .hero-content-text .bottom {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-top h5 {
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-top .size {
-  font-size: 16px;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  margin-top: 15px;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-bottom::before {
-  content: "";
-  position: absolute;
-  display: block;
-  left: 0;
-  bottom: 2px;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(
-    180deg,
-    rgba(18, 18, 18, 0.2) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  border-radius: 30px;
-  z-index: 2;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-bottom img {
-  padding: 24px;
-  background: #fff;
-  border-radius: 21px;
-  z-index: 3;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-bottom .second {
-  padding: 26.5px 15.5px;
-}
-
-.hero .hero-content .hero-content-text .bottom .bottom-bottom .third {
-  padding: 25px 29.5px;
-}
-
-.hero .hero-content .hero-content-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-}
-
-.hero .hero-content .hero-content-photo img {
-  width: 277px;
-  z-index: 2;
 }
 
 .about-us .about-us-content .content-left .animation .circle {
@@ -713,32 +642,12 @@ ul {
 
 footer {
   background: #000;
-  color: #fff;
-  padding: 90px 0;
 }
 
 footer .footer-content {
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
-
-footer .footer-content .logo-title {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 18%;
-}
-
-footer .footer-content .logo-title img {
-  margin-bottom: 20px;
-}
-
-footer .footer-content .logo-title p {
-  font-size: 16px;
-  line-height: 25.2px;
-  font-weight: 300;
-  color: #e3e3e3;
 }
 
 footer .footer-content .get-in-touch {
@@ -750,10 +659,6 @@ footer .footer-content .get-in-touch h4 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 18px;
-}
-
-footer .footer-content .get-in-touch .mrg {
-  margin-bottom: 30px;
 }
 
 footer .footer-content .get-in-touch span {
@@ -776,10 +681,6 @@ footer .footer-content .social-media h4 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 14px;
-}
-
-footer .footer-content .social-media div .mrg {
-  margin: 0 25px;
 }
 
 footer .footer-content .newsletter {
@@ -825,7 +726,7 @@ footer .footer-content .newsletter input::placeholder {
 }
 
 footer .footer-content .newsletter button {
-  background: #fdec57;
+  background: #d9d8cf;
   color: #000;
   border: none;
   width: 100%;
@@ -1258,17 +1159,12 @@ footer .footer-content .newsletter button {
     align-items: center;
     flex: 1 0 190px;
   }
-  footer .footer-content .get-in-touch .mrg {
-    margin-bottom: 20px;
-  }
+
   footer .footer-content .get-in-touch span {
     flex-direction: column;
     align-items: center;
   }
-  footer .footer-content .get-in-touch img {
-    margin-bottom: 10px;
-    width: 32px;
-  }
+
   footer .footer-content .get-in-touch span p {
     margin: 0;
     font-size: 19px;

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 
 
@@ -24,14 +23,14 @@ export const Login = () => {
               />
             </div>
             <div className="col-md-6 bg-white p-5">
-              <h3 className="pb-3 text-center">Ingresa en tu cuenta</h3>
+              <h3 className="pb-3 text-center">Ingresá en tu cuenta</h3>
               <div className="form-style">
                 <br></br>
                 <form>
                   <div className="form-group pb-3">
                     <input
                       type="email"
-                      placeholder="Email o Usuario"
+                      placeholder="Ingresa tu email o usuario"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
@@ -41,7 +40,7 @@ export const Login = () => {
                   <div className="form-group pb-3">
                     <input
                       type="password"
-                      placeholder="Contraseña "
+                      placeholder="Ingresá tu contraseña"
                       className="form-control"
                       id="exampleInputPassword1"
                     />
@@ -50,10 +49,10 @@ export const Login = () => {
                   <div className="d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center">
                       <input name="" type="checkbox" value="" />
-                      <span className="pl-2 font-weight-bold">Recuerdame </span>
+                      <span className="pl-2 font-weight-bold">Recordame</span>
                     </div>
                     <div>
-                      <a href="#">Olvidaste la Contraseña ?</a>
+                      <a href="#">No recuerdo mi contraseña</a>
                     </div>
                   </div>
                   <br></br>
@@ -70,8 +69,8 @@ export const Login = () => {
 
                 <div className="pt-4 text-center">
                   {" "}
-                  No eres miembro? <br></br>
-                  <a href="#">Suscribete</a>
+                  ¿No tenés cuenta? <br></br>
+                  <a href="#">Registrate</a>
                 </div>
               </div>
             </div>

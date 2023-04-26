@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Martin from "C:/Users/sebas/Documents/prueba/mvmnt-finalproject/src/front/images/Martin.jpg";
+import Martin from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg";
 //import { Context } from "../store/appContext";
 export const About = () => {
-    const martin ='https://github.com/celes-sb/mvmnt-finalproject/blob/6cd408991627c262b89f456c7739cc99391dc78c/src/front/images/Martin.jpg'
+    const martin = 'https://github.com/celes-sb/mvmnt-finalproject/blob/6cd408991627c262b89f456c7739cc99391dc78c/src/front/images/Martin.jpg'
     return (
         <>
             <section className="about-us" style={{ marginTop: "100px" }}>
@@ -16,10 +16,10 @@ export const About = () => {
                                     <div className="circle-gredient"></div>
                                 </div>
                             </div>
-                            <img src={martin} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
+                            <img src={Martin} alt="Martin haciendo un pancake en el pasto" style={{ width: "100%", height: "100%" }} />
                         </div>
                         <div className="content-right" style={{ flex: "1", paddingLeft: "20px" }}>
-                            <h2>Quién es Martin Fiasche?</h2>
+                            <h2>¿Quién es Martin Fiasche?</h2>
                             <h4>
                                 Docente curioso e inquieto de cualquier posibilidad que pueda ofrecer el cuerpo.
                                 Mi búsqueda es explorar las opciones de movimiento para nutrirme de su contenido sin asumir los costos de la especialización. Interpretar cuáles son los requisitos para construir un sistema abierto que permita acercar a todas las personas a una práctica que enriquezca sus posibilidades a partir de sus necesidades y no adiestrar a una persona a las condiciones de una práctica.
