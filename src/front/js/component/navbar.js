@@ -15,15 +15,15 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-light rounded">
-        <div className="logo">
+      <nav className="navbar navbar-expand-lg fixed-top navbar-scroll mb-3 bg-opacity-50">
+        <div className="logo ps-3">
           <img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} />
         </div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav ms-5">
             <li className="nav-item active">
               <Link className="nav-link badge badge-pill badge-success text-dark" to="/">Inicio <span className="sr-only">(current)</span></Link>
             </li>
@@ -53,8 +53,8 @@ export const Navbar = () => {
             </li>
           </ul>
           <div>
-            <Link to="/login">
-              <button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+            <Link to="/signup">
+              <button type="button" className="btn btn-sm btn-warning ms-5">Suscribite</button>
             </Link>
           </div>
         </div>

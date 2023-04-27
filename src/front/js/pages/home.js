@@ -1,8 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import "../../styles/home.css";
-import previousButton from "../../images/Previous-Button.png";
-import nextButton from "../../images/Next-Button.png";
+import vertiEstudiantesx3 from "/workspace/mvmnt-finalproject/src/front/images/vertiEstudiantesx3.jpg";
+import rickyMeathook1 from "/workspace/mvmnt-finalproject/src/front/images/rickyMeathook1.jpg";
+import homeSentadilla from "/workspace/mvmnt-finalproject/src/front/images/homeSentadilla.jpg";
+import homeManosPalos from "/workspace/mvmnt-finalproject/src/front/images/homeManosPalos.jpg";
+import martinygrupocolor from "/workspace/mvmnt-finalproject/src/front/images/martinygrupo-color.jpg";
+
 
 /* 
 recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
@@ -13,11 +17,11 @@ en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para po
 en otra parte.. me gusto el grid =P
 */
 export const Home = () => {
-  const vertiEstudiantesx3 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/vertiEstudiantesx3.jpg"
-  const rickyMeathook1 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/rickyMeathook1.jpg"
-  const homeSentadilla = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeSentadilla.jpg"
-  const homeManosPalos = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeManosPalos.jpg"
-  const martinygrupo2 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/martinygrupo2.jpg"
+  //const vertiEstudiantesx3 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/vertiEstudiantesx3.jpg"
+  //const rickyMeathook1 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/rickyMeathook1.jpg"
+  //const homeSentadilla = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeSentadilla.jpg"
+  //const homeManosPalos = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeManosPalos.jpg"
+  //const martinygrupo2 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/martinygrupo2.jpg"
   const { store, actions } = useContext(Context);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,24 +38,24 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container-fluid">
-        <section className="header mb-5">
-          <img className="imgheader border border-warning rounded" src={martinygrupo2} style={{ width: "95%", height: "95%", position: "absolute", objectFit: "cover" }} />
+      <div className="container-fluid ps-0 mb-5">
+        <section className="header">
+          <img className="imgheader border border-warning rounded" src={martinygrupocolor} style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover" }} />
           <div className="hero">
-            <div className="hero-content ms-3">
-              <div className="hero-content-text bg-dark bg-opacity-50 p-5 rounded h-75 mb-5">
+            <div className="hero-content">
+              <div className="hero-content-text bg-dark bg-opacity-50 p-5 rounded h-75 w-75">
                 <h1>
-                  Estás listo para empezar a entrenar?
+                  ¿Entrenamos distinto?
                 </h1>
                 <h2>Conocé una nueva forma integral de trabajar con tu cuerpo</h2>
                 <h3>Explorá los márgenes del movimiento. Aprendé a disfrutar el proceso. <strong>Rompé con el molde</strong> y sumate al nuevo paradigma del entrenamiento físico.</h3>
-                <button type="button" className="btn btn-primary btn-large w-25">Empieza ya! link a INDIVIDUALIZADO</button>
+                <button type="button" className="btn btn-primary btn-large w-25">¡Empezá ahora!</button>
               </div>
             </div>
           </div>
         </section>
         <br />
-        <section className="service mt-5">
+        <section className="service mt-5 pt-5">
           <div className="container">
             <div className="content">
               <div className="content-left">
@@ -62,7 +66,7 @@ export const Home = () => {
                 </p>
                 <ul>
                   <li>
-                    <i class="fas fa-dumbbell"></i>
+                    <i className="fas fa-dumbbell"></i>
                     <div className="text">
                       <h3>Individualizado</h3>
                       <p>
@@ -73,7 +77,7 @@ export const Home = () => {
                     </div>
                   </li>
                   <li>
-                    <i class="fas fa-running"></i>
+                    <i className="fas fa-running"></i>
                     <div className="text">
                       <h3>Movimiento</h3>
                       <p>
@@ -84,7 +88,7 @@ export const Home = () => {
                     </div>
                   </li>
                   <li>
-                    <i class="far fa-shoe-prints"></i>
+                    <i className="far fa-shoe-prints"></i>
                     <div className="text">
                       <h3>Acrobacia</h3>
                       <p>
