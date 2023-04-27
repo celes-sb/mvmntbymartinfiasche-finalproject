@@ -33,3 +33,35 @@ def handle_hola():
     }
 
     return jsonify(response_body), 200
+
+@api.route('/register', methods=['POST'])
+def register_user():
+    body = request.get_json()
+    email = body["email"]
+    name = body["name"]
+    password = body["password"]
+    is_active = body["is_active"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as json object", status_code=400)
+    if "email" not in body:
+        raise APIException("You need to specify the email", status_code=400)
+    if "name" not in body:
+        raise APIException("You need to specify the name", status_code=400)
+    if "password" not in body:
+        raise APIException("You need to specify the password", status_code=400)
+    if "is_active" not in body:
+        raise APIException("You need to specify the is_active", status_code=400)
+    
+    user = User.query.filter_by(email=email).first()
+    if user is not None:
+        raise APIException("Email is already registered", status_code=409)
+    
+    password_encrypted = bcrypt.generate_password_hash(password,10).decode("utf-8")
+    
+    new_user = User(email=email, name=name, password=password_encrypted, is_active=is_active)
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({"mensaje":"Usuario creado correctamente"}), 201
