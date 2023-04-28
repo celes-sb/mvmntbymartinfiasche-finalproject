@@ -1,8 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
-#en general serializar lo que esta como nullable false.. if in doubt, slack
-
 class Favoritos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True, nullable=False)
