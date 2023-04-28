@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoMartin from "../../images/Logo-martin.png";
+import { Login } from "../pages/login";
 
 export const Navbar = () => {
   function myFunction() {
@@ -52,7 +53,9 @@ export const Navbar = () => {
             </li>
           </ul>
           <div>
-            <button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+            <Link to="/login">
+              <button type="button" className="btn btn-sm btn-warning">Iniciar Sesión /link a login</button>
+            </Link>
           </div>
         </div>
       </nav>
