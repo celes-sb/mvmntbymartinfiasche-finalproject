@@ -16,11 +16,11 @@ class User(db.Model):
     emergency_contact_name = db.Column(db.String(20), unique=False, nullable=True)
     emergency_contact_number = db.Column(db.String(20), unique=False, nullable=True)
     emergency_contact_relationship = db.Column(db.String(20), unique=False, nullable=True)
-    credit_card = db.Column(db.Default(), unique=False, nullable=False) #revisar!!! lo de default y numero
+    credit_card = db.Column(db.String(), unique=False, nullable=False) #revisar!!! lo de default y numero
     otp = db.Column(db.Integer, unique=False, nullable=False)
     otp_active = db.Column(db.Boolean(), unique=False, nullable=False)
     twofa = db.Column(db.Boolean(), unique=False, nullable=False)
-    last_login = db.Column(db.Date(20), unique=False, nullable=False)
+    last_login = db.Column(db.Date, unique=False, nullable=False)
     email_recover = db.Column(db.Integer, unique=False, nullable=False)
     image_profile = db.Column(db.String(250), unique=False, nullable=False) #es 250 enough?? averiguar
     security_question_q1 = db.Column(db.String(50), unique=False, nullable=False)

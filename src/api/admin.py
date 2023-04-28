@@ -1,7 +1,8 @@
   
 import os
 from flask_admin import Admin
-from .models import db, User
+from .db import db
+from .user import User
 from .favoritos import Favoritos
 from flask_admin.contrib.sqla import ModelView
 
