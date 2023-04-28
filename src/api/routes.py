@@ -3,7 +3,8 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 """
 import os
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
-from api.models import db, User
+from api.db import db
+from api.user import User
 from api.favoritos import Favoritos
 from api.utils import generate_sitemap, APIException
 
