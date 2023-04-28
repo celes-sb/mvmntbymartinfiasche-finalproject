@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 //import { Context } from "../store/appContext";
-import mapIcon from "../../images/map-icon.png";
 
 export const Contact = () => {
     return (
