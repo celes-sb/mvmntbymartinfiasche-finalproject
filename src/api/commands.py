@@ -1,6 +1,7 @@
 
 import click
-from api.models import db, User
+from api.db import db
+from api.user import User
 
 """
 In this file, you can add as many commands as you want using the @app.cli.command decorator
