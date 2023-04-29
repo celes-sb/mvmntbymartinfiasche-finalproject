@@ -27,11 +27,11 @@ export const Signup = (props) => {
 
   return (
     <div>
-      <div className="container-fluid my-3 p-2" style={paperstyle}>
+      <div className="container-fluid my-3" style={paperstyle}>
         <div className="row">
           <div className="col text-center">
-            <h1 className="fs-1">Registrate!</h1>
-            <p style={color}>Es rapido y sencillo</p>
+            <h1 className="fs-1">Registro de usuario</h1>
+            <p style={color}>Creá tu cuenta para acceder a la plataforma</p>
           </div>
         </div>
         <div className="container-fluid">
@@ -101,22 +101,22 @@ export const Signup = (props) => {
               <option value="28">28</option>
               <option value="29">29</option>
               <option value="30">30</option>
-              <option value="31">11</option>
+              <option value="31">31</option>
             </select>
             <select className="form-select mx-1" id="month" title="Mes">
               <option defaultValue="0">Mes</option>
-              <option value="1">ene</option>
-              <option value="2">fbr</option>
-              <option value="3">mar</option>
-              <option value="4">abr</option>
-              <option value="5">may</option>
-              <option value="6">jun</option>
-              <option value="7">jul</option>
-              <option value="8">ago</option>
-              <option value="9">set</option>
-              <option value="10">oct</option>
-              <option value="11">nov</option>
-              <option value="12">dic</option>
+              <option value="1">Enero</option>
+              <option value="2">Febrero</option>
+              <option value="3">Marzo</option>
+              <option value="4">Abril</option>
+              <option value="5">Mayo</option>
+              <option value="6">Junio</option>
+              <option value="7">Julio</option>
+              <option value="8">Agosto</option>
+              <option value="9">Septiembre</option>
+              <option value="10">Octubre</option>
+              <option value="11">Noviembre</option>
+              <option value="12">Diciembre</option>
             </select>
             <select className="form-select ms-1" id="year" title="Año">
               <option defaultValue="0">Año</option>
@@ -221,24 +221,6 @@ export const Signup = (props) => {
               <option value="1925">1925</option>
               <option value="1924">1924</option>
               <option value="1923">1923</option>
-              <option value="1922">1922</option>
-              <option value="1921">1921</option>
-              <option value="1920">1920</option>
-              <option value="1919">1919</option>
-              <option value="1918">1918</option>
-              <option value="1917">1917</option>
-              <option value="1916">1916</option>
-              <option value="1915">1915</option>
-              <option value="1914">1914</option>
-              <option value="1913">1913</option>
-              <option value="1912">1912</option>
-              <option value="1911">1911</option>
-              <option value="1910">1910</option>
-              <option value="1909">1909</option>
-              <option value="1908">1908</option>
-              <option value="1907">1907</option>
-              <option value="1906">1906</option>
-              <option value="1905">1905</option>
             </select>
           </div>
           <p className="m-0" style={color}>
@@ -250,11 +232,11 @@ export const Signup = (props) => {
                 className="form-check-input"
                 type="radio"
                 name="Genero"
-                id="Hombre"
+                id="Masculino"
                 value="1"
               />
-              <label className="form-check-label fs-6 " htmlFor="Hombre">
-                Hombre
+              <label className="form-check-label fs-6 " htmlFor="Masculino">
+                Masculino
               </label>
             </div>
 
@@ -263,11 +245,24 @@ export const Signup = (props) => {
                 className="form-check-input"
                 type="radio"
                 name="Genero"
-                id="Mujer"
+                id="Femenino"
                 value="2"
               />
-              <label className="form-check-label fs-6" htmlFor="Mujer">
-                Mujer
+              <label className="form-check-label fs-6" htmlFor="Femenino">
+                Femenino
+              </label>
+            </div>
+
+            <div className="form-check form-check-inline">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="Genero"
+                id="NoBinario"
+                value="2"
+              />
+              <label className="form-check-label fs-6" htmlFor="NoBinario">
+                No Binario
               </label>
             </div>
             <div className="form-check form-check-inline">
@@ -275,11 +270,11 @@ export const Signup = (props) => {
                 className="form-check-input"
                 type="radio"
                 name="Genero"
-                id="Otro"
+                id="Anonimo"
                 value="3"
               />
-              <label className="form-check-label fs-6" htmlFor="Otro">
-                Otro
+              <label className="form-check-label fs-6" htmlFor="Anonimo">
+                Prefiero no decirlo
               </label>
             </div>
           </div>
@@ -294,9 +289,9 @@ export const Signup = (props) => {
       </div>
       <div className="container-fluid pt-1 text-center" style={paperstyle}>
         <p className="fs-6">
-          Si ya tienes cuenta.{" "} 
+          ¿Ya estás registrado?{" "}
           <Link className=" fs-6" to="/login" style={links}>
-            Inicia sesión
+            Iniciá sesión
           </Link>
         </p>
       </div>
