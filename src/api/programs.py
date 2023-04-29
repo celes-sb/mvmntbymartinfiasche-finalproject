@@ -12,9 +12,9 @@ class Programs(db.Model):
 
     sets = db.Column(db.Integer, unique=True, nullable=False)
     repetitions = db.Column(db.Integer, unique=True, nullable=False)
-    rest_time = db.Column(db.Integer(80), unique=False, nullable=True)
-    creation_date = db.Column(db.Date(30), unique=False, nullable=False)
-    date_finished = db.Column(db.Date(30), unique=False, nullable=False)
+    rest_time = db.Column(db.Integer, unique=False, nullable=True)
+    creation_date = db.Column(db.Date, unique=False, nullable=False)
+    date_finished = db.Column(db.Date, unique=False, nullable=False)
     
     def serialize(self):
         return {
