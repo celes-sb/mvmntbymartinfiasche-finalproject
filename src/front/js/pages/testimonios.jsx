@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-//import { Context } from "../store/appContext";
+import React, { useState, useContext, Component } from "react";
+import { Context } from "../store/appContext"
 import previousButton from "../../images/Previous-Button.png";
 import shalimaHayden from "../../images/Shalima-Hayden.png";
 import nextButton from "../../images/Next-Button.png";
@@ -11,6 +11,20 @@ podemos agregar los videos =) yo creo que puede quedar bien. PARA SEGUIR PENSAND
 */
 
 export const Testimonios = () => {
+    const { store, actions } = useContext(Context);
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const handlePreviousClick = () => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + store.testimonialData.length) % store.testimonialData.length);
+    };
+  
+    const handleNextClick = () => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % store.testimonialData.length);
+    };
+  
+    const currentTestimonial = store.testimonialData[currentIndex];
+
     return (
         <>
             <section className="customer-says">
@@ -20,19 +34,16 @@ export const Testimonios = () => {
                             <h2>Lo que dicen mis alumnos:</h2>
                         </div>
                         <div className="bottom">
-                            <img className="cursor" src={previousButton} alt="" />
+                            <img className="cursor" src={previousButton} alt="" onClick={handlePreviousClick}/>
                             <div className="middle">
-                                <img src={shalimaHayden} alt="" />
+                                <img src={currentTestimonial.image} alt="" />
                                 <p>
-                                    "Trabajar con un seguimiento, con objetivos claros hace que se
-                                    vean las mejoras. Eso me sucede entrenando con Martín y su
-                                    método. Totalmente agradecida por la entrega en su trabajo y
-                                    el compromiso brindando.""
+                                    {currentTestimonial.text}
                                 </p>
-                                <h5>Sol Pérez Gallardo</h5>
-                                <h6>Alumna desde 2019</h6>
+                                <h5>{currentTestimonial.name}</h5>
+                                <h6>{currentTestimonial.year}</h6>
                             </div>
-                            <img className="cursor" src={nextButton} alt="" />
+                            <img className="cursor" src={nextButton} alt="" onClick={handleNextClick}/>
                         </div>
                     </div>
                 </div>

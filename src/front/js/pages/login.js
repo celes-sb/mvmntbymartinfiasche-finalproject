@@ -70,7 +70,7 @@ export const Login = () => {
                 <div className="pt-4 text-center">
                   {" "}
                   ¿No tenés cuenta? <br></br>
-                  <a href="#">Registrate</a>
+                  <Link to="/signup">Suscribete</Link>
                 </div>
               </div>
             </div>

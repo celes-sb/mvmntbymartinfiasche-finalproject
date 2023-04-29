@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
+#HACER UN ARCHIVO .PY POR CLASS
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(50), unique=False, nullable=False)

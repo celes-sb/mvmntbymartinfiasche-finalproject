@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
+#HACER UN ARCHIVO .PY POR CLASS
+
 class Nutrition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('employees.id'), nullable=False)

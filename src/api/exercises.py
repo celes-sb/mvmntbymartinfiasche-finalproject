@@ -20,3 +20,13 @@ class Exercises(db.Model):
             "description": self.description,
             "cover": self.cover,
         }
+
+class Favoritos(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    exercise_id = db.Column(db.Integer, db.ForeignKey("exercises.id"), nullable=False)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+            "exercise_id": self.exercise_id,
+        }

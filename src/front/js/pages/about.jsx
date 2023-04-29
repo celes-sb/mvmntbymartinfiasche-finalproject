@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+//import Martin from "/Volumes/Macintosh HD/Users/mac/Documents/ProyectoFinal/mvmnt-finalproject/src/front/images/Martin.jpg";
+//import Martin from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg";
 //import { Context } from "../store/appContext";
 export const About = () => {
-    const martin2 = 'https://drive.google.com/uc?export=view&id=157-QtUkfD1HbR5SiFRoSZUWUoE-Kig8G/'
-
+    const martin = 'http://drive.google.com/uc?export=view&id=1RHnFaDPPtFe7X8fJO98EkFtbxxyLQSIJ'
+    const martin2 = "http://drive.google.com/uc?export=view&id=157-QtUkfD1HbR5SiFRoSZUWUoE-Kig8G"
     return (
         <>
             <section className="about-us" style={{ marginTop: "100px" }}>
