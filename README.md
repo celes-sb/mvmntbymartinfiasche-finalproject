@@ -11,7 +11,7 @@ Build web applications using React.js for the front end and python/flask for you
 
 ### Manual Installation:
 
-It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)
+It is recomended to install the backend first, make sure you have Python 3.8, Pipenv and a database engine (Posgress recomended)`
 
 1. Install the python packages: `$ pipenv install`
 2. Create a .env file based on the .env.example: `$ cp .env.example .env`

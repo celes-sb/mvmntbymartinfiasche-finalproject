@@ -1,29 +1,29 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import "../../styles/home.css";
-import vertiEstudiantesx3 from "/workspace/mvmnt-finalproject/src/front/images/vertiEstudiantesx3.jpg";
-import rickyMeathook1 from "/workspace/mvmnt-finalproject/src/front/images/rickyMeathook1.jpg";
-import homeSentadilla from "/workspace/mvmnt-finalproject/src/front/images/homeSentadilla.jpg";
-import homeManosPalos from "/workspace/mvmnt-finalproject/src/front/images/homeManosPalos.jpg";
-import martinygrupocolor from "/workspace/mvmnt-finalproject/src/front/images/martinygrupo-color.jpg";
+// import vertiEstudiantesx3 from "/workspace/mvmnt-finalproject/src/front/images/vertiEstudiantesx3.jpg";
+// import rickyMeathook1 from "/workspace/mvmnt-finalproject/src/front/images/rickyMeathook1.jpg";
+// import homeSentadilla from "/workspace/mvmnt-finalproject/src/front/images/homeSentadilla.jpg";
+// import homeManosPalos from "/workspace/mvmnt-finalproject/src/front/images/homeManosPalos.jpg";
+// import martinygrupocolor from "/workspace/mvmnt-finalproject/src/front/images/martinygrupo-color.jpg";
 
 
 /* 
-recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
-- cambiar iconos de entrenamientos
-- cambiar imagenes de entrenamiento
+
 - SAQUE LA PARTE DE OUR AWESOME TEAM PORQUE martin es el solo... pero dejo el codigo comentado
 en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para poner eventos... o usarlo
 en otra parte.. me gusto el grid =P
 */
 export const Home = () => {
-  //const vertiEstudiantesx3 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/vertiEstudiantesx3.jpg"
-  //const rickyMeathook1 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/rickyMeathook1.jpg"
-  //const homeSentadilla = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeSentadilla.jpg"
-  //const homeManosPalos = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/homeManosPalos.jpg"
-  //const martinygrupo2 = "https://github.com/celes-sb/mvmnt-finalproject/blob/d17d674806a88d8eafa6f38415f70cd629d965b4/src/front/images/martinygrupo2.jpg"
-  const { store, actions } = useContext(Context);
 
+  const vertiEstudiantesx3 = "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV/"
+  const rickyMeathook1 = "http://drive.google.com/uc?export=view&id=1e2hDD8X_O3vNU5Je0TGH9-GBXoJzTXk-/"
+  const homeManosPalos = "http://drive.google.com/uc?export=view&id=1btEgS-YApCjojathrlABP-PSRfjVLVHc"
+  const homeSentadilla = "http://drive.google.com/uc?export=view&id=1OWhobIHvijLwv6UFGV9Bjp8ewMG4b2-h"
+  const martinygrupocolor = "http://drive.google.com/uc?export=view&id=1i5SfPvrqY8x2EQrV1oGmJgQQRz1ZuFHK"
+
+
+  const { store, actions } = useContext(Context);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePreviousClick = () => {

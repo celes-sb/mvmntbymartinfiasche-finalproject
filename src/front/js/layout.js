@@ -10,7 +10,6 @@ import { Individualizado } from "./pages/individualizado.jsx";
 import { Movimiento } from "./pages/movimiento.jsx";
 import { Acrobacia } from "./pages/acrobacia.jsx";
 import { Eventos } from "./pages/eventos.jsx";
-import { Socials } from "./pages/socials.jsx";
 import { Contact } from "./pages/contact.jsx";
 import { Footer } from "./component/footer";
 import { Demo } from "./pages/demo";
@@ -39,7 +38,6 @@ const Layout = () => {
             <Route element={<Movimiento />} path="/movimiento" />
             <Route element={<Acrobacia />} path="/acrobacia" />
             <Route element={<Eventos />} path="/eventos" />
-            <Route element={<Socials />} path="/redessociales" />
             <Route element={<Contact />} path="/escribime" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
