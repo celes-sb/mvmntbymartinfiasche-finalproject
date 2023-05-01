@@ -9,23 +9,21 @@ import "../../styles/home.css";
 
 
 /* 
-recordatorios para mi (david para vos tmb ya que estas si te interesa jaja)
-- cambiar iconos de entrenamientos
-- cambiar imagenes de entrenamiento
+
 - SAQUE LA PARTE DE OUR AWESOME TEAM PORQUE martin es el solo... pero dejo el codigo comentado
 en el page de <<<eventos.jsx>>> porque creo que ese grid puede ser usado para poner eventos... o usarlo
 en otra parte.. me gusto el grid =P
 */
 export const Home = () => {
-  const vertiEstudiantesx3 = "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV"
-  const rickyMeathook1 = "http://drive.google.com/uc?export=view&id=1e2hDD8X_O3vNU5Je0TGH9-GBXoJzTXk-"
-  const homeSentadilla = "http://drive.google.com/uc?export=view&id=1TGRnvUqtbIuVqRk3VjJ1tbidiypKnufY"
+
+  const vertiEstudiantesx3 = "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV/"
+  const rickyMeathook1 = "http://drive.google.com/uc?export=view&id=1e2hDD8X_O3vNU5Je0TGH9-GBXoJzTXk-/"
   const homeManosPalos = "http://drive.google.com/uc?export=view&id=1btEgS-YApCjojathrlABP-PSRfjVLVHc"
-  const martinygrupo2 = "http://drive.google.com/uc?export=view&id=1OWhobIHvijLwv6UFGV9Bjp8ewMG4b2-h"
+  const homeSentadilla = "http://drive.google.com/uc?export=view&id=1OWhobIHvijLwv6UFGV9Bjp8ewMG4b2-h"
   const martinygrupocolor = "http://drive.google.com/uc?export=view&id=1i5SfPvrqY8x2EQrV1oGmJgQQRz1ZuFHK"
 
-  const { store, actions } = useContext(Context);
 
+  const { store, actions } = useContext(Context);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePreviousClick = () => {

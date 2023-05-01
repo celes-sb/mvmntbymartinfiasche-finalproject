@@ -69,8 +69,8 @@ export const Login = () => {
 
                 <div className="pt-4 text-center">
                   {" "}
-                  No eres miembro? <br></br>
-                  <Link to="/signup">Suscribete</Link>
+                  ¿No tenés cuenta? <br></br>
+                  <Link to="/signup">Registrate</Link>
                 </div>
               </div>
             </div>
