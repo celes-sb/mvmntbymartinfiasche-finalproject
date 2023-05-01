@@ -43,19 +43,19 @@ def sendEmail(message, to, subject):
     html = '''
     <html>
     <body>
-    <h1> Hi, ''' + to + ''' </h1>
+    <h1> Hi, ''' + message + ''' </h1>
     </body>
     </html>
     '''
 
     #crear elementos MIMEtext
-    text_mime = MIMEText(subject, 'plain')
-    html_mime = MIMEText(html, 'html')
+    text_mime = MIMEText(message, 'plain')
+    #html_mime = MIMEText(html, 'html')
 
     #adjuntar los MIMEText al MIMEMultipart
 
     messageMime.attach(text_mime)
-    messageMime.attach(html_mime)
+    #messageMime.attach(html_mime)
 
     #conectarnos al puerto 465 de gmail para enviar el correo
 
