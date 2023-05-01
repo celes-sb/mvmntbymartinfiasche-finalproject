@@ -28,13 +28,13 @@
   background-image: src(
     "/workspace/mvmnt-finalproject/src/front/images/martinygrupo2.jpg"
   );
-  background-color: rgb(227, 236, 235);
+  background-color: whitesmoke;
   margin: auto;
   padding: auto;
 }
 
 .navbar {
-  background-color: rgb(227, 236, 235);
+  background-color: whitesmoke;
 }
 
 ul {
@@ -188,10 +188,6 @@ ul {
   /* justify-content: center; */
 }
 
-.about-us .about-us-content .content-left img {
-  width: 350px;
-}
-
 .about-us .about-us-content .content-right {
   display: flex;
   flex-direction: column;
@@ -218,7 +214,7 @@ ul {
 }
 
 .about-us .about-us-content .content-right h4 {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 31px;
   font-weight: 400;
   width: 100%;
@@ -511,11 +507,11 @@ ul {
 .contact-us .contact-us-content .left-content h2 {
   font-size: 48px;
   font-weight: 700;
-  color: #333333;
+  width: 60%;
 }
 
 .contact-us .contact-us-content .left-content .form {
-  width: 85%;
+  width: 60%;
   display: flex;
   flex-direction: column;
 }
@@ -523,8 +519,7 @@ ul {
 .contact-us .contact-us-content .left-content .form label {
   font-size: 16px;
   font-weight: 400;
-  color: #4f4f4f;
-  line-height: 24px;
+  height: 25%;
 }
 
 .contact-us .contact-us-content .left-content .form input {
@@ -532,24 +527,27 @@ ul {
   background-color: #ececec;
   padding: 15px 13px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   width: 95%;
+  height: 25%;
 }
 
 .contact-us .contact-us-content .left-content .form input:focus {
   outline: 1px solid #a8a8a8;
   outline-style: auto;
   border-radius: 8px;
+  height: 25%;
 }
 
 .contact-us .contact-us-content .left-content .form input::placeholder {
   color: #bdbdbd;
+  height: 25%;
 }
 
 .contact-us .contact-us-content .left-content .form textarea {
-  width: 450px;
-  height: 135px;
+  width: 500px;
+  height: 250px;
   resize: none;
   background: #ececec;
   font-size: 16px;
@@ -607,41 +605,9 @@ ul {
   cursor: pointer;
 }
 
-.contact-us .contact-us-content .right-content {
-  position: relative;
-}
-
-.contact-us .contact-us-content .right-content .img-1 {
-  width: 600px;
-  height: 350px;
-}
-
-.contact-us .contact-us-content .right-content .img-2 {
-  position: absolute;
-  left: -47px;
-  bottom: -43px;
-  z-index: -1;
-}
-
-.contact-us .contact-us-content .right-content .text {
-  display: flex;
-  position: absolute;
-  align-items: start;
-  right: -18px;
-  bottom: -41px;
-  width: 41%;
-}
-
-.contact-us .contact-us-content .right-content .text p {
-  color: #808080;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 21px;
-  margin-left: 20px;
-}
-
 footer {
-  background: #000;
+  background: whitesmoke;
+  color: black;
 }
 
 footer .footer-content {
@@ -681,59 +647,6 @@ footer .footer-content .social-media h4 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 14px;
-}
-
-footer .footer-content .newsletter {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 24%;
-}
-
-footer .footer-content .newsletter h4 {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 13px;
-}
-
-footer .footer-content .newsletter label {
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 25.2px;
-  color: #808080;
-}
-
-footer .footer-content .newsletter input {
-  outline: none;
-  border: 2px solid #fff;
-  background: #ececec;
-  padding: 15px 13px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 400;
-  width: 100%;
-  margin: 7px 0 14px;
-}
-
-footer .footer-content .newsletter input:focus {
-  border-color: #808080;
-}
-
-footer .footer-content .newsletter input::placeholder {
-  font-size: 16px;
-  font-weight: 400;
-  color: #cccccc;
-}
-
-footer .footer-content .newsletter button {
-  background: #d9d8cf;
-  color: #000;
-  border: none;
-  width: 100%;
-  font-size: 18px;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 12px;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -782,7 +695,8 @@ footer .footer-content .newsletter button {
     top: 421px;
   }
   .contact-us .contact-us-content .left-content .form textarea {
-    width: 471px;
+    width: 500px;
+    height: 300px;
   }
 }
 
@@ -1173,10 +1087,6 @@ footer .footer-content .newsletter button {
     flex: 1 0 130px;
     align-items: center;
   }
-  footer .footer-content .newsletter {
-    flex: 1 0 270px;
-    margin-top: 50px;
-  }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1308,18 +1218,6 @@ footer .footer-content .newsletter button {
     flex: 1 0 210px;
     align-items: center;
     justify-content: center;
-  }
-  footer .footer-content .newsletter {
-    flex: 1 0 210px;
-    margin-top: 50px;
-    align-items: center;
-    justify-content: center;
-  }
-  footer .footer-content .newsletter input {
-    width: 80%;
-  }
-  footer .footer-content .newsletter button {
-    width: 80%;
   }
 }
 

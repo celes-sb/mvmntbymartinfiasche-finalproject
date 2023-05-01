@@ -2,21 +2,24 @@ import React, { Component } from "react";
 //import { Context } from "../store/appContext";
 
 export const Eventos = () => {
-    return (
-        <>
-            <h1>Esta vista hay que diseñarla porque no existe en la página original</h1>
-            <p>Martin hace capacitaciones para otros gyms/escuelas/etc
-                hace encuentros trismestrales y bimestrales para sus alumnos online
-                hace jornadas de acrobacia normalmente anuales
-                trae invitados de otras escuelas de movimientos del exterior
-                conecta con otros profesionales en buenos aires
-                etc...
-                Armar algun calendario? tal vez traerlo de google calendar? para PENSAR....
-            </p>
-
-        </>
-    )
-}
+  return (
+    <>
+      <div className="container-fluid ps-0 pt-5 mt-5">
+        <h1>
+          Esta vista hay que diseñarla porque no existe en la página original
+        </h1>
+        <p>
+          Martin hace capacitaciones para otros gyms/escuelas/etc hace
+          encuentros trismestrales y bimestrales para sus alumnos online hace
+          jornadas de acrobacia normalmente anuales trae invitados de otras
+          escuelas de movimientos del exterior conecta con otros profesionales
+          en buenos aires etc... Armar algun calendario? tal vez traerlo de
+          google calendar? para PENSAR....
+        </p>
+      </div>
+    </>
+  );
+};
 
 export default Eventos;
 

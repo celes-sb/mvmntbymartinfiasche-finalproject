@@ -46,9 +46,6 @@ export const Navbar = () => {
               <Link className="nav-link badge badge-pill badge-dark text-dark" to="/eventos">Eventos</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link badge badge-pill badge-dark text-dark" to="/redessociales">Redes Sociales</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link badge badge-pill badge-dark text-dark" to="/escribime">Escribime</Link>
             </li>
           </ul>
