@@ -8,22 +8,22 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container-fluid ms-0 mt-5 pb-4 ps-0">
-        <section className="header">
-          <img className="imgheader border border-warning rounded" src={martinygrupocolor} style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover" }} />
+      <div className="container-fluid ms-0 pt-5 pb-1 mb-0 ps-0">
+        <section className="header position-relative mt-5">
+          <img href="/" className="imgheader border border-warning rounded" src={martinygrupocolor} style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover" }} />
           <div className="hero">
             <div className="hero-content">
-              <div className="hero-content-text bg-dark bg-opacity-50 p-5 rounded h-75 w-75">
-                <h1>
+              <div className="hero-content-text bg-dark bg-opacity-50 p-5 rounded h-100 d-flex flex-column justify-content-end align-items-end">
+                <h1 className="mb-4">
                   ¿Entrenamos distinto?
                 </h1>
-                <h2>Conocé una nueva forma integral de trabajar con tu cuerpo</h2>
-                <h3>Explorá los márgenes del movimiento. Aprendé a disfrutar el proceso. <strong>Rompé con el molde</strong> y sumate al nuevo paradigma del entrenamiento físico.</h3>
-                <button type="button" className="btn btn-primary btn-large w-25">¡Empezá ahora!</button>
+                <h3 className="mb-4">Conocé una nueva forma integral de trabajar con tu cuerpo. <br /> Explorá los márgenes del movimiento. Aprendé a disfrutar el proceso. <br /><span className="pulse font-pulse">Rompé con el molde</span> y sumate al nuevo paradigma del entrenamiento físico.</h3>
+                <button type="button" className="btn btn-primary btn-large align-self-end">¡Empezá ahora!</button>
               </div>
             </div>
           </div>
         </section>
+
       </div >
     </>
   );

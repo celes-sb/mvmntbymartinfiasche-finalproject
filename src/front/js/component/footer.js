@@ -1,38 +1,46 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-	<footer className="footer mt-5 pb-1 text-center">
-		<div className="container-fluid">
-			<div className="footer-content pb-3 pt-3 mt-5">
-				<div className="get-in-touch">
-					<h4>Contacto</h4>
-					<span className="mrg mb-5 w-100">
-						<p>info@martinfiasche.com.ar</p>
-					</span>
-					<span>
-						<p>+54 9 11 4187-4865</p>
-					</span>
-				</div>
-				<div className="social-media">
-					<h4>Seguime en:</h4>
-					<div className="text-center mb-3">
-						<a href="https://www.instagram.com/martinfiasche/" target="_blank">
-							<button type="button" className="btn btn-secondary btn-floating mx-1">
-								<i className="fab fa-facebook-f"></i>
-							</button>
-						</a>
-						<a href="https://www.instagram.com/martinfiasche/" target="_blank">
-							<button type="button" className="btn btn-secondary btn-floating mx-1">
-								<i className="fab fa-instagram"></i>
-							</button>
-						</a>
-					</div>
-				</div>
+	<div className="container-fluid py-3 my-4">
+		<footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+			<div className="col-md-4 d-flex align-items-center">
+				<a href="/" className="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+
+				</a>
+				<span className="mb-3 mb-md-0 text-muted">© 2023 Martín Fiasche</span>
 			</div>
-			<p>
-				Made with love<i className="fa fa-heart text-danger" /> {" "}
-				<a>by los mejores</a>
-			</p>
-		</div>
-	</footer>
+
+			<ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
+				<li className="ms-3"><a href="https://www.instagram.com/martinfiasche/" target="_blank">
+					<button type="button" className="btn btn-secondary btn-floating mx-1">
+						<i className="fab fa-facebook-f"></i>
+					</button>
+				</a></li>
+				<li className="ms-3"><a href="https://www.instagram.com/martinfiasche/" target="_blank">
+					<button type="button" className="btn btn-secondary btn-floating mx-1">
+						<i className="fab fa-instagram"></i>
+					</button>
+				</a></li>
+				<li className="ms-3">
+					<a href="mailto:info@martinfiasche.com.ar" target="_blank">
+						<button type="button" className="btn btn-secondary btn-floating mx-1">
+							<i className="fas fa-envelope"></i>
+						</button>
+					</a>
+				</li>
+				<li className="ms-3">
+					<a href="https://wa.me/5491141874865" target="_blank">
+						<button type="button" className="btn btn-secondary btn-floating mx-1">
+							<i className="fab fa-whatsapp"></i>
+						</button>
+					</a>
+				</li>
+
+			</ul>
+		</footer>
+		<p className="mb-1 mb-md-0 text-muted fs-6 text-center">
+			Made with love <i className="fa fa-heart text-danger" /> {" "}
+			<a>by 4Geeks Students: Celeste, David, Juan & Sebastián</a>
+		</p>
+	</div>
 );

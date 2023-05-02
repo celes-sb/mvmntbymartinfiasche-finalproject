@@ -9,7 +9,7 @@ export const About = () => {
     "http://drive.google.com/uc?export=view&id=157-QtUkfD1HbR5SiFRoSZUWUoE-Kig8G";
   return (
     <>
-      <section className="about-us">
+      <section className="about-us mt-5 pt-5 mb-0 pb-0">
         <div
           className="container"
           style={{ display: "flex", alignItems: "center" }}
@@ -26,13 +26,14 @@ export const About = () => {
                 src={martin2}
                 alt="Martin, primer plano, mirando hacia abajo"
                 style={{ width: "100%", height: "100%" }}
+                className="border border-warning"
               />
             </div>
             <div
               className="content-right"
               style={{ flex: "1", paddingLeft: "20px" }}
             >
-              <h2>¿Quién es Martin Fiasche?</h2>
+              <h2>¿Quién es Martín Fiasche?</h2>
               <h4>
                 Docente curioso e inquieto de cualquier posibilidad que pueda
                 ofrecer el cuerpo. Mi búsqueda es explorar las opciones de
