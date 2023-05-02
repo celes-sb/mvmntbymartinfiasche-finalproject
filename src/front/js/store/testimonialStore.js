@@ -31,7 +31,7 @@ export const testimonialStore = {
             text: "Llegué a Tincho con el fin de mejorar mi entrenamiento. Siempre me aburrió mucho lo que es el entrenamiento de un gimnasio solamente con máquinas. Tincho me brindó un entrenamiento más abarcativo (...) y me ayudó a mantener un plan de entrenamiento, ir progresando de a poco y mantener esa constancia que solo me costaba bastante.",
             name: "Patricio Lespada",
             year: "Alumno desde 2020",
-            videoUrl: "https://www.youtube.com/watch?v=soKNONNTwvE"
+            videoUrl: "https://www.youtube.com/embed/soKNONNTwvE"
         },
         // Add more testimonials 
     ],

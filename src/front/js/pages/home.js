@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -18,7 +19,7 @@ export const Home = () => {
                   ¿Entrenamos distinto?
                 </h1>
                 <h3 className="mb-4">Conocé una nueva forma integral de trabajar con tu cuerpo. <br /> Explorá los márgenes del movimiento. Aprendé a disfrutar el proceso. <br /><span className="pulse font-pulse">Rompé con el molde</span> y sumate al nuevo paradigma del entrenamiento físico.</h3>
-                <button type="button" className="btn btn-primary btn-large align-self-end">¡Empezá ahora!</button>
+                <Link to="/signup"><button type="button" className="btn btn-primary btn-large align-self-end">¡Empezá ahora!</button></Link>
               </div>
             </div>
           </div>

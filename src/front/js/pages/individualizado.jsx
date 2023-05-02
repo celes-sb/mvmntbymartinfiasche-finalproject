@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, useNavigate } from "react-router-dom";
 //import { Context } from "../store/appContext";
 //QUE ACROBACIA Y MOVIMIENTO SEAN LINKS Q LLEVEN A LAS SECCIONES CORRESPONDIENTES
 //A DEFINIR IGUAL, ESPEREN A QUE TERMINE DE DISENAR TODO
@@ -54,9 +55,13 @@ export const Individualizado = () => {
                   <h2>Otros caminos para explorar:</h2>
                   <ul>
                     <li>
-                      <i className="fas fa-running"></i>
+                      <Link to="/movimiento" style={{ textDecoration: 'none' }}>
+                        <i className="fas fa-running"></i>
+                      </Link>
                       <div className="text">
-                        <h3>Movimiento</h3>
+                        <Link to="/movimiento" style={{ textDecoration: 'none' }}>
+                          <h3>Movimiento</h3>
+                        </Link>
                         <p>
                           Lorem impsum lorem ipsum lorem ipsum lorem ipsum lorem
                           ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
@@ -65,9 +70,13 @@ export const Individualizado = () => {
                       </div>
                     </li>
                     <li>
-                      <i className="far fa-shoe-prints"></i>
+                      <Link to="/acrobacia" style={{ textDecoration: 'none' }}>
+                        <i className="far fa-shoe-prints"></i>
+                      </Link>
                       <div className="text">
-                        <h3>Acrobacia</h3>
+                        <Link to="/acrobacia" style={{ textDecoration: 'none' }}>
+                          <h3>Acrobacia</h3>
+                        </Link>
                         <p>
                           Construímos las acciones acrobáticas abordando los
                           fundamentos de la practica. Para facilitar el
@@ -75,6 +84,7 @@ export const Individualizado = () => {
                         </p>
                       </div>
                     </li>
+
                   </ul>
                 </div>
                 <div className="content-right">
@@ -122,8 +132,8 @@ export const Individualizado = () => {
               </p>
             </div>
           </li>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 };

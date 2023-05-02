@@ -54,10 +54,25 @@ export const Testimonios = () => {
             />
             <div className="middle">
               <img src={currentTestimonial.image} alt="" />
+              {currentTestimonial.videoUrl ? (
+                <>
+                  <iframe
+                    className="embeddedVideo border border-warning"
+                    width="518"
+                    height="292"
+                    src={currentTestimonial.videoUrl}
+                    title="Testimonio Patricio"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  ></iframe>
+                </>
+              ) : (
+                <></>
+              )}
               <p>{currentTestimonial.text}</p>
               <h5>{currentTestimonial.name}</h5>
               <h6>{currentTestimonial.year}</h6>
-              <h6>{currentTestimonial.videoUrl}</h6>
+
             </div>
             <img
               className="cursor"
