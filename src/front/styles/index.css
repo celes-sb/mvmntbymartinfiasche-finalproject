@@ -87,20 +87,17 @@ ul {
   flex-direction: column;
   color: #fafafa;
   margin-top: 47px;
-  font-family: "Bebas Neue", cursive;
 }
 
 .hero .hero-content .hero-content-text h1 {
   font-size: 50px;
   line-height: 50px;
-  font-family: "Inconsolata", monospace;
 }
 
 .hero .hero-content .hero-content-text h3 {
   font-size: 30px;
   line-height: 50px;
   text-align: right;
-  font-family: "Inconsolata", monospace;
 }
 
 .hero .hero-content .hero-content-text button {
@@ -108,7 +105,6 @@ ul {
   color: #ffffff;
   border-radius: 10px;
   border: none;
-  font-family: "Inconsolata", monospace;
 }
 
 .long {
