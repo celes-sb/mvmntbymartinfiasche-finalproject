@@ -343,6 +343,7 @@ ul {
 
 .customer-says {
   padding: 80px 0;
+  margin: 80px 0;
 }
 
 .customer-says .customer-says-content {
@@ -403,10 +404,6 @@ ul {
 
 .customer-says .customer-says-content .bottom .cursor {
   cursor: pointer;
-}
-
-.contact-us {
-  margin-bottom: 50px;
 }
 
 .contact-us .contact-us-content {

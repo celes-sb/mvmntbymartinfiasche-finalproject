@@ -11,7 +11,7 @@ podemos agregar los videos =) yo creo que puede quedar bien. PARA SEGUIR PENSAND
 
 export const Testimonios = () => {
   const grupoTestimoniosColor =
-      "http://drive.google.com/uc?export=view&id=1a3j2GRq-UUxbwPzwryf_P2_dWZIPdUq5";
+    "http://drive.google.com/uc?export=view&id=1a3j2GRq-UUxbwPzwryf_P2_dWZIPdUq5";
 
   const { store, actions } = useContext(Context);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,7 +35,7 @@ export const Testimonios = () => {
   return (
     <>
       <section
-        className="customer-says mt-5 pt-5 mb-0 pb-0 border border-warning rounded"
+        className="customer-says border border-warning rounded"
         style={{
           backgroundImage: `url(${grupoTestimoniosColor})`,
           backgroundSize: "cover",
@@ -57,6 +57,7 @@ export const Testimonios = () => {
               <p>{currentTestimonial.text}</p>
               <h5>{currentTestimonial.name}</h5>
               <h6>{currentTestimonial.year}</h6>
+              <h6>{currentTestimonial.videoUrl}</h6>
             </div>
             <img
               className="cursor"
