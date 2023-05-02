@@ -1,12 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
+  const [emailOrUsername, setEmailOrUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
+
+  const handleLogin = async (e) => {
+    e.preventDefault(); // prevent form from submitting
+    let { respuestaJson, response } = await actions.login(emailOrUsername, password); // call login action
+    if (response.ok) {
+      navigate("/"); // redirect to home and/or do whatever we want
+    } else {
+      alert("Login failed")
+    }
+  };
   return (
     <div className="container">
       <div
@@ -29,11 +42,14 @@ export const Login = () => {
                 <form>
                   <div className="form-group pb-3">
                     <input
-                      type="email"
+                      type="text"
                       placeholder="Ingresa tu email o usuario"
                       className="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
+                      onChange={(e) => {
+                        setEmailOrUsername(e.target.value);
+                      }}
                     />
                   </div>
                   <br></br>
@@ -43,6 +59,9 @@ export const Login = () => {
                       placeholder="Ingresá tu contraseña"
                       className="form-control"
                       id="exampleInputPassword1"
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                      }}
                     />
                   </div>
                   <br></br>
@@ -58,8 +77,9 @@ export const Login = () => {
                   <br></br>
                   <div className="pb-2">
                     <button
-                      type="submit"
+                      type="button"
                       className="btn btn-warning w-100 font-weight-bold mt-2"
+                      onClick={handleLogin}
                     >
                       Entrar
                     </button>

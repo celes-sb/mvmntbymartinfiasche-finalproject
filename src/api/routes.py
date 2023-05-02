@@ -5,7 +5,10 @@ import os
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
 from api.db import db
 from api.user import User
+from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
+
+from datetime import datetime
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -23,6 +26,7 @@ from flask_jwt_extended import create_access_token
 from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
+from flask_jwt_extended import get_jwt
 
 api = Blueprint('api', __name__)
 
@@ -87,13 +91,18 @@ def sendEmail(message, to, subject):
 
 #     return jsonify(response_body), 200
 
-@api.route('/register', methods=['POST'])
+@api.route('/signup', methods=['POST'])
 def register_user():
     body = request.get_json()
     email = body["email"]
     name = body["name"]
+    lastname = body["lastname"]
+    username = body["username"]
     password = body["password"]
-    is_active = body["is_active"]
+    phone = body["phone"]
+    country = body["country"]
+    gender = body["gender"]
+    
 
     if body is None:
         raise APIException("You need to specify the request body as json object", status_code=400)
@@ -103,21 +112,72 @@ def register_user():
         raise APIException("You need to specify the name", status_code=400)
     if "password" not in body:
         raise APIException("You need to specify the password", status_code=400)
-    if "is_active" not in body:
-        raise APIException("You need to specify the is_active", status_code=400)
+    if "lastname" not in body:
+        raise APIException("You need to specify the lastname", status_code=400)
+    if "username" not in body:
+        raise APIException("You need to specify the username", status_code=400)
+    if "phone" not in body:
+        raise APIException("You need to specify the phone", status_code=400)
+    if "country" not in body:
+        raise APIException("You need to specify the country", status_code=400)
+    if "gender" not in body:
+        raise APIException("You need to specify the gender", status_code=400)
     
     user = User.query.filter_by(email=email).first()
     if user is not None:
         raise APIException("Email is already registered", status_code=409)
     
     password_encrypted = bcrypt.generate_password_hash(password,10).decode("utf-8")
+
+    current_date = datetime.utcnow()
     
-    new_user = User(email=email, name=name, password=password_encrypted, is_active=is_active)
+    new_user = User(email=email, first_name=name, password=password_encrypted, last_name=lastname, username=username, phone=phone, country=country, gender=gender, creation_date=current_date)
 
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({"mensaje":"Usuario creado correctamente"}), 201
+    return jsonify({"msg":"User successfully created"}), 201
+
+@api.route('/login', methods=['POST'])
+def login():
+    body = request.get_json()
+    email_or_username = body["email_or_username"]
+    password = body["password"]
+    
+    if "email_or_username" not in body:
+        raise APIException("You need to specify the email or username", status_code=400)
+
+    if "password" not in body:
+        raise APIException("You need to specify the password", status_code=400)
+
+    user = User.query.filter((User.email == email_or_username) | (User.username == email_or_username)).first()
+
+    if user is None:
+        return jsonify({"message": "Login failed"}), 401
+
+    # Validate the encrypted password
+    if not bcrypt.check_password_hash(user.password, password):
+        return jsonify({"message": "Login failed"}), 401
+
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token}), 200
+
+@api.route('/logout', methods=['POST'])
+@jwt_required()
+def logout():
+    jti = get_jwt()["jti"] #Identificador del JWT (es más corto)
+    now = datetime.utcnow()
+
+    #identificamos al usuario
+    current_user = get_jwt_identity()
+    user = User.query.get(current_user)
+
+    tokenBlocked = TokenBlockedList(token=jti , created_at=now, email=user.email)
+    db.session.add(tokenBlocked)
+    db.session.commit()
+
+    return jsonify({"message":"logout successfully"})
+
 
 @api.route('/correo', methods=['POST'])
 def handle_email():
