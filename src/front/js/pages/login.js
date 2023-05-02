@@ -6,6 +6,7 @@ import "../../styles/home.css";
 
 export const Login = () => {
   const { store, actions } = useContext(Context);
+  
 
   return (
     <div className="container">
