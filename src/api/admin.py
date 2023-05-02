@@ -4,8 +4,7 @@ from flask_admin import Admin
 from .db import db
 from .user import User
 from flask_admin.contrib.sqla import ModelView
-
-
+from .favorites import favorites
 from flask_admin.menu import MenuCategory, MenuView, MenuLink
 
 def setup_admin(app):
@@ -16,7 +15,7 @@ def setup_admin(app):
     
     # Add your models here, for example this is how we add a the User model to the admin
     admin.add_view(ModelView(User, db.session))
-    admin.add_view(ModelView(Favoritos, db.session))
+    admin.add_view(ModelView(favorites, db.session))
     # You can duplicate that line to add mew models
     # admin.add_view(ModelView(YourModelName, db.session))
     admin.add_link(MenuLink(name='Home Page Backend', url='/'))
