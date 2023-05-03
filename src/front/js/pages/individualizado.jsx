@@ -28,17 +28,17 @@ export const Individualizado = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="container service-content bg-white bg-opacity-75 rounded p-5">
-          <h1>¿Te gustaría tener disponibilidad para elegir como moverte?</h1>
-          <h3>
+        <div className="container service-content bg-white bg-opacity-75 rounded p-5 text-center">
+          <h1 className="text fs-4">¿Te gustaría tener disponibilidad para elegir como moverte?</h1>
+          <p>
             Hay movimientos que requieren fuerza, movilidad y equilibrio, que
             probablemente quieras realizar <br />
             ¡Entrenemos juntos para que tengas las herramientas necesarias para
-            resolverlos!</h3>
+            resolverlos!</p>
           <iframe
             className="embeddedVideo border border-warning"
-            width="518"
-            height="292"
+            width="560"
+            height="315"
             src="https://www.youtube.com/embed/387gIc7tLVo"
             title="Entrenamiento Individualizado"
             frameborder="0"
@@ -112,6 +112,138 @@ export const Individualizado = () => {
                     alt="Foto blanco y negro de un alumno de espaldas haciendo sentadilla con una barra olímpica y discos"
                   />
                   {""}
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="service-2">
+            <h1 className="text fs-4">¿Todavía te quedan dudas?</h1>
+            <p>Te presento a Ricky, uno de mis primeros alumnos y de los <strong>más ambiciosos</strong>.
+              Cuando empezamos se propuso lograr el push up en vertical,
+              dominadas a un brazo y mejorar la fuerza de piernas para saltar.
+              Iba a hacer todo lo necesario para <strong>lograrlo</strong>... y llegó a eso y más.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z4uBn9YliZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <p>Elaboramos diferentes estrategias de trabajo para ir sorteando todas las dificultades
+              que se nos presentaban y el video es el resultado de un proceso de 3 años en el que pudimos
+              entrenar de forma <strong>consistente</strong>, avanzando de forma <strong>paciente</strong> y lo más importante:
+              <strong>sin lesiones</strong> durante todo ese período.<br />
+              Hoy en día seguimos trabajando juntos con nuevos proyectos.</p>
+          </section>
+          <section className="service-3">
+            <div id="accordion">
+              <div className="card">
+                <div className="card-header" id="headingOne">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      ¿En qué consta el trabajo de fuerza?
+                    </button>
+                  </h5>
+                </div>
+
+                <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                  <div className="card-body">
+                    Buscamos aumentar los niveles de fuerza con ejercicios que te enseñen a mover mejor tu cuerpo.
+                    La fuerza de base es fundamental y vamos a trabajar con objetivos claros eligiendo los ejercicios que te den el mejor resultado en la menor inversión de tiempo.
+                    Podés empezar con lo que puedas HOY. No necesitás hacer ni push up ni dominadas para empezar. Te podemos ayudar.
+                    También vamos a acompañarte a lograr esos ejercicios que tenés ganas de hacer con progresiones que te acerquen desde la fuerza a la habilidad deseada en sus
+                    niveles más avanzados (por ejemplo,
+                    muscle up, verticales a fuerza, sentadillas a una pierna, handstand push up, etc.).
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingTwo">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      ¿Tengo que ser tan bueno como el chico del video?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                  <div className="card-body">
+                    En el video te quiero mostrar lo que logramos con Ricky en 3 años de trabajo. En donde no solo logró niveles de fuerza de elite si no que lo hizo con un proceso ordenado, claro y SIN LESIONES.
+                    Esto no quiere decir que tenés que proponerte lo mismo que él, pero quiero que sepas que si te comprometés a trabajar conmigo de forma seria, podemos lograr grandes cosas.
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingThree">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      ¿Necesito saber algo para trabajar parada de manos?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div className="card-body">
+                    ¡No! Es para todos los niveles. La mayoría de nuestros alumnos han comenzado sin experiencia y muchos/as ya han logrado sus primeras verticales sólidas.
+                    Si ya tenés experiencia o tenés objetivos ambiciosos, también te podemos ayudar a consolidar la vertical en dos manos y
+                    acompañarte en el proceso de entrenamiento para la vertical a un brazo.
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingThree">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Mi movilidad es muy limitada... ¿puedo participar igual?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div className="card-body">
+                    Por supuesto. Vamos a buscar recuperar los niveles de amplitud de movimiento de tus articulaciones para que te puedas mover con mayor libertad.
+                    Poco a poco vamos a construir fuerza a lo largo de todo el rango de movimiento para llegar a trabajar movimientos como puentes, plegados y splits.
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingThree">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      ¿Qué materiales necesito?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div className="card-body">
+                    Nosotros nos adaptamos a tus posibilidades. Si entrenás en tu casa te podemos recomendar opciones para aprovechar lo que tenés a disposición.
+                    También te podemos asesorar en el orden de compra de materiales para entrenar mejor en tu hogar sin gastar de más.
+                    Si entrenás en un gimnasio, ¡excelente también! ¡Vamos a aprovechar al máximo los materiales del salón!
+                    Ideal en el hogar en orden de prioridades: mancuernas con peso, barra en el marco de la puerta y/o anillas.
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingThree">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      ¿Cuál es la frecuencia de entrenamiento?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div className="card-body">
+                    Recomendamos realizar un entrenamiento diario de 60/90 minutos de Lunes a Sábados. Pero el programa se ajusta al cronograma semanal de cada alumno
+                    En función de tu posibilidad vamos a organizar los contenidos de trabajo en diferentes rutinas que se acomodarán a tu calendario.
+                    Éstas pueden ser: cuerpo completo o split tren superior/inferior, verticales y movilidad u otras variantes personalizadas que trabajamos según lo que cada alumno/a necesite.
+                  </div>
+                </div>
+              </div>
+              <div className="card">
+                <div className="card-header" id="headingThree">
+                  <h5 className="mb-0">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      ¿Qué pasa si tengo alguna lesión preexistente?
+                    </button>
+                  </h5>
+                </div>
+                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                  <div className="card-body">
+                    Una vez que tenés el alta del kinesiólogo, podemos trabajar para facilitar la recuperación.
+                    El trabajo de fuerza y movilidad que vamos a hacer va a colaborar con el proceso.
+                    Quiero agregar tambien que no registramos lesiones en nuestros/as alumnos/as a distancia.
+                  </div>
                 </div>
               </div>
             </div>
