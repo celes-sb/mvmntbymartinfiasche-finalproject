@@ -11,9 +11,14 @@ export const Footer = () => (
 			</div>
 
 			<ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-				<li className="ms-3"><a href="https://www.instagram.com/martinfiasche/" target="_blank">
+				<li className="ms-3"><a href="https://www.facebook.com/fiaschemartin/" target="_blank">
 					<button type="button" className="btn btn-secondary btn-floating mx-1">
 						<i className="fab fa-facebook-f"></i>
+					</button>
+				</a></li>
+				<li className="ms-3"><a href="https://www.youtube.com/channel/UC7XbMLLx9REfnW3ZAyvGGyQ" target="_blank">
+					<button type="button" className="btn btn-secondary btn-floating mx-1">
+						<i className="fab fa-youtube"></i>
 					</button>
 				</a></li>
 				<li className="ms-3"><a href="https://www.instagram.com/martinfiasche/" target="_blank">

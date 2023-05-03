@@ -9,8 +9,7 @@ export const Movimiento = () => {
           Esta vista hay que diseñarla porque no existe en la página original
         </h1>
         <p>
-          Podemos sacar la idea de la pagina de acrobacia y homogeneizar el
-          diseño... PARA PENSAR
+          Mi objetivo es facilitar todo el saber transitado durante los últimos 20 años para ayudar a mis alumnos y alumnas a vincularse mejor con su cuerpo. Brindar las herramientas necesarias para lograr los objetivos que se propongan, acompañando el proceso para que no cometan los errores que otros cometimos, rescatando lo que es valioso de lo que no lo es ante la cantidad de información que nos llega diariamente.
         </p>
       </div>
     </>

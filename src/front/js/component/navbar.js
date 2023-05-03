@@ -16,7 +16,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top navbar-scroll mb-3 bg-opacity-50">
+      <nav className="navbar navbar-expand-lg fixed-top navbar-scroll mb-4 bg-opacity-50">
         <div className="logo ps-3">
           <Link className="nav-link badge badge-pill badge-success text-dark" to="/"><img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} /></Link>
         </div>
@@ -26,27 +26,24 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-5">
             <li className="nav-item active">
-              <Link className="nav-link badge badge-pill text-dark" to="/">Inicio <span className="sr-only">(current)</span></Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link badge badge-pill text-dark" to="/sobremi">Sobre mí</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/testimonios">Testimonios</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/individualizado">Individualizado</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/movimiento">Movimiento</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/acrobacia">Acrobacia</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/eventos">Eventos</Link>
             </li>
-            <li className="nav-item">
+            <li className="nav-item active">
               <Link className="nav-link badge badge-pill text-dark" to="/escribime">Escribime</Link>
             </li>
           </ul>
