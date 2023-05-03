@@ -59,6 +59,23 @@ export function userActions(getStore, getActions, setStore) {
       }
 
       return { respuestaJson, response };
-    }
+    },
+
+    logout: async () => {
+      const store = getStore();
+      const actions = getActions();
+      let body = "";
+      let { respuestaJson, response } = await actions.useFetch(
+        "/logout",
+        body,
+        "POST"
+      );
+      if (response.ok) {
+        localStorage.setItem("token", "");
+        sessionStorage.setItem("token", "");
+        setStore({ ...store, userLogin: false });
+      }
+      return respuestaJson;
+    },
   };
 }

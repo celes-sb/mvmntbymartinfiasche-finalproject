@@ -1614,3 +1614,11 @@ footer .footer-content .social-media h4 {
   width: 100%;
   visibility: visible;
 }
+
+.user-layout {
+  width: 100%;
+}
+
+.main-content {
+  flex-grow: 1;
+}

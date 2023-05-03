@@ -15,7 +15,7 @@ export const Login = () => {
     e.preventDefault(); // prevent form from submitting
     let { respuestaJson, response } = await actions.login(emailOrUsername, password); // call login action
     if (response.ok) {
-      navigate("/"); // redirect to home and/or do whatever we want
+      navigate("/user/backoffice"); // redirect to home and/or do whatever we want
     } else {
       alert("Login failed")
     }
