@@ -74,7 +74,6 @@ export const Signup = (props) => {
                         type="text"
                         placeholder="Nombre"
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="Nombre"
                         onChange={(e) => {
                           setName(e.target.value);
@@ -86,7 +85,6 @@ export const Signup = (props) => {
                         type="text"
                         placeholder="Apellido"
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="Apellido"
                         onChange={(e) => {
                           setLastName(e.target.value);
@@ -98,7 +96,6 @@ export const Signup = (props) => {
                         type="text"
                         placeholder="Username"
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="Username"
                         onChange={(e) => {
                           setUsername(e.target.value);
@@ -110,7 +107,6 @@ export const Signup = (props) => {
                         type="email"
                         placeholder="Email"
                         className="form-control"
-                        id="exampleInputEmail1"
                         aria-describedby="Email"
                         onChange={(e) => {
                           setEmail(e.target.value);
@@ -122,7 +118,6 @@ export const Signup = (props) => {
                         type="password"
                         placeholder="Contraseña"
                         className="form-control"
-                        id="exampleInputPassword1"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }}
@@ -133,7 +128,6 @@ export const Signup = (props) => {
                         type="password"
                         placeholder="Repetir Contraseña"
                         className="form-control"
-                        id="exampleInputPassword1"
                       />
                     </div>
                     <div className="form-group pb-3">
@@ -141,7 +135,6 @@ export const Signup = (props) => {
                         type="text"
                         placeholder="País"
                         className="form-control"
-                        id="exampleInputPassword1"
                         onChange={(e) => {
                           setCountry(e.target.value);
                         }}
@@ -152,7 +145,6 @@ export const Signup = (props) => {
                         type="text"
                         placeholder="Teléfono"
                         className="form-control"
-                        id="exampleInputPassword1"
                         onChange={(e) => {
                           setPhone(e.target.value);
                         }}
@@ -167,7 +159,6 @@ export const Signup = (props) => {
                           className="form-check-input"
                           type="radio"
                           name="Genero"
-                          id="Masculino"
                           value="Masculino"
                           onChange={(e) => {
                             setGender(e.target.value);
@@ -183,7 +174,6 @@ export const Signup = (props) => {
                           className="form-check-input"
                           type="radio"
                           name="Genero"
-                          id="Femenino"
                           value="Femenino"
                           onChange={(e) => {
                             setGender(e.target.value);
@@ -199,7 +189,6 @@ export const Signup = (props) => {
                           className="form-check-input"
                           type="radio"
                           name="Genero"
-                          id="NoBinario"
                           value="NoBinario"
                           onChange={(e) => {
                             setGender(e.target.value);
@@ -214,7 +203,6 @@ export const Signup = (props) => {
                           className="form-check-input"
                           type="radio"
                           name="Genero"
-                          id="Anonimo"
                           value="Anonimo"
                           onChange={(e) => {
                             setGender(e.target.value);

@@ -1,4 +1,4 @@
-import { userActions, userStore } from "./user.js";
+import { userActions, userStore } from "./User.js";
 import { testimonialStore, testimonialActions } from "./testimonialStore.js";
 
 const getState = ({ getStore, getActions, setStore }) => {
