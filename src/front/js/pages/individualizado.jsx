@@ -13,9 +13,11 @@ export const Individualizado = () => {
   const homeManosPalos =
     "http://drive.google.com/uc?export=view&id=1btEgS-YApCjojathrlABP-PSRfjVLVHc";
   const homeSentadilla =
-    "http://drive.google.com/uc?export=view&id=1OWhobIHvijLwv6UFGV9Bjp8ewMG4b2-h";
+    "http://drive.google.com/uc?export=view&id=1TGRnvUqtbIuVqRk3VjJ1tbidiypKnufY";
   const martinSquatPastoColor =
     "http://drive.google.com/uc?export=view&id=1-lc60dKkD4CxJ8L1sLK_iJ4JckELH5dq";
+  const cuadrupMono =
+    "http://drive.google.com/uc?export=view&id=19pDJ9sS_Hk3PCntjtS-2WkA0T4hTBPam";
 
   https: return (
     <>
@@ -27,17 +29,12 @@ export const Individualizado = () => {
         }}
       >
         <div className="container service-content bg-white bg-opacity-75 rounded p-5">
-          <h1>Entrenamiento Individualizado</h1>
-          <p>
-            ¿Te gustaria tener disponibilidad para elegir como moverte? <br />
+          <h1>¿Te gustaría tener disponibilidad para elegir como moverte?</h1>
+          <h3>
             Hay movimientos que requieren fuerza, movilidad y equilibrio, que
             probablemente quieras realizar <br />
             ¡Entrenemos juntos para que tengas las herramientas necesarias para
-            resolverlos! <br /> Vos manejás tu agenda, nosotros nos adaptamos.
-            Evaluamos tu estado físico, elaboramos un plan tallado a medida de
-            tus necesidades, te acompañamos en el proceso, y juntos, mes a mes,
-            evaluamos los resultados.
-          </p>
+            resolverlos!</h3>
           <iframe
             className="embeddedVideo border border-warning"
             width="518"
@@ -50,48 +47,54 @@ export const Individualizado = () => {
           ></iframe>
           <section className="service mt-5 pt-5">
             <div className="container">
-              <div className="content">
-                <div className="content-left">
-                  <h2>Otros caminos para explorar:</h2>
+              <div className="content d-flex flex-wrap">
+                <div className="content-left w-50">
+                  <h2>El proceso:</h2>
                   <ul>
-                    <li>
-                      <Link to="/movimiento" style={{ textDecoration: 'none' }}>
-                        <i className="fas fa-running"></i>
-                      </Link>
+                    <li className="d-flex">
                       <div className="text">
-                        <Link to="/movimiento" style={{ textDecoration: 'none' }}>
-                          <h3>Movimiento</h3>
-                        </Link>
-                        <p>
-                          Lorem impsum lorem ipsum lorem ipsum lorem ipsum lorem
-                          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                          lorem ipsum lorem ipsum lorem ipsum
+                        <h3>Modus Operandi</h3>
+                        <p><i className="far fa-check-circle"></i>Hacemos una evaluación de movilidad, control motor y fuerza en función de tus intereses,
+                          objetivos, frecuencia de entrenamiento posible y materiales a disposición. Luego,
+                          elaboramos un plan detallado, te acompañamos en el proceso, y juntos, mes a mes,
+                          evaluamos los resultados.
                         </p>
                       </div>
                     </li>
-                    <li>
-                      <Link to="/acrobacia" style={{ textDecoration: 'none' }}>
-                        <i className="far fa-shoe-prints"></i>
-                      </Link>
+                    <li className="d-flex flex-wrap">
                       <div className="text">
-                        <Link to="/acrobacia" style={{ textDecoration: 'none' }}>
-                          <h3>Acrobacia</h3>
-                        </Link>
-                        <p>
-                          Construímos las acciones acrobáticas abordando los
-                          fundamentos de la practica. Para facilitar el
-                          entrenamiento a personas de todos los niveles.
-                        </p>
+                        <h3>Áreas de trabajo:</h3>
+                        <ul>
+                          <li><i className="far fa-check-circle"></i>Fuerza</li>
+                          <li><i className="far fa-check-circle"></i>Movilidad</li>
+                          <li><i className="far fa-check-circle"></i>Parada de Manos</li>
+                        </ul>
+                      </div>
+                      <div className="text">
+                        <h3>Contenido:</h3>
+                        <ul>
+                          <li><i className="far fa-check-circle"></i>Calendario de entrenamiento,
+                            rutinas diferenciadas, esquemas para progresar semana a semana
+                            y videos de demostración de cada ejercicio incluyendo entrada en calor.</li>
+                          <li><i className="far fa-check-circle"></i>2 instancias de devolución de la ejecución de los ejercicios (semana 1 y semana 4)</li>
+                          <li><i className="far fa-check-circle"></i>Canal abierto de comunicación durante todo el mes: WhatsApp o mail para sacarte dudas en el día a día</li>
+                          <li><i className="far fa-check-circle"></i>Material de estudio adicional a la programación</li>
+                          <li><i className="far fa-check-circle"></i>Acceso a la plataforma de Discord donde podés conectar con otros alumnos que entrenan bajo este sistema.</li>
+                        </ul>
                       </div>
                     </li>
-
                   </ul>
                 </div>
-                <div className="content-right">
+                <div className="content-right w-50">
                   <img
                     className="border border-warning rounded"
                     src={rickyMeathook1}
                     alt="Foto blanco y negro de un alumno haciendo un meathook en anillas"
+                  />{" "}
+                  <img
+                    className="border border-warning rounded"
+                    src={cuadrupMono}
+                    alt="Foto blanco y negro de Martín y un alumno haciendo caminando en cuadrupedia"
                   />{" "}
                   <img
                     className="border border-warning rounded"
@@ -113,25 +116,6 @@ export const Individualizado = () => {
               </div>
             </div>
           </section>
-          <li>
-            <i className="fas fa-running"></i>
-            <div className="text">
-              <h3>Servicios</h3>
-              <p>
-                <li>Fuerza y Acondicionamiento</li>
-                <li>Movilidad, Flexibilidad y Control</li>
-                <li>El cuerpo en el tiempo, el espacio y los objetos</li>
-                <li>Ritmo y Coordinación</li>
-                <li>Balance</li>
-                <li>Acrobacia</li>
-                <li>Parada de Manos</li>
-                <li>
-                  Clases grupales Clases particulares Entrenamiento a distancia
-                </li>
-                <li>Seminarios y Workshops</li>
-              </p>
-            </div>
-          </li>
         </div >
       </div >
     </>

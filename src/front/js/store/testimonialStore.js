@@ -7,6 +7,13 @@ export const testimonialStore = {
     testimonialData: [
         {
             //image: { anillasTestimoniosMono },
+            text: "Llegué a Tincho con el fin de mejorar mi entrenamiento. Siempre me aburrió mucho lo que es el entrenamiento de un gimnasio solamente con máquinas. Tincho me brindó un entrenamiento más abarcativo (...) y me ayudó a mantener un plan de entrenamiento, ir progresando de a poco y mantener esa constancia que solo me costaba bastante.",
+            name: "Patricio Lespada",
+            year: "Alumno desde 2020",
+            videoUrl: "https://www.youtube.com/embed/soKNONNTwvE"
+        },
+        {
+            //image: { anillasTestimoniosMono },
             text: "Trabajar con un seguimiento, con objetivos claros hace que se vean las mejoras. Eso me sucede entrenando con Martín y su método. Totalmente agradecida por la entrega en su trabajo y el compromiso brindando.",
             name: "Sol Pérez Gallardo",
             year: "Alumna desde 2019",
@@ -25,13 +32,6 @@ export const testimonialStore = {
             name: "Nicolás Bregante",
             year: "Alumno desde 2020",
             //videoUrl: "url del video si existe"
-        },
-        {
-            //image: { anillasTestimoniosMono },
-            text: "Llegué a Tincho con el fin de mejorar mi entrenamiento. Siempre me aburrió mucho lo que es el entrenamiento de un gimnasio solamente con máquinas. Tincho me brindó un entrenamiento más abarcativo (...) y me ayudó a mantener un plan de entrenamiento, ir progresando de a poco y mantener esa constancia que solo me costaba bastante.",
-            name: "Patricio Lespada",
-            year: "Alumno desde 2020",
-            videoUrl: "https://www.youtube.com/embed/soKNONNTwvE"
         },
         // Add more testimonials 
     ],
