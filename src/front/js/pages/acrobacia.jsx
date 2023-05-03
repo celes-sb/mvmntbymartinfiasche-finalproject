@@ -9,8 +9,25 @@ export const Acrobacia = () => {
           Esta vista hay que diseñarla porque no existe en la página original
         </h1>
         <p>
-          Podemos sacar la idea de la pagina de acrobacia y homogeneizar el
-          diseño... PARA PENSAR
+          <li>
+            <i className="fas fa-running"></i>
+            <div className="text">
+              <h3>Servicios</h3>
+              <p>
+                <li>Fuerza y Acondicionamiento</li>
+                <li>Movilidad, Flexibilidad y Control</li>
+                <li>El cuerpo en el tiempo, el espacio y los objetos</li>
+                <li>Ritmo y Coordinación</li>
+                <li>Balance</li>
+                <li>Acrobacia</li>
+                <li>Parada de Manos</li>
+                <li>
+                  Clases grupales Clases particulares Entrenamiento a distancia
+                </li>
+                <li>Seminarios y Workshops</li>
+              </p>
+            </div>
+          </li>
         </p>
       </div>
     </>
