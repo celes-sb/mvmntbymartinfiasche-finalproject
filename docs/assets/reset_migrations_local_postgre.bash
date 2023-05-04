@@ -1,7 +1,7 @@
 rm -R -f ./migrations &&
 pipenv run init &&
-psql -U soledadceleste -c 'DROP DATABASE celestesoledad;' || true &&
-psql -U soledadceleste -c 'CREATE DATABASE celestesoledad;' &&
-psql -U soledadceleste -c 'CREATE EXTENSION unaccent;' -d celestesoledad &&
+psql -U david -c 'DROP DATABASE mac;' || true &&
+psql -U david -c 'CREATE DATABASE mac;' &&
+psql -U david -c 'CREATE EXTENSION unaccent;' -d mac &&
 pipenv run migrate &&
-pipenv run upgrade[]
+pipenv run upgrade

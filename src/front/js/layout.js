@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Navbar } from "./component/navbar";
+import { Sidebar } from "./component/sidebar"
 import { Home } from "./pages/home";
 import { About } from "./pages/about.jsx";
 import { Testimonios } from "./pages/testimonios.jsx";
@@ -17,6 +18,12 @@ import { Single } from "./pages/single";
 import { Signup } from "./pages/signup.jsx";
 import injectContext from "./store/appContext";
 import { Login } from "./pages/login";
+import { Backoffice } from "./pages/backoffice.jsx";
+import { Programs } from "./pages/programs.jsx";
+import { Orders } from "./pages/orders.jsx";
+import { Nutrition } from "./pages/nutrition.jsx";
+import { Papers } from "./pages/papers.jsx";
+import { UserLayout } from "./pages/userLayout"
 
 //create your first component
 const Layout = () => {
@@ -43,6 +50,11 @@ const Layout = () => {
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
+            <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
+            <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />
+            <Route element={<UserLayout><Orders /></UserLayout>} path="/user/orders" />
+            <Route element={<UserLayout><Nutrition /></UserLayout>} path="/user/nutrition" />
+            <Route element={<UserLayout><Papers /></UserLayout>} path="/user/papers" />
           </Routes>
           <Footer />
         </ScrollToTop>
