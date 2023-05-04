@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-//import Martin from "/Volumes/Macintosh HD/Users/mac/Documents/ProyectoFinal/mvmnt-finalproject/src/front/images/Martin.jpg";
-//import Martin from "/workspace/mvmnt-finalproject/src/front/images/Martin.jpg";
 //import { Context } from "../store/appContext";
+
 export const About = () => {
   const martin =
     "http://drive.google.com/uc?export=view&id=1RHnFaDPPtFe7X8fJO98EkFtbxxyLQSIJ";
@@ -14,14 +13,8 @@ export const About = () => {
           className="container"
           style={{ display: "flex", alignItems: "center" }}
         >
-          <div
-            className="about-us-content"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            <div
-              className="content-left"
-              style={{ flex: "1", paddingRight: "20px" }}
-            >
+          <div className="about-us-content">
+            <div className="content-left">
               <img
                 src={martin2}
                 alt="Martin, primer plano, mirando hacia abajo"
@@ -42,7 +35,7 @@ export const About = () => {
                 para construir un sistema abierto que permita acercar a todas
                 las personas a una práctica que enriquezca sus posibilidades a
                 partir de sus necesidades y no adiestrar a una persona a las
-                condiciones de una práctica. Considero fundamental abordar el
+                condiciones de una práctica. <br />Considero fundamental abordar el
                 mejoramiento de las cualidades físicas que, aunque lo contiene,
                 es mucho más amplio que el trabajo de fuerza y acondicionamiento
                 – para preparar el cuerpo para los desafíos que presentan los
@@ -51,7 +44,7 @@ export const About = () => {
                 cargas libres, vamos a pararnos sobre las manos, a balancear
                 sobre una superficie irregular o trabajar patrones rítmicos y
                 coordinativos hasta sentir que tu cuerpo responde ante las
-                órdenes que vos emitís. Preparar el cuerpo no es sólo poder
+                órdenes que vos emitís. <br />Preparar el cuerpo no es sólo poder
                 sostener un esfuerzo desde lo metabólico, articular y muscular;
                 sino registrar y conocer las funciones del cuerpo que te brinda
                 todas las posibilidades. La propuesta esta destinada para
@@ -62,13 +55,13 @@ export const About = () => {
                 el centro y los extremos, las manos y los pies... trascendiendo
                 una dicotomía de éxito o fracaso para abrazar un camino a
                 recorrer como una experiencia que nos permita conocernos a
-                nosotros mismos. Todas las herramientas pueden ser una opción
+                nosotros mismos. <br />Todas las herramientas pueden ser una opción
                 cuando conocés cuál es el paradigma que estás persiguiendo.
               </h4>
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   );
 };
