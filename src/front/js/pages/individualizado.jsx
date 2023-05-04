@@ -1,11 +1,42 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Collapse } from "bootstrap";
 //import { Context } from "../store/appContext";
 //QUE ACROBACIA Y MOVIMIENTO SEAN LINKS Q LLEVEN A LAS SECCIONES CORRESPONDIENTES
 //A DEFINIR IGUAL, ESPEREN A QUE TERMINE DE DISENAR TODO
 //RECORDATORIO: SACAR DE LA PAGINA OFICIAL QUE TIENE MUCHO CONTENIDO
 
 export const Individualizado = () => {
+
+  const accordionRef = useRef();
+
+  useEffect(() => {
+    const accordionEl = accordionRef.current;
+    const collapseInstances = [];
+
+    if (accordionEl) {
+      const buttons = accordionEl.querySelectorAll('.btn-link');
+
+      buttons.forEach((button) => {
+        const targetId = button.getAttribute('data-target');
+        const targetEl = accordionEl.querySelector(targetId);
+
+        if (targetEl) {
+          const collapseInstance = new Collapse(targetEl);
+          collapseInstances.push(collapseInstance);
+
+          button.addEventListener('click', () => {
+            collapseInstance.toggle();
+          });
+        }
+      });
+    }
+
+    return () => {
+      collapseInstances.forEach((instance) => instance.dispose());
+    };
+  }, []);
+
   const vertiEstudiantesx3 =
     "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV";
   const rickyMeathook1 =
@@ -41,9 +72,9 @@ export const Individualizado = () => {
             height="315"
             src="https://www.youtube.com/embed/387gIc7tLVo"
             title="Entrenamiento Individualizado"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
           <section className="service mt-5 pt-5">
             <div className="container">
@@ -116,13 +147,13 @@ export const Individualizado = () => {
               </div>
             </div>
           </section>
-          <section className="service-2">
+          <section className="service-3">
             <h1 className="text fs-4">¿Todavía te quedan dudas?</h1>
             <p>Te presento a Ricky, uno de mis primeros alumnos y de los <strong>más ambiciosos</strong>.
               Cuando empezamos se propuso lograr el push up en vertical,
               dominadas a un brazo y mejorar la fuerza de piernas para saltar.
               Iba a hacer todo lo necesario para <strong>lograrlo</strong>... y llegó a eso y más.</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z4uBn9YliZ4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z4uBn9YliZ4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             <p>Elaboramos diferentes estrategias de trabajo para ir sorteando todas las dificultades
               que se nos presentaban y el video es el resultado de un proceso de 3 años en el que pudimos
               entrenar de forma <strong>consistente</strong>, avanzando de forma <strong>paciente</strong> y lo más importante:
@@ -130,7 +161,7 @@ export const Individualizado = () => {
               Hoy en día seguimos trabajando juntos con nuevos proyectos.</p>
           </section>
           <section className="service-3">
-            <div id="accordion">
+            <div className="accordion" id="accordionExample" ref={accordionRef}>
               <div className="card">
                 <div className="card-header" id="headingOne">
                   <h5 className="mb-0">
@@ -159,7 +190,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div id="collapseTwo" className="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                   <div className="card-body">
                     En el video te quiero mostrar lo que logramos con Ricky en 3 años de trabajo. En donde no solo logró niveles de fuerza de elite si no que lo hizo con un proceso ordenado, claro y SIN LESIONES.
                     Esto no quiere decir que tenés que proponerte lo mismo que él, pero quiero que sepas que si te comprometés a trabajar conmigo de forma seria, podemos lograr grandes cosas.
@@ -174,7 +205,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseThree" className="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
                   <div className="card-body">
                     ¡No! Es para todos los niveles. La mayoría de nuestros alumnos han comenzado sin experiencia y muchos/as ya han logrado sus primeras verticales sólidas.
                     Si ya tenés experiencia o tenés objetivos ambiciosos, también te podemos ayudar a consolidar la vertical en dos manos y
@@ -190,7 +221,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                <div id="collapseFour" className="collapse show" aria-labelledby="headingFour" data-parent="#accordion">
                   <div className="card-body">
                     Por supuesto. Vamos a buscar recuperar los niveles de amplitud de movimiento de tus articulaciones para que te puedas mover con mayor libertad.
                     Poco a poco vamos a construir fuerza a lo largo de todo el rango de movimiento para llegar a trabajar movimientos como puentes, plegados y splits.
@@ -205,7 +236,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                <div id="collapseFive" className="collapse show" aria-labelledby="headingFive" data-parent="#accordion">
                   <div className="card-body">
                     Nosotros nos adaptamos a tus posibilidades. Si entrenás en tu casa te podemos recomendar opciones para aprovechar lo que tenés a disposición.
                     También te podemos asesorar en el orden de compra de materiales para entrenar mejor en tu hogar sin gastar de más.
@@ -222,7 +253,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseSix" className="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                <div id="collapseSix" className="collapse show" aria-labelledby="headingSix" data-parent="#accordion">
                   <div className="card-body">
                     Recomendamos realizar un entrenamiento diario de 60/90 minutos de Lunes a Sábados. Pero el programa se ajusta al cronograma semanal de cada alumno
                     En función de tu posibilidad vamos a organizar los contenidos de trabajo en diferentes rutinas que se acomodarán a tu calendario.
@@ -238,7 +269,7 @@ export const Individualizado = () => {
                     </button>
                   </h5>
                 </div>
-                <div id="collapseSeven" className="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+                <div id="collapseSeven" className="collapse show" aria-labelledby="headingSeven" data-parent="#accordion">
                   <div className="card-body">
                     Una vez que tenés el alta del kinesiólogo, podemos trabajar para facilitar la recuperación.
                     El trabajo de fuerza y movilidad que vamos a hacer va a colaborar con el proceso.
