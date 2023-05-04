@@ -11,9 +11,8 @@ import Layout from "./layout";
 //import Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//import jQuery and Popper.js
+//import Popper.js
 
-import 'jquery';
 import 'popper.js';
 
 //import Bootstrap Javascript

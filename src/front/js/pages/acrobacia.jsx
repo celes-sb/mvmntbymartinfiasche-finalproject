@@ -5,47 +5,50 @@ export const Acrobacia = () => {
 
   const martinPastoPuente =
     "http://drive.google.com/uc?export=view&id=1JO0oSk-2RDlNp-pzhg557opqjmAQ5iyE";
+  const videoAcrobacia =
+    "http://drive.google.com/uc?export=view&id=1VysyBuyJw2YzrKf1zmzgSVf81IVXfcWN";
 
   return (
     <>
       <section
-        className="customer-says border border-warning rounded mt-5 pt-5"
+        className="acrobacia border border-warning rounded mt-5 pt-5"
         style={{
           backgroundImage: `url(${martinPastoPuente})`,
           backgroundSize: "cover",
         }}
       >
-        <div className="container customer-says-content bg-white bg-opacity-75 rounded p-5">
-          <div className="top">
-            <li>
-              <i className="fas fa-running"></i>
-              <div className="text">
-                <h3>Acrobacia</h3>
-                <p>Construímos las acciones acrobáticas abordando los fundamentos de la practica.
-                  Para facilitar el entrenamiento a personas de todos los niveles.
-                </p>
-                <p>Martes y Jueves de 16:30 a 18 hs</p>
-                <p>Estamos trabajando:⁣
-
-                  Herramientas para acrobacias blandas
-                  Disponibilidad de las articulaciones – Inteligencia de movimiento⁣
-                  Elementos de Locomoción para integrar Acrobacias⁣
-                  Preparación física y cuidado del cuerpo</p>
+        <div className="acrobacia bg-white bg-opacity-75 p-5 border border-warning rounded text-center">
+          <h1>Entrenamiento Acrobático</h1>
+          <p className="text pb-3">Construímos las acciones acrobáticas abordando los fundamentos de la practica.
+            Para facilitar el entrenamiento a personas de todos los niveles.</p>
+          <section className="acrobacia-0 d-flex justify-content-center align-items-center">
+          </section>
+          <section className="acrobacia-1 d-flex p-5">
+            <iframe className="embeddedVideo border border-warning" width="450" height="450" src={videoAcrobacia} title="Entrenamiento Individualizado" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <div className="acrobacia1-right col-md-6 bg-light text-dark p-5 pb-0 text-left border border-warning">
+              <div className="row opacity-75">
+                <div className="col-12">
+                  <h4 className="acrobacia1-titulo w-100">Algunos de los aspectos incluídos en las clases:⁣</h4>
+                </div>
+                <div className="col-12">
+                  <p><i className="fas fa-running"></i> Herramientas para acrobacias blandas</p>
+                  <p><i className="fas fa-running"></i> Disponibilidad de las articulaciones – Inteligencia de movimiento⁣</p>
+                  <p><i className="fas fa-running"></i> Elementos de Locomoción para integrar Acrobacias⁣</p>
+                  <p><i className="fas fa-running"></i> Preparación física y cuidado del cuerpo</p>
+                </div>
+                <div className="col-12">
+                  <hr className="my-4 m-0 p-0" />
+                </div>
+                <div className="row">
+                  <div className="col-12 text-center">
+                    <p className="mb-0"><strong>MARTES Y JUEVES <br />16.30 a 18<br /> <i class="fas fa-map-marker-alt"></i> PARQUE CENTENARIO</strong></p>
+                  </div>
+                </div>
               </div>
-            </li>
-          </div>
-          <div className="bottom">
-            <div className="middle">
-              aca poner video que tengo q subir a google drive (ver bibilioteca de contenidos)
-              <p>Descripcion acro</p>
-              <h5>mas sobre acro</h5>
-              <h6>acro acro</h6>
-
             </div>
-
-          </div>
+          </section>
         </div>
-      </section>
+      </section >
     </>
   );
 };
