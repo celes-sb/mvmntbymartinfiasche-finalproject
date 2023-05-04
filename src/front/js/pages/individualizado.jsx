@@ -183,14 +183,14 @@ export const Individualizado = () => {
                 </div>
               </div>
               <div className="card">
-                <div className="card-header" id="headingThree">
+                <div className="card-header" id="headingFour">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                       Mi movilidad es muy limitada... ¿puedo participar igual?
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                   <div className="card-body">
                     Por supuesto. Vamos a buscar recuperar los niveles de amplitud de movimiento de tus articulaciones para que te puedas mover con mayor libertad.
                     Poco a poco vamos a construir fuerza a lo largo de todo el rango de movimiento para llegar a trabajar movimientos como puentes, plegados y splits.
@@ -198,14 +198,14 @@ export const Individualizado = () => {
                 </div>
               </div>
               <div className="card">
-                <div className="card-header" id="headingThree">
+                <div className="card-header" id="headingFive">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                       ¿Qué materiales necesito?
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                   <div className="card-body">
                     Nosotros nos adaptamos a tus posibilidades. Si entrenás en tu casa te podemos recomendar opciones para aprovechar lo que tenés a disposición.
                     También te podemos asesorar en el orden de compra de materiales para entrenar mejor en tu hogar sin gastar de más.
@@ -215,14 +215,14 @@ export const Individualizado = () => {
                 </div>
               </div>
               <div className="card">
-                <div className="card-header" id="headingThree">
+                <div className="card-header" id="headingSix">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                       ¿Cuál es la frecuencia de entrenamiento?
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseSix" className="collapse" aria-labelledby="headingSix" data-parent="#accordion">
                   <div className="card-body">
                     Recomendamos realizar un entrenamiento diario de 60/90 minutos de Lunes a Sábados. Pero el programa se ajusta al cronograma semanal de cada alumno
                     En función de tu posibilidad vamos a organizar los contenidos de trabajo en diferentes rutinas que se acomodarán a tu calendario.
@@ -231,14 +231,14 @@ export const Individualizado = () => {
                 </div>
               </div>
               <div className="card">
-                <div className="card-header" id="headingThree">
+                <div className="card-header" id="headingSeven">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                       ¿Qué pasa si tengo alguna lesión preexistente?
                     </button>
                   </h5>
                 </div>
-                <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                <div id="collapseSeven" className="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
                   <div className="card-body">
                     Una vez que tenés el alta del kinesiólogo, podemos trabajar para facilitar la recuperación.
                     El trabajo de fuerza y movilidad que vamos a hacer va a colaborar con el proceso.
