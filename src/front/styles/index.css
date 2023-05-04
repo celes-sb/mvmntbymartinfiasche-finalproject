@@ -12,6 +12,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+:root {
+  --translate-circle-normal: 10px;
+  --translate-circle-Yellow: 90px;
+  --translate-circle-Gradient: -175px;
+}
+
 /* global */
 .container-fluid {
   width: auto;

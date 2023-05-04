@@ -14,7 +14,7 @@ export const Home = () => {
           <img href="/" className="imgheader border border-warning rounded" src={martinygrupocolor} style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover" }} />
           <div className="hero">
             <div className="hero-content">
-              <div className="hero-content-text bg-dark bg-opacity-50 p-5 rounded h-100 d-flex flex-column justify-content-end align-items-end">
+              <div className="hero-content-text bg-light bg-opacity-75 p-5 rounded h-100 d-flex flex-column justify-content-end align-items-end">
                 <h1 className="mb-4">
                   ¿Entrenamos distinto?
                 </h1>
