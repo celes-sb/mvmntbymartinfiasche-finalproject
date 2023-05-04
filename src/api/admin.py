@@ -4,6 +4,14 @@ from flask_admin import Admin
 from .db import db
 from .user import User
 from .programs import Programs
+from .Calendar import Calendar
+from .Events import Events
+from .Exercises import Exercises
+from .Nutrition import Nutrition
+from .progress import Progress
+from .Papers import Papers
+
+from .Employees import Employees
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -18,6 +26,15 @@ def setup_admin(app):
     # Add your models here, for example this is how we add a the User model to the admin
     admin.add_view(ModelView(User, db.session))
     admin.add_view(ModelView(Programs, db.session))
+    admin.add_view(ModelView(Calendar, db.session))
+    admin.add_view(ModelView(Events, db.session))
+    admin.add_view(ModelView(Exercises, db.session))
+    admin.add_view(ModelView(Employees, db.session))
+    
+    admin.add_view(ModelView(Nutrition, db.session))
+    admin.add_view(ModelView(Papers, db.session))
+    admin.add_view(ModelView(Progress, db.session))
+    
 
     # You can duplicate that line to add mew models
     # admin.add_view(ModelView(YourModelName, db.session))
