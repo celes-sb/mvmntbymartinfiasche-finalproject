@@ -7,7 +7,6 @@ from api.db import db
 from api.user import User
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
-
 from datetime import datetime
 
 import smtplib, ssl

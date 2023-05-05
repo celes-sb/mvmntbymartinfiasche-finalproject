@@ -3,9 +3,18 @@ import os
 from flask_admin import Admin
 from .db import db
 from .user import User
+from .calendar import Calendar
+from .employees import Employees
+from .events import Events
+from .exercises import Exercises
+from .favorites import Favorites
+from .nutrition import Nutrition
+from .papers import Papers
+from .professionals import Professionals
 from .programs import Programs
+
 from flask_admin.contrib.sqla import ModelView
-from .favorites import favorites
+from .favorites import Favorites
 from flask_admin.menu import MenuCategory, MenuView, MenuLink
 
 def setup_admin(app):
@@ -16,7 +25,7 @@ def setup_admin(app):
     
     # Add your models here, for example this is how we add a the User model to the admin
     admin.add_view(ModelView(User, db.session))
-    admin.add_view(ModelView(favorites, db.session))
+    admin.add_view(ModelView(Favorites, db.session))
 
     # You can duplicate that line to add mew models
     # admin.add_view(ModelView(YourModelName, db.session))

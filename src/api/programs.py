@@ -9,7 +9,6 @@ class Programs(db.Model):
     day = db.Column(db.String(50), unique=False, nullable=False)
     category = db.Column(db.String(50), unique=False, nullable=False)
     exercise_number = db.Column(db.String(20), unique=True, nullable=False)
-
     sets = db.Column(db.Integer, unique=True, nullable=False)
     repetitions = db.Column(db.Integer, unique=True, nullable=False)
     rest_time = db.Column(db.Integer, unique=False, nullable=True)

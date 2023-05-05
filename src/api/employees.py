@@ -14,14 +14,14 @@ class Employees(db.Model):
     address = db.Column(db.String(80), unique=False, nullable=True)
     country = db.Column(db.String(20), unique=False, nullable=False)
     gender = db.Column(db.String(20), unique=False, nullable=True)
-    otp = db.Column(db.Integer(10), unique=False, nullable=False)
+    otp = db.Column(db.String(10), unique=False, nullable=False)
     otp_active = db.Column(db.Boolean(), unique=False, nullable=False)
-    last_login = db.Column(db.Date(20), unique=False, nullable=False)
-    email_recover = db.Column(db.Integer(20), unique=False, nullable=False)
+    last_login = db.Column(db.Date, unique=False, nullable=False)
+    email_recover = db.Column(db.String(50), unique=False, nullable=False)
     image_profile = db.Column(db.String(250), unique=False, nullable=False) #es 250 enough?? averiguar
     security_question_q1 = db.Column(db.String(50), unique=False, nullable=False)
     security_question_q2 = db.Column(db.String(50), unique=False, nullable=False)
-    creation_date = db.Column(db.Date(20), unique=False, nullable=False)
+    creation_date = db.Column(db.Date, unique=False, nullable=False)
     role = db.Column(db.String(20), unique=False, nullable=False)
     
 
