@@ -18,12 +18,12 @@ class User(db.Model):
     emergency_contact_name = db.Column(db.String(20), unique=False, nullable=True)
     emergency_contact_number = db.Column(db.String(20), unique=False, nullable=True)
     emergency_contact_relationship = db.Column(db.String(20), unique=False, nullable=True)
-    credit_card = db.Column(db.String(), unique=False, nullable=True) #revisar!!! lo de default y numero
+    credit_card = db.Column(db.String(250), unique=False, nullable=True) #revisar!!! lo de default y numero
     otp = db.Column(db.Integer, unique=False, nullable=True)
     otp_active = db.Column(db.Boolean(), unique=False, nullable=True)
     twofa = db.Column(db.Boolean(), unique=False, nullable=True)
     last_login = db.Column(db.Date, unique=False, nullable=True)
-    email_recover = db.Column(db.Integer, unique=False, nullable=True)
+    email_recover = db.Column(db.String(250), unique=False, nullable=True)
     image_profile = db.Column(db.String(250), unique=False, nullable=True) #es 250 enough?? averiguar
     security_question_q1 = db.Column(db.String(50), unique=False, nullable=True)
     security_question_q2 = db.Column(db.String(50), unique=False, nullable=True)
@@ -40,6 +40,7 @@ class User(db.Model):
     email_subscription = db.Column(db.Boolean(), unique=False, nullable=True)
     numeric_preference = db.Column(db.String(10), unique=False, nullable=True)
     access_gym = db.Column(db.Boolean(), unique=False, nullable=True)
+    favorites = db.relationship("Favorites", backref="User", lazy=True)
 
     def serialize(self):
         return {
