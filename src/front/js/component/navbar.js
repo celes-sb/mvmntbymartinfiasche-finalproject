@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signup } from "../pages/signup.jsx";
 import logoMartin from "../../images/Logo-martin.png";
+import { Navigate } from "react-router-dom";
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
+  const navigate = useNavigate()
 
   function myFunction() {
     var x = document.getElementById("myLinks");
@@ -15,6 +17,13 @@ export const Navbar = () => {
       x.style.display = "block";
     }
   }
+
+  const handleLogout = async () => {
+    const { response } = await actions.logout();
+    if (response.ok) {
+      navigate("/login");
+    }
+  };
 
   return (
     <>
@@ -60,9 +69,8 @@ export const Navbar = () => {
           ) : (<>
             <h1>Bienvenid@, usuario</h1>
             <div>
-              <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={(e) => {
-                actions.logout();
-              }}>Cerrar Sesión</button>
+              <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
+              }>Cerrar Sesión</button>
             </div>
           </>)}
       </nav>

@@ -2,10 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 import os
+import json
 from flask import Flask, request, jsonify, url_for, Blueprint, current_app
 from api.db import db
 from api.user import User
-from .Exercises import Exercises
+from .exercises import Exercises
 from .programs import Programs
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
@@ -179,6 +180,24 @@ def logout():
 
     return jsonify({"message":"logout successfully"})
 
+@api.route('/edituser/<int:user_id>', methods=['PUT'])
+@jwt_required()
+def edit_user(user_id):
+    current_user_id = get_jwt_identity()
+    if current_user_id != user_id:
+        return jsonify({"message": "You can only edit your own user"}), 403
+
+    body = json.loads(request.data)
+    user = User.query.filter_by(id=user_id).first()
+    if user is  None:
+        raise APIException("USER NOT FOUND", status_code=409)
+    for key in body:
+        for col in user.serialize():
+            if key == col and key != "id":
+                setattr(user, col, body[key])
+    db.session.commit()
+    return jsonify({"msg":"User modified correctly"}), 201
+
 
 @api.route('/correo', methods=['POST'])
 def handle_email():
@@ -244,6 +263,7 @@ def get_user():
     print(users)
     users=list(map(lambda item: item.serialize(), users))
     return jsonify(users)
+
 @api.route('/getexercises', methods=['Get'])
 def get_exercises():
     body = request.get_json()
