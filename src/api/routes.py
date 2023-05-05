@@ -379,10 +379,9 @@ def edit_programs(programs_id):
     if program is None:
         raise APIException("PROGRAM NOT FOUND", status_code=409)
     for key in body:
-        for col in program.serialize():
-            if key == col and key != "id":
-                setattr(program, col, body[key])
+        if hasattr(program, key):
+            setattr(program, key, body[key])
     db.session.commit()
-    return jsonify({"msg": "Program modified correctly"}), 201.
+    return jsonify({"msg": "Program modified correctly"}), 201
 
 
