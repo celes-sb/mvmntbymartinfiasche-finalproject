@@ -282,6 +282,19 @@ def get_exercises():
     exercise=list(map(lambda item: item.serialize(), exercise))
     return jsonify(exercise)
 
+@api.route('/editexercises/<int:exercises_id>', methods=['PUT'])
+def edit_exercises(exercises_id):
+    body = json.loads(request.data)
+    exercise = Exercises.query.filter_by(id=exercises_id).first()
+    if exercise is None:
+        raise APIException("EXERCISE NOT FOUND", status_code=409)
+    for key in body:
+        for col in exercise.serialize():
+            if key == col and key != "id":
+                setattr(exercise, col, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Exercise modified correctly"}), 201    
+
 @api.route('/getprograms', methods=['Get'])
 def get_programs():
     body = request.get_json()
@@ -300,3 +313,19 @@ def get_programs():
     print(Program)
     Program=list(map(lambda item: item.serialize(), Program))
     return jsonify(Program)
+
+
+@api.route('/editprograms/<int:programs_id>', methods=['PUT'])
+def edit_programs(programs_id):
+    body = json.loads(request.data)
+    program = Programs.query.filter_by(id=programs_id).first()
+    if program is None:
+        raise APIException("PROGRAM NOT FOUND", status_code=409)
+    for key in body:
+        for col in program.serialize():
+            if key == col and key != "id":
+                setattr(program, col, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Program modified correctly"}), 201.
+
+
