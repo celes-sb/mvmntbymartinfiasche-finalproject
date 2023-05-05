@@ -3,12 +3,12 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const Settings = () => {
+export const PaymentMethod = () => {
     const { store, actions } = useContext(Context);
-    const [activeLink, setActiveLink] = useState("Link1");
+    const [activeLink, setActiveLink] = useState("Link2");
 
-    const [currentPassword, setCurrentPassword] = useState("");
-    const [newPassword, setNewPassword] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [expirationDate, setExpirationDate] = useState("");
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -47,23 +47,23 @@ export const Settings = () => {
                     <form>
                         <div className="form-group pb-3">
                             <input
-                                type="password"
-                                placeholder="Contraseña Actual"
+                                type="text"
+                                placeholder="Número de Tarjeta"
                                 className="form-control"
-                                aria-describedby="Current Password"
+                                aria-describedby="Credit Card Number"
                                 onChange={(e) => {
-                                    setCurrentPassword(e.target.value);
+                                    setCardNumber(e.target.value);
                                 }}
                             />
                         </div>
                         <div className="form-group pb-3">
                             <input
-                                type="password"
-                                placeholder="Nueva Contraseña"
+                                type="text"
+                                placeholder="Fecha de Vencimiento"
                                 className="form-control"
-                                aria-describedby="New Password"
+                                aria-describedby="Expiration Date"
                                 onChange={(e) => {
-                                    setNewPassword(e.target.value);
+                                    setExpirationDate(e.target.value);
                                 }}
                             />
                         </div>
@@ -83,4 +83,4 @@ export const Settings = () => {
     </>)
 }
 
-export default Settings;
+export default PaymentMethod;
