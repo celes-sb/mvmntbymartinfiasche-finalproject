@@ -33,6 +33,7 @@ def setup_admin(app):
     admin.add_view(ModelView(Nutrition, db.session))
     admin.add_view(ModelView(Papers, db.session))
     admin.add_view(ModelView(Progress, db.session))
+    admin.add_view(ModelView(Favorites, db.session))
     
 
     # You can duplicate that line to add mew models
