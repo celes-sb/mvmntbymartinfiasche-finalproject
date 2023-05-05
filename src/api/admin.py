@@ -3,16 +3,16 @@ import os
 from flask_admin import Admin
 from .db import db
 from .user import User
-from .calendar import Calendar
+from .Calendar import Calendar
 from .employees import Employees
-from .events import Events
-from .exercises import Exercises
+from .Events import Events
+from .Exercises import Exercises
 from .favorites import Favorites
-from .nutrition import Nutrition
-from .papers import Papers
-from .professionals import Professionals
+from .Nutrition import Nutrition
+from .Papers import Papers
+from .Professionals import Professionals
 from .programs import Programs
-
+from .progress import Progress
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.menu import MenuCategory, MenuView, MenuLink
 
@@ -29,7 +29,7 @@ def setup_admin(app):
     admin.add_view(ModelView(Events, db.session))
     admin.add_view(ModelView(Exercises, db.session))
     admin.add_view(ModelView(Employees, db.session))
-    
+    admin.add_view(ModelView(Professionals, db.session))
     admin.add_view(ModelView(Nutrition, db.session))
     admin.add_view(ModelView(Papers, db.session))
     admin.add_view(ModelView(Progress, db.session))
