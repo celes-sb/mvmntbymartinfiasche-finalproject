@@ -23,7 +23,7 @@ class User(db.Model):
     otp_active = db.Column(db.Boolean(), unique=False, nullable=True)
     twofa = db.Column(db.Boolean(), unique=False, nullable=True)
     last_login = db.Column(db.Date, unique=False, nullable=True)
-    email_recover = db.Column(db.Integer, unique=False, nullable=True)
+    email_recover = db.Column(db.String(250), unique=False, nullable=True)
     image_profile = db.Column(db.String(250), unique=False, nullable=True) #es 250 enough?? averiguar
     security_question_q1 = db.Column(db.String(50), unique=False, nullable=True)
     security_question_q2 = db.Column(db.String(50), unique=False, nullable=True)
