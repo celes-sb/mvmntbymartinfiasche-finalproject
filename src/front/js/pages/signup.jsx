@@ -35,10 +35,6 @@ export const Signup = (props) => {
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(gender);
-  }, [gender]);
-
   const handleRegister = async (e) => {
     e.preventDefault(); // prevent form from submitting
     const response = await actions.signup(name, lastname, username, email, password, phone, country, gender); // call register action

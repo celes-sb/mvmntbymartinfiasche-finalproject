@@ -1,7 +1,6 @@
 import React, { Component, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Collapse } from "bootstrap";
-
 //import { Context } from "../store/appContext";
 
 export const Individualizado = () => {
@@ -34,7 +33,6 @@ export const Individualizado = () => {
       collapseInstances.forEach((instance) => instance.dispose());
     };
   }, []);
-
 
   const vertiEstudiantesx3 =
     "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV";

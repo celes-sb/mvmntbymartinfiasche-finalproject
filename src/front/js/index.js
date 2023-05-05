@@ -11,12 +11,11 @@ import Layout from "./layout";
 //import Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//import Popper.js
+// Import Popper.js
+import "@popperjs/core";
 
-import 'popper.js';
-
-//import Bootstrap Javascript
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+// import Bootstrap JavaScript
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 //render your react application
 ReactDOM.render(<Layout />, document.querySelector("#app"));

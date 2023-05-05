@@ -75,7 +75,7 @@ export function userActions(getStore, getActions, setStore) {
         sessionStorage.setItem("token", "");
         setStore({ ...store, userLogin: false });
       }
-      return respuestaJson;
+      return { respuestaJson, response };
     },
   };
 }
