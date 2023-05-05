@@ -1,17 +1,10 @@
 import React, { useState, useContext, Component } from "react";
 import { Context } from "../store/appContext";
-import previousButton from "../../images/Previous-Button.png";
-import nextButton from "../../images/Next-Button.png";
-
-/*
-Martin dice que tiene unos videos de gente dando testimonios
-podemos no solo hacer un carousel de testimonios como el del template que ya tenemos sino que tmb
-podemos agregar los videos =) yo creo que puede quedar bien. PARA SEGUIR PENSANDO
-*/
 
 export const Testimonios = () => {
-  const grupoTestimoniosColor =
-    "http://drive.google.com/uc?export=view&id=1a3j2GRq-UUxbwPzwryf_P2_dWZIPdUq5";
+  const grupoTestimoniosColor = "http://drive.google.com/uc?export=view&id=1a3j2GRq-UUxbwPzwryf_P2_dWZIPdUq5";
+  const previousButton = "http://drive.google.com/uc?export=view&id=1BOY8MUYO5QEMBGu6c2BB3WH-eiNcutSL";
+  const nextButton = "http://drive.google.com/uc?export=view&id=1ZX6WMe85ASLT8QWZ2Z5U8V-ov2cSckwK";
 
   const { store, actions } = useContext(Context);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,15 +28,15 @@ export const Testimonios = () => {
   return (
     <>
       <section
-        className="customer-says border border-warning rounded mt-5 pt-5"
+        className="customer-says border border-warning rounded mt-5 p-5"
         style={{
           backgroundImage: `url(${grupoTestimoniosColor})`,
           backgroundSize: "cover",
         }}
       >
-        <div className="container customer-says-content bg-white bg-opacity-75 rounded p-5">
+        <div className="customer-says-content bg-white bg-opacity-75 rounded p-5 m-3">
           <div className="top">
-            <h2>Lo que dicen mis alumnos:</h2>
+            <h2>Lo que dicen mis alumnos</h2>
           </div>
           <div className="bottom">
             <img
