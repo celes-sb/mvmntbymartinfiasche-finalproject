@@ -282,6 +282,76 @@ def get_exercises():
     exercise=list(map(lambda item: item.serialize(), exercise))
     return jsonify(exercise)
 
+@api.route('/editexercises/<int:exercises_id>', methods=['PUT'])
+def edit_exercises(exercises_id):
+    body = json.loads(request.data)
+    exercise = Exercises.query.filter_by(id=exercises_id).first()
+    if exercise is None:
+        raise APIException("EXERCISE NOT FOUND", status_code=409)
+    for key in body:
+        for col in exercise.serialize():
+            if key == col and key != "id":
+                setattr(exercise, col, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Exercise modified correctly"}), 201    
+
+@api.route('/newprogram', methods=['POST'])
+def register_program():
+    body = request.get_json()
+    program_name = body["program_name"]
+    user_id = body["user_id"]
+    day = body["day"]
+    category = body["category"]
+    exercise_number = body["exercise_number"]
+    load = body["load"]
+    sets = body["sets"]
+    repetitions = body["repetitions"]
+    rest_time = body["rest_time"]
+    creation_date = body["creation_date"]
+    date_finished = body["date_finished"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as json object", status_code=400)
+    if "program_name" not in body:
+        raise APIException("You need to specify the program name", status_code=400)
+    if "user_id" not in body:
+        raise APIException("You need to specify the user id", status_code=400)
+    if "day" not in body:
+        raise APIException("You need to specify the day", status_code=400)
+    if "category" not in body:
+        raise APIException("You need to specify the category", status_code=400)
+    if "exercise_number" not in body:
+        raise APIException("You need to specify the exercise number", status_code=400)
+    if "load" not in body:
+        raise APIException("You need to specify the load", status_code=400)
+    if "sets" not in body:
+        raise APIException("You need to specify the sets", status_code=400)
+    if "repetitions" not in body:
+        raise APIException("You need to specify the repetitions", status_code=400)
+    if "rest_time" not in body:
+        raise APIException("You need to specify the rest_time", status_code=400)
+    if "creation_date" not in body:
+        raise APIException("You need to specify the creation date", status_code=400)
+    if "date_finished" not in body:
+        raise APIException("You need to specify the date finished", status_code=400)
+    
+    program = Programs.query.filter_by(program_name=program_name).first()
+    if program is not None:
+        raise APIException("Program already exists", status_code=409)
+    
+    current_date = datetime.utcnow()
+    
+    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date, date_finished=date_finished)
+
+    db.session.add(new_program)
+    db.session.commit()
+
+    return jsonify({"msg":"Program successfully created"}), 201
+
+
+
+
+
 @api.route('/getprograms', methods=['Get'])
 def get_programs():
     body = request.get_json()
@@ -300,3 +370,18 @@ def get_programs():
     print(Program)
     Program=list(map(lambda item: item.serialize(), Program))
     return jsonify(Program)
+
+
+@api.route('/editprograms/<int:programs_id>', methods=['PUT'])
+def edit_programs(programs_id):
+    body = json.loads(request.data)
+    program = Programs.query.filter_by(id=programs_id).first()
+    if program is None:
+        raise APIException("PROGRAM NOT FOUND", status_code=409)
+    for key in body:
+        if hasattr(program, key):
+            setattr(program, key, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Program modified correctly"}), 201
+
+
