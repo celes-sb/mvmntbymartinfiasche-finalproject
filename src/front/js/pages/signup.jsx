@@ -46,7 +46,7 @@ export const Signup = (props) => {
 
   return (
     <>
-      <div className="container">
+      <div className="container-fluid p-5 mt-5 pt-5 border border-warning rounded">
         <div
           className="d-flex flex-row flex-nowrap"
           style={{ overflowX: "scroll" }}

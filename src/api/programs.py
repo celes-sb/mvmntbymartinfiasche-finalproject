@@ -5,7 +5,8 @@ from .db import db
 
 class Programs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
+    program_name = db.Column(db.String(50), unique=False, nullable=False)
     day = db.Column(db.String(50), unique=False, nullable=False)
     category = db.Column(db.String(50), unique=False, nullable=False)
     exercise_number = db.Column(db.String(20), unique=False, nullable=False)
@@ -14,8 +15,9 @@ class Programs(db.Model):
     repetitions = db.Column(db.Integer, unique=False, nullable=False)
     rest_time = db.Column(db.Integer, unique=False, nullable=True)
     creation_date = db.Column(db.Date, unique=False, nullable=False)
-    date_finished = db.Column(db.Date, unique=False, nullable=False)
-    
+    date_finished = db.Column(db.Date, unique=False, nullable=True)
+
+
     def serialize(self):
         return {
             "id": self.id,
@@ -29,8 +31,4 @@ class Programs(db.Model):
             "rest_time": self.rest_time,
             "creation_date": self.creation_date,
             "date_finished": self.date_finished,
-            
-            
-        
-            # do not serialize the password, its a security breach
         }

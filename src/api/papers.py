@@ -1,4 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
 from .db import db
 
 #en general serializar lo que esta como nullable false.. if in doubt, slack

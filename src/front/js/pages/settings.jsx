@@ -6,7 +6,6 @@ import "../../styles/home.css";
 export const Settings = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Link1");
-
     const [currentPassword, setCurrentPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 

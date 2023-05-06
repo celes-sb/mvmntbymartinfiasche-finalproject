@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Navigate } from "react-router-dom";
-
 import { Navbar } from "./component/navbar";
 import { Sidebar } from "./component/sidebar"
 import { Home } from "./pages/home";
@@ -81,8 +80,3 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
-
-/*
-
-
-*/
