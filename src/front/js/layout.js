@@ -24,6 +24,7 @@ import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
 import { Papers } from "./pages/papers.jsx";
 import { Profile } from "./pages/profile.jsx";
+import { EditProfile } from "./pages/editProfile.jsx";
 import { Settings } from "./pages/settings.jsx";
 import { Measures } from "./pages/measures.jsx";
 import { EmergencyContact } from "./pages/emergencyContact.jsx";
@@ -69,6 +70,7 @@ const Layout = () => {
             <Route element={<UserLayout><PaymentMethod /></UserLayout>} path="/user/payment-method" />
             <Route element={<UserLayout><Twofa /></UserLayout>} path="/user/twofa" />
             <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
+            <Route element={<UserLayout><EditProfile /></UserLayout>} path="/user/edit-profile" />
           </Routes>
           <Footer />
         </ScrollToTop>

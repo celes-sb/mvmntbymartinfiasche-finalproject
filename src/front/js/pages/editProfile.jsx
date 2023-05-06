@@ -3,12 +3,35 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const Profile = () => {
+export const EditProfile = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Active");
     const [dataUser, setDataUser] = useState(store.userData)
 
-    useEffect(() => { }, [dataUser])
+    const [name, setName] = useState(dataUser.first_name);
+    const [lastname, setLastName] = useState(dataUser.last_name);
+    const [username, setUsername] = useState(dataUser.username);
+    const [email, setEmail] = useState(dataUser.email);
+    const [phone, setPhone] = useState(dataUser.phone);
+    const [country, setCountry] = useState(dataUser.country);
+
+    const obj = {
+        "first_name": name,
+        "last_name": lastname,
+        username,
+        phone,
+        country
+    }
+
+    const handleEditUser = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.editUser(obj); // call login action
+        if (response.ok) {
+            alert("Cambio exitoso");
+        } else {
+            alert("Cambio fallido, intente nuevamente");
+        }
+    }
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -47,8 +70,10 @@ export const Profile = () => {
                                 placeholder="Nombre"
                                 className="form-control"
                                 aria-describedby="Nombre"
-                                value={dataUser.first_name}
-                                disabled
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
 
                             />
                         </div>
@@ -58,8 +83,10 @@ export const Profile = () => {
                                 placeholder="Apellido"
                                 className="form-control"
                                 aria-describedby="Apellido"
-                                value={dataUser.last_name}
-                                disabled
+                                value={lastname}
+                                onChange={(e) => {
+                                    setLastName(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -68,8 +95,10 @@ export const Profile = () => {
                                 placeholder="Username"
                                 className="form-control"
                                 aria-describedby="Username"
-                                value={dataUser.username}
-                                disabled
+                                value={username}
+                                onChange={(e) => {
+                                    setUsername(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -78,7 +107,7 @@ export const Profile = () => {
                                 placeholder="Email"
                                 className="form-control"
                                 aria-describedby="Email"
-                                value={dataUser.email}
+                                value={email}
                                 disabled
                             />
                         </div>
@@ -87,8 +116,10 @@ export const Profile = () => {
                                 type="text"
                                 placeholder="País"
                                 className="form-control"
-                                value={dataUser.country}
-                                disabled
+                                value={country}
+                                onChange={(e) => {
+                                    setCountry(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -96,19 +127,28 @@ export const Profile = () => {
                                 type="text"
                                 placeholder="Teléfono"
                                 className="form-control"
-                                value={dataUser.phone}
-                                disabled
+                                value={phone}
+                                onChange={(e) => {
+                                    setPhone(e.target.value);
+                                }}
                             />
                         </div>
                         <br />
                         <div className="pb-2">
-                            <Link to="/user/edit-profile">
+                            <button
+                                type="button"
+                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                onClick={handleEditUser}
+                            >
+                                Guardar Cambios
+                            </button>
+                            <Link to="/user/profile">
                                 <button
                                     type="button"
-                                    className="btn btn-warning w-100 font-weight-bold mt-2"
+                                    className="btn btn-danger w-100 font-weight-bold mt-2"
 
                                 >
-                                    Editar Informacion
+                                    Cancelar
                                 </button>
                             </Link>
                         </div>
@@ -119,4 +159,4 @@ export const Profile = () => {
     </>)
 }
 
-export default Profile;
+export default EditProfile;
