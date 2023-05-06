@@ -18,7 +18,7 @@ export const Contact = () => {
   https: return (
     <>
       <section
-        className="customer-says border border-warning rounded"
+        className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
         style={{
           backgroundImage: `url(${contactoManos})`,
           backgroundSize: "cover",

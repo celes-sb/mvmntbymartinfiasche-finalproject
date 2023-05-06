@@ -49,7 +49,7 @@ export const Individualizado = () => {
 
   https: return (
     <>
-      <div className="container-fluid p-5 mt-5 pt-3 border border-warning rounded" style={{
+      <div className="container-fluid p-5 mt-5 pt-5 border border-warning rounded" style={{
         backgroundImage: `url(${martinSquatPastoColor})`,
         backgroundSize: "100% auto",
         backgroundRepeat: "repeat-y",
@@ -60,34 +60,34 @@ export const Individualizado = () => {
             <h1 className="text pb-3">¿Te gustaría tener disponibilidad para elegir como moverte?</h1>
             <p className="text pb-3">Hay movimientos que requieren fuerza, movilidad y equilibrio, que probablemente quieras realizar<br />¡Entrenemos juntos para que tengas las herramientas necesarias para resolverlos!</p>
             <iframe className="embeddedVideo border border-warning" width="800" height="450" src="https://www.youtube.com/embed/387gIc7tLVo" title="Entrenamiento Individualizado" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            <h1 className="pt-5 pb-4">El proceso</h1>
+            <h1 className="pt-5 pb-4 text-start">El proceso</h1>
           </section >
           <div className="service1-2 d-flex mb-5">
             <section className="service-1 mt-5 pt-5">
               <div className="content-left">
-                <ul>
+                <ul className="list-unstyled text-start">
                   <li>
                     <div className="text">
                       <h3>Modus Operandi</h3>
-                      <p><i className="far fa-check-circle"></i> Hacemos una evaluación de movilidad, control motor y fuerza en función de tus intereses, objetivos, frecuencia de entrenamiento posible y materiales a disposición. Luego, elaboramos un plan detallado, te acompañamos en el proceso, y juntos, mes a mes, evaluamos los resultados.</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Hacemos una evaluación de movilidad, control motor y fuerza en función de tus intereses, objetivos, frecuencia de entrenamiento posible y materiales a disposición. Luego, elaboramos un plan detallado, te acompañamos en el proceso, y juntos, mes a mes, evaluamos los resultados.</p>
                     </div>
                   </li>
                   <li>
                     <div className="text">
                       <h3>Áreas de trabajo:</h3>
-                      <p><i className="far fa-check-circle"></i> Fuerza</p>
-                      <p><i className="far fa-check-circle"></i> Movilidad</p>
-                      <p><i className="far fa-check-circle"></i> Parada de Manos</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Fuerza</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Movilidad</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Parada de Manos</p>
                     </div>
                   </li>
                   <li>
                     <div className="text">
                       <h3>Contenido:</h3>
-                      <p><i className="far fa-check-circle"></i> Calendario de entrenamiento, rutinas diferenciadas, esquemas para progresar semana a semana y videos de demostración de cada ejercicio incluyendo entrada en calor.</p>
-                      <p><i className="far fa-check-circle"></i> 2 instancias de devolución de la ejecución de los ejercicios (semana 1 y semana 4)</p>
-                      <p><i className="far fa-check-circle"></i> Canal abierto de comunicación durante todo el mes: WhatsApp o mail para sacarte dudas en el día a día</p>
-                      <p><i className="far fa-check-circle"></i> Material de estudio adicional a la programación</p>
-                      <p><i className="far fa-check-circle"></i> Acceso a la plataforma de Discord donde podés conectar con otros alumnos que entrenan bajo este sistema.</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Calendario de entrenamiento, rutinas diferenciadas, esquemas para progresar semana a semana y videos de demostración de cada ejercicio incluyendo entrada en calor.</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> 2 instancias de devolución de la ejecución de los ejercicios (semana 1 y semana 4)</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Canal abierto de comunicación durante todo el mes: WhatsApp o mail para sacarte dudas en el día a día</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Material de estudio adicional a la programación</p>
+                      <p><i className="far fa-check-circle ms-2 ps-1"></i> Acceso a la plataforma de Discord donde podés conectar con otros alumnos que entrenan bajo este sistema.</p>
                     </div>
                   </li>
                 </ul>
@@ -134,13 +134,13 @@ export const Individualizado = () => {
               <strong> sin lesiones</strong> durante todo ese período.<br />
               Hoy en día seguimos trabajando juntos con nuevos proyectos.</p>
           </section>
-          <section className="service-4 bg-warning border border-warning text-left">
-            <h1 className="p-1 opacity-75 text-dark">Preguntas Frecuentes</h1>
+          <section className="service-4 p-2 bg-warning border border-warning text-start opacity-75">
+            <h1 className="p-1 text-dark">Preguntas Frecuentes</h1>
             <div className="accordion" id="accordionExample" ref={accordionRef}>
               <div className="card">
                 <div className="card-header border border-warning" id="headingOne">
                   <h5 className="mb-0">
-                    <button className="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                       ¿En qué consta el trabajo de fuerza?
                     </button>
                   </h5>
@@ -159,7 +159,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingTwo">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                       ¿Tengo que ser tan bueno como el chico del video?
                     </button>
                   </h5>
@@ -174,7 +174,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingThree">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                       ¿Necesito saber algo para trabajar parada de manos?
                     </button>
                   </h5>
@@ -190,7 +190,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingFour">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                       Mi movilidad es muy limitada... ¿puedo participar igual?
                     </button>
                   </h5>
@@ -205,7 +205,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingFive">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                       ¿Qué materiales necesito?
                     </button>
                   </h5>
@@ -222,7 +222,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingSix">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                       ¿Cuál es la frecuencia de entrenamiento?
                     </button>
                   </h5>
@@ -238,7 +238,7 @@ export const Individualizado = () => {
               <div className="card">
                 <div className="card-header border border-warning" id="headingSeven">
                   <h5 className="mb-0">
-                    <button className="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                    <button className="btn btn-link text-dark text-decoration-none" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
                       ¿Qué pasa si tengo alguna lesión preexistente?
                     </button>
                   </h5>
