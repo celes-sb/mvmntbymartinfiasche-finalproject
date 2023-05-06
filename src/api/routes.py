@@ -179,6 +179,12 @@ def logout():
 
     return jsonify({"message":"logout successfully"})
 
+@api.route('/user/<int:id>', methods=['GET'])
+def get_specific_user(id):
+    user = User.query.get(id)    
+  
+    return jsonify(user.serialize()), 200
+
 @api.route('/edituser/<int:user_id>', methods=['PUT'])
 @jwt_required()
 def edit_user(user_id):

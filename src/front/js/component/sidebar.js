@@ -80,7 +80,7 @@ export const Sidebar = () => {
                 <div className="dropdown dropup">
                     <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
-                        <strong>Martin Fiasche</strong>
+                        <strong>{store.userData.first_name} {store.userData.last_name}</strong>
                     </Link>
                     <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                         <li><Link className="dropdown-item" to="/user/profile">Perfil</Link></li>

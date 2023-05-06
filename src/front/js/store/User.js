@@ -1,6 +1,8 @@
-export const userStore = {
-  userLogin: false
+import jwt_decode from "jwt-decode";
 
+export const userStore = {
+  userLogin: false,
+  userData: {}
 }
 
 export function userActions(getStore, getActions, setStore) {
@@ -51,6 +53,7 @@ export function userActions(getStore, getActions, setStore) {
         sessionStorage.setItem("token", respuestaJson.token);
         let token = localStorage.getItem("token");
         setStore({ ...store, userLogin: true });
+        actions.getUserData();
       } else {
         console.log("login fallido");
         localStorage.setItem("token", "");
@@ -74,7 +77,55 @@ export function userActions(getStore, getActions, setStore) {
         localStorage.setItem("token", "");
         sessionStorage.setItem("token", "");
         setStore({ ...store, userLogin: false });
+        setStore({ ...store, userData: {} })
+
       }
+      return { respuestaJson, response };
+    },
+
+    getUserData: async () => {
+      let store = getStore();
+      let actions = getActions();
+      let body = ""
+
+      const token = localStorage.getItem("token");
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+
+      let { respuestaJson, response } = await actions.useFetch(
+        `/user/${userId}`,
+        body,
+        "GET"
+      );
+
+      if (response.ok) {
+        setStore({ ...store, userData: respuestaJson });
+      } else {
+        console.log("fetch fallido");
+      }
+
+      return { respuestaJson, response };
+    },
+
+    editUser: async (obj) => {
+      let store = getStore();
+      let actions = getActions();
+
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+
+      let { respuestaJson, response } = await actions.useFetch(
+        `/edituser/${userId}`,
+        obj,
+        "PUT"
+      );
+      if (response.ok) {
+        actions.getUserData()
+      }
+
       return { respuestaJson, response };
     },
   };
