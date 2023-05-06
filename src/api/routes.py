@@ -8,9 +8,11 @@ from api.db import db
 from api.user import User
 from .exercises import Exercises
 from .programs import Programs
+from .nutrition import Nutrition
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
+
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -424,4 +426,49 @@ def edit_programs(programs_id):
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
 
+@api.route('/newnutrition', methods=['POST'])
+def register_nutrition():
+    body = request.get_json()
+    name = body["name"]
+    
+    date = body["date"]
+    weight = body["weight"]
+    height = body["height"]
+    body_fat = body["body_fat"]
+    muscle_mass = body["muscle_mass"]
+    water_intake = body["water_intake"]
+    calories_intake = body["calories_intake"]
+    protein_intake = body["protein_intake"]
 
+    if body is None:
+        raise APIException("You need to specify the request body as a JSON object", status_code=400)
+    if "name" not in body:
+        raise APIException("You need to specify the name", status_code=400)  
+    
+    if "date" not in body:
+        raise APIException("You need to specify the date", status_code=400)
+    if "weight" not in body:
+        raise APIException("You need to specify the weight", status_code=400)
+    if "height" not in body:
+        raise APIException("You need to specify the height", status_code=400)
+    if "body_fat" not in body:
+        raise APIException("You need to specify the body fat", status_code=400)
+    if "muscle_mass" not in body:
+        raise APIException("You need to specify the muscle mass", status_code=400)
+    if "water_intake" not in body:
+        raise APIException("You need to specify the water intake", status_code=400)
+    if "calories_intake" not in body:
+        raise APIException("You need to specify the calories intake", status_code=400)
+    if "protein_intake" not in body:
+        raise APIException("You need to specify the protein intake", status_code=400)
+
+    new_nutrition = Nutrition.query.filter_by(name=name).first()
+    if new_nutrition is not None:
+        raise APIException("Nutrition data already exists for the given date", status_code=409)
+
+    new_nutrition = Nutrition(name=name,date=date,weight=weight,height=height,body_fat=body_fat,muscle_mass=muscle_mass,water_intake=water_intake,calories_intake=calories_intake,protein_intake=protein_intake)
+
+    db.session.add(new_nutrition)
+    db.session.commit()
+
+    return jsonify({"msg": "Nutrition data successfully created"}), 201
