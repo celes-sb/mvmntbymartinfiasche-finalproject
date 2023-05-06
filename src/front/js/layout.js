@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import { Navigate } from "react-router-dom";
-
 import { Navbar } from "./component/navbar";
 import { Sidebar } from "./component/sidebar"
 import { Home } from "./pages/home";
@@ -28,6 +27,9 @@ import { Profile } from "./pages/profile.jsx";
 import { Settings } from "./pages/settings.jsx";
 import { Measures } from "./pages/measures.jsx";
 import { EmergencyContact } from "./pages/emergencyContact.jsx";
+import { PaymentMethod } from "./pages/paymentMethod.jsx";
+import { Twofa } from "./pages/twofa.jsx";
+import { Preferences } from "./pages/preferences.jsx";
 import { UserLayout } from "./pages/userLayout"
 
 //create your first component
@@ -64,6 +66,9 @@ const Layout = () => {
             <Route element={<UserLayout><Settings /></UserLayout>} path="/user/settings" />
             <Route element={<UserLayout><Measures /></UserLayout>} path="/user/measures" />
             <Route element={<UserLayout><EmergencyContact /></UserLayout>} path="/user/emergency-contact" />
+            <Route element={<UserLayout><PaymentMethod /></UserLayout>} path="/user/payment-method" />
+            <Route element={<UserLayout><Twofa /></UserLayout>} path="/user/twofa" />
+            <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
           </Routes>
           <Footer />
         </ScrollToTop>
@@ -73,8 +78,3 @@ const Layout = () => {
 };
 
 export default injectContext(Layout);
-
-/*
-
-
-*/

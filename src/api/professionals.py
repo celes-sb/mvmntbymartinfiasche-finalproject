@@ -3,7 +3,7 @@ from .db import db
 
 #en general serializar lo que esta como nullable false.. if in doubt, slack
 
-class papers(db.Model):
+class Professionals(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=False, nullable=False)
     last_name = db.Column(db.String(50), unique=False, nullable=False)
