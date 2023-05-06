@@ -302,6 +302,11 @@
   cursor: pointer;
 }
 
+.mvmt-content {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
+}
+
 .contact-us .contact-us-content {
   display: flex;
   align-items: center;
@@ -588,6 +593,7 @@ footer .footer-content .social-media h4 {
     grid-row-start: 20;
     grid-row-end: 34;
   }
+
   .customer-says .customer-says-content .bottom .middle p {
     width: 66.4%;
   }

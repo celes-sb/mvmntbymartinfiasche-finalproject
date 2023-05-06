@@ -34,7 +34,7 @@ export const Testimonios = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="customer-says-content bg-white bg-opacity-75 rounded p-5 m-3">
+        <div className="customer-says-content bg-white bg-opacity-75 rounded border border-warning p-5 m-3">
           <div className="top">
             <h2>Lo que dicen mis alumnos</h2>
           </div>

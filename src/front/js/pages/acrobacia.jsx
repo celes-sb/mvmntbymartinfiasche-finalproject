@@ -10,8 +10,7 @@ export const Acrobacia = () => {
 
   return (
     <>
-      <section
-        className="acrobacia border border-warning rounded mt-5 pt-5"
+      <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
         style={{
           backgroundImage: `url(${martinPastoPuente})`,
           backgroundSize: "cover",
@@ -23,14 +22,14 @@ export const Acrobacia = () => {
             Para facilitar el entrenamiento a personas de todos los niveles.</p>
           <section className="acrobacia-0 d-flex justify-content-center align-items-center">
           </section>
-          <section className="acrobacia-1 d-flex p-5">
+          <section className="acrobacia-1 d-flex p-5 m-5">
             <iframe className="embeddedVideo border border-warning" width="450" height="450" src={videoAcrobacia} title="Entrenamiento Individualizado" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
             <div className="acrobacia1-right col-md-6 bg-light text-dark p-5 pb-0 text-left border border-warning">
-              <div className="row opacity-75">
-                <div className="col-12">
+              <div className="row">
+                <div className="col-12 text-dark">
                   <h4 className="acrobacia1-titulo w-100">Algunos de los aspectos incluídos en las clases:⁣</h4>
                 </div>
-                <div className="col-12">
+                <div className="col-12 text-dark">
                   <p><i className="fas fa-running"></i> Herramientas para acrobacias blandas</p>
                   <p><i className="fas fa-running"></i> Disponibilidad de las articulaciones – Inteligencia de movimiento⁣</p>
                   <p><i className="fas fa-running"></i> Elementos de Locomoción para integrar Acrobacias⁣</p>

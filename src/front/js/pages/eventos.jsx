@@ -2,73 +2,68 @@ import React, { Component } from "react";
 //import { Context } from "../store/appContext";
 
 export const Eventos = () => {
+
+  const martinSquatPastoColor =
+    "http://drive.google.com/uc?export=view&id=1-lc60dKkD4CxJ8L1sLK_iJ4JckELH5dq";
+  const bgMartinAlumnos =
+    "http://drive.google.com/uc?export=view&id=1y_K-WHHqOXsBjOufW2NmknJ4CZTNcQP7";
+
   return (
     <>
-      <div className="container-fluid ps-0 pt-5 mt-5">
-        <h1>
-          Esta vista hay que diseñarla porque no existe en la página original
-        </h1>
-        <p>
-          Martin hace capacitaciones para otros gyms/escuelas/etc hace
-          encuentros trismestrales y bimestrales para sus alumnos online hace
-          jornadas de acrobacia normalmente anuales trae invitados de otras
-          escuelas de movimientos del exterior conecta con otros profesionales
-          en buenos aires etc... Armar algun calendario? tal vez traerlo de
-          google calendar? para PENSAR....
-        </p>
+      <div className="container-fluid p-5 mt-5 pt-5 border border-warning rounded" style={{
+        backgroundImage: `url(${bgMartinAlumnos})`,
+        backgroundSize: "100% 100%",
+      }}>
+        <section className="our-team bg-white bg-opacity-75 p-5 border border-warning rounded">
+          <div className="container">
+            <div className="our-team-content">
+              <div className="text-content">
+                <h2>Eventos pasados</h2>
+              </div>
+              <div className="team">
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 1</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 2</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 3</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 4</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 5</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+                <div className="person">
+                  <img src={martinSquatPastoColor} alt="" />
+                  <p className="p-1">Evento 6</p>
+                  <h3>Evento</h3>
+                  <p className="p-2">Info Evento</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
 };
 
 export default Eventos;
-
-/*
-<section className="our-team">
-          <div className="container">
-            <div className="our-team-content">
-              <div className="text-content">
-                <h2>Our Awesome Team</h2>
-              </div>
-              <div className="team">
-                <div className="person">
-                  <img src={shooTharMien} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Martin Fiasche</h3>
-                  <p className="p-2">Fundador</p>
-                </div>
-                <div className="person">
-                  <img src={shooPratMhan} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Celeste Bareiro</h3>
-                  <p className="p-2">Frontend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooYhanTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>David Bravo</h3>
-                  <p className="p-2">Frontend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooBroTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Juan Pinto</h3>
-                  <p className="p-2">Backend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooMharNo} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Sebastian Bonilla</h3>
-                  <p className="p-2">Backend Developer</p>
-                </div>
-                <div className="person">
-                  <img src={shooMhanTho} alt="" />
-                  <p className="p-1">Hi! My Name</p>
-                  <h3>Más Equipo</h3>
-                  <p className="p-2">Creative Director</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        */
