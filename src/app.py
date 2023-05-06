@@ -12,7 +12,7 @@ from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
 from api.extensions import jwt, bcrypt
-
+from api.user import User
 #from models import Person
 
 ENV = os.getenv("FLASK_ENV")
@@ -29,6 +29,7 @@ bcrypt.init_app(app)
 app.url_map.strict_slashes = False
 
 
+
 # database condiguration
 db_url = os.getenv("DATABASE_URL")
 if db_url is not None:
@@ -39,7 +40,8 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type = True)
 db.init_app(app)
-
+with app.app_context():
+        db.create_all()
 # Allow CORS requests to this API
 CORS(app)
 
@@ -53,8 +55,6 @@ setup_commands(app)
 app.register_blueprint(api, url_prefix='/api')
 
 
-
-
 # Handle/serialize errors like a JSON object
 @app.errorhandler(APIException)
 def handle_invalid_usage(error):
@@ -66,6 +66,24 @@ def sitemap():
     if ENV == "development":
         return generate_sitemap(app)
     return send_from_directory(static_file_dir, 'index.html')
+
+@app.route('/register', methods=['POST'])
+def register_user():
+    body=request.get_json()
+    email=body["email"]
+    name=body["name"]
+    password=body["password"]
+    is_active=body["is_active"]
+    if body is None:
+        raise APIException("You nned to specify the request body as json object", status_code=400)
+    if "email" not in body:
+        raise APIException("specify the email", status_code=400)
+    new_user=User(email=email, name=name, password=password, is_active=is_active)
+    db.session.add(new_user)
+    db.session.commit()
+      
+    return jsonify({"mensaje":"Usuario creado"}), 201
+
 
 # any other endpoint will try to serve it like a static file
 @app.route('/<path:path>', methods=['GET'])
