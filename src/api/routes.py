@@ -264,6 +264,46 @@ def get_user():
     users=list(map(lambda item: item.serialize(), users))
     return jsonify(users)
 
+@api.route('/newexercises', methods=['POST'])
+def register_exercise():
+    body = request.get_json()
+   
+    name = body["name"]
+    
+    category = body["category"]
+    url_youtube = body["url_youtube"]
+    description = body["description"]
+    cover = body["cover"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as a JSON object", status_code=400)
+      
+    
+    if "name" not in body:
+        raise APIException("You need to specify the name", status_code=400)
+    if "category" not in body:
+        raise APIException("You need to specify the category", status_code=400)
+    if "url_youtube" not in body:
+        raise APIException("You need to specify the youtube url", status_code=400)
+    if "description" not in body:
+        raise APIException("You need to specify the description", status_code=400)
+    if "cover" not in body:
+        raise APIException("You need to specify the cover", status_code=400)
+
+    new_exercise = Exercises.query.filter_by(name=name).first()
+    if new_exercise is not None:
+        raise APIException("Exercise already exists", status_code=409)
+
+    new_exercise = Exercises( name=name, category=category, url_youtube=url_youtube, description=description, cover=cover)
+
+    db.session.add(new_exercise)
+    db.session.commit()
+
+    return jsonify({"msg": "Exercise successfully created"}), 201
+
+
+
+
 @api.route('/getexercises', methods=['Get'])
 def get_exercises():
     body = request.get_json()
