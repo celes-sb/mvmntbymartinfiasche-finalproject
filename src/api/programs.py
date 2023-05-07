@@ -6,7 +6,6 @@ from .db import db
 class Programs(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=True)
-    excercise_id = db.Column(db.Integer, db.ForeignKey('exercises.id'), nullable=True)
     program_name = db.Column(db.String(50), unique=False, nullable=False)
     day = db.Column(db.String(50), unique=False, nullable=False)
     category = db.Column(db.String(50), unique=False, nullable=False)
@@ -23,6 +22,7 @@ class Programs(db.Model):
         return {
             "id": self.id,
             "user_id": self.user_id,
+            "program_name": self.program_name,
             "day": self.day,
             "category": self.category,
             "exercise_number": self.exercise_number,
