@@ -8,6 +8,7 @@ from api.db import db
 from api.user import User
 from .exercises import Exercises
 from .programs import Programs
+from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
@@ -415,4 +416,26 @@ def edit_programs(programs_id):
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
 
+@api.route('/programorganizer', methods=['POST'])
+def program_organizer():
+    body = request.get_json()
+    program_id = body["program_id"]
+    exercise_id = body["exercise_id"]
 
+    program = Programs.query.get(program_id)
+    if not program:
+        raise APIException('program not found', status_code=404)
+    
+    exercise = Exercises.query.get(exercise_id)
+    if not exercise:
+        raise APIException('exercise not found', status_code=404)
+    
+
+    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id)
+    db.session.add(organized_program)
+    db.session.commit()
+
+    return jsonify({
+        "program_name":organized_program.serialize()["program_name"],
+        "exercise_name": organized_program.serialize()["exercise_name"]
+    }), 201
