@@ -75,7 +75,7 @@ export const Navbar = () => {
 
             </div>
           ) : (<>
-            <h1>Bienvenid@, usuario</h1>
+            <h1>Bienvenid@, {store.userData.first_name}</h1>
             <div>
               <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
               }>Cerrar Sesión</button>

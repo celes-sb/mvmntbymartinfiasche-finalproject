@@ -180,6 +180,12 @@ def logout():
 
     return jsonify({"message":"logout successfully"})
 
+@api.route('/user/<int:id>', methods=['GET'])
+def get_specific_user(id):
+    user = User.query.get(id)    
+  
+    return jsonify(user.serialize()), 200
+
 @api.route('/edituser/<int:user_id>', methods=['PUT'])
 @jwt_required()
 def edit_user(user_id):
@@ -210,7 +216,7 @@ def handle_email():
 
     return jsonify({"message":"message sent"}), 200
 
-@api.route('/getuser', methods=['Get'])
+@api.route('/getuser', methods=['GET'])
 def get_user():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -264,7 +270,42 @@ def get_user():
     users=list(map(lambda item: item.serialize(), users))
     return jsonify(users)
 
-@api.route('/getexercises', methods=['Get'])
+@api.route('/newexercises', methods=['POST'])
+def register_exercise():
+    body = request.get_json()
+    name = body["name"]
+    category = body["category"]
+    url_youtube = body["url_youtube"]
+    description = body["description"]
+    cover = body["cover"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as a JSON object", status_code=400)
+      
+    
+    if "name" not in body:
+        raise APIException("You need to specify the name", status_code=400)
+    if "category" not in body:
+        raise APIException("You need to specify the category", status_code=400)
+    if "url_youtube" not in body:
+        raise APIException("You need to specify the youtube url", status_code=400)
+    if "description" not in body:
+        raise APIException("You need to specify the description", status_code=400)
+    if "cover" not in body:
+        raise APIException("You need to specify the cover", status_code=400)
+
+    new_exercise = Exercises.query.filter_by(name=name).first()
+    if new_exercise is not None:
+        raise APIException("Exercise already exists", status_code=409)
+
+    new_exercise = Exercises( name=name, category=category, url_youtube=url_youtube, description=description, cover=cover)
+
+    db.session.add(new_exercise)
+    db.session.commit()
+
+    return jsonify({"msg": "Exercise successfully created"}), 201
+
+@api.route('/getexercises', methods=['GET'])
 def get_exercises():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -307,8 +348,6 @@ def register_program():
     sets = body["sets"]
     repetitions = body["repetitions"]
     rest_time = body["rest_time"]
-    creation_date = body["creation_date"]
-    date_finished = body["date_finished"]
 
     if body is None:
         raise APIException("You need to specify the request body as json object", status_code=400)
@@ -330,10 +369,6 @@ def register_program():
         raise APIException("You need to specify the repetitions", status_code=400)
     if "rest_time" not in body:
         raise APIException("You need to specify the rest_time", status_code=400)
-    if "creation_date" not in body:
-        raise APIException("You need to specify the creation date", status_code=400)
-    if "date_finished" not in body:
-        raise APIException("You need to specify the date finished", status_code=400)
     
     program = Programs.query.filter_by(program_name=program_name).first()
     if program is not None:
@@ -341,18 +376,14 @@ def register_program():
     
     current_date = datetime.utcnow()
     
-    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date, date_finished=date_finished)
+    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date)
 
     db.session.add(new_program)
     db.session.commit()
 
     return jsonify({"msg":"Program successfully created"}), 201
 
-
-
-
-
-@api.route('/getprograms', methods=['Get'])
+@api.route('/getprograms', methods=['GET'])
 def get_programs():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
