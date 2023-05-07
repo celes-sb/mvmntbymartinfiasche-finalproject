@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signup } from "../pages/signup.jsx";
-import logoMartin from "../../images/Logo-martin.png";
 import { Navigate } from "react-router-dom";
 
-
-
 export const Sidebar = () => {
+
+    const logoMartin =
+        "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
+    
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Inicio");
     const navigate = useNavigate();
