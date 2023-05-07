@@ -22,38 +22,32 @@ export const Eventos = () => {
               </div>
               <div className="team">
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 1</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 2</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 3</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 4</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 5</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>
                 <div className="person">
-                  <img src={martinSquatPastoColor} alt="" />
-                  <p className="p-1">Evento 6</p>
+                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
                   <h3>Evento</h3>
                   <p className="p-2">Info Evento</p>
                 </div>

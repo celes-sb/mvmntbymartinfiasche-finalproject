@@ -28,7 +28,7 @@ export const Testimonios = () => {
   return (
     <>
       <section
-        className="customer-says border border-warning rounded mt-5 p-5"
+        className="customer-says border border-warning rounded mt-5 p-5 mb-0"
         style={{
           backgroundImage: `url(${grupoTestimoniosColor})`,
           backgroundSize: "cover",
