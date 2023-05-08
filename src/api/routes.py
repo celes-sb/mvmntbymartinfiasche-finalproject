@@ -222,22 +222,21 @@ def handle_email():
 
 @api.route('/getuser', methods=['GET'])
 def get_user():
-    body = request.get_json()
-    id = body ["id"] if 'id' in body else None
-    email = body ["email"] if 'email' in body else None
-    username = body["username"] if 'username' in body else None
-    first_name = body["first_name"] if 'first_name' in body else None
-    last_name = body["last_name"] if 'last_name' in body else None
-    phone = body["phone"] if 'phone' in body else None
-    country = body["country"] if 'country' in body else None
-    creation_date = body["creation_date"] if 'creation_date' in body else None
-    height = body["height"] if 'height' in body else None
-    weight = body["weight"] if 'weight' in body else None
-    level_training = body["level_training"] if 'level_training' in body else None
-    injuries = body["injuries"] if 'injuries' in body else None
-    availability = body["availability"] if 'availability' in body else None
-    numeric_preference = body["numeric_preference"] if 'numeric_preference' in body else None
-    access_gym = body["access_gym"] if 'access_gym' in body else None
+    id = request.args.get('id')
+    email = request.args.get('email')
+    username = request.args.get('username')
+    first_name = request.args.get('first_name')
+    last_name = request.args.get('last_name')
+    phone = request.args.get('phone')
+    country = request.args.get('country')
+    creation_date = request.args.get('creation_date')
+    height = request.args.get('height')
+    weight = request.args.get('weight')
+    level_training = request.args.get('level_training')
+    injuries = request.args.get('injuries')
+    availability = request.args.get('availability')
+    numeric_preference = request.args.get('numeric_preference')
+    access_gym = request.args.get('access_gym')
     users = User.query
     if id:
         users = users.filter_by(id=id)
@@ -273,6 +272,7 @@ def get_user():
     print(users)
     users=list(map(lambda item: item.serialize(), users))
     return jsonify(users)
+
 
 @api.route('/newexercises', methods=['POST'])
 def register_exercise():
@@ -345,13 +345,7 @@ def register_program():
     body = request.get_json()
     program_name = body["program_name"]
     user_id = body["user_id"]
-    day = body["day"]
     category = body["category"]
-    exercise_number = body["exercise_number"]
-    load = body["load"]
-    sets = body["sets"]
-    repetitions = body["repetitions"]
-    rest_time = body["rest_time"]
 
     if body is None:
         raise APIException("You need to specify the request body as json object", status_code=400)
@@ -359,20 +353,8 @@ def register_program():
         raise APIException("You need to specify the program name", status_code=400)
     if "user_id" not in body:
         raise APIException("You need to specify the user id", status_code=400)
-    if "day" not in body:
-        raise APIException("You need to specify the day", status_code=400)
     if "category" not in body:
         raise APIException("You need to specify the category", status_code=400)
-    if "exercise_number" not in body:
-        raise APIException("You need to specify the exercise number", status_code=400)
-    if "load" not in body:
-        raise APIException("You need to specify the load", status_code=400)
-    if "sets" not in body:
-        raise APIException("You need to specify the sets", status_code=400)
-    if "repetitions" not in body:
-        raise APIException("You need to specify the repetitions", status_code=400)
-    if "rest_time" not in body:
-        raise APIException("You need to specify the rest_time", status_code=400)
     
     program = Programs.query.filter_by(program_name=program_name).first()
     if program is not None:
@@ -380,31 +362,29 @@ def register_program():
     
     current_date = datetime.utcnow()
     
-    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date)
+    new_program = Programs(program_name=program_name, user_id=user_id, category=category, creation_date=current_date)
 
     db.session.add(new_program)
     db.session.commit()
 
     return jsonify({"msg":"Program successfully created"}), 201
 
-@api.route('/getprograms', methods=['GET'])
+@api.route('/getprograms')
 def get_programs():
-    body = request.get_json()
-    id = body ["id"] if 'id' in body else None
-    day = body ["day"] if 'day' in body else None
-    category = body["category"] if 'category' in body else None
+    user_id = request.args.get("user_id")
+    day = request.args.get("day")
+    category = request.args.get("category")
     
-    Program = Programs.query
-    if id:
-        Program = Program.filter_by(id=id)
+    programs = Programs.query.filter_by(user_id=user_id)
     if day:
-        Program = Program.filter_by(day=day)
+        programs = programs.filter_by(day=day)
     if category:
-        Program = Program.filter_by(category=category)
-    Program = Program.all()
-    print(Program)
-    Program=list(map(lambda item: item.serialize(), Program))
-    return jsonify(Program)
+        programs = programs.filter_by(category=category)
+    programs = programs.all()
+    print(programs)
+    programs = list(map(lambda item: item.serialize(), programs))
+    return jsonify(programs)
+
 
 
 @api.route('/editprograms/<int:programs_id>', methods=['PUT'])
@@ -424,6 +404,12 @@ def program_organizer():
     body = request.get_json()
     program_id = body["program_id"]
     exercise_id = body["exercise_id"]
+    day = body["day"]
+    session = body["session"]
+    weight = body["weight"]
+    repetitions = body["repetitions"]
+    series = body["series"]
+    type = body["type"]
 
     program = Programs.query.get(program_id)
     if not program:
@@ -432,16 +418,81 @@ def program_organizer():
     exercise = Exercises.query.get(exercise_id)
     if not exercise:
         raise APIException('exercise not found', status_code=404)
+
+    if "day" not in body:
+        raise APIException("You need to specify the day", status_code=400)
+    if "weight" not in body:
+        raise APIException("You need to specify the weight", status_code=400)
+    if "repetitions" not in body:
+        raise APIException("You need to specify the repetitions", status_code=400)
+    if "series" not in body:
+        raise APIException("You need to specify the series", status_code=400)
+    if "type" not in body:
+        raise APIException("You need to specify the type", status_code=400)
+    if "session" not in body:
+        raise APIException("You need to specify the session", status_code=400)
     
 
-    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id)
+    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id, weight=weight, repetitions=repetitions, day=day, series=series, type=type, session=session)
     db.session.add(organized_program)
     db.session.commit()
 
     return jsonify({
         "program_name":organized_program.serialize()["program_name"],
-        "exercise_name": organized_program.serialize()["exercise_name"]
+        "exercise_name": organized_program.serialize()["exercise_name"],
+        "day": organized_program.serialize()["day"],
+        "session": organized_program.serialize()["session"],
+        "weight": organized_program.serialize()["weight"],
+        "repetitions": organized_program.serialize()["repetitions"],
+        "series": organized_program.serialize()["series"],
+        "type": organized_program.serialize()["type"]
     }), 201
+
+@api.route('/getorganizedprograms/<int:user_id>', methods=['GET'])
+def get_organized_programs(user_id):
+    programs = Programs.query.filter_by(user_id=user_id).all()
+    organized_programs = {}
+
+    for program in programs:
+        program_name = program.program_name
+
+        if program_name not in organized_programs:
+            organized_programs[program_name] = {}
+
+        program_organizer = ProgramOrganizer.query.filter_by(program_id=program.id).all()
+
+        for po in program_organizer:
+            day_key = f"Day {po.day}"
+            session_key = f"Session {po.session}"
+
+            if day_key not in organized_programs[program_name]:
+                organized_programs[program_name][day_key] = {
+                    "workout": {},
+                    "sessions": {}
+                }
+
+            exercise_data = {
+                "type": po.type,
+                "exercise_name": Exercises.query.get(po.exercise_id).name,
+                "url_youtube": Exercises.query.get(po.exercise_id).url_youtube,
+                "description": Exercises.query.get(po.exercise_id).description,
+            }
+
+            if po.type not in organized_programs[program_name][day_key]["workout"]:
+                organized_programs[program_name][day_key]["workout"][po.type] = exercise_data
+
+            if session_key not in organized_programs[program_name][day_key]["sessions"]:
+                organized_programs[program_name][day_key]["sessions"][session_key] = []
+
+            session_data = {
+                "type": po.type,
+                "weight": po.weight,
+                "repetitions": po.repetitions,
+                "series": po.series,
+            }
+            organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
+
+    return jsonify(organized_programs), 200
 
 @api.route('/newnutrition', methods=['POST'])
 def create_new_nutrition():

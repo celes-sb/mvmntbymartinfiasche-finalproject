@@ -8,7 +8,7 @@ export const Sidebar = () => {
 
     const logoMartin =
         "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
-    
+
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Inicio");
     const navigate = useNavigate();
@@ -47,6 +47,12 @@ export const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/user/diagnostico" className={linkClass("Diagnostico")} onClick={() => handleClick("Diagnostico")}>
+                            <i className="fas fa-home"></i>
+                            <span className="ms-3">Diagnóstico inicial</span>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/user/programs" className={linkClass("Programas")} onClick={() => handleClick("Programas")}>
                             <i className="fas fa-dumbbell"></i>
                             <span className="ms-3">Programas</span>
@@ -55,7 +61,7 @@ export const Sidebar = () => {
                     <li>
                         <Link to="/user/orders" className={linkClass("Ordenes")} onClick={() => handleClick("Ordenes")}>
                             <i className="fas fa-file-invoice"></i>
-                            <span className="ms-3">Ordenes</span>
+                            <span className="ms-3">Pagos</span>
                         </Link>
                     </li>
                     <li>
