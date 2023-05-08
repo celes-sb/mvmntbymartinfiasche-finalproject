@@ -20,6 +20,7 @@ import injectContext from "./store/appContext";
 import { Login } from "./pages/login";
 import { Backoffice } from "./pages/backoffice.jsx";
 import { Programs } from "./pages/programs.jsx";
+import { Diagnostico } from "./pages/diagnostico.jsx";
 import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
 import { Papers } from "./pages/papers.jsx";
@@ -59,6 +60,7 @@ const Layout = () => {
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
+            <Route element={<UserLayout><Diagnostico /></UserLayout>} path="/user/diagnostico" />
             <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />
             <Route element={<UserLayout><Orders /></UserLayout>} path="/user/orders" />
             <Route element={<UserLayout><Nutrition /></UserLayout>} path="/user/nutrition" />
