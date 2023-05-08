@@ -1,7 +1,10 @@
-import React, { Component, useState } from "react";
-//import { Context } from "../store/appContext";
+import React, { useState, useEffect, useContext, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Contact = () => {
+  const { store, actions } = useContext(Context);
+
   const alumnoPalos =
     "http://drive.google.com/uc?export=view&id=1uoqtCrQmFyAN2uHUzNR83d1APTfghA2z";
 

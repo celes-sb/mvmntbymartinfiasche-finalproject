@@ -26,11 +26,13 @@ export const Signup = (props) => {
     const response = await actions.signup(name, lastname, username, email, password, phone, country, gender); // call register action
     console.log(response)
     if (response.ok) {
-      navigate("/login");
-      const btn = document.querySelector("button[type='submit']");
+      const btn = document.getElementById("signupButton");
       btn.classList.remove("btn-primary");
       btn.classList.add("btn-success");
       btn.textContent = "¡Cuenta creada con éxito!";
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     }
   };
 
@@ -142,6 +144,7 @@ export const Signup = (props) => {
                       </div>
                       <div className="pb-2">
                         <button
+                          id="signupButton"
                           type="button"
                           className="btn btn-primary w-100 font-weight-bold mt-2"
                           onClick={handleRegister}

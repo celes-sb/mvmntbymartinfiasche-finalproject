@@ -2,7 +2,10 @@ import jwt_decode from "jwt-decode";
 
 export const userStore = {
   userLogin: false,
-  userData: {}
+  userData: {
+    first_name: "",
+    last_name: ""
+  }
 }
 
 export function userActions(getStore, getActions, setStore) {
