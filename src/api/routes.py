@@ -8,9 +8,13 @@ from api.db import db
 from api.user import User
 from .exercises import Exercises
 from .programs import Programs
+from .nutrition import Nutrition
+from .papers import Papers
+from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
+
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -180,6 +184,12 @@ def logout():
 
     return jsonify({"message":"logout successfully"})
 
+@api.route('/user/<int:id>', methods=['GET'])
+def get_specific_user(id):
+    user = User.query.get(id)    
+  
+    return jsonify(user.serialize()), 200
+
 @api.route('/edituser/<int:user_id>', methods=['PUT'])
 @jwt_required()
 def edit_user(user_id):
@@ -210,7 +220,7 @@ def handle_email():
 
     return jsonify({"message":"message sent"}), 200
 
-@api.route('/getuser', methods=['Get'])
+@api.route('/getuser', methods=['GET'])
 def get_user():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -264,7 +274,42 @@ def get_user():
     users=list(map(lambda item: item.serialize(), users))
     return jsonify(users)
 
-@api.route('/getexercises', methods=['Get'])
+@api.route('/newexercises', methods=['POST'])
+def register_exercise():
+    body = request.get_json()
+    name = body["name"]
+    category = body["category"]
+    url_youtube = body["url_youtube"]
+    description = body["description"]
+    cover = body["cover"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as a JSON object", status_code=400)
+      
+    
+    if "name" not in body:
+        raise APIException("You need to specify the name", status_code=400)
+    if "category" not in body:
+        raise APIException("You need to specify the category", status_code=400)
+    if "url_youtube" not in body:
+        raise APIException("You need to specify the youtube url", status_code=400)
+    if "description" not in body:
+        raise APIException("You need to specify the description", status_code=400)
+    if "cover" not in body:
+        raise APIException("You need to specify the cover", status_code=400)
+
+    new_exercise = Exercises.query.filter_by(name=name).first()
+    if new_exercise is not None:
+        raise APIException("Exercise already exists", status_code=409)
+
+    new_exercise = Exercises( name=name, category=category, url_youtube=url_youtube, description=description, cover=cover)
+
+    db.session.add(new_exercise)
+    db.session.commit()
+
+    return jsonify({"msg": "Exercise successfully created"}), 201
+
+@api.route('/getexercises', methods=['GET'])
 def get_exercises():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -282,7 +327,67 @@ def get_exercises():
     exercise=list(map(lambda item: item.serialize(), exercise))
     return jsonify(exercise)
 
-@api.route('/getprograms', methods=['Get'])
+@api.route('/editexercises/<int:exercises_id>', methods=['PUT'])
+def edit_exercises(exercises_id):
+    body = json.loads(request.data)
+    exercise = Exercises.query.filter_by(id=exercises_id).first()
+    if exercise is None:
+        raise APIException("EXERCISE NOT FOUND", status_code=409)
+    for key in body:
+        for col in exercise.serialize():
+            if key == col and key != "id":
+                setattr(exercise, col, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Exercise modified correctly"}), 201    
+
+@api.route('/newprogram', methods=['POST'])
+def register_program():
+    body = request.get_json()
+    program_name = body["program_name"]
+    user_id = body["user_id"]
+    day = body["day"]
+    category = body["category"]
+    exercise_number = body["exercise_number"]
+    load = body["load"]
+    sets = body["sets"]
+    repetitions = body["repetitions"]
+    rest_time = body["rest_time"]
+
+    if body is None:
+        raise APIException("You need to specify the request body as json object", status_code=400)
+    if "program_name" not in body:
+        raise APIException("You need to specify the program name", status_code=400)
+    if "user_id" not in body:
+        raise APIException("You need to specify the user id", status_code=400)
+    if "day" not in body:
+        raise APIException("You need to specify the day", status_code=400)
+    if "category" not in body:
+        raise APIException("You need to specify the category", status_code=400)
+    if "exercise_number" not in body:
+        raise APIException("You need to specify the exercise number", status_code=400)
+    if "load" not in body:
+        raise APIException("You need to specify the load", status_code=400)
+    if "sets" not in body:
+        raise APIException("You need to specify the sets", status_code=400)
+    if "repetitions" not in body:
+        raise APIException("You need to specify the repetitions", status_code=400)
+    if "rest_time" not in body:
+        raise APIException("You need to specify the rest_time", status_code=400)
+    
+    program = Programs.query.filter_by(program_name=program_name).first()
+    if program is not None:
+        raise APIException("Program already exists", status_code=409)
+    
+    current_date = datetime.utcnow()
+    
+    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date)
+
+    db.session.add(new_program)
+    db.session.commit()
+
+    return jsonify({"msg":"Program successfully created"}), 201
+
+@api.route('/getprograms', methods=['GET'])
 def get_programs():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -300,3 +405,147 @@ def get_programs():
     print(Program)
     Program=list(map(lambda item: item.serialize(), Program))
     return jsonify(Program)
+
+
+@api.route('/editprograms/<int:programs_id>', methods=['PUT'])
+def edit_programs(programs_id):
+    body = json.loads(request.data)
+    program = Programs.query.filter_by(id=programs_id).first()
+    if program is None:
+        raise APIException("PROGRAM NOT FOUND", status_code=409)
+    for key in body:
+        if hasattr(program, key):
+            setattr(program, key, body[key])
+    db.session.commit()
+    return jsonify({"msg": "Program modified correctly"}), 201
+
+@api.route('/programorganizer', methods=['POST'])
+def program_organizer():
+    body = request.get_json()
+    program_id = body["program_id"]
+    exercise_id = body["exercise_id"]
+
+    program = Programs.query.get(program_id)
+    if not program:
+        raise APIException('program not found', status_code=404)
+    
+    exercise = Exercises.query.get(exercise_id)
+    if not exercise:
+        raise APIException('exercise not found', status_code=404)
+    
+
+    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id)
+    db.session.add(organized_program)
+    db.session.commit()
+
+    return jsonify({
+        "program_name":organized_program.serialize()["program_name"],
+        "exercise_name": organized_program.serialize()["exercise_name"]
+    }), 201
+
+@api.route('/newnutrition', methods=['POST'])
+def create_new_nutrition():
+    body = request.get_json()
+
+    if body is None:
+        return jsonify({"error": "You need to specify the request body as a JSON object"}), 400
+
+    required_fields = ["name", "date", "weight", "height", "body_fat", "muscle_mass", "water_intake", "calories_intake", "protein_intake"]
+    for field in required_fields:
+        if field not in body:
+            return jsonify({"error": f"You need to specify the '{field}' field"}), 400
+
+    name = body["name"]
+    date = body["date"]
+    weight = body["weight"]
+    height = body["height"]
+    body_fat = body["body_fat"]
+    muscle_mass = body["muscle_mass"]
+    water_intake = body["water_intake"]
+    calories_intake = body["calories_intake"]
+    protein_intake = body["protein_intake"]
+
+    # Create a new Nutrition object
+    new_nutrition = Nutrition(
+        name=name,
+        date=date,
+        weight=weight,
+        height=height,
+        body_fat=body_fat,
+        muscle_mass=muscle_mass,
+        water_intake=water_intake,
+        calories_intake=calories_intake,
+        protein_intake=protein_intake
+    )
+
+    
+    db.session.add(new_nutrition)
+    db.session.commit()
+
+    return jsonify({"msg": "Nutrition created successfully"}), 201
+
+
+
+
+
+
+
+@api.route('/deletenutrition', methods=['DELETE'])
+def delete_specific_nutrition():
+    body = request.get_json()   
+    nutrition_id = body["id"]
+
+    nutrition = Nutrition.query.get(nutrition_id)
+
+    if nutrition is None:
+        return jsonify({"error": "Nutrition not found"}), 404
+
+    db.session.delete(nutrition)
+    db.session.commit()  
+  
+    return jsonify({"msg": "Nutrition deleted"}), 200
+
+@api.route('/newpaper', methods=['POST'])
+def register_paper():
+    body = request.get_json()
+    name= body["name"]
+    url = body["url"]
+    description =body["description"]
+  
+    if body is None:
+        raise APIException("You need to specify the request body as json object", status_code=400)
+    if "name" not in body:
+        raise APIException("You need to specify the  name", status_code=400)
+    if "url" not in body:
+        raise APIException("You need to specify the user url", status_code=400)
+    if "description" not in body:
+        raise APIException("You need to specify the description", status_code=400)
+  
+    
+    paper = Papers.query.filter_by(name=name).first()
+    if paper is not None:
+        raise APIException("Paper already exists", status_code=409)
+    
+    
+    
+    new_paper = Papers(name=name, url=url,description=description )
+
+    db.session.add(new_paper)
+    db.session.commit()
+
+    return jsonify({"msg":"Paper successfully created"}), 201
+
+@api.route('/deletepapers', methods=['DELETE'])
+def delete_specific_paper():
+    body = request.get_json()   
+    paper_id = body["id"]
+
+    paper = Papers.query.get(paper_id)
+
+    if paper is None:
+        return jsonify({"error": "Paper not found"}), 404
+
+    db.session.delete(paper)
+    db.session.commit()  
+  
+    return jsonify({"msg": "Paper deleted"}), 200    

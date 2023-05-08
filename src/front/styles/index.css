@@ -124,7 +124,6 @@
 }
 
 .customer-says {
-  padding-top: 100px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
 }
@@ -302,118 +301,15 @@
   cursor: pointer;
 }
 
-.contact-us .contact-us-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+.mvmt-content {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
 }
 
-.contact-us .contact-us-content .left-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.contact-us .contact-us-content .left-content h2 {
-  font-size: 48px;
-  font-weight: 700;
-  width: 60%;
-}
-
-.contact-us .contact-us-content .left-content .form {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-us .contact-us-content .left-content .form label {
-  font-size: 16px;
-  font-weight: 400;
-  height: 25%;
-}
-
-.contact-us .contact-us-content .left-content .form input {
-  border: none;
-  background-color: #ececec;
-  padding: 15px 13px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 400;
-  width: 95%;
-  height: 25%;
-}
-
-.contact-us .contact-us-content .left-content .form input:focus {
-  outline: 1px solid #a8a8a8;
-  outline-style: auto;
-  border-radius: 8px;
-  height: 25%;
-}
-
-.contact-us .contact-us-content .left-content .form input::placeholder {
-  color: #bdbdbd;
-  height: 25%;
-}
-
-.contact-us .contact-us-content .left-content .form textarea {
-  width: 500px;
-  height: 250px;
-  resize: none;
-  background: #ececec;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  margin-bottom: 25px;
-}
-
-.contact-us .contact-us-content .left-content .form textarea::placeholder {
-  color: #bdbdbd;
-  font-size: 16px;
-}
-
-.contact-us .contact-us-content .left-content .form textarea:focus {
-  outline: 1px solid #a8a8a8;
-  outline-style: auto;
-  border-radius: 8px;
-}
-
-.contact-us .contact-us-content .left-content .form .input-sec {
-  margin-bottom: 15px;
-}
-
-.contact-us .contact-us-content .left-content .form .color {
-  color: #666666;
-}
-
-.contact-us .contact-us-content .left-content .form .row {
-  display: flex;
-  width: 97.5%;
-  padding: 25px 0;
-}
-
-.contact-us .contact-us-content .left-content .form .row .row-c {
-  width: 90%;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-us .contact-us-content .left-content .form .row .row-c label {
-  display: block;
-}
-
-.contact-us .contact-us-content .left-content .form .btn {
-  width: 100px;
-  height: 50px;
-  background: #1d1d1d;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
+.login-container .login-container2 .login-content,
+.signup .signup-content {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 1px 2px 2px rgba(116, 114, 114, 0.204);
 }
 
 footer {
@@ -453,6 +349,26 @@ footer .footer-content .social-media {
 footer .footer-content .social-media h4 {
   font-size: 18px;
   font-weight: 700;
+}
+
+.navbar .logo {
+  margin-right: 50px;
+}
+
+.navbar .collapse .dropdown .nav-btn {
+  cursor: pointer;
+  color: rgb(0, 187, 255);
+  border-radius: 10px;
+  border-color: rgb(0, 187, 255);
+  padding: 10px;
+  background-color: transparent;
+  margin-left: 130px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.navbar .collapse .dropdown .dropdown-menu {
+  margin-left: 130px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 @media only screen and (max-width: 1200px) {
@@ -499,10 +415,6 @@ footer .footer-content .social-media h4 {
   .dot1 {
     left: -49px;
     top: 421px;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 500px;
-    height: 300px;
   }
 }
 
@@ -588,30 +500,9 @@ footer .footer-content .social-media h4 {
     grid-row-start: 20;
     grid-row-end: 34;
   }
+
   .customer-says .customer-says-content .bottom .middle p {
     width: 66.4%;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 443px;
-  }
-  .contact-us .contact-us-content .left-content .form label {
-    font-size: 14px;
-  }
-  .contact-us .contact-us-content .left-content .form input {
-    font-size: 12px;
-  }
-  .contact-us .contact-us-content .right-content .img-1 {
-    width: 400px;
-  }
-  .contact-us .contact-us-content .right-content .img-2 {
-    left: -35px;
-    bottom: -31px;
-    width: 130px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    right: -5px;
-    bottom: -47px;
-    width: 52%;
   }
 }
 
@@ -733,20 +624,6 @@ footer .footer-content .social-media h4 {
   .customer-says .customer-says-content .bottom .middle p {
     width: 80.4%;
   }
-  .contact-us .contact-us-content .right-content .img-1 {
-    margin-bottom: 50px;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 323px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    right: -3px;
-    bottom: -1px;
-  }
-  .contact-us .contact-us-content .right-content .img-2 {
-    left: -35px;
-    bottom: 18px;
-  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -824,36 +701,7 @@ footer .footer-content .social-media h4 {
     width: 92.4%;
     font-size: 16px;
   }
-  .contact-us .contact-us-content {
-    flex-direction: column-reverse;
-  }
-  .contact-us .contact-us-content .left-content {
-    align-items: center;
-  }
-  .contact-us .contact-us-content .left-content .form {
-    align-items: center;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 563px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    bottom: 0;
-  }
-  .contact-us .contact-us-content .right-content .img-2 {
-    bottom: 19px;
-  }
-  .contact-us .contact-us-content .right-content {
-    margin-bottom: 50px;
-  }
-  .contact-us .contact-us-content .left-content .form label {
-    font-size: 16px;
-  }
-  .contact-us .contact-us-content .left-content input::placeholder {
-    font-size: 16px;
-  }
-  .contact-us .contact-us-content .left-content .form .row .row-c {
-    align-items: center;
-  }
+
   footer {
     padding: 50px 0;
   }
@@ -995,9 +843,6 @@ footer .footer-content .social-media h4 {
     width: 87.1%;
     font-size: 16px;
   }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 418px;
-  }
 
   footer .footer-content .get-in-touch {
     align-items: center;
@@ -1055,12 +900,6 @@ footer .footer-content .social-media h4 {
   }
   .customer-says .customer-says-content .bottom .middle h5 {
     font-size: 20px;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 409px;
-  }
-  .contact-us .contact-us-content .left-content .form {
-    width: 100%;
   }
 }
 
@@ -1236,25 +1075,6 @@ footer .footer-content .social-media h4 {
   .customer-says .customer-says-content .top h2 {
     font-size: 32px;
   }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 339px;
-  }
-  .contact-us
-    .contact-us-content
-    .left-content
-    .form
-    .row
-    .row-c
-    input::placeholder {
-    font-size: 13px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    right: -13px;
-    bottom: 4px;
-  }
-  .contact-us .contact-us-content .right-content .img-1 {
-    width: 100%;
-  }
 }
 
 @media only screen and (max-width: 375px) {
@@ -1279,18 +1099,6 @@ footer .footer-content .social-media h4 {
   }
   .customer-says .customer-says-content .top h2 {
     font-size: 29px;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 308px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    right: -3px;
-    bottom: 3px;
-    width: 57%;
-  }
-  .contact-us .contact-us-content .right-content .text p {
-    font-size: 13px;
-    margin-left: 11px;
   }
 }
 
@@ -1358,25 +1166,6 @@ footer .footer-content .social-media h4 {
   .customer-says .customer-says-content .bottom .cursor {
     width: 40px;
   }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 296px;
-  }
-  .contact-us
-    .contact-us-content
-    .left-content
-    .form
-    .row
-    .row-c
-    input::placeholder {
-    font-size: 12px;
-  }
-  .contact-us .contact-us-content .right-content .text {
-    right: -4px;
-    bottom: 3px;
-  }
-  .contact-us .contact-us-content .right-content .text p {
-    font-size: 12px;
-  }
 }
 
 @media only screen and (max-width: 320px) {
@@ -1431,18 +1220,6 @@ footer .footer-content .social-media h4 {
   .customer-says .customer-says-content .top h2 {
     font-size: 25px;
   }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 268px;
-  }
-  .contact-us
-    .contact-us-content
-    .left-content
-    .form
-    .row
-    .row-c
-    input::placeholder {
-    font-size: 11px;
-  }
 }
 
 @media only screen and (max-width: 300px) {
@@ -1474,9 +1251,6 @@ footer .footer-content .social-media h4 {
     grid-column-end: 22;
     grid-row-start: 14;
     grid-row-end: 28;
-  }
-  .contact-us .contact-us-content .left-content .form textarea {
-    width: 269px;
   }
 }
 

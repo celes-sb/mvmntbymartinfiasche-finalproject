@@ -2,12 +2,13 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signup } from "../pages/signup.jsx";
-import logoMartin from "../../images/Logo-martin.png";
 import { Navigate } from "react-router-dom";
 
-
-
 export const Sidebar = () => {
+
+    const logoMartin =
+        "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
+    
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Inicio");
     const navigate = useNavigate();
@@ -80,7 +81,7 @@ export const Sidebar = () => {
                 <div className="dropdown dropup">
                     <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
-                        <strong>Martin Fiasche</strong>
+                        <strong>{store.userData.first_name} {store.userData.last_name}</strong>
                     </Link>
                     <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                         <li><Link className="dropdown-item" to="/user/profile">Perfil</Link></li>

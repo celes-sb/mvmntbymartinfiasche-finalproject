@@ -4,25 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router-dom";
 
-const paperstyle = {
-  width: "500px",
-  marginTop: "20px",
-  border: "0",
-  borderColor: "lightgrey",
-  borderStyle: "solid",
-  background: "#fff",
-  boxShadow: "0px 0px 10px 3px lightgrey",
-  paddingVertical: "30px",
-  fontSize: "30px",
-};
-const color = {
-  color: "grey",
-  fontSize: 15,
-};
-const links = {
-  textDecoration: "none",
-};
 export const Signup = (props) => {
+
+  const alumnosSpine =
+    "http://drive.google.com/uc?export=view&id=1mqYln15hz8FMhuzOIM61qBictu1OgLu2";
+
   const { store, actions } = useContext(Context);
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -40,199 +26,145 @@ export const Signup = (props) => {
     const response = await actions.signup(name, lastname, username, email, password, phone, country, gender); // call register action
     console.log(response)
     if (response.ok) {
-      navigate("/login"); // redirect to wherever we want component
+      const btn = document.getElementById("signupButton");
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-success");
+      btn.textContent = "¡Cuenta creada con éxito!";
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     }
   };
 
   return (
     <>
-      <div className="container">
-        <div
-          className="d-flex flex-row flex-nowrap"
-          style={{ overflowX: "scroll" }}
-        >
-          <div className="container">
-            <div className="row m-5 no-gutters shadow-lg">
-              <div className="col-md-6 d-none d-md-block h-100">
-                <img
-                  src={""}
-                  className="img-fluid"
-                  style={{ objectFit: "cover", height: "100%" }}
-                />
-              </div>
-              <div className="col-md-6 bg-white p-5">
-                <h3 className="pb-3 text-center">Registrate</h3>
-                <div className="form-style">
-                  <br></br>
-                  <form>
-                    <div className="form-group pb-3">
-                      <input
-                        type="text"
-                        placeholder="Nombre"
-                        className="form-control"
-                        aria-describedby="Nombre"
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="text"
-                        placeholder="Apellido"
-                        className="form-control"
-                        aria-describedby="Apellido"
-                        onChange={(e) => {
-                          setLastName(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="text"
-                        placeholder="Username"
-                        className="form-control"
-                        aria-describedby="Username"
-                        onChange={(e) => {
-                          setUsername(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        className="form-control"
-                        aria-describedby="Email"
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="password"
-                        placeholder="Contraseña"
-                        className="form-control"
-                        onChange={(e) => {
-                          setPassword(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="password"
-                        placeholder="Repetir Contraseña"
-                        className="form-control"
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="text"
-                        placeholder="País"
-                        className="form-control"
-                        onChange={(e) => {
-                          setCountry(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <div className="form-group pb-3">
-                      <input
-                        type="text"
-                        placeholder="Teléfono"
-                        className="form-control"
-                        onChange={(e) => {
-                          setPhone(e.target.value);
-                        }}
-                      />
-                    </div>
-                    <p className="m-0" style={color}>
-                      Género
-                    </p>
-                    <div className="input-group">
-                      <div className="form-check form-check-inline">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="Genero"
-                          value="Masculino"
-                          onChange={(e) => {
-                            setGender(e.target.value);
-                          }}
-                        />
-                        <label className="form-check-label fs-6 " htmlFor="Masculino">
-                          Masculino
-                        </label>
-                      </div>
+      <section className="signup container-fluid p-5 mt-5 pt-5 border border-warning rounded"
+        style={{
+          backgroundImage: `url(${alumnosSpine})`,
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="signup-content bg-white bg-opacity-75 border border-warning rounded text-center">
 
-                      <div className="form-check form-check-inline">
+          <div className="d-flex flex-row flex-nowrap">
+            <div className="container p-5">
+              <div className="row gx-0">
+                <div className="col-md-6 d-none d-md-block">
+                  <img
+                    src={alumnosSpine}
+                    className="img-fluid p-0 m-0"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <div className="col-md-6 bg-white p-5 m-0">
+                  <h3 className="text-center">Registrate</h3>
+                  <div className="form-style">
+                    <br></br>
+                    <form>
+                      <div className="form-group pb-4">
                         <input
-                          className="form-check-input"
-                          type="radio"
-                          name="Genero"
-                          value="Femenino"
+                          type="text"
+                          placeholder="Nombre"
+                          className="form-control"
+                          aria-describedby="Nombre"
                           onChange={(e) => {
-                            setGender(e.target.value);
+                            setName(e.target.value);
                           }}
                         />
-                        <label className="form-check-label fs-6" htmlFor="Femenino">
-                          Femenino
-                        </label>
                       </div>
-
-                      <div className="form-check form-check-inline">
+                      <div className="form-group pb-4">
                         <input
-                          className="form-check-input"
-                          type="radio"
-                          name="Genero"
-                          value="NoBinario"
+                          type="text"
+                          placeholder="Apellido"
+                          className="form-control"
+                          aria-describedby="Apellido"
                           onChange={(e) => {
-                            setGender(e.target.value);
+                            setLastName(e.target.value);
                           }}
                         />
-                        <label className="form-check-label fs-6" htmlFor="NoBinario">
-                          No Binario
-                        </label>
                       </div>
-                      <div className="form-check form-check-inline">
+                      <div className="form-group pb-4">
                         <input
-                          className="form-check-input"
-                          type="radio"
-                          name="Genero"
-                          value="Anonimo"
+                          type="text"
+                          placeholder="Username"
+                          className="form-control"
+                          aria-describedby="Username"
                           onChange={(e) => {
-                            setGender(e.target.value);
+                            setUsername(e.target.value);
                           }}
                         />
-                        <label className="form-check-label fs-6" htmlFor="Anonimo">
-                          Prefiero no decirlo
-                        </label>
                       </div>
+                      <div className="form-group pb-4">
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          className="form-control"
+                          aria-describedby="Email"
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="form-group pb-4">
+                        <input
+                          type="password"
+                          placeholder="Contraseña"
+                          className="form-control"
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="form-group pb-4">
+                        <input
+                          type="password"
+                          placeholder="Repetir Contraseña"
+                          className="form-control"
+                        />
+                      </div>
+                      <div className="form-group pb-4">
+                        <input
+                          type="text"
+                          placeholder="País"
+                          className="form-control"
+                          onChange={(e) => {
+                            setCountry(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="form-group pb-4">
+                        <input
+                          type="text"
+                          placeholder="Teléfono"
+                          className="form-control"
+                          onChange={(e) => {
+                            setPhone(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="pb-2">
+                        <button
+                          id="signupButton"
+                          type="button"
+                          className="btn btn-primary w-100 font-weight-bold mt-2"
+                          onClick={handleRegister}
+                        >
+                          Registrate
+                        </button>
+                      </div>
+                    </form>
+                    <div className="pt-4 text-center">
+                      {" "}
+                      ¿Ya tenés una cuenta? <br></br>
+                      <Link to="/login">Iniciá sesión</Link>
                     </div>
-                    <br />
-                    <div className="pb-2">
-                      <button
-                        type="button"
-                        className="btn btn-warning w-100 font-weight-bold mt-2"
-                        onClick={handleRegister}
-                      >
-                        Registrar
-                      </button>
-                    </div>
-                  </form>
-                  <br></br>
-
-                  <div className="pt-4 text-center">
-                    {" "}
-                    ¿Ya tenés una cuenta? <br></br>
-                    <Link to="/login">Iniciá Sesión</Link>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 };
