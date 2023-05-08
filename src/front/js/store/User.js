@@ -150,7 +150,7 @@ export function userActions(getStore, getActions, setStore) {
       );
 
       if (response.ok) {
-        setStore({ ...store, userPrograms: [respuestaJson] });
+        setStore({ ...store, userPrograms: respuestaJson });
       } else {
         console.log("fetch fallido");
       }

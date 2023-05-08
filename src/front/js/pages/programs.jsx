@@ -6,64 +6,72 @@ import "../../styles/home.css";
 export const Programs = () => {
     const { store, actions } = useContext(Context);
     const [userPrograms, setUserPrograms] = useState(store.userPrograms);
-    console.log(userPrograms)
+    const [selectedProgramName, setSelectedProgramName] = useState(Object.keys(userPrograms)[0]);
+
+    const handleProgramChange = (e) => {
+        setSelectedProgramName(e.target.value);
+    };
 
     return (
         <>
+            <div>
+                <label htmlFor="programSelect">Select a program:</label>
+                <select id="programSelect" value={selectedProgramName} onChange={handleProgramChange}>
+                    {Object.keys(userPrograms).map((programName) => (
+                        <option key={programName} value={programName}>{programName}</option>
+                    ))}
+                </select>
+            </div>
             <div className="table-responsive">
-                {userPrograms && userPrograms.length > 0 ? (
+                {userPrograms && Object.keys(userPrograms).length > 0 ? (
                     <>
-                        {userPrograms.map((item, index) => {
-                            return Object.entries(item).map(([workout, sessions]) => {
-                                const sessionEntries = Object.entries(sessions);
-                                const maxExercises = Math.max(...sessionEntries.map(([_, exercises]) => exercises.length));
+                        {Object.entries(userPrograms[selectedProgramName]).map(([day, data]) => {
+                            const workoutEntries = Object.entries(data["workout"]);
+                            const sessionEntries = Object.entries(data["sessions"]);
 
-                                return (
-                                    <table key={`${workout}`} className="table align-middle">
-                                        <thead>
-                                            <tr>
-                                                <th>{workout}</th>
-                                                {sessionEntries.map(([sessionName, _], sessionIndex) => (
-                                                    <th key={`${workout}-${sessionName}`}>{sessionName}</th>
-                                                ))}
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {Array.from({ length: maxExercises }, (_, i) => i).map((_, exerciseIndex) => (
-                                                <tr key={`${workout}-${exerciseIndex}`}>
-                                                    <td>
-                                                        {sessionEntries[0][1][exerciseIndex] && (
-                                                            <>
-                                                                <strong>Exercise name:</strong> {sessionEntries[0][1][exerciseIndex].exercise_name}<br />
-                                                                <strong>URL:</strong> {sessionEntries[0][1][exerciseIndex].url_youtube}<br />
-                                                                <strong>Description:</strong> {sessionEntries[0][1][exerciseIndex].description}<br />
-                                                                <strong>Type:</strong> {sessionEntries[0][1][exerciseIndex].type}<br />
-                                                            </>
-                                                        )}
-                                                    </td>
-                                                    {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
-                                                        const exercise = exercises[exerciseIndex];
-                                                        if (exercise) {
-                                                            return (
-                                                                <td key={`${workout}-${sessionName}-${exerciseIndex}`}>
-                                                                    <strong>Weight:</strong> {exercise.weight}<br />
-                                                                    <strong>Repetitions:</strong> {exercise.repetitions}<br />
-                                                                    <strong>Series:</strong> {exercise.series}
-                                                                </td>
-                                                            );
-                                                        } else {
-                                                            return <td key={`${workout}-${sessionName}-${exerciseIndex}`}></td>;
-                                                        }
-                                                    })}
-                                                </tr>
+                            return (
+                                <table key={`${day}`} className="table align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>{day}</th>
+                                            {sessionEntries.map(([sessionName, _], sessionIndex) => (
+                                                <th key={`${day}-${sessionName}`}>{sessionName}</th>
                                             ))}
-                                        </tbody>
-                                    </table>
-                                );
-                            });
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
+                                            <tr key={`${day}-${exerciseType}`}>
+                                                <td>
+                                                    <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
+                                                    <strong>URL:</strong> {exerciseData.url_youtube}<br />
+                                                    <strong>Description:</strong> {exerciseData.description}<br />
+                                                    <strong>Type:</strong> {exerciseData.type}<br />
+                                                </td>
+                                                {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
+                                                    const exercise = exercises.find(e => e.type === exerciseType);
+                                                    if (exercise) {
+                                                        return (
+                                                            <td key={`${day}-${sessionName}-${exerciseType}`}>
+                                                                <strong>Weight:</strong> {exercise.weight}<br />
+                                                                <strong>Repetitions:</strong> {exercise.repetitions}<br />
+                                                                <strong>Series:</strong> {exercise.series}
+                                                            </td>
+                                                        );
+                                                    } else {
+                                                        return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
+                                                    }
+                                                })}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            );
                         })}
-                    </>)
-                    : (<><h1>Loading</h1></>)}
+                    </>
+                ) : (
+                    <><h1>Loading</h1></>
+                )}
             </div>
         </>
     );
