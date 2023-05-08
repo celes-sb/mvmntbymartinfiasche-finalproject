@@ -5,10 +5,11 @@ from .db import db
 
 class Nutrition(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    name = db.Column(db.String(50), unique=False, nullable=False)
+    
     date = db.Column(db.Date, nullable=False)
     weight = db.Column(db.Float, nullable=False)
-    height = db.Column(db.Float, nullable=False)
+    height = db.Column(db.Float, nullable=True)
     body_fat = db.Column(db.Float, nullable=False)
     muscle_mass = db.Column(db.Float, nullable=False)
     water_intake = db.Column(db.Integer, nullable=False)
@@ -18,7 +19,8 @@ class Nutrition(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "user_id": self.user_id,
+            "name":self.name,
+            
             "date": self.date,
             "weight": self.weight,
             "height": self.height,
