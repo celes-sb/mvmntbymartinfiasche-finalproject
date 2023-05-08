@@ -8,10 +8,13 @@ from api.db import db
 from api.user import User
 from .exercises import Exercises
 from .programs import Programs
+from .nutrition import Nutrition
+from .papers import Papers
 from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
+
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -490,3 +493,110 @@ def get_organized_programs(user_id):
             organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
 
     return jsonify(organized_programs), 200
+
+@api.route('/newnutrition', methods=['POST'])
+def create_new_nutrition():
+    body = request.get_json()
+
+    if body is None:
+        return jsonify({"error": "You need to specify the request body as a JSON object"}), 400
+
+    required_fields = ["name", "date", "weight", "height", "body_fat", "muscle_mass", "water_intake", "calories_intake", "protein_intake"]
+    for field in required_fields:
+        if field not in body:
+            return jsonify({"error": f"You need to specify the '{field}' field"}), 400
+
+    name = body["name"]
+    date = body["date"]
+    weight = body["weight"]
+    height = body["height"]
+    body_fat = body["body_fat"]
+    muscle_mass = body["muscle_mass"]
+    water_intake = body["water_intake"]
+    calories_intake = body["calories_intake"]
+    protein_intake = body["protein_intake"]
+
+    # Create a new Nutrition object
+    new_nutrition = Nutrition(
+        name=name,
+        date=date,
+        weight=weight,
+        height=height,
+        body_fat=body_fat,
+        muscle_mass=muscle_mass,
+        water_intake=water_intake,
+        calories_intake=calories_intake,
+        protein_intake=protein_intake
+    )
+
+    
+    db.session.add(new_nutrition)
+    db.session.commit()
+
+    return jsonify({"msg": "Nutrition created successfully"}), 201
+
+
+
+
+
+
+
+@api.route('/deletenutrition', methods=['DELETE'])
+def delete_specific_nutrition():
+    body = request.get_json()   
+    nutrition_id = body["id"]
+
+    nutrition = Nutrition.query.get(nutrition_id)
+
+    if nutrition is None:
+        return jsonify({"error": "Nutrition not found"}), 404
+
+    db.session.delete(nutrition)
+    db.session.commit()  
+  
+    return jsonify({"msg": "Nutrition deleted"}), 200
+
+@api.route('/newpaper', methods=['POST'])
+def register_paper():
+    body = request.get_json()
+    name= body["name"]
+    url = body["url"]
+    description =body["description"]
+  
+    if body is None:
+        raise APIException("You need to specify the request body as json object", status_code=400)
+    if "name" not in body:
+        raise APIException("You need to specify the  name", status_code=400)
+    if "url" not in body:
+        raise APIException("You need to specify the user url", status_code=400)
+    if "description" not in body:
+        raise APIException("You need to specify the description", status_code=400)
+  
+    
+    paper = Papers.query.filter_by(name=name).first()
+    if paper is not None:
+        raise APIException("Paper already exists", status_code=409)
+    
+    
+    
+    new_paper = Papers(name=name, url=url,description=description )
+
+    db.session.add(new_paper)
+    db.session.commit()
+
+    return jsonify({"msg":"Paper successfully created"}), 201
+
+@api.route('/deletepapers', methods=['DELETE'])
+def delete_specific_paper():
+    body = request.get_json()   
+    paper_id = body["id"]
+
+    paper = Papers.query.get(paper_id)
+
+    if paper is None:
+        return jsonify({"error": "Paper not found"}), 404
+
+    db.session.delete(paper)
+    db.session.commit()  
+  
+    return jsonify({"msg": "Paper deleted"}), 200    
