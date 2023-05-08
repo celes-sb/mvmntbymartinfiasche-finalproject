@@ -9,6 +9,7 @@ from api.user import User
 from .exercises import Exercises
 from .programs import Programs
 from .nutrition import Nutrition
+from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
@@ -182,6 +183,12 @@ def logout():
 
     return jsonify({"message":"logout successfully"})
 
+@api.route('/user/<int:id>', methods=['GET'])
+def get_specific_user(id):
+    user = User.query.get(id)    
+  
+    return jsonify(user.serialize()), 200
+
 @api.route('/edituser/<int:user_id>', methods=['PUT'])
 @jwt_required()
 def edit_user(user_id):
@@ -212,7 +219,7 @@ def handle_email():
 
     return jsonify({"message":"message sent"}), 200
 
-@api.route('/getuser', methods=['Get'])
+@api.route('/getuser', methods=['GET'])
 def get_user():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -269,9 +276,7 @@ def get_user():
 @api.route('/newexercises', methods=['POST'])
 def register_exercise():
     body = request.get_json()
-   
     name = body["name"]
-    
     category = body["category"]
     url_youtube = body["url_youtube"]
     description = body["description"]
@@ -303,10 +308,7 @@ def register_exercise():
 
     return jsonify({"msg": "Exercise successfully created"}), 201
 
-
-
-
-@api.route('/getexercises', methods=['Get'])
+@api.route('/getexercises', methods=['GET'])
 def get_exercises():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -349,8 +351,6 @@ def register_program():
     sets = body["sets"]
     repetitions = body["repetitions"]
     rest_time = body["rest_time"]
-    creation_date = body["creation_date"]
-    date_finished = body["date_finished"]
 
     if body is None:
         raise APIException("You need to specify the request body as json object", status_code=400)
@@ -372,10 +372,6 @@ def register_program():
         raise APIException("You need to specify the repetitions", status_code=400)
     if "rest_time" not in body:
         raise APIException("You need to specify the rest_time", status_code=400)
-    if "creation_date" not in body:
-        raise APIException("You need to specify the creation date", status_code=400)
-    if "date_finished" not in body:
-        raise APIException("You need to specify the date finished", status_code=400)
     
     program = Programs.query.filter_by(program_name=program_name).first()
     if program is not None:
@@ -383,18 +379,14 @@ def register_program():
     
     current_date = datetime.utcnow()
     
-    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date, date_finished=date_finished)
+    new_program = Programs(program_name=program_name, user_id=user_id, day=day, category=category, exercise_number=exercise_number, load=load, sets=sets, repetitions=repetitions, rest_time=rest_time, creation_date=current_date)
 
     db.session.add(new_program)
     db.session.commit()
 
     return jsonify({"msg":"Program successfully created"}), 201
 
-
-
-
-
-@api.route('/getprograms', methods=['Get'])
+@api.route('/getprograms', methods=['GET'])
 def get_programs():
     body = request.get_json()
     id = body ["id"] if 'id' in body else None
@@ -426,49 +418,26 @@ def edit_programs(programs_id):
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
 
-@api.route('/newnutrition', methods=['POST'])
-def register_nutrition():
+@api.route('/programorganizer', methods=['POST'])
+def program_organizer():
     body = request.get_json()
-    name = body["name"]
+    program_id = body["program_id"]
+    exercise_id = body["exercise_id"]
+
+    program = Programs.query.get(program_id)
+    if not program:
+        raise APIException('program not found', status_code=404)
     
-    date = body["date"]
-    weight = body["weight"]
-    height = body["height"]
-    body_fat = body["body_fat"]
-    muscle_mass = body["muscle_mass"]
-    water_intake = body["water_intake"]
-    calories_intake = body["calories_intake"]
-    protein_intake = body["protein_intake"]
-
-    if body is None:
-        raise APIException("You need to specify the request body as a JSON object", status_code=400)
-    if "name" not in body:
-        raise APIException("You need to specify the name", status_code=400)  
+    exercise = Exercises.query.get(exercise_id)
+    if not exercise:
+        raise APIException('exercise not found', status_code=404)
     
-    if "date" not in body:
-        raise APIException("You need to specify the date", status_code=400)
-    if "weight" not in body:
-        raise APIException("You need to specify the weight", status_code=400)
-    if "height" not in body:
-        raise APIException("You need to specify the height", status_code=400)
-    if "body_fat" not in body:
-        raise APIException("You need to specify the body fat", status_code=400)
-    if "muscle_mass" not in body:
-        raise APIException("You need to specify the muscle mass", status_code=400)
-    if "water_intake" not in body:
-        raise APIException("You need to specify the water intake", status_code=400)
-    if "calories_intake" not in body:
-        raise APIException("You need to specify the calories intake", status_code=400)
-    if "protein_intake" not in body:
-        raise APIException("You need to specify the protein intake", status_code=400)
 
-    new_nutrition = Nutrition.query.filter_by(name=name).first()
-    if new_nutrition is not None:
-        raise APIException("Nutrition data already exists for the given date", status_code=409)
-
-    new_nutrition = Nutrition(name=name,date=date,weight=weight,height=height,body_fat=body_fat,muscle_mass=muscle_mass,water_intake=water_intake,calories_intake=calories_intake,protein_intake=protein_intake)
-
-    db.session.add(new_nutrition)
+    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id)
+    db.session.add(organized_program)
     db.session.commit()
 
-    return jsonify({"msg": "Nutrition data successfully created"}), 201
+    return jsonify({
+        "program_name":organized_program.serialize()["program_name"],
+        "exercise_name": organized_program.serialize()["exercise_name"]
+    }), 201

@@ -2,10 +2,13 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { Signup } from "../pages/signup.jsx";
-import logoMartin from "../../images/Logo-martin.png";
 import { Navigate } from "react-router-dom";
 
 export const Navbar = () => {
+
+  const logoMartin =
+    "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
+
   const { store, actions } = useContext(Context);
   const navigate = useNavigate()
 
@@ -60,14 +63,19 @@ export const Navbar = () => {
                   <Link className="nav-link badge badge-pill text-dark" to="/escribime">Escribime</Link>
                 </li>
               </ul>
-              <div>
-                <Link to="/signup">
-                  <button type="button" className="nav-btn btn btn-sm btn-warning ms-5">Suscribite</button>
-                </Link>
+              <div className="dropdown position-relative">
+                <button className="nav-btn btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Accedé a la plataforma
+                </button>
+                <ul className="dropdown-menu position-absolute" aria-labelledby="dropdownMenuButton">
+                  <li><Link className="dropdown-item" to="/signup">Signup</Link></li>
+                  <li><Link className="dropdown-item" to="/login">Login</Link></li>
+                </ul>
               </div>
+
             </div>
           ) : (<>
-            <h1>Bienvenid@, usuario</h1>
+            <h1>Bienvenid@, {store.userData.first_name}</h1>
             <div>
               <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
               }>Cerrar Sesión</button>

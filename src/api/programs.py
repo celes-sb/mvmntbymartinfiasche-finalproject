@@ -15,13 +15,14 @@ class Programs(db.Model):
     repetitions = db.Column(db.Integer, unique=False, nullable=False)
     rest_time = db.Column(db.Integer, unique=False, nullable=True)
     creation_date = db.Column(db.Date, unique=False, nullable=False)
-    date_finished = db.Column(db.Date, unique=False, nullable=False)
+    date_finished = db.Column(db.Date, unique=False, nullable=True)
 
 
     def serialize(self):
         return {
             "id": self.id,
             "user_id": self.user_id,
+            "program_name": self.program_name,
             "day": self.day,
             "category": self.category,
             "exercise_number": self.exercise_number,
