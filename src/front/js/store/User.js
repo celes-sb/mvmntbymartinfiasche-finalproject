@@ -5,7 +5,8 @@ export const userStore = {
   userData: {
     first_name: "",
     last_name: ""
-  }
+  },
+  userPrograms: [],
 }
 
 export function userActions(getStore, getActions, setStore) {
@@ -57,6 +58,7 @@ export function userActions(getStore, getActions, setStore) {
         let token = localStorage.getItem("token");
         setStore({ ...store, userLogin: true });
         actions.getUserData();
+        actions.getUserPrograms();
       } else {
         console.log("login fallido");
         localStorage.setItem("token", "");
@@ -130,6 +132,58 @@ export function userActions(getStore, getActions, setStore) {
       }
 
       return { respuestaJson, response };
+    },
+
+    getUserPrograms: async () => {
+      let store = getStore();
+      let actions = getActions();
+      let body = ""
+
+      const token = localStorage.getItem("token");
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+
+      let { respuestaJson, response } = await actions.useFetch(
+        `/getorganizedprograms/${userId}`,
+        body,
+        "GET"
+      );
+
+      if (response.ok) {
+        setStore({ ...store, userPrograms: [respuestaJson] });
+      } else {
+        console.log("fetch fallido");
+      }
+
+      return { respuestaJson, response };
+    },
+
+    addUserProgram: async (programId, exerciseId, day, session, weight, repetitions, series, type) => {
+      let store = getStore();
+      let actions = getActions();
+      let obj = {
+        program_id: programId,
+        exercise_id: exerciseId,
+        day: day,
+        session: session,
+        weight: weight,
+        repetitions: repetitions,
+        series: series,
+        type: type
+      };
+
+      let { respuestaJson, response } = await actions.useFetch(
+        "/programorganizer",
+        obj,
+        "POST"
+      );
+      if (response.ok) {
+        alert("Programa Añadido exitosamente");
+      } else {
+        alert("No se pudo agregar el programa");
+      }
+
+      return response;
     },
   };
 }
