@@ -20,6 +20,8 @@ import injectContext from "./store/appContext";
 import { Login } from "./pages/login";
 import { Backoffice } from "./pages/backoffice.jsx";
 import { Programs } from "./pages/programs.jsx";
+import { AddPrograms } from "./pages/addPrograms.jsx";
+import { Diagnostico } from "./pages/diagnostico.jsx";
 import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
 import { Papers } from "./pages/papers.jsx";
@@ -61,6 +63,7 @@ const Layout = () => {
             <Route element={<Login />} path="/login" />
             <Route element={<RecoverPassword />} path="/recoverpassword" />
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
+            <Route element={<UserLayout><Diagnostico /></UserLayout>} path="/user/diagnostico" />
             <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />
             <Route element={<UserLayout><Orders /></UserLayout>} path="/user/orders" />
             <Route element={<UserLayout><Nutrition /></UserLayout>} path="/user/nutrition" />
@@ -73,6 +76,7 @@ const Layout = () => {
             <Route element={<UserLayout><Twofa /></UserLayout>} path="/user/twofa" />
             <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
             <Route element={<UserLayout><EditProfile /></UserLayout>} path="/user/edit-profile" />
+            <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
           </Routes>
           <Footer />
         </ScrollToTop>
