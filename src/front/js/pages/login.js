@@ -71,7 +71,7 @@ export const Login = () => {
                       <span className="pl-2 font-weight-bold">Recordame</span>
                     </div>
                     <div>
-                      <a href="#">No recuerdo mi contraseña</a>
+                      <Link to="/recoverpassword">No recuerdo mi contraseña</Link>
                     </div>
                   </div>
                   <br></br>
