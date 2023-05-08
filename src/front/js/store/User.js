@@ -77,5 +77,21 @@ export function userActions(getStore, getActions, setStore) {
       }
       return { respuestaJson, response };
     },
+    recover: async (email) => {
+      const store = getStore();
+      const actions = getActions();
+      let body = {
+        message: `Has click en el siguiente enlace:
+        http://192.168.1.58:3000/`,
+        to: email,
+        subject: "Recuperar contraseña"
+      };
+      let { respuestaJson, response } = await actions.useFetch(
+        "/correo",
+        body,
+        "POST"
+      );
+      return { respuestaJson, response };
+    }
   };
 }
