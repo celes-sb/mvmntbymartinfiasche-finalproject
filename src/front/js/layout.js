@@ -21,7 +21,6 @@ import { Login } from "./pages/login";
 import { Backoffice } from "./pages/backoffice.jsx";
 import { Programs } from "./pages/programs.jsx";
 import { AddPrograms } from "./pages/addPrograms.jsx";
-import { Modal } from "./pages/modal.jsx"
 import { Diagnostico } from "./pages/diagnostico.jsx";
 import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
@@ -34,7 +33,8 @@ import { EmergencyContact } from "./pages/emergencyContact.jsx";
 import { PaymentMethod } from "./pages/paymentMethod.jsx";
 import { Twofa } from "./pages/twofa.jsx";
 import { Preferences } from "./pages/preferences.jsx";
-import { UserLayout } from "./pages/userLayout"
+import { UserLayout } from "./pages/userLayout";
+import { RecoverPassword } from "./pages/recoverpassword.jsx"
 
 //create your first component
 const Layout = () => {
@@ -61,6 +61,7 @@ const Layout = () => {
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
+            <Route element={<RecoverPassword />} path="/recoverpassword" />
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
             <Route element={<UserLayout><Diagnostico /></UserLayout>} path="/user/diagnostico" />
             <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />
@@ -76,7 +77,6 @@ const Layout = () => {
             <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
             <Route element={<UserLayout><EditProfile /></UserLayout>} path="/user/edit-profile" />
             <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
-            <Route element={<UserLayout><Modal /></UserLayout>} path="/admin/create-new-program" />
           </Routes>
           <Footer />
         </ScrollToTop>
