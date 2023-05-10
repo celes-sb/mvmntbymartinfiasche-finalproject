@@ -7,7 +7,11 @@ export const Nutrition = () => {
     const { store, actions } = useContext(Context);
 
     return (<>
-        <h1>Hola soy Nutricion</h1>
+        <div className="backofficeWelcome1 jumbotron m-3">
+            <h1 className="display-4">Nutrición</h1>
+            <p className="lead">texto texto</p>
+            <hr className="my-4" />
+        </div>
     </>)
 }
 

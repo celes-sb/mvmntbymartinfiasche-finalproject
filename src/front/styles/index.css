@@ -377,11 +377,6 @@ footer .footer-content .social-media h4 {
   text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
 }
 
-.backofficeWelcome1 iframe,
-.diagnostico iframe {
-  margin-left: 20%;
-}
-
 @media only screen and (max-width: 1200px) {
   .container {
     width: 1124px;
