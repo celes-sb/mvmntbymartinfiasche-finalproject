@@ -33,6 +33,13 @@ export const testimonialStore = {
             year: "Alumno desde 2020",
             //videoUrl: "url del video si existe"
         },
+        {
+            //image: { anillasTestimoniosMono },
+            text: "Luego de unos años de calistenia, intenté hacer parada de manos y ahí sentí que me estanqué (...) Martín me dió trabajos específicos de fuerza, de flexibilidad, de movilidad y hoy están apareciendo esos ejercicios de mayor complejidad que quería lograr",
+            name: "Javier Chami",
+            year: "Alumno desde 2021",
+            videoUrl: "https://www.youtube.com/watch?v=AA0UVDeU3NU"
+        },
         // Add more testimonials 
     ],
 

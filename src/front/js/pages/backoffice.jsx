@@ -8,7 +8,7 @@ export const Backoffice = () => {
 
     return (<>
         <div class="jumbotron">
-            <h1 class="display-4">Hola!</h1>
+            <h1 class="display-4">¡Hola!</h1>
             <p class="lead">Bienvenidx al programa de entrenamiento a distancia</p>
             <hr class="my-4" />
             <iframe width="560" height="315" src="https://www.youtube.com/embed/dwqfIca_1mY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
