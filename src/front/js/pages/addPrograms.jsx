@@ -1,7 +1,8 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
-import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import Modal from "./modal.jsx";
+import EditPrograms from "./editPrograms.jsx";
 
 export const AddPrograms = () => {
     const { store, actions } = useContext(Context);
@@ -9,6 +10,57 @@ export const AddPrograms = () => {
     const [userPrograms, setUserPrograms] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [searchText, setSearchText] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [programName, setProgramName] = useState("");
+    const [category, setCategory] = useState("");
+    const [selectedProgramName, setSelectedProgramName] = useState();
+
+    let obj = {
+        user_id: selectedUser,
+        program_name: programName,
+        category: category
+    };
+
+    const handleCloseModal = () => setShowModal(false);
+    const handleOpenModal = () => setShowModal(true);
+
+    const handleCreateNewProgram = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.useFetch("/newprogram", obj, "POST"); // call login action
+        if (response.ok) {
+            alert("Programa agregado exitosamente");
+            handleCloseModal();
+        } else {
+            alert("Hubo un error, intente nuevamente");
+        }
+    };
+
+    const handleSelectChange = (event) => {
+        const value = event.target.value;
+        setSelectedUser(value === "" ? null : value);
+    };
+
+    const handleSelectAddProgram = (event) => {
+        if (event.target.value === "add_new_program") {
+            setShowModal(true);
+        } else {
+            setSelectedProgramName(event.target.value);
+            console.log(selectedProgramName)
+        }
+
+    };
+
+    const handleInputChange = (event) => {
+        const value = event.target.value;
+        setSearchText(value);
+        setSelectedUser(null);
+    };
+
+    const filteredUsers = allUsers.filter((user) =>
+        user.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
+        user.last_name.toLowerCase().includes(searchText.toLowerCase()) ||
+        user.email.toLowerCase().includes(searchText.toLowerCase())
+    );
 
     useEffect(() => {
         const cargaDatos = async () => {
@@ -26,7 +78,6 @@ export const AddPrograms = () => {
         const handleUserPrograms = async () => {
             if (selectedUser) {
                 let { respuestaJson, response } = await actions.useFetch(`/getorganizedprograms/${selectedUser}`);
-                console.log(respuestaJson);
                 if (response.ok) {
                     if (Object.keys(respuestaJson).length > 0) {
                         setUserPrograms([respuestaJson]);
@@ -42,23 +93,6 @@ export const AddPrograms = () => {
         };
         handleUserPrograms();
     }, [selectedUser, actions]);
-
-    const handleSelectChange = (event) => {
-        const value = event.target.value;
-        setSelectedUser(value === "" ? null : value);
-    };
-
-    const handleInputChange = (event) => {
-        const value = event.target.value;
-        setSearchText(value);
-        setSelectedUser(null);
-    };
-
-    const filteredUsers = allUsers.filter((user) =>
-        user.first_name.toLowerCase().includes(searchText.toLowerCase()) ||
-        user.last_name.toLowerCase().includes(searchText.toLowerCase()) ||
-        user.email.toLowerCase().includes(searchText.toLowerCase())
-    );
 
     return (
         <>
@@ -77,23 +111,46 @@ export const AddPrograms = () => {
                     userPrograms && userPrograms.length > 0 ? (
                         <div>
                             <h2>User Programs:</h2>
-                            <select>
-                                <option value="">Select a program...</option>
+                            <select value={selectedProgramName} onChange={handleSelectAddProgram}>
+
+                                <option>Select a program...</option>
                                 {Object.keys(userPrograms[0]).map((programName, index) => (
                                     <option key={index} value={programName}>
                                         {programName}
                                     </option>
+
                                 ))}
+                                <option value="add_new_program">Add new program...</option>
                             </select>
+                            <Modal
+                                showModal={showModal}
+                                handleCloseModal={handleCloseModal}
+                                handleCreateNewProgram={handleCreateNewProgram}
+                                setProgramName={setProgramName}
+                                setCategory={setCategory}
+                            />
+
+                            {selectedProgramName ? (
+                                <EditPrograms userPrograms={userPrograms} programName={programName} selectedProgramName={selectedProgramName} />
+                            ) : (<><h1>Loading</h1></>)}
+
                         </div>
+
                     ) : (
                         <div>
                             <p>No programs available for this user.</p>
-                            <button>Create Program</button>
+                            <button onClick={handleOpenModal}>Create Program</button>
+                            <Modal
+                                showModal={showModal}
+                                handleCloseModal={handleCloseModal}
+                                handleCreateNewProgram={handleCreateNewProgram}
+                                setProgramName={setProgramName}
+                                setCategory={setCategory}
+                            />
                         </div>
                     )
                 ) : null}
-            </div>
+            </div >
         </>
     );
 

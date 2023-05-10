@@ -21,6 +21,7 @@ import { Login } from "./pages/login";
 import { Backoffice } from "./pages/backoffice.jsx";
 import { Programs } from "./pages/programs.jsx";
 import { AddPrograms } from "./pages/addPrograms.jsx";
+import { Modal } from "./pages/modal.jsx"
 import { Diagnostico } from "./pages/diagnostico.jsx";
 import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
@@ -75,6 +76,7 @@ const Layout = () => {
             <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
             <Route element={<UserLayout><EditProfile /></UserLayout>} path="/user/edit-profile" />
             <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
+            <Route element={<UserLayout><Modal /></UserLayout>} path="/admin/create-new-program" />
           </Routes>
           <Footer />
         </ScrollToTop>

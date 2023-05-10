@@ -369,7 +369,7 @@ def register_program():
 
     return jsonify({"msg":"Program successfully created"}), 201
 
-@api.route('/getprograms')
+@api.route('/getprograms', methods=['GET'])
 def get_programs():
     user_id = request.args.get("user_id")
     day = request.args.get("day")
@@ -402,51 +402,42 @@ def edit_programs(programs_id):
 @api.route('/programorganizer', methods=['POST'])
 def program_organizer():
     body = request.get_json()
+
+    required_fields = ["program_id", "exercise_id"]
+    for field in required_fields:
+        if field not in body:
+            raise APIException(f"You need to specify the {field}", status_code=400)
+
     program_id = body["program_id"]
     exercise_id = body["exercise_id"]
-    day = body["day"]
-    session = body["session"]
-    weight = body["weight"]
-    repetitions = body["repetitions"]
-    series = body["series"]
-    type = body["type"]
 
     program = Programs.query.get(program_id)
     if not program:
         raise APIException('program not found', status_code=404)
-    
+
     exercise = Exercises.query.get(exercise_id)
     if not exercise:
         raise APIException('exercise not found', status_code=404)
 
-    if "day" not in body:
-        raise APIException("You need to specify the day", status_code=400)
-    if "weight" not in body:
-        raise APIException("You need to specify the weight", status_code=400)
-    if "repetitions" not in body:
-        raise APIException("You need to specify the repetitions", status_code=400)
-    if "series" not in body:
-        raise APIException("You need to specify the series", status_code=400)
-    if "type" not in body:
-        raise APIException("You need to specify the type", status_code=400)
-    if "session" not in body:
-        raise APIException("You need to specify the session", status_code=400)
-    
+    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id)
 
-    organized_program = ProgramOrganizer(program_id=program.id, exercise_id=exercise.id, weight=weight, repetitions=repetitions, day=day, series=series, type=type, session=session)
+    optional_fields = [
+        "day", "type",
+        "session_one", "weight_one", "repetitions_one", "series_one", "rest_one", "comments_one",
+        "session_two", "weight_two", "repetitions_two", "series_two", "rest_two", "comments_two",
+        "session_three", "weight_three", "repetitions_three", "series_three", "rest_three", "comments_three",
+        "session_four", "weight_four", "repetitions_four", "series_four", "rest_four", "comments_four"
+    ]
+
+    for field in optional_fields:
+        if field in body:
+            setattr(organized_program, field, body[field])
+
     db.session.add(organized_program)
     db.session.commit()
 
-    return jsonify({
-        "program_name":organized_program.serialize()["program_name"],
-        "exercise_name": organized_program.serialize()["exercise_name"],
-        "day": organized_program.serialize()["day"],
-        "session": organized_program.serialize()["session"],
-        "weight": organized_program.serialize()["weight"],
-        "repetitions": organized_program.serialize()["repetitions"],
-        "series": organized_program.serialize()["series"],
-        "type": organized_program.serialize()["type"]
-    }), 201
+    return jsonify(organized_program.serialize()), 201
+
 
 @api.route('/getorganizedprograms/<int:user_id>', methods=['GET'])
 def get_organized_programs(user_id):
@@ -463,7 +454,6 @@ def get_organized_programs(user_id):
 
         for po in program_organizer:
             day_key = f"Day {po.day}"
-            session_key = f"Session {po.session}"
 
             if day_key not in organized_programs[program_name]:
                 organized_programs[program_name][day_key] = {
@@ -481,18 +471,47 @@ def get_organized_programs(user_id):
             if po.type not in organized_programs[program_name][day_key]["workout"]:
                 organized_programs[program_name][day_key]["workout"][po.type] = exercise_data
 
-            if session_key not in organized_programs[program_name][day_key]["sessions"]:
-                organized_programs[program_name][day_key]["sessions"][session_key] = []
+                for session_number in range(1, 5):
+                    session_key = f"Session {session_number}"
 
-            session_data = {
-                "type": po.type,
-                "weight": po.weight,
-                "repetitions": po.repetitions,
-                "series": po.series,
-            }
-            organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
+                    weight = getattr(po, f"weight_{session_number}")
+                    repetitions = getattr(po, f"repetitions_{session_number}")
+                    series = getattr(po, f"series_{session_number}")
+
+                    if weight is not None and repetitions is not None and series is not None:
+                        if session_key not in organized_programs[program_name][day_key]["sessions"]:
+                            organized_programs[program_name][day_key]["sessions"][session_key] = []
+
+                        session_data = {
+                            "type": po.type,
+                            "weight": weight,
+                            "repetitions": repetitions,
+                            "series": series,
+                        }
+                        organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
 
     return jsonify(organized_programs), 200
+
+
+@api.route('/programorganizer/<int:program_organizer_id>', methods=['PUT'])
+def edit_program_organizer(program_organizer_id):
+
+    body = json.loads(request.data)
+    program_organizer = ProgramOrganizer.query.filter_by(id=program_organizer_id).first()
+    if program_organizer is  None:
+        raise APIException("PROGRAM NOT FOUND", status_code=409)
+
+    # Get the columns of the ProgramOrganizer model
+    columns = ProgramOrganizer.__table__.columns.keys()
+
+    for key in body:
+        for col in columns:
+            if key == col and key != "id":
+                setattr(program_organizer, col, body[key])
+
+    db.session.commit()
+    return jsonify({"msg": "Program modified correctly"}), 201
+
 
 @api.route('/newnutrition', methods=['POST'])
 def create_new_nutrition():
