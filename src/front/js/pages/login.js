@@ -80,7 +80,7 @@ export const Login = () => {
                           <span className="pl-2 font-weight-bold">Recordar mis datos</span>
                         </div>
                         <div>
-                          <a href="#">No recuerdo mi contraseña</a>
+                          <Link to="/recoverpassword">No recuerdo mi contraseña</Link>
                         </div>
                       </div>
                       <br></br>
