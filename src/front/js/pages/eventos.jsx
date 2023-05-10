@@ -18,38 +18,38 @@ export const Eventos = () => {
           <div className="container">
             <div className="our-team-content">
               <div className="text-content">
-                <h2>Eventos pasados</h2>
+                <h3>Sumate a los encuentros y conectá con la comunidad del movimiento en BA</h3>
               </div>
               <div className="team">
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Campus Acrobático I</h5>
+                  <p className="p-2">2021</p>
                 </div>
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Campus Acrobático II</h5>
+                  <p className="p-2">2022</p>
                 </div>
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Campus Acrobático III</h5>
+                  <p className="p-2">2023 - fecha a confirmar</p>
                 </div>
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Encuentro de Alumnos I</h5>
+                  <p className="p-2">2023 - online</p>
                 </div>
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Encuentro de Alumnos II</h5>
+                  <p className="p-2">Mayo 2023 - presencial / vacantes agotadas!</p>
                 </div>
                 <div className="person">
-                  <img className="border border-warning" src={martinSquatPastoColor} alt="" />
-                  <h3>Evento</h3>
-                  <p className="p-2">Info Evento</p>
+                  <img className="border border-warning mb-2" src={martinSquatPastoColor} alt="" />
+                  <h5 className="text-center">Encuentro de Alumnos III </h5>
+                  <p className="p-2">2023 - online /fecha a confirmar</p>
                 </div>
               </div>
             </div>

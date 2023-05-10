@@ -33,10 +33,20 @@ export const Sidebar = () => {
 
     return (
         <>
-            <div className="d-flex flex-column flex-shrink-0 p-3 bg-light" style={{ width: "280px", marginTop: "80px" }}>
+            <div className="d-flex flex-column flex-shrink-0 p-3" style={{ width: "280px", marginTop: "80px" }}>
                 <Link to="/user/backoffice" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                    <i className="fas fa-compress fa-2x"></i>
-                    <span className="fs-4 ms-2">MVMNT</span>
+                    <div className="dropdown dropup mt-3 mb-3">
+                        <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
+                            <strong>{store.userData.first_name} {store.userData.last_name}</strong>
+                        </Link>
+                        <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                            <li><Link className="dropdown-item" to="/user/profile">Perfil</Link></li>
+                            <li><Link className="dropdown-item" to="/user/settings">Configuración</Link></li>
+                            <li><hr className="dropdown-divider" /></li>
+                            <button type="button" className="dropdown-item" onClick={handleLogout}> Cerrar Sesión</button>
+                        </ul>
+                    </div>
                 </Link>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
@@ -83,19 +93,6 @@ export const Sidebar = () => {
                 <br />
                 <br />
                 <br />
-                <hr />
-                <div className="dropdown dropup">
-                    <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
-                        <strong>{store.userData.first_name} {store.userData.last_name}</strong>
-                    </Link>
-                    <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                        <li><Link className="dropdown-item" to="/user/profile">Perfil</Link></li>
-                        <li><Link className="dropdown-item" to="/user/settings">Configuración</Link></li>
-                        <li><hr className="dropdown-divider" /></li>
-                        <button type="button" className="dropdown-item" onClick={handleLogout}> Cerrar Sesión</button>
-                    </ul>
-                </div>
             </div >
         </>
     );
