@@ -50,8 +50,6 @@ export const Programs = () => {
                                                 <strong>URL:</strong> {exerciseData.url_youtube}<br />
                                                 <strong>Description:</strong> {exerciseData.description}<br />
                                                 <strong>Type:</strong> {exerciseData.type}<br />
-                                                <button type="button" className="btn btn-primary">Edit</button>
-                                                <button type="button" className="btn btn-danger">Delete</button>
                                             </td>
                                             {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                 const exercise = exercises.find(e => e.type === exerciseType);
