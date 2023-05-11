@@ -22,57 +22,63 @@ export const Programs = () => {
                     ))}
                 </select>
             </div>
-            <div className="table-responsive">
-                {userPrograms && Object.keys(userPrograms).length > 0 ? (
-                    <>
-                        {Object.entries(userPrograms[selectedProgramName]).map(([day, data]) => {
-                            const workoutEntries = Object.entries(data["workout"]);
-                            const sessionEntries = Object.entries(data["sessions"]);
 
-                            return (
-                                <table key={`${day}`} className="table align-middle">
-                                    <thead>
-                                        <tr>
-                                            <th>{day}</th>
-                                            {sessionEntries.map(([sessionName, _], sessionIndex) => (
-                                                <th key={`${day}-${sessionName}`}>{sessionName}</th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
-                                            <tr key={`${day}-${exerciseType}`}>
-                                                <td>
-                                                    <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
-                                                    <strong>URL:</strong> {exerciseData.url_youtube}<br />
-                                                    <strong>Description:</strong> {exerciseData.description}<br />
-                                                    <strong>Type:</strong> {exerciseData.type}<br />
-                                                </td>
-                                                {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
-                                                    const exercise = exercises.find(e => e.type === exerciseType);
-                                                    if (exercise) {
-                                                        return (
-                                                            <td key={`${day}-${sessionName}-${exerciseType}`}>
-                                                                <strong>Weight:</strong> {exercise.weight}<br />
-                                                                <strong>Repetitions:</strong> {exercise.repetitions}<br />
-                                                                <strong>Series:</strong> {exercise.series}
-                                                            </td>
-                                                        );
-                                                    } else {
-                                                        return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
-                                                    }
-                                                })}
-                                            </tr>
+            {userPrograms && userPrograms[selectedProgramName] ? (
+                <>
+                    {Object.entries(userPrograms[selectedProgramName]).map(([day, data]) => {
+                        if (day === "program_id") {
+                            return null;
+                        }
+                        const workoutEntries = data["workout"] ? Object.entries(data["workout"]) : [];
+                        const sessionEntries = data["sessions"] ? Object.entries(data["sessions"]) : [];
+
+                        return (
+                            <table key={`${day}`} className="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>{day}</th>
+                                        {sessionEntries.map(([sessionName, _], sessionIndex) => (
+                                            <th key={`${day}-${sessionName}`}>{sessionName}</th>
                                         ))}
-                                    </tbody>
-                                </table>
-                            );
-                        })}
-                    </>
-                ) : (
-                    <><h1>Loading</h1></>
-                )}
-            </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
+                                        <tr key={`${day}-${exerciseType}`}>
+                                            <td>
+                                                <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
+                                                <strong>URL:</strong> {exerciseData.url_youtube}<br />
+                                                <strong>Description:</strong> {exerciseData.description}<br />
+                                                <strong>Type:</strong> {exerciseData.type}<br />
+                                                <button type="button" className="btn btn-primary">Edit</button>
+                                                <button type="button" className="btn btn-danger">Delete</button>
+                                            </td>
+                                            {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
+                                                const exercise = exercises.find(e => e.type === exerciseType);
+                                                if (exercise) {
+                                                    return (
+                                                        <td key={`${day}-${sessionName}-${exerciseType}`}>
+                                                            <strong>Weight:</strong> {exercise.weight}<br />
+                                                            <strong>Repetitions:</strong> {exercise.repetitions}<br />
+                                                            <strong>Series:</strong> {exercise.series}
+                                                        </td>
+                                                    );
+                                                } else {
+                                                    return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
+                                                }
+                                            })}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+
+                        );
+                    })}
+                </>
+            ) : (
+                <><h1>Loading</h1></>
+            )}
+
         </>
     );
 };

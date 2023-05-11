@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import Modal from "./modal.jsx";
 import EditPrograms from "./editPrograms.jsx";
+import ModalAddProgram from "./modalAddProgram.jsx";
 
 export const AddPrograms = () => {
     const { store, actions } = useContext(Context);
@@ -14,6 +15,7 @@ export const AddPrograms = () => {
     const [programName, setProgramName] = useState("");
     const [category, setCategory] = useState("");
     const [selectedProgramName, setSelectedProgramName] = useState();
+    const [numPrograms, setNumPrograms] = useState(0);
 
     let obj = {
         user_id: selectedUser,
@@ -30,6 +32,7 @@ export const AddPrograms = () => {
         if (response.ok) {
             alert("Programa agregado exitosamente");
             handleCloseModal();
+            setNumPrograms(numPrograms + 1);
         } else {
             alert("Hubo un error, intente nuevamente");
         }
@@ -45,7 +48,6 @@ export const AddPrograms = () => {
             setShowModal(true);
         } else {
             setSelectedProgramName(event.target.value);
-            console.log(selectedProgramName)
         }
 
     };
@@ -62,6 +64,23 @@ export const AddPrograms = () => {
         user.email.toLowerCase().includes(searchText.toLowerCase())
     );
 
+    const handleUserPrograms = async () => {
+        if (selectedUser) {
+            let { respuestaJson, response } = await actions.useFetch(`/getorganizedprograms/${selectedUser}`);
+            if (response.ok) {
+                if (Object.keys(respuestaJson).length > 0) {
+                    setUserPrograms([respuestaJson]);
+                } else {
+                    setUserPrograms(null);
+                }
+            } else {
+                console.log("Fetch fallido");
+            }
+        } else {
+            setUserPrograms([]);
+        }
+    };
+
     useEffect(() => {
         const cargaDatos = async () => {
             let { respuestaJson, response } = await actions.useFetch("/getuser");
@@ -75,24 +94,9 @@ export const AddPrograms = () => {
     }, []);
 
     useEffect(() => {
-        const handleUserPrograms = async () => {
-            if (selectedUser) {
-                let { respuestaJson, response } = await actions.useFetch(`/getorganizedprograms/${selectedUser}`);
-                if (response.ok) {
-                    if (Object.keys(respuestaJson).length > 0) {
-                        setUserPrograms([respuestaJson]);
-                    } else {
-                        setUserPrograms(null);
-                    }
-                } else {
-                    console.log("Fetch fallido");
-                }
-            } else {
-                setUserPrograms([]);
-            }
-        };
+
         handleUserPrograms();
-    }, [selectedUser, actions]);
+    }, [selectedUser, actions, numPrograms]);
 
     return (
         <>
@@ -131,7 +135,7 @@ export const AddPrograms = () => {
                             />
 
                             {selectedProgramName ? (
-                                <EditPrograms userPrograms={userPrograms} programName={programName} selectedProgramName={selectedProgramName} />
+                                <EditPrograms userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} showModal={showModal} setShowModal={setShowModal} handleCloseModal={handleCloseModal} selectedProgramName={selectedProgramName} />
                             ) : (<><h1>Loading</h1></>)}
 
                         </div>

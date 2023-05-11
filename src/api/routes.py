@@ -311,10 +311,10 @@ def register_exercise():
 
 @api.route('/getexercises', methods=['GET'])
 def get_exercises():
-    body = request.get_json()
-    id = body ["id"] if 'id' in body else None
-    name = body ["name"] if 'name' in body else None
-    category = body["category"] if 'category' in body else None
+    id = request.args.get("id", None)
+    name = request.args.get("name", None)
+    category = request.args.get("category", None)
+    
     exercise = Exercises.query
     if id:
         exercise = exercise.filter_by(id=id)
@@ -322,9 +322,10 @@ def get_exercises():
         exercise = exercise.filter_by(name=name)
     if category:
         exercise = exercise.filter_by(category=category)
+        
     exercise = exercise.all()
     print(exercise)
-    exercise=list(map(lambda item: item.serialize(), exercise))
+    exercise = list(map(lambda item: item.serialize(), exercise))
     return jsonify(exercise)
 
 @api.route('/editexercises/<int:exercises_id>', methods=['PUT'])
@@ -423,10 +424,10 @@ def program_organizer():
 
     optional_fields = [
         "day", "type",
-        "session_one", "weight_one", "repetitions_one", "series_one", "rest_one", "comments_one",
-        "session_two", "weight_two", "repetitions_two", "series_two", "rest_two", "comments_two",
-        "session_three", "weight_three", "repetitions_three", "series_three", "rest_three", "comments_three",
-        "session_four", "weight_four", "repetitions_four", "series_four", "rest_four", "comments_four"
+        "session_1", "weight_1", "repetitions_1", "series_1", "rest_1", "comments_1",
+        "session_2", "weight_2", "repetitions_2", "series_2", "rest_2", "comments_2",
+        "session_3", "weight_3", "repetitions_3", "series_3", "rest_3", "comments_3",
+        "session_4", "weight_4", "repetitions_4", "series_4", "rest_4", "comments_4"
     ]
 
     for field in optional_fields:
@@ -446,9 +447,13 @@ def get_organized_programs(user_id):
 
     for program in programs:
         program_name = program.program_name
+        program_id = program.id
 
         if program_name not in organized_programs:
             organized_programs[program_name] = {}
+
+        # add program_id to the organized_programs dictionary
+        organized_programs[program_name]["program_id"] = program_id
 
         program_organizer = ProgramOrganizer.query.filter_by(program_id=program.id).all()
 
@@ -491,6 +496,8 @@ def get_organized_programs(user_id):
                         organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
 
     return jsonify(organized_programs), 200
+
+
 
 
 @api.route('/programorganizer/<int:program_organizer_id>', methods=['PUT'])
