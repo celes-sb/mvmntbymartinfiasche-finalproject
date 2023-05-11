@@ -68,14 +68,14 @@ export const Navbar = () => {
                   Accedé a la plataforma
                 </button>
                 <ul className="dropdown-menu position-absolute" aria-labelledby="dropdownMenuButton">
-                  <li><Link className="dropdown-item" to="/signup">Signup</Link></li>
-                  <li><Link className="dropdown-item" to="/login">Login</Link></li>
+                  <li><Link className="dropdown-item" to="/signup">Registrate</Link></li>
+                  <li><Link className="dropdown-item" to="/login">Iniciá sesión</Link></li>
                 </ul>
               </div>
 
             </div>
           ) : (<>
-            <h1>Bienvenid@, {store.userData.first_name}</h1>
+            <h1>Bienvenidx, {store.userData.first_name}</h1>
             <div>
               <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
               }>Cerrar Sesión</button>
