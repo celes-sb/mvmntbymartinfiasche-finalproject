@@ -2,21 +2,41 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import ModalAddProgram from "./modalAddProgram.jsx";
 
 export const EditPrograms = ({
     userPrograms,
     selectedProgramName,
+    handleUserPrograms,
 }) => {
     const { store, actions } = useContext(Context);
+    const [showModalAddProgram, setShowModalAddProgram] = useState(false);
+    const [selectedProgramId, setSelectedProgramId] = useState(null);
+    const handleCloseModalAddProgram = () => setShowModalAddProgram(false);
+    const handleOpenModalAddProgram = () => setShowModalAddProgram(true);
+
+    useEffect(() => {
+        const programData = userPrograms?.[0]?.[selectedProgramName];
+
+        if (programData) {
+            setSelectedProgramId(programData.program_id);
+        }
+    }, [selectedProgramName, userPrograms]);
+
 
     return (
         <>
             <div className="table-responsive">
-                {userPrograms && userPrograms[0][selectedProgramName] ? (
+                <button type="button" className="btn btn-success" onClick={handleOpenModalAddProgram}>Add New Exercise</button>
+                <ModalAddProgram userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} selectedProgramId={selectedProgramId} showModalAddProgram={showModalAddProgram} handleCloseModalAddProgram={handleCloseModalAddProgram} handleOpenModalAddProgram={handleOpenModalAddProgram} />
+                {userPrograms && userPrograms[0] && userPrograms[0][selectedProgramName] ? (
                     <>
                         {Object.entries(userPrograms[0][selectedProgramName]).map(([day, data]) => {
-                            const workoutEntries = Object.entries(data["workout"]);
-                            const sessionEntries = Object.entries(data["sessions"]);
+                            if (day === "program_id") {
+                                return null;
+                            }
+                            const workoutEntries = data["workout"] ? Object.entries(data["workout"]) : [];
+                            const sessionEntries = data["sessions"] ? Object.entries(data["sessions"]) : [];
 
                             return (
                                 <table key={`${day}`} className="table align-middle">
@@ -36,6 +56,8 @@ export const EditPrograms = ({
                                                     <strong>URL:</strong> {exerciseData.url_youtube}<br />
                                                     <strong>Description:</strong> {exerciseData.description}<br />
                                                     <strong>Type:</strong> {exerciseData.type}<br />
+                                                    <button type="button" className="btn btn-primary">Edit</button>
+                                                    <button type="button" className="btn btn-danger">Delete</button>
                                                 </td>
                                                 {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                     const exercise = exercises.find(e => e.type === exerciseType);
@@ -55,6 +77,7 @@ export const EditPrograms = ({
                                         ))}
                                     </tbody>
                                 </table>
+
                             );
                         })}
                     </>
