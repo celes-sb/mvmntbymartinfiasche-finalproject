@@ -9,7 +9,7 @@ export const Papers = () => {
     return (<>
         <div className="backofficeWelcome1 jumbotron m-3">
             <h1 className="display-4">Papers</h1>
-            <p className="lead">texto texto</p>
+            <p className="lead">Conocé la ciencia detrás del entrenamiento.</p>
             <hr className="my-4" />
         </div>
     </>)

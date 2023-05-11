@@ -16,21 +16,21 @@ export const Programs = () => {
         <>
             <div className="backofficeWelcome1 jumbotron m-3">
                 <h1 className="display-4">Mis Programas</h1>
-                <p className="lead">Texto texto</p>
                 <hr className="my-4" />
                 <ul className="list-unstyled">
                     <li><i className="far fa-check-circle ms-2 ps-1"></i> Entendé cómo leer tu programa:</li>
-                    <iframe className="border border-primary m-3" width="560" height="315" src="https://www.youtube.com/embed/3yEWQmkkKYE" title="Como leer tu programa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/3yEWQmkkKYE" title="Como leer tu programa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
                     <li><i className="far fa-check-circle ms-2 ps-1"></i> Entrada en calor sugerida antes de entrenar:</li>
-                    <iframe className="border border-primary m-3" width="560" height="315" src="https://www.youtube.com/embed/vldVP3I9tos" title="Entrada en calor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> A1: Cat camel x 10 repeticiones</li>
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> A2: Rotación torácica x 10 repeticiones</li>
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> A3: Bird Dog x 10 repeticiones totales</li>
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> A4: Plancha Prono x 20 segundos</li>
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> <strong>x 3 series</strong></li>
+                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/vldVP3I9tos" title="Entrada en calor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+                    <li>- A1: Cat camel x 10 repeticiones</li>
+                    <li>- A2: Rotación torácica x 10 repeticiones</li>
+                    <li>- A3: Bird Dog x 10 repeticiones totales</li>
+                    <li>- A4: Plancha Prono x 20 segundos</li>
+                    <li><strong>x 3 series</strong></li>
                 </ul>
+                <hr />
                 <div>
-                    <label htmlFor="programSelect">Select a program:</label>
+                    <label htmlFor="programSelect">Seleccioná un programa:</label>
                     <select id="programSelect" value={selectedProgramName} onChange={handleProgramChange}>
                         {Object.keys(userPrograms).map((programName) => (
                             <option key={programName} value={programName}>{programName}</option>
@@ -85,7 +85,7 @@ export const Programs = () => {
                             })}
                         </>
                     ) : (
-                        <><h1>Loading</h1></>
+                        <><h1>Cargando programas...</h1></>
                     )}
                 </div>
             </div>
