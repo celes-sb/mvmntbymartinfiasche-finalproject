@@ -62,6 +62,9 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <Link className="nav-link badge badge-pill text-dark" to="/escribime">Escribime</Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link badge badge-pill text-dark" to="/pagos">Pagos</Link>
+                </li>
               </ul>
               <div className="dropdown position-relative">
                 <button className="nav-btn btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">

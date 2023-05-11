@@ -31,7 +31,10 @@ import { EmergencyContact } from "./pages/emergencyContact.jsx";
 import { PaymentMethod } from "./pages/paymentMethod.jsx";
 import { Twofa } from "./pages/twofa.jsx";
 import { Preferences } from "./pages/preferences.jsx";
-import { UserLayout } from "./pages/userLayout"
+import { UserLayout } from "./pages/userLayout";
+import { Pay } from "./pages/pay.jsx";
+
+
 
 //create your first component
 const Layout = () => {
@@ -54,6 +57,7 @@ const Layout = () => {
             <Route element={<Acrobacia />} path="/acrobacia" />
             <Route element={<Eventos />} path="/eventos" />
             <Route element={<Contact />} path="/escribime" />
+            <Route element={<Pay />} path="/pagos" />
             <Route element={<Single />} path="/single/:theid" />
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Signup />} path="/signup" />
