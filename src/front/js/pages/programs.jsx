@@ -14,8 +14,25 @@ export const Programs = () => {
 
     return (
         <>
+
+            <div className="backofficeWelcome1 jumbotron m-3">
+                <h1 className="display-4">Mis Programas</h1>
+                <hr className="my-4" />
+                <ul className="list-unstyled">
+                    <li><i className="far fa-check-circle ms-2 ps-1"></i> Entendé cómo leer tu programa:</li>
+                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/3yEWQmkkKYE" title="Como leer tu programa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+                    <li><i className="far fa-check-circle ms-2 ps-1"></i> Entrada en calor sugerida antes de entrenar:</li>
+                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/vldVP3I9tos" title="Entrada en calor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
+                    <li>- A1: Cat camel x 10 repeticiones</li>
+                    <li>- A2: Rotación torácica x 10 repeticiones</li>
+                    <li>- A3: Bird Dog x 10 repeticiones totales</li>
+                    <li>- A4: Plancha Prono x 20 segundos</li>
+                    <li><strong>x 3 series</strong></li>
+                </ul>
+                <hr />
+            </div>
             <div>
-                <label htmlFor="programSelect">Select a program:</label>
+                <label htmlFor="programSelect">Seleccioná un programa:</label>
                 <select id="programSelect" value={selectedProgramName} onChange={handleProgramChange}>
                     {Object.keys(userPrograms).map((programName) => (
                         <option key={programName} value={programName}>{programName}</option>
@@ -50,8 +67,6 @@ export const Programs = () => {
                                                 <strong>URL:</strong> {exerciseData.url_youtube}<br />
                                                 <strong>Description:</strong> {exerciseData.description}<br />
                                                 <strong>Type:</strong> {exerciseData.type}<br />
-                                                <button type="button" className="btn btn-primary">Edit</button>
-                                                <button type="button" className="btn btn-danger">Delete</button>
                                             </td>
                                             {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                 const exercise = exercises.find(e => e.type === exerciseType);
@@ -76,7 +91,7 @@ export const Programs = () => {
                     })}
                 </>
             ) : (
-                <><h1>Loading</h1></>
+                <><h1>Cargando programas...</h1></>
             )}
 
         </>
