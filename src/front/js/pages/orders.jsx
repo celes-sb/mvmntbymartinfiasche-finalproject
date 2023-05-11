@@ -7,7 +7,11 @@ export const Orders = () => {
     const { store, actions } = useContext(Context);
 
     return (<>
-        <h1>Hola soy Ordenes</h1>
+        <div className="backofficeWelcome1 jumbotron m-3">
+            <h1 className="display-4">Historial de Pagos</h1>
+            <p className="lead">texto texto</p>
+            <hr className="my-4" />
+        </div>
     </>)
 }
 
