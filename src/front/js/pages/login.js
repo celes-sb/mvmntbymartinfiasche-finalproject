@@ -49,7 +49,7 @@ export const Login = () => {
                   <div className="form-style">
                     <br></br>
                     <form>
-                      <div className="form-group pb-3">
+                      <div className="form-group pb-2">
                         <input
                           type="text"
                           placeholder="Ingresa tu email o usuario"
@@ -62,7 +62,7 @@ export const Login = () => {
                         />
                       </div>
                       <br></br>
-                      <div className="form-group pb-3">
+                      <div className="form-group pb-2">
                         <input
                           type="password"
                           placeholder="Ingresá tu contraseña"
@@ -73,30 +73,23 @@ export const Login = () => {
                           }}
                         />
                       </div>
-                      <br></br>
-                      <div className="d-flex align-items-center justify-content-between">
-                        <div className="d-flex align-items-center">
-                          <input name=" " type="checkbox" value="" />
-                          <span className="pl-2 font-weight-bold">Recordar mis datos</span>
-                        </div>
-                        <div>
-                          <Link to="/recoverpassword">No recuerdo mi contraseña</Link>
-                        </div>
-                      </div>
-                      <br></br>
+                      <br />
                       <div className="pb-2">
                         <button
                           type="button"
-                          className="btn btn-primary w-100 font-weight-bold mt-2"
+                          className="btn btn-primary w-100 font-weight-bold"
                           onClick={handleLogin}
                         >
                           Entrar
                         </button>
                       </div>
                     </form>
-                    <br></br>
-
-                    <div className="pt-2 text-center">
+                    <br />
+                    <div className="d-flex align-items-center justify-content-between">
+                      <Link to="/recoverpassword">No recuerdo mi contraseña</Link>
+                    </div>
+                    <br />
+                    <div className="text-center">
                       {" "}
                       ¿No tenés cuenta? <br></br>
                       <Link to="/signup">Registrate</Link>

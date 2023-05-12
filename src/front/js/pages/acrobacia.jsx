@@ -1,5 +1,7 @@
-import React, { Component } from "react";
-//import { Context } from "../store/appContext";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext"
+import { Link, useNavigate } from "react-router-dom";
+import "../../styles/home.css";
 
 export const Acrobacia = () => {
 
@@ -7,45 +9,45 @@ export const Acrobacia = () => {
     "http://drive.google.com/uc?export=view&id=1JO0oSk-2RDlNp-pzhg557opqjmAQ5iyE";
   const videoAcrobacia =
     "http://drive.google.com/uc?export=view&id=1VysyBuyJw2YzrKf1zmzgSVf81IVXfcWN";
+  const campusAcro1 =
+    "http://drive.google.com/uc?export=view&id=109EUKNQK5sCdLBc0gjEXkcMvYkrie5-S";
+  const campusAcro2 =
+    "http://drive.google.com/uc?export=view&id=14OCVkuTF7htxgX4Odw7JzEwJ16dwb3kr";
 
   return (
     <>
       <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
         style={{
           backgroundImage: `url(${martinPastoPuente})`,
-          backgroundSize: "cover",
+          backgroundSize: "100% auto",
+          backgroundRepeat: "repeat-y",
+          backgroundPosition: "center center"
         }}
       >
-        <div className="acrobacia bg-white bg-opacity-75 p-5 border border-warning rounded text-center">
-          <h1>Entrenamiento Acrobático</h1>
-          <p className="text pb-3">Construímos las acciones acrobáticas abordando los fundamentos de la practica.
-            Para facilitar el entrenamiento a personas de todos los niveles.</p>
-          <section className="acrobacia-0 d-flex justify-content-center align-items-center">
-          </section>
-          <section className="acrobacia-1 d-flex p-5 m-5">
+        <div className="mvmt-content bg-white bg-opacity-75 p-5 border border-warning rounded text-center">
+          <section className="mvmt-0">
+            <h1 className="text pb-3">Campus Acrobático</h1>
+            <p className="text pb-3">Talleres organizados a lo largo del año en los cuales construímos las acciones acrobáticas abordando los fundamentos de la práctica para facilitar el entrenamiento a personas de todos los niveles.</p>
             <iframe className="embeddedVideo border border-warning" width="450" height="450" src={videoAcrobacia} title="Entrenamiento Individualizado" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            <div className="acrobacia1-right col-md-6 bg-light text-dark p-5 pb-0 text-left border border-warning">
-              <div className="row">
-                <div className="col-12 text-dark">
-                  <h4 className="acrobacia1-titulo w-100">Algunos de los aspectos incluídos en las clases:⁣</h4>
-                </div>
-                <div className="col-12 text-dark">
-                  <p><i className="fas fa-running"></i> Herramientas para acrobacias blandas</p>
-                  <p><i className="fas fa-running"></i> Disponibilidad de las articulaciones – Inteligencia de movimiento⁣</p>
-                  <p><i className="fas fa-running"></i> Elementos de Locomoción para integrar Acrobacias⁣</p>
-                  <p><i className="fas fa-running"></i> Preparación física y cuidado del cuerpo</p>
-                </div>
-                <div className="col-12">
-                  <hr className="my-4 m-0 p-0" />
-                </div>
-                <div className="row">
-                  <div className="col-12 text-center">
-                    <p className="mb-0"><strong>MARTES Y JUEVES <br />16.30 a 18<br /> <i class="fas fa-map-marker-alt"></i> PARQUE CENTENARIO</strong></p>
-                  </div>
-                </div>
-              </div>
+            <h2 className="pt-5 pb-4 text-center">Algunos de los aspectos incluídos en el campus:</h2>
+            <div className="list text-center">
+              <p><i className="fas fa-running"></i> Herramientas para acrobacias blandas</p>
+              <p><i className="fas fa-running"></i> Disponibilidad de las articulaciones – Inteligencia de movimiento⁣</p>
+              <p><i className="fas fa-running"></i> Elementos de Locomoción para integrar Acrobacias⁣</p>
+              <p><i className="fas fa-running"></i> Preparación física y cuidado del cuerpo</p>
             </div>
-          </section>
+            <br />
+            <div>
+              <h3>Un poco de lo que se vive en los encuentros:
+                <br />
+                <br />
+                <iframe className="embeddedVideo border border-warning me-3" width="270" height="450" src={campusAcro1} title="Campus Acerobatico 1" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                <iframe className="embeddedVideo border border-warning ms-3" width="270" height="450" src={campusAcro2} title="Campus Acrobatico 2" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+              </h3>
+              <br />
+            </div>
+            <Link to="/eventos"><button type="button" className="btn btn-large btn-warning p-2 align-self-end">¡Enterate de los próximos campus acá!</button></Link>
+          </section >
         </div>
       </section >
     </>

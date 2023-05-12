@@ -371,6 +371,50 @@ footer .footer-content .social-media h4 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
+.backofficeWelcome1,
+.diagnostico,
+.backofficeProfile,
+.backofficeEditProfile,
+.backofficeMedidas,
+.backofficeEmergencyContact,
+.backoffice2fa,
+.backofficeSettings,
+.backofficePayment,
+.backofficePreferences,
+.modal-dialog {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
+}
+
+.navbar .backoffice-navtext {
+  margin-left: 600px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-shadow: 1px 2px 2px rgba(92, 91, 91, 0.204);
+}
+
+.backofficeWelcome1 .lead .btn {
+  cursor: pointer;
+  color: rgb(34, 122, 246);
+  border-color: rgb(34, 122, 246);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.backofficeWelcome1 .lead .btn:hover {
+  background-color: rgb(34, 122, 246);
+  color: white;
+}
+
+.navbar .backoffice-navbtn {
+  cursor: pointer;
+  color: rgb(202, 3, 3);
+  border-radius: 10px;
+  border-color: rgb(202, 3, 3);
+  padding: 10px;
+  background-color: transparent;
+  margin-left: 130px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 @media only screen and (max-width: 1200px) {
   .container {
     width: 1124px;

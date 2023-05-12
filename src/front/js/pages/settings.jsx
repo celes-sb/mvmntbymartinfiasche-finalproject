@@ -18,7 +18,7 @@ export const Settings = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficeSettings">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Link1")} onClick={() => handleClick("Link1")} to="/user/settings">
@@ -41,7 +41,7 @@ export const Settings = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
                         <div className="form-group pb-3">
@@ -55,7 +55,7 @@ export const Settings = () => {
                                 }}
                             />
                         </div>
-                        <div className="form-group pb-3">
+                        <div className="form-group">
                             <input
                                 type="password"
                                 placeholder="Nueva Contraseña"
@@ -70,7 +70,7 @@ export const Settings = () => {
                         <div className="pb-2">
                             <button
                                 type="button"
-                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
                             >
                                 Actualizar
                             </button>
