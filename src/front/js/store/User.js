@@ -185,17 +185,28 @@ export function userActions(getStore, getActions, setStore) {
 
       return response;
     },
-    recover: async (email) => {
+    recover: async (password, token) => {
       const store = getStore();
       const actions = getActions();
       let body = {
-        message: `Has click en el siguiente enlace:
-        http://192.168.1.58:3000/`,
-        to: email,
-        subject: "Recuperar contraseña"
+        token: token,
+        password: password
       };
       let { respuestaJson, response } = await actions.useFetch(
-        "/correo",
+        "/new_password",
+        body,
+        "PUT"
+      );
+      return { respuestaJson, response };
+    },
+    linkrecoverpassword: async (email) => {
+      const store = getStore();
+      const actions = getActions();
+      let body = {
+        email: email,
+      };
+      let { respuestaJson, response } = await actions.useFetch(
+        "/reset_password",
         body,
         "POST"
       );
