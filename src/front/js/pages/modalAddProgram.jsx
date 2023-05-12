@@ -153,6 +153,12 @@ export const ModalAddProgram = ({
                                 </div>
                             </div>
                             <div className="row gy-2">
+                                <div className="col mt-2">
+                                    <br />
+                                    <p>Peso:</p>
+                                    <p>Repes:</p>
+                                    <p>Series:</p>
+                                </div>
                                 <div className="col mt-2 gx-2">
                                     Semana 1
                                     <input
@@ -309,7 +315,6 @@ export const ModalAddProgram = ({
                                         required
                                     />
                                 </div>
-
                             </div>
 
                         </div>
