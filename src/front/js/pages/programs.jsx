@@ -14,25 +14,13 @@ export const Programs = () => {
 
     return (
         <>
-
             <div className="backofficeWelcome1 jumbotron m-3">
                 <h1 className="display-4">Mis Programas</h1>
+                <p>Al final de la página hay un instructivo para entender cómo leer tu programa y una entrada en calor sugerida. <br />Chequealos antes de empezar a entrenar.</p>
                 <hr className="my-4" />
-                <ul className="list-unstyled">
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> Entendé cómo leer tu programa:</li>
-                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/3yEWQmkkKYE" title="Como leer tu programa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
-                    <li><i className="far fa-check-circle ms-2 ps-1"></i> Entrada en calor sugerida antes de entrenar:</li>
-                    <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/vldVP3I9tos" title="Entrada en calor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />
-                    <li>- A1: Cat camel x 10 repeticiones</li>
-                    <li>- A2: Rotación torácica x 10 repeticiones</li>
-                    <li>- A3: Bird Dog x 10 repeticiones totales</li>
-                    <li>- A4: Plancha Prono x 20 segundos</li>
-                    <li><strong>x 3 series</strong></li>
-                </ul>
-                <hr />
             </div>
             <div>
-                <label htmlFor="programSelect">Seleccioná un programa:</label>
+                <label htmlFor="programSelect">Seleccioná un programa:</label><br /><br />
                 <select id="programSelect" value={selectedProgramName} onChange={handleProgramChange}>
                     {Object.keys(userPrograms).map((programName) => (
                         <option key={programName} value={programName}>{programName}</option>
@@ -91,9 +79,19 @@ export const Programs = () => {
                     })}
                 </>
             ) : (
-                <><h1>Cargando programas...</h1></>
+                <><p className="mt-5 mb-5">Cargando...</p></>
             )}
-
+            <ul className="list-unstyled">
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Entendé cómo leer tu programa:</li>
+                <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/3yEWQmkkKYE" title="Como leer tu programa" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Entrada en calor sugerida antes de entrenar:</li>
+                <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/vldVP3I9tos" title="Entrada en calor" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                <li className="ps-5">A1: Cat camel x 10 repeticiones</li>
+                <li className="ps-5">A2: Rotación torácica x 10 repeticiones</li>
+                <li className="ps-5">A3: Bird Dog x 10 repeticiones totales</li>
+                <li className="ps-5 pb-2">A4: Plancha Prono x 20 segundos</li>
+                <li className="ps-5"><strong>x 3 series</strong></li>
+            </ul>
         </>
     );
 };

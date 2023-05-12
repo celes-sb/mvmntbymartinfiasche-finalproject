@@ -27,7 +27,7 @@ export const EditPrograms = ({
     return (
         <>
             <div className="table-responsive">
-                <button type="button" className="btn btn-success" onClick={handleOpenModalAddProgram}>Add New Exercise</button>
+                <button type="button" className="btn btn-outline-primary mt-4" onClick={handleOpenModalAddProgram}>Agregar Ejercicio</button>
                 <ModalAddProgram userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} selectedProgramId={selectedProgramId} showModalAddProgram={showModalAddProgram} handleCloseModalAddProgram={handleCloseModalAddProgram} handleOpenModalAddProgram={handleOpenModalAddProgram} />
                 {userPrograms && userPrograms[0] && userPrograms[0][selectedProgramName] ? (
                     <>
@@ -51,22 +51,22 @@ export const EditPrograms = ({
                                     <tbody>
                                         {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
                                             <tr key={`${day}-${exerciseType}`}>
-                                                <td>
-                                                    <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
+                                                <td className="g-5">
+                                                    <strong>Ejercicio:</strong> {exerciseData.exercise_name}<br />
                                                     <strong>URL:</strong> {exerciseData.url_youtube}<br />
-                                                    <strong>Description:</strong> {exerciseData.description}<br />
-                                                    <strong>Type:</strong> {exerciseData.type}<br />
-                                                    <button type="button" className="btn btn-primary">Edit</button>
-                                                    <button type="button" className="btn btn-danger">Delete</button>
+                                                    <strong>Descripción:</strong> {exerciseData.description}<br />
+                                                    <strong>Tipo:</strong> {exerciseData.type}<br />
+                                                    <button type="button" className="btn btn-outline-primary m-2">Editar</button>
+                                                    <button type="button" className="btn btn-outline-danger m-2">Borrar</button>
                                                 </td>
                                                 {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                     const exercise = exercises.find(e => e.type === exerciseType);
                                                     if (exercise) {
                                                         return (
                                                             <td key={`${day}-${sessionName}-${exerciseType}`}>
-                                                                <strong>Weight:</strong> {exercise.weight}<br />
-                                                                <strong>Repetitions:</strong> {exercise.repetitions}<br />
-                                                                <strong>Series:</strong> {exercise.series}
+                                                                <strong>Series:</strong> {exercise.series}<br />
+                                                                <strong>Repeticiones:</strong> {exercise.repetitions}<br />
+                                                                <strong>Peso:</strong> {exercise.weight}
                                                             </td>
                                                         );
                                                     } else {
@@ -82,7 +82,7 @@ export const EditPrograms = ({
                         })}
                     </>
                 ) : (
-                    <><h1>Loading</h1></>
+                    <><h1>Cargando...</h1></>
                 )}
             </div>
         </>

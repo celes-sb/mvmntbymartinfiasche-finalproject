@@ -11,8 +11,6 @@ export const Measures = () => {
         setActiveLink(linkName);
     };
 
-    const [height, setHeight] = useState(null);
-    const [weight, setWeight] = useState(null);
     const [levelOfTraining, setLevelOfTraining] = useState("");
     const [otherSports, setOtherSports] = useState("");
     const [eatingHabits, setEatingHabits] = useState("");
@@ -25,7 +23,7 @@ export const Measures = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficeMedidas">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Active")} onClick={() => handleClick("Active")} to="/user/profile">
@@ -35,7 +33,7 @@ export const Measures = () => {
 
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
-                        Medidas
+                        Info Entrenamiento
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -44,31 +42,9 @@ export const Measures = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
-                        <div className="form-group pb-3">
-                            <input
-                                type="float"
-                                placeholder="Altura"
-                                className="form-control"
-                                aria-describedby="Height"
-                                onChange={(e) => {
-                                    setHeight(e.target.value);
-                                }}
-                            />
-                        </div>
-                        <div className="form-group pb-3">
-                            <input
-                                type="float"
-                                placeholder="Peso"
-                                className="form-control"
-                                aria-describedby="Weight"
-                                onChange={(e) => {
-                                    setWeight(e.target.value);
-                                }}
-                            />
-                        </div>
                         <div className="form-group pb-3">
                             <input
                                 type="text"
@@ -94,7 +70,7 @@ export const Measures = () => {
                         <div className="form-group pb-3">
                             <input
                                 type="text"
-                                placeholder="Habitos Alimenticios"
+                                placeholder="Hábitos Alimenticios"
                                 className="form-control"
                                 onChange={(e) => {
                                     setEatingHabits(e.target.value);
@@ -114,7 +90,7 @@ export const Measures = () => {
                         <div className="form-group pb-3">
                             <input
                                 type="text"
-                                placeholder="Disponibilidad"
+                                placeholder="Disponibilidad Semanal"
                                 className="form-control"
                                 onChange={(e) => {
                                     setAvailability(e.target.value);
@@ -124,7 +100,7 @@ export const Measures = () => {
                         <div className="form-group pb-3">
                             <input
                                 type="text"
-                                placeholder="Acceso a un Gimnasio"
+                                placeholder="Acceso a un gimnasio (sí/no)"
                                 className="form-control"
                                 onChange={(e) => {
                                     setGymAccess(e.target.value);
@@ -135,7 +111,7 @@ export const Measures = () => {
                         <div className="pb-2">
                             <button
                                 type="button"
-                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
                             >
                                 Actualizar
                             </button>
