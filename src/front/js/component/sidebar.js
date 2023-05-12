@@ -34,7 +34,7 @@ export const Sidebar = () => {
     return (
         <>
             <div className="d-flex flex-column flex-shrink-0 p-3" style={{ width: "280px", marginTop: "80px" }}>
-                <Link to="/user/backoffice" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <div className="dropdown dropup mt-3 mb-3">
                         <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
@@ -47,7 +47,7 @@ export const Sidebar = () => {
                             <button type="button" className="dropdown-item" onClick={handleLogout}> Cerrar Sesión</button>
                         </ul>
                     </div>
-                </Link>
+                </div>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
                     <li>

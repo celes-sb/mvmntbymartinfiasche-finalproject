@@ -42,7 +42,7 @@ export const EditProfile = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficeEditProfile">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Active")} onClick={() => handleClick("Active")} to="/user/profile">
@@ -52,7 +52,7 @@ export const EditProfile = () => {
 
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
-                        Medidas
+                        Info Entrenamiento
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -61,7 +61,7 @@ export const EditProfile = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
                         <div className="form-group pb-3">
@@ -122,7 +122,7 @@ export const EditProfile = () => {
                                 }}
                             />
                         </div>
-                        <div className="form-group pb-3">
+                        <div className="form-group pb-2">
                             <input
                                 type="text"
                                 placeholder="Teléfono"
@@ -134,10 +134,10 @@ export const EditProfile = () => {
                             />
                         </div>
                         <br />
-                        <div className="pb-2">
+                        <div className="pb-1">
                             <button
                                 type="button"
-                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
                                 onClick={handleEditUser}
                             >
                                 Guardar Cambios
@@ -145,7 +145,7 @@ export const EditProfile = () => {
                             <Link to="/user/profile">
                                 <button
                                     type="button"
-                                    className="btn btn-danger w-100 font-weight-bold mt-2"
+                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
 
                                 >
                                     Cancelar

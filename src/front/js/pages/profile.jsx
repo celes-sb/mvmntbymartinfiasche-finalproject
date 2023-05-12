@@ -19,7 +19,7 @@ export const Profile = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficeProfile">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Active")} onClick={() => handleClick("Active")} to="/user/profile">
@@ -29,7 +29,7 @@ export const Profile = () => {
 
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
-                        Medidas
+                        Info Entrenamiento
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -38,7 +38,7 @@ export const Profile = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
                         <div className="form-group pb-3">
@@ -65,7 +65,7 @@ export const Profile = () => {
                         <div className="form-group pb-3">
                             <input
                                 type="text"
-                                placeholder="Username"
+                                placeholder="Nombre de usuario"
                                 className="form-control"
                                 aria-describedby="Username"
                                 value={dataUser.username}
@@ -105,10 +105,10 @@ export const Profile = () => {
                             <Link to="/user/edit-profile">
                                 <button
                                     type="button"
-                                    className="btn btn-warning w-100 font-weight-bold mt-2"
+                                    className="btn btn-outline-primary w-100 font-weight-bold mt-2"
 
                                 >
-                                    Editar Informacion
+                                    Editar Información
                                 </button>
                             </Link>
                         </div>

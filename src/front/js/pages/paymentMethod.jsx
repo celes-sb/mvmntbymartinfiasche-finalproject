@@ -19,7 +19,7 @@ export const PaymentMethod = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficePayment">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Link1")} onClick={() => handleClick("Link1")} to="/user/settings">
@@ -42,7 +42,7 @@ export const PaymentMethod = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
                         <div className="form-group pb-3">
@@ -56,7 +56,7 @@ export const PaymentMethod = () => {
                                 }}
                             />
                         </div>
-                        <div className="form-group pb-3">
+                        <div className="form-group">
                             <input
                                 type="text"
                                 placeholder="Fecha de Vencimiento"
@@ -71,7 +71,7 @@ export const PaymentMethod = () => {
                         <div className="pb-2">
                             <button
                                 type="button"
-                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
                             >
                                 Actualizar
                             </button>

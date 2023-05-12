@@ -16,30 +16,17 @@ export const Nutrition = () => {
                 Aquí se irán subiendo recetas y videos informativos.</p>
             <hr className="my-4" />
             <div className="nutricion-content text-center">
-                <h3>Ultraprocesados y comida real</h3>
-                <iframe
-                    className="embeddedVideo border border-primary"
-                    width="518"
-                    height="292"
-                    src={videoUltraprocesados}
-                    title="Ultraprocesados y comida real"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                ></iframe>
+                <h3>Aprendiendo sobre nutrición</h3>
+                <br />
+                <iframe className="border border-primary" src="https://drive.google.com/file/d/1tcbBtUmk1nTFPHHAMLKD7V2w7G0MHgMz/preview" width="640" height="480" allow="autoplay"></iframe>
                 <br />
                 <br />
-                <h3>Receta: mayonesa de zanahoria casera</h3>
-                <iframe
-                    className="embeddedVideo border border-primary"
-                    width="518"
-                    height="292"
-                    src={mayonesaZanahoria}
-                    title="Mayonesa de zanahoria casera"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                ></iframe>
+                <h3>Receta para hacer en casa</h3>
+                <br />
+                <iframe className="border border-primary" src="https://drive.google.com/file/d/1NMnrpXEBq6PjlWSY3HeJcO_Q72THRp85/preview" width="640" height="480" allow="autoplay"></iframe>
             </div>
         </div>
+
     </>)
 }
 

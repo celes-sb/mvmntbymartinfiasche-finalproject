@@ -19,7 +19,7 @@ export const Twofa = () => {
     };
 
     return (<>
-        <div>
+        <div className="backoffice2fa">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Link1")} onClick={() => handleClick("Link1")} to="/user/settings">
@@ -42,14 +42,14 @@ export const Twofa = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
-                    <div className="font-weight-bold">¿Quieres activar la Autenticación de Dos Pasos? Haz clic en el siguiente botón</div>
+                    <h5 className="font-weight-bold">¿Querés activar la Autenticación de dos pasos? <br /><br />Haz clic en el siguiente botón:</h5>
                     <br />
                     <div className="pb-2">
                         <button
                             type="button"
-                            className="btn btn-warning w-100 font-weight-bold mt-2"
+                            className="btn btn-outline-primary w-100 font-weight-bold mt-2"
                         >
                             Activar 2FA
                         </button>
