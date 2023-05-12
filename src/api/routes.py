@@ -14,7 +14,7 @@ from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
-
+from itsdangerous import URLSafeTimedSerializer
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -467,6 +467,8 @@ def get_organized_programs(user_id):
                 }
 
             exercise_data = {
+                "po_id": po.id,
+                "day": po.day,
                 "type": po.type,
                 "exercise_name": Exercises.query.get(po.exercise_id).name,
                 "url_youtube": Exercises.query.get(po.exercise_id).url_youtube,
@@ -518,6 +520,21 @@ def edit_program_organizer(program_organizer_id):
 
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
+
+@api.route('/programorganizer', methods=['DELETE'])
+def remove_program_organizer():
+    body = request.get_json()
+    id = body["id"]
+
+    program_organizer = ProgramOrganizer.query.get(id)
+
+    if not program_organizer:
+        raise APIException('Not found', status_code=404)
+
+    db.session.delete(program_organizer)
+    db.session.commit()
+
+    return jsonify({"msg":"Program successfully deleted"}), 200
 
 
 @api.route('/newnutrition', methods=['POST'])
@@ -626,3 +643,16 @@ def delete_specific_paper():
     db.session.commit()  
   
     return jsonify({"msg": "Paper deleted"}), 200    
+
+s = URLSafeTimedSerializer("any key works")
+
+@api.route('/new_password', methods=['PUT'])
+def new_password():
+    body=request.get_json()
+    token=body["token"]
+    user_id = s.loads(token.replace('_','.'), max_age=1800)
+    user = User.query.get(user_id)
+    password = body['password']
+    user.password = bcrypt.generate_password_hash(password, 10).decode('utf-8')
+    db.session.commit()
+    return jsonify({'message': 'Password reset successfully'})
