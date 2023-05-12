@@ -467,6 +467,8 @@ def get_organized_programs(user_id):
                 }
 
             exercise_data = {
+                "po_id": po.id,
+                "day": po.day,
                 "type": po.type,
                 "exercise_name": Exercises.query.get(po.exercise_id).name,
                 "url_youtube": Exercises.query.get(po.exercise_id).url_youtube,
@@ -518,6 +520,21 @@ def edit_program_organizer(program_organizer_id):
 
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
+
+@api.route('/programorganizer', methods=['DELETE'])
+def remove_program_organizer():
+    body = request.get_json()
+    id = body["id"]
+
+    program_organizer = ProgramOrganizer.query.get(id)
+
+    if not program_organizer:
+        raise APIException('Not found', status_code=404)
+
+    db.session.delete(program_organizer)
+    db.session.commit()
+
+    return jsonify({"msg":"Program successfully deleted"}), 200
 
 
 @api.route('/newnutrition', methods=['POST'])

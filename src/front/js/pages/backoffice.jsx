@@ -33,8 +33,8 @@ export const Backoffice = () => {
             <h3>Enlaces útiles:</h3>
             <ul className="list-unstyled ps-3 pe-3">
                 <li><i className="fab fa-whatsapp"></i> <a href="https://chat.whatsapp.com/IWmzug4euFt7qpWu7iUWSl">Comunidad para alumnxs del programa de entrenamiento en Whatsapp</a></li>
-                <li><i class="fa-brands fa-discord"></i> <a href="https://discord.gg/GdyEMZQ3">Comunidad para alumnxs del programa de entrenamiento en Discord</a></li>
-                <li><i class="fa-brands fa-google-drive"></i> <a href="https://drive.google.com/drive/folders/1TUqJ9HWKGu939RP0H748KWq5-ASAR1qB?usp=sharing">Biblioteca de Contenidos</a></li>
+                <li><i className="fa-brands fa-discord"></i> <a href="https://discord.gg/GdyEMZQ3">Comunidad para alumnxs del programa de entrenamiento en Discord</a></li>
+                <li><i className="fa-brands fa-google-drive"></i> <a href="https://drive.google.com/drive/folders/1TUqJ9HWKGu939RP0H748KWq5-ASAR1qB?usp=sharing">Biblioteca de Contenidos</a></li>
             </ul>
             <hr />
             <p className="lead">

@@ -58,7 +58,7 @@ export const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/user/diagnostico" className={linkClass("Diagnostico")} onClick={() => handleClick("Diagnostico")}>
-                            <i class="fa-solid fa-microscope"></i>
+                            <i className="fa-solid fa-microscope"></i>
                             <span className="ms-3">Diagnóstico inicial</span>
                         </Link>
                     </li>
