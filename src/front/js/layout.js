@@ -35,6 +35,7 @@ import { Twofa } from "./pages/twofa.jsx";
 import { Preferences } from "./pages/preferences.jsx";
 import { UserLayout } from "./pages/userLayout";
 import { RecoverPassword } from "./pages/recoverpassword.jsx"
+import { NewPassword } from "./pages/newpassword.jsx"
 
 //create your first component
 const Layout = () => {
@@ -62,6 +63,7 @@ const Layout = () => {
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
             <Route element={<RecoverPassword />} path="/recoverpassword" />
+            <Route element={<NewPassword />} path="/new_password/:token"/>
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
             <Route element={<UserLayout><Diagnostico /></UserLayout>} path="/user/diagnostico" />
             <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />

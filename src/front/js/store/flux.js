@@ -55,7 +55,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			...testimonialActions(getStore, getActions, setStore),
 			...userActions(getStore, getActions, setStore),
-			useFetch: async (endpoint, body = "", method = "GET") => {
+			useFetch: async (endpoint, body = "", method = "PUT") => {
 				let url = "http://127.0.0.1:3001/api" + endpoint;
 				let response = await fetch(url, {
 					method: method,

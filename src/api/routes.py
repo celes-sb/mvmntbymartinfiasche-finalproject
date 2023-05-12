@@ -14,7 +14,7 @@ from .programOrganizer import ProgramOrganizer
 from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
-
+from itsdangerous import URLSafeTimedSerializer
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -600,3 +600,16 @@ def delete_specific_paper():
     db.session.commit()  
   
     return jsonify({"msg": "Paper deleted"}), 200    
+
+s = URLSafeTimedSerializer("any key works")
+
+@api.route('/new_password', methods=['PUT'])
+def new_password():
+    body=request.get_json()
+    token=body["token"]
+    user_id = s.loads(token.replace('_','.'), max_age=1800)
+    user = User.query.get(user_id)
+    password = body['password']
+    user.password = bcrypt.generate_password_hash(password, 10).decode('utf-8')
+    db.session.commit()
+    return jsonify({'message': 'Password reset successfully'})
