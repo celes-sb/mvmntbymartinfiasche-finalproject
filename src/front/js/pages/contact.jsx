@@ -13,19 +13,26 @@ export const Contact = () => {
   const [email, setEmail] = useState("");
   const [comments, setComments] = useState("");
 
+  let obj = {
+    message: `Nombre: ${name}, Apellido: ${lastName}, Email: ${email}, Comments: ${comments}`,
+    to: "davidbravoml@gmail.com",
+    subject: "Nuevo Lead"
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // prevent form from submitting
-    const response = await actions.sendMessage(name, lastName, email, comments); // call sendMessage action
+    const { respuestaJson, response } = await actions.useFetch("/correo", obj, "POST"); // call sendMessage action
     console.log(response);
     if (response.ok) {
+      const btn = document.getElementById("contactButton");
+      btn.classList.remove("btn-primary");
+      btn.classList.add("btn-success");
+      btn.textContent = "¡Tu mensaje ha sido enviado con éxito!";
       setName("");
       setLastName("");
       setEmail("");
       setComments("");
-      const btn = document.querySelector("button[type='submit']");
-      btn.classList.remove("btn-primary");
-      btn.classList.add("btn-success");
-      btn.textContent = "¡Tu mensaje ha sido enviado con éxito!";
+
     }
   };
 
@@ -88,7 +95,7 @@ export const Contact = () => {
                   onChange={(event) => setComments(event.target.value)}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary mt-3 mb-2">
+              <button id="contactButton" type="button" className="btn btn-primary mt-3 mb-2" onClick={handleSubmit}>
                 ¡Hablemos!
               </button>
             </form>

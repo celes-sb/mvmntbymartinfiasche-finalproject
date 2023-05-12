@@ -3,37 +3,21 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../../styles/home.css";
 
-export const ModalAddProgram = ({
+export const ModalEditProgram = ({
     userPrograms,
     handleUserPrograms,
-    handleCloseModalAddProgram,
-    showModalAddProgram,
-    selectedProgramId
+    handleCloseModalEditProgram,
+    showModalEditProgram,
+    selectedProgramId,
+    selectedPoId,
+    sessionValues,
+    setSessionValues
 }) => {
     const { store, actions } = useContext(Context);
 
     const [allExercises, setAllExercises] = useState([]);
     const [selectedExercise, setSelectedExercise] = useState(null);
     const [searchText, setSearchText] = useState("");
-    const initialFormState = {
-        program_id: selectedProgramId,
-        day: "",
-        type: "",
-        weight_1: "",
-        repetitions_1: "",
-        series_1: "",
-        weight_2: "",
-        repetitions_2: "",
-        series_2: "",
-        weight_3: "",
-        repetitions_3: "",
-        series_3: "",
-        weight_4: "",
-        repetitions_4: "",
-        series_4: "",
-    }
-    const [inputValues, setInputValues] = useState(initialFormState);
-
 
     const handleSelectChange = (event) => {
         const value = event.target.value;
@@ -46,15 +30,13 @@ export const ModalAddProgram = ({
         setSelectedExercise(null);
     };
 
-    const handleCreateNewExercise = async (e) => {
+    const handleEditExercise = async (e) => {
         e.preventDefault(); // prevent form from submitting
-        let { response } = await actions.useFetch("/programorganizer", inputValues, "POST"); // call login action
+        let { response } = await actions.useFetch(`/programorganizer/${selectedPoId}`, sessionValues, "PUT"); // call login action
         if (response.ok) {
-            alert("Ejercicio agregado con éxito");
-            handleCloseModalAddProgram();
+            alert("Editado exitosamente");
+            handleCloseModalEditProgram();
             handleUserPrograms();
-            setInputValues(initialFormState);
-            setSelectedExercise(null);
         } else {
             alert("Hubo un error, intente nuevamente");
         }
@@ -79,14 +61,14 @@ export const ModalAddProgram = ({
     }, []);
 
     useEffect(() => {
-        setInputValues((prevState) => ({
+        setSessionValues((prevState) => ({
             ...prevState,
             exercise_id: selectedExercise,
         }));
     }, [selectedExercise]);
 
     useEffect(() => {
-        setInputValues((prevState) => ({
+        setSessionValues((prevState) => ({
             ...prevState,
             program_id: selectedProgramId,
         }));
@@ -95,87 +77,87 @@ export const ModalAddProgram = ({
 
     return (
         <div
-            className={`modal${showModalAddProgram ? " show" : ""}`}
+            className={`modal${showModalEditProgram ? " show" : ""}`}
             tabIndex="-1"
-            style={{ display: showModalAddProgram ? "block" : "none" }}
+            style={{ display: showModalEditProgram ? "block" : "none" }}
         >
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Agregar Nuevo Ejercicio</h5>
+                        <h5 className="modal-title">Añadir Nuevo Ejercicio</h5>
                         <button
                             type="button"
                             className="btn-close"
-                            onClick={handleCloseModalAddProgram}
+                            onClick={handleCloseModalEditProgram}
                         ></button>
                     </div>
                     <form>
                         <div className="modal-body">
                             <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Search exercises..." />
                             <br />
-                            <select className="mt-2 mb-2" value={selectedExercise || ""} onChange={handleSelectChange}>
-                                <option value="">Seleccionar un ejercicio...</option>
+                            <select value={selectedExercise || ""} onChange={handleSelectChange}>
+                                <option value="">Select an exercise...</option>
                                 {filteredExercises.map((exercise) => (
                                     <option key={exercise.id} value={exercise.id}>
                                         {exercise.name} - {exercise.category}
                                     </option>
                                 ))}
                             </select>
-                            <div className="row gy-2">
-                                <div className="col mt-2 gx-2">
+                            <div className="d-flex">
+                                <div className="col mt-2">
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="DIA (Día 1, Día 2, Día 3)"
+                                        placeholder="Day (Day 1, Day 2...)"
                                         aria-label="Program day"
                                         name="day"
-                                        value={inputValues.day}
+                                        value={sessionValues.day}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, day: e.target.value });
+                                            setSessionValues({ ...sessionValues, day: e.target.value });
                                         }}
                                         required
                                     />
                                 </div>
 
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2">
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Bloque (A1, B1, C1...)"
+                                        placeholder="Type (A1, A2...)"
                                         aria-label="Program type"
                                         name="type"
-                                        value={inputValues.type}
+                                        value={sessionValues.type}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, type: e.target.value });
+                                            setSessionValues({ ...sessionValues, type: e.target.value });
                                         }}
                                         required
                                     />
                                 </div>
                             </div>
-                            <div className="row gy-2">
-                                <div className="col mt-2 gx-2">
-                                    Semana 1
+                            <div className="d-flex">
+                                <div className="col mt-2">
+                                    Session 1
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Peso 1"
+                                        placeholder="Weight 1"
                                         aria-label="Weight 1"
                                         name="weight_1"
-                                        value={inputValues.weight_1}
+                                        value={sessionValues.weight_1}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, weight_1: e.target.value });
+                                            setSessionValues({ ...sessionValues, weight_1: e.target.value });
                                         }}
                                         required
                                     />
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repes 1"
+                                        placeholder="Repetitions 1"
                                         aria-label="Repetitions 1"
                                         name="repetitions_1"
-                                        value={inputValues.repetitions_1}
+                                        value={sessionValues.repetitions_1}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, repetitions_1: e.target.value });
+                                            setSessionValues({ ...sessionValues, repetitions_1: e.target.value });
                                         }}
                                         required
                                     />
@@ -185,36 +167,36 @@ export const ModalAddProgram = ({
                                         placeholder="Series 1"
                                         aria-label="Series 1"
                                         name="series_1"
-                                        value={inputValues.series_1}
+                                        value={sessionValues.series_1}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, series_1: e.target.value });
+                                            setSessionValues({ ...sessionValues, series_1: e.target.value });
                                         }}
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
-                                    Semana 2
+                                <div className="col mt-2">
+                                    Session 2
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Peso 2"
+                                        placeholder="Weight 2"
                                         aria-label="Weight 2"
                                         name="weight_2"
-                                        value={inputValues.weight_2}
+                                        value={sessionValues.weight_2}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, weight_2: e.target.value });
+                                            setSessionValues({ ...sessionValues, weight_2: e.target.value });
                                         }}
                                         required
                                     />
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repes 2"
+                                        placeholder="Repetitions 2"
                                         aria-label="Repetitions 2"
                                         name="repetitions_2"
-                                        value={inputValues.repetitions_2}
+                                        value={sessionValues.repetitions_2}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, repetitions_2: e.target.value });
+                                            setSessionValues({ ...sessionValues, repetitions_2: e.target.value });
                                         }}
                                         required
                                     />
@@ -224,36 +206,36 @@ export const ModalAddProgram = ({
                                         placeholder="Series 2"
                                         aria-label="Series 2"
                                         name="series_2"
-                                        value={inputValues.series_2}
+                                        value={sessionValues.series_2}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, series_2: e.target.value });
+                                            setSessionValues({ ...sessionValues, series_2: e.target.value });
                                         }}
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
-                                    Semana 3
+                                <div className="col mt-2">
+                                    Session 3
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Peso 3"
+                                        placeholder="Weight 3"
                                         aria-label="Weight 3"
                                         name="weight_3"
-                                        value={inputValues.weight_3}
+                                        value={sessionValues.weight_3}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, weight_3: e.target.value });
+                                            setSessionValues({ ...sessionValues, weight_3: e.target.value });
                                         }}
                                         required
                                     />
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repes 3"
+                                        placeholder="Repetitions 3"
                                         aria-label="Repetitions 3"
                                         name="repetitions_3"
-                                        value={inputValues.repetitions_3}
+                                        value={sessionValues.repetitions_3}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, repetitions_3: e.target.value });
+                                            setSessionValues({ ...sessionValues, repetitions_3: e.target.value });
                                         }}
                                         required
                                     />
@@ -263,36 +245,36 @@ export const ModalAddProgram = ({
                                         placeholder="Series 3"
                                         aria-label="Series 3"
                                         name="series_3"
-                                        value={inputValues.series_3}
+                                        value={sessionValues.series_3}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, series_3: e.target.value });
+                                            setSessionValues({ ...sessionValues, series_3: e.target.value });
                                         }}
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
-                                    Semana 4
+                                <div className="col mt-2">
+                                    Session 4
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Peso 4"
+                                        placeholder="Weight 4"
                                         aria-label="Weight 4"
                                         name="weight_4"
-                                        value={inputValues.weight_4}
+                                        value={sessionValues.weight_4}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, weight_4: e.target.value });
+                                            setSessionValues({ ...sessionValues, weight_4: e.target.value });
                                         }}
                                         required
                                     />
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repes 4"
+                                        placeholder="Repetitions 4"
                                         aria-label="Repetitions 4"
                                         name="repetitions_4"
-                                        value={inputValues.repetitions_4}
+                                        value={sessionValues.repetitions_4}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, repetitions_4: e.target.value });
+                                            setSessionValues({ ...sessionValues, repetitions_4: e.target.value });
                                         }}
                                         required
                                     />
@@ -302,9 +284,9 @@ export const ModalAddProgram = ({
                                         placeholder="Series 4"
                                         aria-label="Series 4"
                                         name="series_4"
-                                        value={inputValues.series_4}
+                                        value={sessionValues.series_4}
                                         onChange={(e) => {
-                                            setInputValues({ ...inputValues, series_4: e.target.value });
+                                            setSessionValues({ ...sessionValues, series_4: e.target.value });
                                         }}
                                         required
                                     />
@@ -316,18 +298,18 @@ export const ModalAddProgram = ({
                         <div className="modal-footer">
                             <button
                                 type="button"
-                                className="btn btn-outline-primary"
-                                onClick={handleCreateNewExercise}
-
+                                className="btn btn-secondary"
+                                onClick={handleCloseModalEditProgram}
                             >
-                                Guardar Cambios
+                                Close
                             </button>
                             <button
                                 type="button"
-                                className="btn btn-outline-secondary"
-                                onClick={handleCloseModalAddProgram}
+                                className="btn btn-primary"
+                                onClick={handleEditExercise}
+
                             >
-                                Cerrar
+                                Save changes
                             </button>
                         </div>
                     </form>
@@ -337,4 +319,4 @@ export const ModalAddProgram = ({
     );
 };
 
-export default ModalAddProgram;
+export default ModalEditProgram;

@@ -35,10 +35,10 @@ export const Diagnostico = () => {
     }
 
     return (<>
-        <div class="diagnostico jumbotron m-3">
-            <h1 class="display-4">Programa de entrenamiento a distancia</h1>
-            <p class="lead">Diagnóstico inicial</p>
-            <hr class="my-4" />
+        <div className="diagnostico jumbotron m-3">
+            <h1 className="display-4">Programa de entrenamiento a distancia</h1>
+            <p className="lead">Diagnóstico inicial</p>
+            <hr className="my-4" />
             <div className="diagnostico-content bg-white bg-opacity-75 rounded border border-warning p-5 m-3">
                 <div className="top">
                     <p>

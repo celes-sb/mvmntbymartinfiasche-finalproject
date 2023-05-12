@@ -51,7 +51,7 @@ export const Programs = () => {
                                     {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
                                         <tr key={`${day}-${exerciseType}`}>
                                             <td>
-                                                <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
+                                                {exerciseData.exercise_name}<br />
                                                 <strong>URL:</strong> {exerciseData.url_youtube}<br />
                                                 <strong>Description:</strong> {exerciseData.description}<br />
                                                 <strong>Type:</strong> {exerciseData.type}<br />
