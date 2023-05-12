@@ -19,18 +19,18 @@ export const ModalAddProgram = ({
         program_id: selectedProgramId,
         day: "",
         type: "",
-        weight_1: "",
-        repetitions_1: "",
-        series_1: "",
-        weight_2: "",
-        repetitions_2: "",
-        series_2: "",
-        weight_3: "",
-        repetitions_3: "",
-        series_3: "",
-        weight_4: "",
-        repetitions_4: "",
-        series_4: "",
+        weight_1: 0,
+        repetitions_1: 0,
+        series_1: 0,
+        weight_2: 0,
+        repetitions_2: 0,
+        series_2: 0,
+        weight_3: 0,
+        repetitions_3: 0,
+        series_3: 0,
+        weight_4: 0,
+        repetitions_4: 0,
+        series_4: 0,
     });
 
 
@@ -150,6 +150,12 @@ export const ModalAddProgram = ({
                                 </div>
                             </div>
                             <div className="row gy-2">
+                                <div className="col mt-2">
+                                    <br />
+                                    <p>Peso:</p>
+                                    <p>Repes:</p>
+                                    <p>Series:</p>
+                                </div>
                                 <div className="col mt-2 gx-2">
                                     Semana 1
                                     <input
@@ -306,7 +312,6 @@ export const ModalAddProgram = ({
                                         required
                                     />
                                 </div>
-
                             </div>
 
                         </div>

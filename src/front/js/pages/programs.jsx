@@ -38,42 +38,43 @@ export const Programs = () => {
                         const sessionEntries = data["sessions"] ? Object.entries(data["sessions"]) : [];
 
                         return (
-                            <table key={`${day}`} className="table align-middle">
+                            <table key={`${day}`} className="table bg-light border align-middle mt-5 mb-5">
                                 <thead>
                                     <tr>
-                                        <th>{day}</th>
+                                        <th className="border">{day}</th>
                                         {sessionEntries.map(([sessionName, _], sessionIndex) => (
-                                            <th key={`${day}-${sessionName}`}>{sessionName}</th>
+                                            <th key={`${day}-${sessionName}`} className="border">{sessionName}</th>
                                         ))}
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
                                         <tr key={`${day}-${exerciseType}`}>
-                                            <td>
-                                                <strong>Exercise name:</strong> {exerciseData.exercise_name}<br />
+                                            <td className="border">
+                                                <strong>{exerciseData.exercise_name}</strong><br />
                                                 <strong>URL:</strong> {exerciseData.url_youtube}<br />
-                                                <strong>Description:</strong> {exerciseData.description}<br />
-                                                <strong>Type:</strong> {exerciseData.type}<br />
+                                                <strong>Descripción:</strong> {exerciseData.description}<br />
+                                                <strong>Tipo:</strong> {exerciseData.type}<br />
                                             </td>
                                             {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                 const exercise = exercises.find(e => e.type === exerciseType);
                                                 if (exercise) {
                                                     return (
-                                                        <td key={`${day}-${sessionName}-${exerciseType}`}>
-                                                            <strong>Weight:</strong> {exercise.weight}<br />
-                                                            <strong>Repetitions:</strong> {exercise.repetitions}<br />
-                                                            <strong>Series:</strong> {exercise.series}
+                                                        <td key={`${day}-${sessionName}-${exerciseType}`} className="border">
+                                                            <strong>Series:</strong> {exercise.series}<br />
+                                                            <strong>Reps:</strong> {exercise.repetitions}<br />
+                                                            <strong>Peso:</strong> {exercise.weight}
                                                         </td>
                                                     );
                                                 } else {
-                                                    return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
+                                                    return <td key={`${day}-${sessionName}-${exerciseType}`} className="border"></td>;
                                                 }
                                             })}
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
+
 
                         );
                     })}
