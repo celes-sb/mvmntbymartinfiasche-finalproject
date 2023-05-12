@@ -17,20 +17,20 @@ export const ModalAddProgram = ({
     const [searchText, setSearchText] = useState("");
     const [inputValues, setInputValues] = useState({
         program_id: selectedProgramId,
-        day: 0,
+        day: "",
         type: "",
-        weight_1: 0,
-        repetitions_1: 0,
-        series_1: 0,
-        weight_2: 0,
-        repetitions_2: 0,
-        series_2: 0,
-        weight_3: 0,
-        repetitions_3: 0,
-        series_3: 0,
-        weight_4: 0,
-        repetitions_4: 0,
-        series_4: 0,
+        weight_1: "",
+        repetitions_1: "",
+        series_1: "",
+        weight_2: "",
+        repetitions_2: "",
+        series_2: "",
+        weight_3: "",
+        repetitions_3: "",
+        series_3: "",
+        weight_4: "",
+        repetitions_4: "",
+        series_4: "",
     });
 
 
@@ -49,7 +49,7 @@ export const ModalAddProgram = ({
         e.preventDefault(); // prevent form from submitting
         let { response } = await actions.useFetch("/programorganizer", inputValues, "POST"); // call login action
         if (response.ok) {
-            alert("Ejercicio agregado exitosamente");
+            alert("Ejercicio agregado con éxito");
             handleCloseModalAddProgram();
             handleUserPrograms();
         } else {
@@ -99,7 +99,7 @@ export const ModalAddProgram = ({
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Añadir Nuevo Ejercicio</h5>
+                        <h5 className="modal-title">Agregar Nuevo Ejercicio</h5>
                         <button
                             type="button"
                             className="btn-close"
@@ -110,20 +110,20 @@ export const ModalAddProgram = ({
                         <div className="modal-body">
                             <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Search exercises..." />
                             <br />
-                            <select value={selectedExercise || ""} onChange={handleSelectChange}>
-                                <option value="">Select an exercise...</option>
+                            <select className="mt-2 mb-2" value={selectedExercise || ""} onChange={handleSelectChange}>
+                                <option value="">Seleccionar un ejercicio...</option>
                                 {filteredExercises.map((exercise) => (
                                     <option key={exercise.id} value={exercise.id}>
                                         {exercise.name} - {exercise.category}
                                     </option>
                                 ))}
                             </select>
-                            <div className="d-flex">
-                                <div className="col mt-2">
+                            <div className="row gy-2">
+                                <div className="col mt-2 gx-2">
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Day (Day 1, Day 2...)"
+                                        placeholder="DIA (Día 1, Día 2, Día 3)"
                                         aria-label="Program day"
                                         name="day"
                                         value={inputValues.day}
@@ -134,11 +134,11 @@ export const ModalAddProgram = ({
                                     />
                                 </div>
 
-                                <div className="col mt-2">
+                                <div className="col mt-2 gx-2">
                                     <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Type (A1, A2...)"
+                                        placeholder="Bloque (A1, B1, C1...)"
                                         aria-label="Program type"
                                         name="type"
                                         value={inputValues.type}
@@ -149,13 +149,13 @@ export const ModalAddProgram = ({
                                     />
                                 </div>
                             </div>
-                            <div className="d-flex">
-                                <div className="col mt-2">
-                                    Session 1
+                            <div className="row gy-2">
+                                <div className="col mt-2 gx-2">
+                                    Semana 1
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Weight 1"
+                                        placeholder="Peso 1"
                                         aria-label="Weight 1"
                                         name="weight_1"
                                         value={inputValues.weight_1}
@@ -167,7 +167,7 @@ export const ModalAddProgram = ({
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repetitions 1"
+                                        placeholder="Repes 1"
                                         aria-label="Repetitions 1"
                                         name="repetitions_1"
                                         value={inputValues.repetitions_1}
@@ -189,12 +189,12 @@ export const ModalAddProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2">
-                                    Session 2
+                                <div className="col mt-2 gx-2">
+                                    Semana 2
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Weight 2"
+                                        placeholder="Peso 2"
                                         aria-label="Weight 2"
                                         name="weight_2"
                                         value={inputValues.weight_2}
@@ -206,7 +206,7 @@ export const ModalAddProgram = ({
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repetitions 2"
+                                        placeholder="Repes 2"
                                         aria-label="Repetitions 2"
                                         name="repetitions_2"
                                         value={inputValues.repetitions_2}
@@ -228,12 +228,12 @@ export const ModalAddProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2">
-                                    Session 3
+                                <div className="col mt-2 gx-2">
+                                    Semana 3
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Weight 3"
+                                        placeholder="Peso 3"
                                         aria-label="Weight 3"
                                         name="weight_3"
                                         value={inputValues.weight_3}
@@ -245,7 +245,7 @@ export const ModalAddProgram = ({
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repetitions 3"
+                                        placeholder="Repes 3"
                                         aria-label="Repetitions 3"
                                         name="repetitions_3"
                                         value={inputValues.repetitions_3}
@@ -267,12 +267,12 @@ export const ModalAddProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2">
-                                    Session 4
+                                <div className="col mt-2 gx-2">
+                                    Semana 4
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Weight 4"
+                                        placeholder="Peso 4"
                                         aria-label="Weight 4"
                                         name="weight_4"
                                         value={inputValues.weight_4}
@@ -284,7 +284,7 @@ export const ModalAddProgram = ({
                                     <input
                                         type="number"
                                         className="form-control"
-                                        placeholder="Repetitions 4"
+                                        placeholder="Repes 4"
                                         aria-label="Repetitions 4"
                                         name="repetitions_4"
                                         value={inputValues.repetitions_4}
@@ -313,18 +313,18 @@ export const ModalAddProgram = ({
                         <div className="modal-footer">
                             <button
                                 type="button"
-                                className="btn btn-secondary"
-                                onClick={handleCloseModalAddProgram}
-                            >
-                                Close
-                            </button>
-                            <button
-                                type="button"
-                                className="btn btn-primary"
+                                className="btn btn-outline-primary"
                                 onClick={handleCreateNewExercise}
 
                             >
-                                Save changes
+                                Guardar Cambios
+                            </button>
+                            <button
+                                type="button"
+                                className="btn btn-outline-secondary"
+                                onClick={handleCloseModalAddProgram}
+                            >
+                                Cerrar
                             </button>
                         </div>
                     </form>

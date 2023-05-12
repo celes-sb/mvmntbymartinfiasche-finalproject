@@ -19,7 +19,7 @@ export const Modal = ({
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">Añadir Nuevo Programa</h5>
+                        <h5 className="modal-title">Agregar Nuevo Programa</h5>
                         <button
                             type="button"
                             className="btn-close"
@@ -31,7 +31,7 @@ export const Modal = ({
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Program Name"
+                                placeholder="Nombre del programa [Categoría Mes Año]"
                                 aria-label="Program name"
                                 onChange={(e) => {
                                     setProgramName(e.target.value);
@@ -43,7 +43,7 @@ export const Modal = ({
                             <input
                                 type="text"
                                 className="form-control"
-                                placeholder="Category"
+                                placeholder="Categoría [Fuerza, Movimiento, Parada de Manos]"
                                 aria-label="Category"
                                 onChange={(e) => {
                                     setCategory(e.target.value);
@@ -55,17 +55,17 @@ export const Modal = ({
                     <div className="modal-footer">
                         <button
                             type="button"
-                            className="btn btn-secondary"
-                            onClick={handleCloseModal}
+                            className="btn btn-outline-primary"
+                            onClick={handleCreateNewProgram}
                         >
-                            Close
+                            Guardar Cambios
                         </button>
                         <button
                             type="button"
-                            className="btn btn-primary"
-                            onClick={handleCreateNewProgram}
+                            className="btn btn-outline-secondary"
+                            onClick={handleCloseModal}
                         >
-                            Save changes
+                            Cerrar
                         </button>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ export const EmergencyContact = () => {
     };
 
     return (<>
-        <div>
+        <div className="backofficeEmergencyContact">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Active")} onClick={() => handleClick("Active")} to="/user/profile">
@@ -30,7 +30,7 @@ export const EmergencyContact = () => {
 
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
-                        Medidas
+                        Info Entrenamiento
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -39,7 +39,7 @@ export const EmergencyContact = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-5">
+            <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
                         <div className="form-group pb-3">
@@ -63,10 +63,10 @@ export const EmergencyContact = () => {
                                 }}
                             />
                         </div>
-                        <div className="form-group pb-3">
+                        <div className="form-group">
                             <input
                                 type="text"
-                                placeholder="Relacion"
+                                placeholder="Relación con el estudiante"
                                 className="form-control"
                                 onChange={(e) => {
                                     setRelationship(e.target.value);
@@ -77,7 +77,7 @@ export const EmergencyContact = () => {
                         <div className="pb-2">
                             <button
                                 type="button"
-                                className="btn btn-warning w-100 font-weight-bold mt-2"
+                                className="btn btn-outline-primary w-100 font-weight-bold mt-2"
                             >
                                 Actualizar
                             </button>

@@ -75,9 +75,9 @@ export const Navbar = () => {
 
             </div>
           ) : (<>
-            <h1>Bienvenidx, {store.userData.first_name}</h1>
+            <h3 className="backoffice-navtext">Hola, {store.userData.first_name}!</h3>
             <div>
-              <button type="button" className="nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
+              <button type="button" className="backoffice-navbtn nav-btn btn btn-sm btn-danger ms-5" onClick={handleLogout
               }>Cerrar Sesión</button>
             </div>
           </>)}
