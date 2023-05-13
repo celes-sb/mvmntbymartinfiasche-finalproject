@@ -34,96 +34,99 @@ export const Diagnostico = () => {
         }
     }
 
+    function sendDiagnosis() {
+        const button = document.querySelector(".enviar-diagnostico-btn");
+        button.classList.remove("btn-primary");
+        button.classList.add("btn-success");
+        button.innerHTML = "Diagnóstico enviado";
+    }
+
+
     return (<>
         <div className="diagnostico jumbotron m-3">
             <h1 className="display-4">Programa de entrenamiento a distancia</h1>
             <p className="lead">Diagnóstico inicial</p>
             <hr className="my-4" />
-            <div className="diagnostico-content bg-white bg-opacity-75 rounded border border-warning p-5 m-3">
-                <div className="top">
-                    <p>
-                        Bienvenidx al programa! Estamos comenzando un proceso de trabajo juntxs en donde voy a ayudarte con los objetivos que te proponés.<br />
-                        Todos estos movimientos me sirven para evaluar niveles de fuerza, control motor y movilidad. Hay movimientos sintéticos y analíticos.<br />
-                        Los ejercicios sintéticos me dan información general sobre las estrategias que usás para resolver situaciones de movimiento mientras que los analíticos me ayudan a profundizar sobre posibles necesidades que tengamos que resolver.<br />
-                        La manera en la que estudiás los ejercicios, ejecutás las evaluaciones y preparás los videos también es algo que evalúo.<br />
-                        En este proceso a distancia necesito que estés comprometidx con tu parte de la tarea y la atención y detalle que involucrás en el proceso va a marcar la diferencia en los resultados.<br />
-                        Ahora sí vamos a evaluar.<br />
-                        No es necesario que entres en calor para hacer las evaluaciones. Sólo lo mínimo para sentirte cómodx.<br />
-                        Practicá 2-3 veces cada movimiento antes de filmarlo.<br />
-                        Considerá que necesito que se vea el cuerpo entero. Si podés replicar el plano del video que yo te envío mucho mejor.<br /></p>
+            <p>
+                Todos estos movimientos me sirven para evaluar niveles de fuerza, control motor y movilidad.
+                <br />Hay movimientos sintéticos y analíticos.
+                Los ejercicios sintéticos me dan información general sobre las estrategias que usás para resolver situaciones de movimiento mientras que los analíticos me ayudan a profundizar sobre posibles necesidades que tengamos que resolver.<br />
+                La manera en la que estudiás los ejercicios, ejecutás las evaluaciones y preparás los videos también es algo que evalúo.<br />
+                En este proceso a distancia necesito que estés comprometidx con tu parte de la tarea y la atención y detalle que involucrás en el proceso va a marcar la diferencia en los resultados.<br />
+                <br />
+                Ahora sí vamos a evaluar.<br />
+                No es necesario que entres en calor para hacer las evaluaciones. Sólo lo mínimo para sentirte cómodx.<br />
+                Practicá 2-3 veces cada movimiento antes de filmarlo. Considerá que necesito que se vea el cuerpo entero. Si podés replicar el plano del video que yo te envío mucho mejor.<br /></p>
+            <hr className="my-4" />
+            <div className="diagnostico-content bg-white bg-opacity-75 rounded border border-primary p-5 m-3">
+                <div className="top text-center pb-3">
+                    <h3>{currentDiagnostico.name}</h3>
+                    <p>{currentDiagnostico.text}</p>
                 </div>
-                <div className="bottom">
+                <div className="bottom w-100 d-flex align-items-center ms-5">
                     <img
                         className="cursor"
                         src={previousButton}
-                        alt=""
+                        alt="Previous button"
                         onClick={handlePreviousClick}
                     />
-                    <div className="middle">
-                        <img src={currentDiagnostico.image} alt="" />
+                    <div className="middle w-75 d-flex justify-content-center align-items-center">
                         {currentDiagnostico.videoUrl ? (
-                            <>
+                            <div className="d-flex align-items-center">
                                 <iframe
                                     className="embeddedVideo border border-primary"
                                     width="518"
                                     height="292"
                                     src={currentDiagnostico.videoUrl}
                                     title="Tests Diagnóstico Inicial"
-                                    frameborder="0"
+                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 ></iframe>
-                            </>
+                            </div>
                         ) : (
                             <></>
                         )}
-                        <h5>{currentDiagnostico.name}</h5>
-                        <p>{currentDiagnostico.text}</p>
                     </div>
                     <img
                         className="cursor"
                         src={nextButton}
-                        alt=""
+                        alt="Next Button"
                         onClick={handleNextClick}
                     />
                 </div>
+
             </div>
-            <p>
-                Si estás más avanzadx y podés realizar otros ejercicios te pido que los agregues en el test. Te dejo algunos ejemplos de ejercicios que me interesa ver en caso de que puedas realizarlos:
-                <li>
-                    <li>Planchas</li>
-                    <li>Muscle Up</li>
-                    <li>Sentadilla</li>
-                    <li>Peso Muerto</li>
-                    <li>Verticales a Fuerza</li>
-                </li>
-                NOTA IMPORTANTE: no te exijas a hacer algo si no sabés si estás preparadx para ejecutarlo</p>
-            <p>No subo videos de referencia, porque no quiero que lo envíes si no lo venís practicando.</p>
-            <p>DETALLES PERSONALES
-
-                1- Cuantas veces por semana podes entrenar 60-75 minutos?
-                Recomendado entre 3 y 6 veces
-
-                2- Que materiales tenes a disposición (describirlo o manda fotos)
-
-                3- alguna lesión molestia dolor que tenga que conocer?
-
-                4- Que objetivos te planteas de aca a 3 meses en cada uno de los contenidos?
-
-                COMUNICACION
-
-                Creas una carpeta en google drive con tu nombre y apellido.
-                Dentro de esa carpeta creas otra que se llame TEST. Ahí pones los vídeos.
-                Idealmente edita para que los vídeos duren poco, tengan solo las ejecuciones, sin los tiempo de preparación.
-                Adjunta las respuestas a las preguntas en un DOC o como respuesta en el mismo mail.
-
-                Todo esto me lo compartís a esta direccion: info.martinfiasche@gmail.com</p>
-            <p className="lead">
-                <span id="input-field">
-                    <input type=" text" id="url-input" placeholder="Link tu carpeta en Google Drive" />
-                    <button className="btn btn-warning btn-sm" onClick={submitUrl}>Enviar mi diagnóstico</button>
-                </span>
-            </p>
-
+            <p>Si estás más avanzadx y podés realizar otros ejercicios te pido que los agregues en el test. <br />
+                Te dejo algunos ejemplos de los ejercicios que me interesa ver en caso de que puedas realizarlos:</p>
+            <ul className="list-unstyled mt-2 mb-2">
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Planchas</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Muscle Up</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Sentadilla</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Peso Muerto</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Verticales a Fuerza</li>
+            </ul>
+            <p><strong>IMPORTANTE:</strong> no te exijas a hacer algo si no sabés si estás preparadx para ejecutarlo. <br />No subo videos de referencia, porque no quiero que lo envíes si no lo venís practicando.</p>
+            <p><strong>Una vez grabados los tests, hacé lo siguiente:</strong></p>
+            <ul className="list-unstyled mt-2 mb-2">
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Editá los videos de forma tal que duren lo menos posible. Remové tiempos muertos, preparación, etc., que sólo se vean las ejecuciones.</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Creá una carpeta en Google Drive con tu Nombre y Apellido.</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Dentro de esa carpeta creá otra con el nombre "TEST" donde subirás los videos.</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Clickeá en los tres puntitos que se ven en la carpeta y luego clickeá en "Compartir".</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Clickeá en "Copiar vínculo" y pegá el link aquí debajo.</li>
+                <li><i className="far fa-check-circle ms-2 ps-1"></i> Por último, clickeá en "Enviar mi diagnóstico" y listo. Estarás recibiendo tu primer programa a la brevedad.</li>
+            </ul>
+            <div className="d-flex justify-content-center align-items-center w-100 mt-3">
+                <div className="text-center mt-1 w-75">
+                    <form>
+                        <div className="form-group mb-2">
+                            <input type="text" className="form-control form-control-lg" id="url-input" placeholder="Link de tu carpeta en Google Drive" style={{ "fontSize": "14px" }} />
+                        </div>
+                        <button className="btn btn-primary enviar-diagnostico-btn mt-2" onClick={sendDiagnosis}>
+                            Enviar Diagnóstico
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </>)
 }
