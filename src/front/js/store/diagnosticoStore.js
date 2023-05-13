@@ -3,7 +3,7 @@ export const diagnosticoStore = {
     diagnosticoData: [
         {
             name: "Test de Movilidad General",
-            text: "Realizá una repetición de cada ejercicio y sostené la amplitud lograda por 3-5 segundos. En caso de que sea unilateral, realizá el ejercicio en cada pierna en el mismo plano que se muestra en el video. Son 3 ejercicios.Grabá los 3 por favor.",
+            text: "Realizá una repetición de cada ejercicio y sostené la amplitud lograda por 3-5 segundos. En caso de que sea unilateral, realizá el ejercicio en cada pierna en el mismo plano que se muestra en el video. Grabá los 3 ejercicios del video.",
             videoUrl: "https://www.youtube.com/embed/AqP5vKBnjBw"
         },
         {
