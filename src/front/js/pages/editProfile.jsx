@@ -15,6 +15,8 @@ export const EditProfile = () => {
     const [phone, setPhone] = useState(dataUser.phone);
     const [country, setCountry] = useState(dataUser.country);
 
+    const navigate = useNavigate();
+
     const obj = {
         "first_name": name,
         "last_name": lastname,
@@ -28,6 +30,7 @@ export const EditProfile = () => {
         let { response } = await actions.editUser(obj); // call login action
         if (response.ok) {
             alert("Cambio exitoso");
+            navigate("/user/profile")
         } else {
             alert("Cambio fallido, intente nuevamente");
         }
