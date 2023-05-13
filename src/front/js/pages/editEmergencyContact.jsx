@@ -3,14 +3,17 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const Profile = () => {
+export const EditEmergencyContact = () => {
     const { store, actions } = useContext(Context);
-    const [activeLink, setActiveLink] = useState("Active");
+    const [activeLink, setActiveLink] = useState("Link2");
+
     const [dataUser, setDataUser] = useState(store.userData)
 
-    useEffect(() => {
-        setDataUser(store.userData);
-    }, [store.userData]);
+    const [name, setName] = useState(dataUser.emergency_contact_name);
+    const [phone, setPhone] = useState(dataUser.emergency_contact_number);
+    const [relationship, setRelationship] = useState(dataUser.emergency_contact_relationship);
+
+    const navigate = useNavigate();
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -20,8 +23,25 @@ export const Profile = () => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
 
+    const obj = {
+        "emergency_contact_name": name,
+        "emergency_contact_number": phone,
+        "emergency_contact_relationship": relationship
+    }
+
+    const handleEditUser = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.editUser(obj); // call login action
+        if (response.ok) {
+            alert("Cambio exitoso");
+            navigate("/user/emergency-contact")
+        } else {
+            alert("Cambio fallido, intente nuevamente");
+        }
+    }
+
     return (<>
-        <div className="backofficeProfile">
+        <div className="backofficeEmergencyContact">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
                     <Link className={linkClass("Active")} onClick={() => handleClick("Active")} to="/user/profile">
@@ -49,48 +69,10 @@ export const Profile = () => {
                                 placeholder="Nombre"
                                 className="form-control"
                                 aria-describedby="Nombre"
-                                value={dataUser.first_name}
-                                disabled
-
-                            />
-                        </div>
-                        <div className="form-group pb-3">
-                            <input
-                                type="text"
-                                placeholder="Apellido"
-                                className="form-control"
-                                aria-describedby="Apellido"
-                                value={dataUser.last_name}
-                                disabled
-                            />
-                        </div>
-                        <div className="form-group pb-3">
-                            <input
-                                type="text"
-                                placeholder="Nombre de usuario"
-                                className="form-control"
-                                aria-describedby="Username"
-                                value={dataUser.username}
-                                disabled
-                            />
-                        </div>
-                        <div className="form-group pb-3">
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                className="form-control"
-                                aria-describedby="Email"
-                                value={dataUser.email}
-                                disabled
-                            />
-                        </div>
-                        <div className="form-group pb-3">
-                            <input
-                                type="text"
-                                placeholder="País"
-                                className="form-control"
-                                value={dataUser.country}
-                                disabled
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -98,19 +80,39 @@ export const Profile = () => {
                                 type="text"
                                 placeholder="Teléfono"
                                 className="form-control"
-                                value={dataUser.phone}
-                                disabled
+                                value={phone}
+                                onChange={(e) => {
+                                    setPhone(e.target.value);
+                                }}
+                            />
+                        </div>
+                        <div className="form-group">
+                            <input
+                                type="text"
+                                placeholder="Relación con el estudiante"
+                                className="form-control"
+                                value={relationship}
+                                onChange={(e) => {
+                                    setRelationship(e.target.value);
+                                }}
                             />
                         </div>
                         <br />
                         <div className="pb-2">
-                            <Link to="/user/edit-profile">
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
+                                onClick={handleEditUser}
+                            >
+                                Guardar Cambios
+                            </button>
+                            <Link to="/user/emergency-contact">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-primary w-100 font-weight-bold mt-2"
+                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
 
                                 >
-                                    Editar Información
+                                    Cancelar
                                 </button>
                             </Link>
                         </div>
@@ -121,4 +123,4 @@ export const Profile = () => {
     </>)
 }
 
-export default Profile;
+export default EditEmergencyContact;

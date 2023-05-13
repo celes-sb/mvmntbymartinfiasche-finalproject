@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Context } from "../store/appContext";
 export const NewPassword = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+
     const { token } = useParams();
     const { store, actions } = useContext(Context);
     const handleSubmit = async (e) => {
@@ -14,6 +16,17 @@ export const NewPassword = (props) => {
             return;
         }
         let { respuestaJson, response } = await actions.recover(password, token); // call login action
+
+        if (response.ok) {
+            alert("Contraseña cambiada con éxito.")
+            const btn = document.getElementById("resetPasswordButton");
+            btn.classList.remove("btn-primary");
+            btn.classList.add("btn-success");
+            btn.textContent = "Contraseña cambiada con éxito.";
+            setTimeout(() => {
+                navigate("/login");
+            }, 3000);
+        }
     };
     return (
         <div>
@@ -44,6 +57,9 @@ export const NewPassword = (props) => {
                         required
                     />
                 </div>
+
+                <button id="resetPasswordButton" type="submit" className="btn btn-primary" onClick={handleSubmit}>
+                    Reset Password
                 <button type="submit" className="btn btn-primary">
                     Resetear Contraseña
                 </button>

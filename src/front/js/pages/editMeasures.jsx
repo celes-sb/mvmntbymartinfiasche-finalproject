@@ -3,29 +3,48 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const Measures = () => {
+export const EditMeasures = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Link");
-    const [dataUser, setDataUser] = useState(store.userData)
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
     };
 
-    const [levelOfTraining, setLevelOfTraining] = useState("");
-    const [otherSports, setOtherSports] = useState("");
-    const [eatingHabits, setEatingHabits] = useState("");
-    const [injuries, setInjuries] = useState("");
-    const [availability, setAvailability] = useState("");
-    const [gymAccess, setGymAccess] = useState(null)
+    const [dataUser, setDataUser] = useState(store.userData)
+
+    const [levelOfTraining, setLevelOfTraining] = useState(dataUser.level_training);
+    const [otherSports, setOtherSports] = useState(dataUser.other_sports);
+    const [eatingHabits, setEatingHabits] = useState(dataUser.eating_habits);
+    const [injuries, setInjuries] = useState(dataUser.injuries);
+    const [availability, setAvailability] = useState(dataUser.availability);
+    const [gymAccess, setGymAccess] = useState(dataUser.access_gym)
+
+    const navigate = useNavigate();
 
     const linkClass = (linkName) => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
 
-    useEffect(() => {
-        setDataUser(store.userData);
-    }, [store.userData]);
+    const obj = {
+        "level_training": levelOfTraining,
+        "other_sports": otherSports,
+        "eating_habits": eatingHabits,
+        "access_gym": gymAccess,
+        injuries,
+        availability
+    }
+
+    const handleEditUser = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.editUser(obj); // call login action
+        if (response.ok) {
+            alert("Cambio exitoso");
+            navigate("/user/measures")
+        } else {
+            alert("Cambio fallido, intente nuevamente");
+        }
+    }
 
     return (<>
         <div className="backofficeMedidas">
@@ -56,8 +75,10 @@ export const Measures = () => {
                                 placeholder="Nivel de Entrenamiento"
                                 className="form-control"
                                 aria-describedby="Level of Training"
-                                value={dataUser.level_training}
-                                disabled
+                                value={levelOfTraining}
+                                onChange={(e) => {
+                                    setLevelOfTraining(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -66,8 +87,10 @@ export const Measures = () => {
                                 placeholder="Otros Deportes"
                                 className="form-control"
                                 aria-describedby="Other Sports"
-                                value={dataUser.other_sports}
-                                disabled
+                                value={otherSports}
+                                onChange={(e) => {
+                                    setOtherSports(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -75,8 +98,10 @@ export const Measures = () => {
                                 type="text"
                                 placeholder="Hábitos Alimenticios"
                                 className="form-control"
-                                value={dataUser.eating_habits}
-                                disabled
+                                value={eatingHabits}
+                                onChange={(e) => {
+                                    setEatingHabits(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -84,8 +109,10 @@ export const Measures = () => {
                                 type="text"
                                 placeholder="Lesiones"
                                 className="form-control"
-                                value={dataUser.injuries}
-                                disabled
+                                value={injuries}
+                                onChange={(e) => {
+                                    setInjuries(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -93,8 +120,10 @@ export const Measures = () => {
                                 type="text"
                                 placeholder="Disponibilidad Semanal"
                                 className="form-control"
-                                value={dataUser.availability}
-                                disabled
+                                value={availability}
+                                onChange={(e) => {
+                                    setAvailability(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -102,18 +131,28 @@ export const Measures = () => {
                                 type="text"
                                 placeholder="Acceso a un gimnasio (sí/no)"
                                 className="form-control"
-                                value={dataUser.access_gym}
-                                disabled
+                                value={gymAccess}
+                                onChange={(e) => {
+                                    setGymAccess(e.target.value);
+                                }}
                             />
                         </div>
                         <br />
                         <div className="pb-2">
-                            <Link to="/user/edit-measures">
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
+                                onClick={handleEditUser}
+                            >
+                                Guardar Cambios
+                            </button>
+                            <Link to="/user/measures">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-primary w-100 font-weight-bold"
+                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
+
                                 >
-                                    Editar Información
+                                    Cancelar
                                 </button>
                             </Link>
                         </div>
@@ -124,4 +163,4 @@ export const Measures = () => {
     </>)
 }
 
-export default Measures;
+export default EditMeasures;

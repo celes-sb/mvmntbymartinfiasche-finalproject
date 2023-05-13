@@ -134,6 +134,30 @@ export function userActions(getStore, getActions, setStore) {
       return { respuestaJson, response };
     },
 
+    updatePassword: async (currentPassword, newPassword) => {
+      let store = getStore();
+      let actions = getActions();
+
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      const decodedToken = jwt_decode(token);
+      const userId = decodedToken.sub;
+
+      const body = {
+        current_password: currentPassword,
+        new_password: newPassword
+      };
+
+      let { respuestaJson, response } = await actions.useFetch(
+        `/change_password/${userId}`,
+        body,
+        "PUT"
+      );
+
+      return { respuestaJson, response };
+    },
+
     getUserPrograms: async () => {
       let store = getStore();
       let actions = getActions();

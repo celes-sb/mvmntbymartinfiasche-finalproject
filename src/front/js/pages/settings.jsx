@@ -17,6 +17,18 @@ export const Settings = () => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
 
+    const updatePassword = async (e) => {
+        e.preventDefault();
+        let { response } = await actions.updatePassword(currentPassword, newPassword);
+        if (response.ok) {
+            alert("Contraseña cambiada con éxito.")
+            setCurrentPassword("");
+            setNewPassword("");
+        } else {
+            alert("Hubo un error, intente nuevamente.")
+        }
+    };
+
     return (<>
         <div className="backofficeSettings">
             <ul className="nav nav-tabs">
@@ -43,13 +55,14 @@ export const Settings = () => {
             </ul>
             <div className="col-md-9 p-3">
                 <div className="form-style">
-                    <form>
+                    <form onSubmit={updatePassword}>
                         <div className="form-group pb-3">
                             <input
                                 type="password"
                                 placeholder="Contraseña Actual"
                                 className="form-control"
                                 aria-describedby="Current Password"
+                                value={currentPassword}
                                 onChange={(e) => {
                                     setCurrentPassword(e.target.value);
                                 }}
@@ -61,6 +74,7 @@ export const Settings = () => {
                                 placeholder="Nueva Contraseña"
                                 className="form-control"
                                 aria-describedby="New Password"
+                                value={newPassword}
                                 onChange={(e) => {
                                     setNewPassword(e.target.value);
                                 }}
@@ -69,7 +83,7 @@ export const Settings = () => {
                         <br />
                         <div className="pb-2">
                             <button
-                                type="button"
+                                type="submit"
                                 className="btn btn-outline-primary w-100 font-weight-bold"
                             >
                                 Actualizar

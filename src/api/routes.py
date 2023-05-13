@@ -168,6 +168,30 @@ def login():
     access_token = create_access_token(identity=user.id)
     return jsonify({"token": access_token}), 200
 
+@api.route('/change_password/<int:user_id>', methods=['PUT'])
+@jwt_required()
+def change_password(user_id):
+    current_user_id = get_jwt_identity()
+    if current_user_id != user_id:
+        return jsonify({"message": "You can only change your own password"}), 403
+
+    body = json.loads(request.data)
+    user = User.query.filter_by(id=user_id).first()
+    if user is None:
+        raise APIException("USER NOT FOUND", status_code=409)
+
+    current_password = body.get('current_password')
+    new_password = body.get('new_password')
+
+    # Check if current password matches the stored password
+    if bcrypt.check_password_hash(user.password, current_password):
+        # If the passwords match, hash and update the new password
+        user.password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+        db.session.commit()
+        return jsonify({"msg":"Password updated successfully"}), 200
+    else:
+        return jsonify({"msg":"Current password is incorrect"}), 401
+
 @api.route('/logout', methods=['POST'])
 @jwt_required()
 def logout():
@@ -204,7 +228,14 @@ def edit_user(user_id):
     for key in body:
         for col in user.serialize():
             if key == col and key != "id":
-                setattr(user, col, body[key])
+                # If the key is credit card, store only the last 4 digits and hash them
+                if key == 'credit_card':
+                    first_twelve = body[key][:12]
+                    last_four = body[key][-4:]
+                    hashed_first_twelve = bcrypt.generate_password_hash(first_twelve).decode('utf-8')
+                    setattr(user, col, hashed_first_twelve + str(last_four))
+                else:
+                    setattr(user, col, body[key])
     db.session.commit()
     return jsonify({"msg":"User modified correctly"}), 201
 
