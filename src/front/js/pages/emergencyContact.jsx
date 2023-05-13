@@ -7,6 +7,7 @@ export const EmergencyContact = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Link2");
 
+    const [dataUser, setDataUser] = useState(store.userData)
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
     const [relationship, setRelationship] = useState("");
@@ -18,6 +19,10 @@ export const EmergencyContact = () => {
     const linkClass = (linkName) => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
+
+    useEffect(() => {
+        setDataUser(store.userData);
+    }, [store.userData]);
 
     return (<>
         <div className="backofficeEmergencyContact">
@@ -48,9 +53,8 @@ export const EmergencyContact = () => {
                                 placeholder="Nombre"
                                 className="form-control"
                                 aria-describedby="Nombre"
-                                onChange={(e) => {
-                                    setName(e.target.value);
-                                }}
+                                value={dataUser.emergency_contact_name}
+                                disabled
                             />
                         </div>
                         <div className="form-group pb-3">
@@ -58,9 +62,8 @@ export const EmergencyContact = () => {
                                 type="text"
                                 placeholder="Teléfono"
                                 className="form-control"
-                                onChange={(e) => {
-                                    setPhone(e.target.value);
-                                }}
+                                value={dataUser.emergency_contact_number}
+                                disabled
                             />
                         </div>
                         <div className="form-group">
@@ -68,19 +71,20 @@ export const EmergencyContact = () => {
                                 type="text"
                                 placeholder="Relación con el estudiante"
                                 className="form-control"
-                                onChange={(e) => {
-                                    setRelationship(e.target.value);
-                                }}
+                                value={dataUser.emergency_contact_relationship}
+                                disabled
                             />
                         </div>
                         <br />
                         <div className="pb-2">
-                            <button
-                                type="button"
-                                className="btn btn-outline-primary w-100 font-weight-bold mt-2"
-                            >
-                                Actualizar
-                            </button>
+                            <Link to="/user/edit-emergency-contact">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary w-100 font-weight-bold mt-2"
+                                >
+                                    Editar Información
+                                </button>
+                            </Link>
                         </div>
                     </form>
                 </div>

@@ -35,6 +35,10 @@ import { Twofa } from "./pages/twofa.jsx";
 import { Preferences } from "./pages/preferences.jsx";
 import { UserLayout } from "./pages/userLayout";
 import { RecoverPassword } from "./pages/recoverpassword.jsx"
+import { NewPassword } from "./pages/newpassword.jsx";
+import { EditMeasures } from "./pages/editMeasures.jsx";
+import { EditEmergencyContact } from "./pages/editEmergencyContact.jsx";
+import { EditPaymentMethod } from "./pages/editPaymentMethod.jsx";
 
 //create your first component
 const Layout = () => {
@@ -62,6 +66,7 @@ const Layout = () => {
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
             <Route element={<RecoverPassword />} path="/recoverpassword" />
+            <Route element={<NewPassword />} path="/new_password/:token" />
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
             <Route element={<UserLayout><Diagnostico /></UserLayout>} path="/user/diagnostico" />
             <Route element={<UserLayout><Programs /></UserLayout>} path="/user/programs" />
@@ -76,6 +81,9 @@ const Layout = () => {
             <Route element={<UserLayout><Twofa /></UserLayout>} path="/user/twofa" />
             <Route element={<UserLayout><Preferences /></UserLayout>} path="/user/preferences" />
             <Route element={<UserLayout><EditProfile /></UserLayout>} path="/user/edit-profile" />
+            <Route element={<UserLayout><EditMeasures /></UserLayout>} path="/user/edit-measures" />
+            <Route element={<UserLayout><EditEmergencyContact /></UserLayout>} path="/user/edit-emergency-contact" />
+            <Route element={<UserLayout><EditPaymentMethod /></UserLayout>} path="/user/edit-payment-method" />
             <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
           </Routes>
           <Footer />
