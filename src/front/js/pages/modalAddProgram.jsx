@@ -316,7 +316,6 @@ export const ModalAddProgram = ({
                                     />
                                 </div>
                             </div>
-
                         </div>
                         <div className="modal-footer">
                             <button

@@ -42,23 +42,23 @@ export const ModalDeleteProgram = ({
                             onClick={handleCloseModalDeleteProgram}
                         ></button>
                     </div>
-                    <div className="modal-body">
-                        ¿Estás seguro que deseas eliminar este ejercicio?
+                    <div className="modal-body mt-3 mb-3">
+                        ¿Estás seguro que querés eliminar este ejercicio?
                     </div>
                     <div className="modal-footer">
                         <button
                             type="button"
-                            className="btn btn-secondary"
-                            onClick={handleCloseModalDeleteProgram}
-                        >
-                            Close
-                        </button>
-                        <button
-                            type="button"
-                            className="btn btn-primary"
+                            className="btn btn-outline-primary"
                             onClick={handleDeleteProgram}
                         >
                             Eliminar
+                        </button>
+                        <button
+                            type="button"
+                            className="btn btn-outline-secondary"
+                            onClick={handleCloseModalDeleteProgram}
+                        >
+                            Close
                         </button>
                     </div>
                 </div>

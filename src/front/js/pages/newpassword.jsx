@@ -5,7 +5,7 @@ export const NewPassword = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
-    const {token} = useParams();
+    const { token } = useParams();
     const { store, actions } = useContext(Context);
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -13,41 +13,43 @@ export const NewPassword = (props) => {
             alert('Passwords do not match');
             return;
         }
-        let { respuestaJson, response } = await actions.recover(password,token); // call login action
+        let { respuestaJson, response } = await actions.recover(password, token); // call login action
     };
     return (
         <div>
-            <h1>Reset Password</h1>
+            <h1>Resetear Contraseña</h1>
             {message && <div className="alert alert-danger">{message}</div>}
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="password">New Password</label>
+                    <label htmlFor="password">Nueva Contraseña</label>
                     <input
                         type="password"
                         className="form-control"
                         id="password"
-                        placeholder="Enter new password"
+                        placeholder="Ingresá nueva contraseña"
                         value={password}
                         onChange={(e) => { setPassword(e.target.value) }}
                         required
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <label htmlFor="confirmPassword">Repetir Contraseña</label>
                     <input
                         type="password"
                         className="form-control"
                         id="confirmPassword"
-                        placeholder="Confirm new password"
+                        placeholder="Repetir contraseña"
                         value={confirmPassword}
                         onChange={(e) => { setConfirmPassword(e.target.value) }}
                         required
                     />
                 </div>
                 <button type="submit" className="btn btn-primary">
-                    Reset Password
+                    Resetear Contraseña
                 </button>
             </form>
         </div>
     );
 };
+
+export default NewPassword;
