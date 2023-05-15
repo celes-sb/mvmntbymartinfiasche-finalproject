@@ -9,6 +9,27 @@ export const Diagnostico = () => {
 
     const { store, actions } = useContext(Context);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [user, setUser] = useState(store.userData);
+    const [linkDiagnosis, setLinkDiagnosis] = useState();
+
+    let obj = {
+        message: `Nombre: ${user.first_name} ${user.last_name}, Email: ${user.email}, Link de Google Drive: ${linkDiagnosis}`,
+        to: "davidbravoml@gmail.com",
+        subject: "Nuevo Diagnostico"
+    };
+
+    const sendDiagnosis = async (event) => {
+        event.preventDefault(); // prevent form from submitting
+        const { respuestaJson, response } = await actions.useFetch("/correo", obj, "POST"); // call sendMessage action
+        console.log(response);
+        if (response.ok) {
+            const button = document.querySelector(".enviar-diagnostico-btn");
+            button.classList.remove("btn-primary");
+            button.classList.add("btn-success");
+            button.innerHTML = "Diagnóstico enviado";
+            setLinkDiagnosis("");
+        }
+    };
 
     const handlePreviousClick = () => {
         setCurrentIndex(
@@ -32,13 +53,6 @@ export const Diagnostico = () => {
         } else {
             alert("Please enter a valid URL");
         }
-    }
-
-    function sendDiagnosis() {
-        const button = document.querySelector(".enviar-diagnostico-btn");
-        button.classList.remove("btn-primary");
-        button.classList.add("btn-success");
-        button.innerHTML = "Diagnóstico enviado";
     }
 
 
@@ -119,7 +133,7 @@ export const Diagnostico = () => {
                 <div className="text-center mt-1 w-75">
                     <form>
                         <div className="form-group mb-2">
-                            <input type="text" className="form-control form-control-lg" id="url-input" placeholder="Link de tu carpeta en Google Drive" style={{ "fontSize": "14px" }} />
+                            <input type="text" className="form-control form-control-lg" id="url-input" value={linkDiagnosis} placeholder="Link de tu carpeta en Google Drive" style={{ "fontSize": "14px" }} onChange={(e) => setLinkDiagnosis(e.target.value)} />
                         </div>
                         <button className="btn btn-primary enviar-diagnostico-btn mt-2" onClick={sendDiagnosis}>
                             Enviar Diagnóstico

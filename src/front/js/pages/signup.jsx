@@ -26,6 +26,7 @@ export const Signup = (props) => {
     const response = await actions.signup(name, lastname, username, email, password, phone, country, gender); // call register action
     console.log(response)
     if (response.ok) {
+      actions.welcomeEmail(name, email);
       const btn = document.getElementById("signupButton");
       btn.classList.remove("btn-primary");
       btn.classList.add("btn-success");
