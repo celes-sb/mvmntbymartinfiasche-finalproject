@@ -19,7 +19,7 @@ export const Programs = () => {
                 <p>Al final de la página hay un instructivo para entender cómo leer tu programa y una entrada en calor sugerida. <br />Chequealos antes de empezar a entrenar.</p>
                 <hr className="my-4" />
             </div>
-            <div>
+            <div className="seleccionaPrograma ms-3">
                 <label htmlFor="programSelect">Seleccioná un programa:</label><br /><br />
                 <select id="programSelect" value={selectedProgramName} onChange={handleProgramChange}>
                     {Object.keys(userPrograms).map((programName) => (
@@ -52,9 +52,9 @@ export const Programs = () => {
                                         <tr key={`${day}-${exerciseType}`}>
                                             <td className="border">
                                                 <strong>{exerciseData.exercise_name}</strong><br />
-                                                <strong>URL:</strong> {exerciseData.url_youtube}<br />
-                                                <strong>Descripción:</strong> {exerciseData.description}<br />
-                                                <strong>Tipo:</strong> {exerciseData.type}<br />
+                                                <strong>URL:</strong> <a href={exerciseData.url_youtube} target="_blank">{exerciseData.url_youtube}</a><br />
+                                                <strong>Comentarios:</strong> {exerciseData.description}<br />
+                                                <strong>Categoría:</strong> {exerciseData.type}<br />
                                             </td>
                                             {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
                                                 const exercise = exercises.find(e => e.type === exerciseType);
@@ -80,7 +80,7 @@ export const Programs = () => {
                     })}
                 </>
             ) : (
-                <><p className="mt-5 mb-5">Cargando...</p></>
+                <><p className="ms-2 mt-3 mb-3"><strong>Iniciá sesión para ver tus programas</strong></p></>
             )}
             <ul className="list-unstyled">
                 <li><i className="far fa-check-circle ms-2 ps-1"></i> Entendé cómo leer tu programa:</li>

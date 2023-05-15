@@ -5,8 +5,7 @@ import { Context } from "../store/appContext";
 export const Contact = () => {
   const { store, actions } = useContext(Context);
 
-  const alumnoPalos =
-    "http://drive.google.com/uc?export=view&id=1uoqtCrQmFyAN2uHUzNR83d1APTfghA2z";
+  const martinVerti = "http://drive.google.com/uc?export=view&id=1YFASZ4Kvi-fwN9SaDl-mVn6BzL6kOACl";
 
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -41,8 +40,8 @@ export const Contact = () => {
       <section
         className="container-fluid customer-says p-5 mb-0 mt-5 pt-5 border border-warning rounded"
         style={{
-          backgroundImage: `url(${alumnoPalos})`,
-          backgroundSize: "100% cover",
+          backgroundImage: `url(${martinVerti})`,
+          backgroundSize: "cover",
         }}
       >
         <div className="container mb-3 border border-warning bg-white bg-opacity-75 rounded p-5 text-center">

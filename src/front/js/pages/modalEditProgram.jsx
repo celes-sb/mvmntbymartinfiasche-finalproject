@@ -103,7 +103,7 @@ export const ModalEditProgram = ({
                                     </option>
                                 ))}
                             </select>
-                            <div className="row gy-2">
+                            <div className="row gy-2 mt-2 mb-2">
                                 <div className="col mt-2 gx-2">
                                     <input
                                         type="text"
@@ -119,7 +119,7 @@ export const ModalEditProgram = ({
                                     />
                                 </div>
 
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2 gx-2 mt-2 mb-2">
                                     <input
                                         type="text"
                                         className="form-control"
@@ -134,14 +134,14 @@ export const ModalEditProgram = ({
                                     />
                                 </div>
                             </div>
-                            <div className="row gy-2">
+                            <div className="row gy-1">
                                 <div className="col mt-2">
                                     <br />
                                     <p>Peso:</p>
                                     <p>Repes:</p>
                                     <p>Series:</p>
                                 </div>
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2 gx-2 mb-2">
                                     Semana 1
                                     <input
                                         type="number"
@@ -180,7 +180,7 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2 gx-2 mb-2">
                                     Semana 2
                                     <input
                                         type="number"
@@ -219,7 +219,7 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2 gx-2 mb-2">
                                     Semana 3
                                     <input
                                         type="number"
@@ -258,7 +258,7 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2 gx-2 mb-2">
                                     Semana 4
                                     <input
                                         type="number"

@@ -103,7 +103,7 @@ export const AddPrograms = () => {
             <h1 className="display-4">Agregar Programas</h1>
             <p className="lead">Seleccioná el nombre de usuario al que le quieras crear un programa.</p>
             <hr className="my-4" />
-            <div className="mt-5">
+            <div className="mt-3">
                 <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Buscar usuario..." />
                 <br />
                 <select value={selectedUser || ""} onChange={handleSelectChange}>
