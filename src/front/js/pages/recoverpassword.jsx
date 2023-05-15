@@ -29,7 +29,7 @@ export const RecoverPassword = (props) => {
                 backgroundSize: "cover",
             }}
         >
-            <div className="acrobacia bg-white bg-opacity-75 border border-warning rounded text-center">
+            <div className="recoverPass bg-white bg-opacity-75 border border-warning rounded text-center pt-5 mt-4 pb-5">
                 <div className="login-container container-fluid">
                     <div
                         className="login-container2 d-flex flex-row flex-nowrap"
@@ -59,7 +59,7 @@ export const RecoverPassword = (props) => {
                                                     <button
                                                         id="recoverPasswordButton"
                                                         type="submit"
-                                                        className="btn btn-primary w-100 font-weight-bold mt-2"
+                                                        className="btn btn-primary w-100 font-weight-bold"
                                                     >
                                                         Enviar enlace de inicio de sesión
                                                     </button>

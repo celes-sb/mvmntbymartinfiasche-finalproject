@@ -5,7 +5,9 @@ import "../../styles/index.css";
 
 
 export const Login = () => {
-  const martinVerti = "http://drive.google.com/uc?export=view&id=1YFASZ4Kvi-fwN9SaDl-mVn6BzL6kOACl";
+  const acroJump = "http://drive.google.com/uc?export=view&id=1gCHaOZq3Oa7sPMysyfJYrtKBOAY3oeUO";
+  const martinBridge =
+    "http://drive.google.com/uc?export=view&id=1Y1E26SCEhLhFcEMlmWaEVtbpQuwipbZe";
 
   const { store, actions } = useContext(Context);
   const [emailOrUsername, setEmailOrUsername] = useState("");
@@ -25,7 +27,7 @@ export const Login = () => {
   return (
     <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
       style={{
-        backgroundImage: `url(${martinVerti})`,
+        backgroundImage: `url(${acroJump})`,
         backgroundSize: "cover",
       }}
     >
@@ -39,9 +41,9 @@ export const Login = () => {
               <div className="row m-5 gx-0">
                 <div className="col-md-6 d-none d-md-block h-100">
                   <img
-                    src={martinVerti}
+                    src={martinBridge}
                     className="img-fluid"
-                    style={{ objectFit: "cover", height: "100%" }}
+                    style={{ objectFit: "cover" }}
                   />
                 </div>
                 <div className="col-md-6 bg-white p-5">
