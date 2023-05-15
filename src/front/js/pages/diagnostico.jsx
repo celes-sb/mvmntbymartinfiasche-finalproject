@@ -39,6 +39,9 @@ export const Diagnostico = () => {
         button.classList.remove("btn-primary");
         button.classList.add("btn-success");
         button.innerHTML = "Diagnóstico enviado";
+        setTimeout(() => {
+            navigate("/user/diagnostico");
+        }, 2000);
     }
 
 

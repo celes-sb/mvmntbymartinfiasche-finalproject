@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 
 export const Signup = (props) => {
 
-  const alumnosSpine =
-    "http://drive.google.com/uc?export=view&id=1mqYln15hz8FMhuzOIM61qBictu1OgLu2";
+  const alumnosSpine = "http://drive.google.com/uc?export=view&id=1mqYln15hz8FMhuzOIM61qBictu1OgLu2";
+  const martinEnsena = "http://drive.google.com/uc?export=view&id=16xPTHdcofBvzwPO4H_XoG2aVzMSlh-D6";
+  const alumnosVerti = "http://drive.google.com/uc?export=view&id=1xha1VxiXzaxeHKFmrVmfuT1OPiaFC2vV";
 
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context); //saqué el store me estaba dando error
   const [name, setName] = useState("");
   const [lastname, setLastName] = useState("");
   const [username, setUsername] = useState("");
@@ -40,7 +41,7 @@ export const Signup = (props) => {
     <>
       <section className="signup container-fluid p-5 mt-5 pt-5 border border-warning rounded"
         style={{
-          backgroundImage: `url(${alumnosSpine})`,
+          backgroundImage: `url(${martinEnsena})`,
           backgroundSize: "cover",
         }}
       >
@@ -51,7 +52,7 @@ export const Signup = (props) => {
               <div className="row gx-0">
                 <div className="col-md-6 d-none d-md-block">
                   <img
-                    src={alumnosSpine}
+                    src={alumnosVerti}
                     className="img-fluid p-0 m-0"
                     style={{ objectFit: "cover" }}
                   />
