@@ -39,6 +39,10 @@ import { NewPassword } from "./pages/newpassword.jsx";
 import { EditMeasures } from "./pages/editMeasures.jsx";
 import { EditEmergencyContact } from "./pages/editEmergencyContact.jsx";
 import { EditPaymentMethod } from "./pages/editPaymentMethod.jsx";
+import { EditPreferences } from "./pages/editPreferences.jsx";
+import { TermGoals } from "./pages/termGoals.jsx";
+import { EditTermGoals } from "./pages/editTermGoals.jsx";
+import { AdminLogin } from "./pages/adminLogin.jsx";
 
 //create your first component
 const Layout = () => {
@@ -65,6 +69,7 @@ const Layout = () => {
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Signup />} path="/signup" />
             <Route element={<Login />} path="/login" />
+            <Route element={<AdminLogin />} path="/admin/login" />
             <Route element={<RecoverPassword />} path="/recoverpassword" />
             <Route element={<NewPassword />} path="/new_password/:token" />
             <Route element={<UserLayout><Backoffice /></UserLayout>} path="/user/backoffice" />
@@ -84,6 +89,9 @@ const Layout = () => {
             <Route element={<UserLayout><EditMeasures /></UserLayout>} path="/user/edit-measures" />
             <Route element={<UserLayout><EditEmergencyContact /></UserLayout>} path="/user/edit-emergency-contact" />
             <Route element={<UserLayout><EditPaymentMethod /></UserLayout>} path="/user/edit-payment-method" />
+            <Route element={<UserLayout><EditPreferences /></UserLayout>} path="/user/edit-preferences" />
+            <Route element={<UserLayout><TermGoals /></UserLayout>} path="/user/term-goals" />
+            <Route element={<UserLayout><EditTermGoals /></UserLayout>} path="/user/edit-term-goals" />
             <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
           </Routes>
           <Footer />

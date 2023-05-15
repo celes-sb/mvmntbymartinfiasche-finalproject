@@ -77,7 +77,7 @@ export const PaymentMethod = () => {
                                     type="button"
                                     className="btn btn-outline-primary w-100 font-weight-bold"
                                 >
-                                    Editar Información
+                                    {dataUser.credit_card ? "Editar Tarjeta" : "Añadir Tarjeta"}
                                 </button>
                             </Link>
                         </div>

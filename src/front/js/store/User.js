@@ -235,6 +235,21 @@ export function userActions(getStore, getActions, setStore) {
         "POST"
       );
       return { respuestaJson, response };
+    },
+    welcomeEmail: async (name, email) => {
+      const store = getStore();
+      const actions = getActions();
+      let obj = {
+        message: `Hola ${name}, bienvenido a MVMNT by Martin Fiasche.`,
+        to: email,
+        subject: `Bienvenido, ${name}`
+      }
+      let { respuestaJson, response } = await actions.useFetch(
+        "/correo",
+        obj,
+        "POST"
+      );
+      return { respuestaJson, response };
     }
   };
 }

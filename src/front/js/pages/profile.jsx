@@ -39,6 +39,11 @@ export const Profile = () => {
                         Contacto de Emergencia
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <Link className={linkClass("Link3")} onClick={() => handleClick("Link3")} to="/user/term-goals">
+                        Objetivos
+                    </Link>
+                </li>
             </ul>
             <div className="col-md-9 p-3">
                 <div className="form-style">

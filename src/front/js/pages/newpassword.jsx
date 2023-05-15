@@ -76,6 +76,7 @@ export const NewPassword = (props) => {
                                               </div>
                                             <button id="resetPasswordButton" type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>
                     Reset Password
+                </button>
                 <button type="submit" className="btn btn-primary">
                     Resetear Contraseña
                 </button>

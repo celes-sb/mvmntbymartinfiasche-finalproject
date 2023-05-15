@@ -3,14 +3,16 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const Preferences = () => {
+export const EditPreferences = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Link4");
 
     const [dataUser, setDataUser] = useState(store.userData)
-    const [emailSubscription, setEmailSubscription] = useState(null);
-    const [language, setLanguage] = useState("");
-    const [unitSystem, setUnitSystem] = useState("");
+    const [emailSubscription, setEmailSubscription] = useState(dataUser.email_subscription);
+    const [language, setLanguage] = useState(dataUser.language_preference);
+    const [unitSystem, setUnitSystem] = useState(dataUser.numeric_preference);
+
+    const navigate = useNavigate();
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -20,9 +22,22 @@ export const Preferences = () => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
 
-    useEffect(() => {
-        setDataUser(store.userData);
-    }, [store.userData]);
+    const obj = {
+        "email_subscription": emailSubscription,
+        "numeric_preference": unitSystem,
+        "language_preference": language
+    }
+
+    const handleEditUser = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.editUser(obj); // call login action
+        if (response.ok) {
+            alert("Cambio exitoso");
+            navigate("/user/preferences")
+        } else {
+            alert("Cambio fallido, intente nuevamente");
+        }
+    }
 
     return (<>
         <div className="backofficePreferences">
@@ -57,13 +72,13 @@ export const Preferences = () => {
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Querés que te lleguen correos con nuestros anuncios, promociones y contenido informativo?</div>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="correo" id="correoSi" value="si" checked={dataUser.email_subscription === true} disabled />
+                                <input className="form-check-input" type="radio" name="correo" id="correoSi" value="si" checked={emailSubscription === true} onChange={(e) => { setEmailSubscription(true) }} />
                                 <label className="form-check-label" htmlFor="correoSi">
                                     Sí
                                 </label>
                             </div>
                             <div className="form-check">
-                                <input className="form-check-input" type="radio" name="correo" id="correoNo" value="no" checked={dataUser.email_subscription === false} disabled />
+                                <input className="form-check-input" type="radio" name="correo" id="correoNo" value="no" checked={emailSubscription === false} onChange={(e) => { setEmailSubscription(false) }} />
                                 <label className="form-check-label" htmlFor="correoNo">
                                     No
                                 </label>
@@ -80,8 +95,12 @@ export const Preferences = () => {
                                             type="radio"
                                             name="Language"
                                             value="Spanish"
-                                            checked={dataUser.language_preference === 'Spanish'}
-                                            disabled
+                                            checked={language === 'Spanish'}
+                                            onChange={(e) => {
+                                                setLanguage(e.target.value);
+                                            }}
+
+
                                         />
                                         <label className="form-check-label fs-6" htmlFor="Spanish">
                                             Español
@@ -94,8 +113,11 @@ export const Preferences = () => {
                                             type="radio"
                                             name="Language"
                                             value="English"
-                                            checked={dataUser.language_preference === 'English'}
-                                            disabled
+                                            checked={language === 'English'}
+                                            onChange={(e) => {
+                                                setLanguage(e.target.value);
+                                            }}
+
                                         />
                                         <label className="form-check-label fs-6" htmlFor="English">
                                             English
@@ -114,8 +136,12 @@ export const Preferences = () => {
                                         type="radio"
                                         name="Unit System"
                                         value="Kilograms"
-                                        checked={dataUser.numeric_preference === 'Kilograms'}
-                                        disabled
+                                        checked={unitSystem === 'Kilograms'}
+                                        onChange={(e) => {
+                                            setUnitSystem(e.target.value);
+                                        }}
+
+
                                     />
                                     <label className="form-check-label fs-6 " htmlFor="Kilograms">
                                         Kilogramos
@@ -127,8 +153,11 @@ export const Preferences = () => {
                                         type="radio"
                                         name="Unit System"
                                         value="Pounds"
-                                        checked={dataUser.numeric_preference === 'Pounds'}
-                                        disabled
+                                        checked={unitSystem === 'Pounds'}
+                                        onChange={(e) => {
+                                            setUnitSystem(e.target.value);
+                                        }}
+
                                     />
                                     <label className="form-check-label fs-6" htmlFor="Libras">
                                         Libras
@@ -139,12 +168,21 @@ export const Preferences = () => {
 
                         <br />
                         <div className="pb-2">
-                            <Link to="/user/edit-preferences">
+                            {console.log(obj)}
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
+                                onClick={handleEditUser}
+                            >
+                                Guardar Cambios
+                            </button>
+                            <Link to="/user/preferences">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-primary w-100 font-weight-bold"
+                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
+
                                 >
-                                    Editar Preferencias
+                                    Cancelar
                                 </button>
                             </Link>
                         </div>
@@ -155,4 +193,4 @@ export const Preferences = () => {
     </>)
 }
 
-export default Preferences;
+export default EditPreferences;
