@@ -16,6 +16,10 @@ export const RecoverPassword = (props) => {
         let { respuestaJson, response } = await actions.linkrecoverpassword(email); // call login action
         if (response.ok) {
             alert("Se te ha enviado un correo")
+            const btn = document.getElementById("recoverPasswordButton");
+            btn.classList.remove("btn-primary");
+            btn.classList.add("btn-success");
+            btn.textContent = "¡Se te ha enviado un correo!";
         }
     };
     return (
@@ -53,6 +57,7 @@ export const RecoverPassword = (props) => {
                                                 <br></br>
                                                 <div className="pb-2">
                                                     <button
+                                                        id="recoverPasswordButton"
                                                         type="submit"
                                                         className="btn btn-primary w-100 font-weight-bold"
                                                     >

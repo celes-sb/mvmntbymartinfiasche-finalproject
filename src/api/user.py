@@ -19,6 +19,7 @@ class User(db.Model):
     emergency_contact_number = db.Column(db.String(20), unique=False, nullable=True)
     emergency_contact_relationship = db.Column(db.String(20), unique=False, nullable=True)
     credit_card = db.Column(db.String(250), unique=False, nullable=True) #revisar!!! lo de default y numero
+    exp_date = db.Column(db.String(20), unique=False, nullable=True)
     otp = db.Column(db.Integer, unique=False, nullable=True)
     otp_active = db.Column(db.Boolean(), unique=False, nullable=True)
     twofa = db.Column(db.Boolean(), unique=False, nullable=True)
@@ -39,7 +40,11 @@ class User(db.Model):
     availability = db.Column(db.String(50), unique=False, nullable=True)
     email_subscription = db.Column(db.Boolean(), unique=False, nullable=True)
     numeric_preference = db.Column(db.String(10), unique=False, nullable=True)
-    access_gym = db.Column(db.Boolean(), unique=False, nullable=True)
+    language_preference = db.Column(db.String(10), unique=False, nullable=True)
+    access_gym = db.Column(db.String(10), unique=False, nullable=True)
+    three_months_goal = db.Column(db.String(120), unique=False, nullable=True)
+    six_months_goal = db.Column(db.String(120), unique=False, nullable=True)
+    twelve_months_goal = db.Column(db.String(120), unique=False, nullable=True)
     favorites = db.relationship("Favorites", backref="User", lazy=True)
 
     def serialize(self):
@@ -58,6 +63,19 @@ class User(db.Model):
             "injuries": self.injuries,
             "availability": self.availability,
             "numeric_preference": self.numeric_preference,
-            "access_gym": self.access_gym
+            "access_gym": self.access_gym,
+            "other_sports": self.other_sports,
+            "eating_habits": self.eating_habits,
+            "emergency_contact_name": self.emergency_contact_name,
+            "emergency_contact_number": self.emergency_contact_number,
+            "emergency_contact_relationship": self.emergency_contact_relationship,
+            "email_subscription": self.email_subscription,
+            "language_preference": self.language_preference,
+            "three_months_goal": self.three_months_goal,
+            "six_months_goal": self.six_months_goal,
+            "twelve_months_goal": self.twelve_months_goal,
+            "credit_card": self.credit_card,
+            "exp_date": self.exp_date,
+
             # do not serialize the password, its a security breach
         }

@@ -3,13 +3,15 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
-export const PaymentMethod = () => {
+export const EditPaymentMethod = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Link2");
 
     const [dataUser, setDataUser] = useState(store.userData)
-    const [cardNumber, setCardNumber] = useState("");
-    const [expirationDate, setExpirationDate] = useState("");
+    const [cardNumber, setCardNumber] = useState(dataUser.credit_card ? "xxxx xxxx xxxx " + dataUser.credit_card.substring(dataUser.credit_card.length - 4) : "");
+    const [expirationDate, setExpirationDate] = useState(dataUser.exp_date);
+
+    const navigate = useNavigate();
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -19,9 +21,21 @@ export const PaymentMethod = () => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
 
-    useEffect(() => {
-        setDataUser(store.userData);
-    }, [store.userData]);
+    const obj = {
+        "credit_card": cardNumber,
+        "exp_date": expirationDate
+    }
+
+    const handleEditUser = async (e) => {
+        e.preventDefault(); // prevent form from submitting
+        let { response } = await actions.editUser(obj); // call login action
+        if (response.ok) {
+            alert("Cambio exitoso");
+            navigate("/user/payment-method")
+        } else {
+            alert("Cambio fallido, intente nuevamente");
+        }
+    }
 
     return (<>
         <div className="backofficePayment">
@@ -56,8 +70,10 @@ export const PaymentMethod = () => {
                                 placeholder="Número de Tarjeta"
                                 className="form-control"
                                 aria-describedby="Credit Card Number"
-                                value={dataUser.credit_card ? "xxxx xxxx xxxx " + dataUser.credit_card.substring(dataUser.credit_card.length - 4) : "No Credit Card Stored"}
-                                disabled
+                                value={cardNumber}
+                                onChange={(e) => {
+                                    setCardNumber(e.target.value);
+                                }}
                             />
                         </div>
                         <div className="form-group">
@@ -66,18 +82,28 @@ export const PaymentMethod = () => {
                                 placeholder="Fecha de Vencimiento"
                                 className="form-control"
                                 aria-describedby="Expiration Date"
-                                value={dataUser.exp_date}
-                                disabled
+                                value={expirationDate}
+                                onChange={(e) => {
+                                    setExpirationDate(e.target.value);
+                                }}
                             />
                         </div>
                         <br />
                         <div className="pb-2">
-                            <Link to="/user/edit-payment-method">
+                            <button
+                                type="button"
+                                className="btn btn-outline-primary w-100 font-weight-bold"
+                                onClick={handleEditUser}
+                            >
+                                Guardar Cambios
+                            </button>
+                            <Link to="/user/payment-method">
                                 <button
                                     type="button"
-                                    className="btn btn-outline-primary w-100 font-weight-bold"
+                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
+
                                 >
-                                    Editar Información
+                                    Cancelar
                                 </button>
                             </Link>
                         </div>
@@ -88,4 +114,4 @@ export const PaymentMethod = () => {
     </>)
 }
 
-export default PaymentMethod;
+export default EditPaymentMethod;

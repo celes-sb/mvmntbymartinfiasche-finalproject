@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Context } from "../store/appContext";
 
 export const NewPassword = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
+
     const { token } = useParams();
     const { store, actions } = useContext(Context);
 
@@ -18,6 +20,17 @@ export const NewPassword = (props) => {
             return;
         }
         let { respuestaJson, response } = await actions.recover(password, token); // call login action
+
+        if (response.ok) {
+            alert("Contraseña cambiada con éxito.")
+            const btn = document.getElementById("resetPasswordButton");
+            btn.classList.remove("btn-primary");
+            btn.classList.add("btn-success");
+            btn.textContent = "Contraseña cambiada con éxito.";
+            setTimeout(() => {
+                navigate("/login");
+            }, 3000);
+        }
     };
     return (
         <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
@@ -60,11 +73,13 @@ export const NewPassword = (props) => {
                                                     onChange={(e) => { setConfirmPassword(e.target.value) }}
                                                     required
                                                 />
-                                            </div>
-                                            <button type="submit" className="btn btn-primary w-100 mt-3">
-                                                Resetear Contraseña
-                                            </button>
-                                        </form>
+                                              </div>
+                                            <button id="resetPasswordButton" type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>
+                    Reset Password
+                <button type="submit" className="btn btn-primary">
+                    Resetear Contraseña
+                </button>
+            </form>
                                     </div>
                                 </div>
                             </div>
