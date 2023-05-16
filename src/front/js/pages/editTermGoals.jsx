@@ -64,20 +64,20 @@ export const EditTermGoals = () => {
                     </Link>
                 </li>
             </ul>
-            <h4 className="mt-2">Objetivos a 3 meses</h4>
-            <div className="form-floating">
-                <textarea className="form-control" placeholder="Leave a comment here" value={threeMonthsGoal} id="floatingTextarea1" style={{ height: "100px" }} onChange={(e) => { setThreeMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea1">Comentarios</label>
+            <h4 className="mt-2 mb-2">3 meses</h4>
+            <div className="form-floating mb-2">
+                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en 3 meses...." value={threeMonthsGoal} id="floatingTextarea1" style={{ height: "100px" }} onChange={(e) => { setThreeMonthsGoal(e.target.value); }}></textarea>
+                <label for="floatingTextarea1">Contame qué te gustaría lograr en 3 meses....</label>
             </div>
-            <h4 className="mt-2">Objetivos a 6 meses</h4>
-            <div className="form-floating">
-                <textarea className="form-control" placeholder="Leave a comment here" value={sixMonthsGoal} id="floatingTextarea2" style={{ height: "100px" }} onChange={(e) => { setSixMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea2">Comentarios</label>
+            <h4 className="mt-2 mb-2">6 meses</h4>
+            <div className="form-floating mb-2">
+                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en 6 meses..." value={sixMonthsGoal} id="floatingTextarea2" style={{ height: "100px" }} onChange={(e) => { setSixMonthsGoal(e.target.value); }}></textarea>
+                <label for="floatingTextarea2">Contame qué te gustaría lograr en 6 meses....</label>
             </div>
-            <h4 className="mt-2">Objetivos a 12 meses</h4>
-            <div className="form-floating">
-                <textarea className="form-control" placeholder="Leave a comment here" value={twelveMonthsGoal} id="floatingTextarea3" style={{ height: "100px" }} onChange={(e) => { setTwelveMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea3">Comentarios</label>
+            <h4 className="mt-2 mb-2">12 meses</h4>
+            <div className="form-floating mb-2">
+                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en un año..." value={twelveMonthsGoal} id="floatingTextarea3" style={{ height: "100px" }} onChange={(e) => { setTwelveMonthsGoal(e.target.value); }}></textarea>
+                <label for="floatingTextarea3">Contame qué te gustaría lograr en un año....</label>
             </div>
 
             <div className="pb-2 mt-4">

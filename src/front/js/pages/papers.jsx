@@ -7,6 +7,8 @@ export const Papers = () => {
     const { store, actions } = useContext(Context);
     const [papers, setPapers] = useState()
 
+    const alumnosSpine = "http://drive.google.com/uc?export=view&id=1mqYln15hz8FMhuzOIM61qBictu1OgLu2";
+
     useEffect(() => {
         const cargaDatos = async () => {
             let { respuestaJson, response } = await actions.useFetch("/getpapers");
@@ -31,12 +33,12 @@ export const Papers = () => {
                 <div className="d-flex flex-wrap">
                     {papers.map((item, index) => {
                         return (
-                            <div className="card ms-3 mt-3" style={{ width: "18rem" }} key={index}>
-                                <img src="..." className="card-img-top" alt="..." />
+                            <div className="card ms-3 mt-3 text-center border border-primary" style={{ width: "18rem" }} key={index}>
+                                <img src={alumnosSpine} className="card-img-top" alt="Alumnos Extensión Torácica" />
                                 <div className="card-body">
                                     <h5 className="card-title">{item.name}</h5>
                                     <p className="card-text">{item.description}</p>
-                                    <a href={item.url} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Go somewhere</a>
+                                    <a href={item.url} className="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Leé este paper</a>
 
                                 </div>
                             </div>

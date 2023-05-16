@@ -30,17 +30,15 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg fixed-top navbar-scroll mb-4 bg-opacity-50">
+      <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm fixed-top navbar-scroll">
         <div className="logo ps-3">
           <Link className="nav-link badge badge-pill badge-success text-dark" to="/">
-            <img src={logoMartin} alt="Martin Fiasche Logo" style={{ width: "250px" }} />
+            <img src={logoMartin} alt="Martín Fiasche Logo" style={{ width: "250px" }} />
           </Link>
         </div>
         <button
-          className="navbar-toggler"
+          className="navbar-toggler bg-primary``"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"

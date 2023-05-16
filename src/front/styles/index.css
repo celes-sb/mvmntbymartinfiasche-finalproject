@@ -558,24 +558,6 @@ footer .footer-content .social-media h4 {
   .container {
     width: 800px;
   }
-  .nav .container {
-    width: 760px;
-  }
-  .nav .logo img {
-    width: 40px;
-  }
-  .nav .logo h1 {
-    font-size: 16px;
-  }
-  .nav .list ul li {
-    margin: 0 8px;
-  }
-  .nav .list ul li a {
-    font-size: 16px;
-  }
-  .nav div button {
-    padding: 6px 18px;
-  }
   .hero .hero-content .hero-content-text h1 {
     width: 95%;
   }
@@ -675,23 +657,6 @@ footer .footer-content .social-media h4 {
   .container {
     width: 700px;
   }
-  .nav .container {
-    width: 660px;
-  }
-  .nav div button {
-    padding: 10px 15px;
-    margin-left: 0px;
-    font-size: 14px;
-  }
-  .nav .list {
-    margin-left: 30px;
-  }
-  .nav .list ul li {
-    margin: 0 5px;
-  }
-  .nav .list ul li a {
-    font-size: 14px;
-  }
   .circle,
   .circle-yellow,
   .circle-gredient {
@@ -778,53 +743,7 @@ footer .footer-content .social-media h4 {
   .container {
     width: 520px;
   }
-  .nav {
-    justify-content: space-between;
-    position: relative;
-  }
-  .nav .container {
-    width: 470px;
-  }
-  .nav .logo h1 {
-    display: none;
-  }
-  .nav .logo img {
-    width: 55px;
-  }
-  .nav .list {
-    position: absolute;
-    justify-content: center;
-    left: 45%;
-    top: 89px;
-    width: 90%;
-    border: 1px solid #000;
-    transform: translateX(-50%);
-    background: #fff;
-    z-index: 10;
-  }
-  .nav .list ul {
-    flex-direction: column;
-  }
-  .nav .list ul li {
-    margin: 10px 0px;
-  }
-  .nav .list ul li a {
-    font-size: 18px;
-    padding: 15px 0;
-  }
-  .nav .list ul li:hover::after {
-    opacity: 0;
-  }
-  .nav div button {
-    padding: 10px 20px;
-    margin-left: -35px;
-    font-size: 15px;
-  }
-  .nav .humb-menu {
-    display: block;
-    color: #000;
-    font-size: 22px;
-  }
+
   .hero {
     height: auto;
   }
@@ -904,19 +823,6 @@ footer .footer-content .social-media h4 {
   .container {
     width: 430px;
   }
-  .nav .container {
-    width: 400px;
-  }
-  .nav .list {
-    left: 44%;
-    top: 90px;
-    width: 90%;
-  }
-  .nav div button {
-    font-size: 18px;
-    padding: 8px 20px;
-    margin-left: -24px;
-  }
   .hero .bg {
     height: 1030px;
   }
@@ -952,10 +858,6 @@ footer .footer-content .social-media h4 {
   .container {
     width: 375px;
   }
-  .nav .container {
-    width: 345px;
-  }
-
   .hero .bg {
     height: 1050px;
   }
@@ -1018,33 +920,11 @@ footer .footer-content .social-media h4 {
   footer .footer-content .social-media {
     margin-top: 50px;
   }
-  .nav .list {
-    left: 42%;
-    top: 90px;
-    width: 90%;
-  }
 }
 
 @media only screen and (max-width: 400px) {
   .container {
     width: 350px;
-  }
-  .nav .container {
-    width: 320px;
-  }
-  .nav .list {
-    left: 42%;
-    top: 90px;
-    width: 90%;
-  }
-  .hero .bg {
-    height: 760px;
-  }
-  .nav .logo h1 {
-    display: none;
-  }
-  .nav div button {
-    margin-left: -30px;
   }
   .hero .hero-content .hero-content-text .bottom .bottom-bottom {
     flex-direction: column;
@@ -1126,9 +1006,6 @@ footer .footer-content .social-media h4 {
   .container {
     width: 325px;
   }
-  .nav .container {
-    width: 315px;
-  }
   .hero .bg {
     height: 822px;
   }
@@ -1150,11 +1027,6 @@ footer .footer-content .social-media h4 {
 @media only screen and (max-width: 350px) {
   .container {
     width: 310px;
-  }
-  .nav .list {
-    left: 39.9%;
-    top: 90px;
-    width: 90%;
   }
   .hero .bg {
     height: 800px;
@@ -1216,9 +1088,6 @@ footer .footer-content .social-media h4 {
 @media only screen and (max-width: 320px) {
   .container {
     width: 280px;
-  }
-  .nav .container {
-    width: 260px;
   }
   .hero .bg {
     height: 880px;
@@ -1297,37 +1166,6 @@ footer .footer-content .social-media h4 {
     grid-row-start: 14;
     grid-row-end: 28;
   }
-}
-
-.navbar-nav {
-  list-style: none;
-  padding: 0;
-}
-
-.nav-item {
-  padding: 8px 0;
-  position: relative;
-}
-
-.nav-link {
-  cursor: pointer;
-}
-
-.nav-link::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-
-.nav-link:hover::before {
-  width: 100%;
-  visibility: visible;
 }
 
 .user-layout {
