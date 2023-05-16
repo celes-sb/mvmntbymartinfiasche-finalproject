@@ -164,6 +164,9 @@ def login():
     # Validate the encrypted password
     if not bcrypt.check_password_hash(user.password, password):
         return jsonify({"message": "Login failed"}), 401
+    
+    if user.role == 'admin':
+        return jsonify({"message": "You do not have permissions to access this route"}), 403
 
     access_token = create_access_token(identity=user.id)
     return jsonify({"token": access_token}), 200
@@ -349,7 +352,6 @@ def register_exercise():
     category = body["category"]
     url_youtube = body["url_youtube"]
     description = body["description"]
-    cover = body["cover"]
 
     if body is None:
         raise APIException("You need to specify the request body as a JSON object", status_code=400)
@@ -363,14 +365,12 @@ def register_exercise():
         raise APIException("You need to specify the youtube url", status_code=400)
     if "description" not in body:
         raise APIException("You need to specify the description", status_code=400)
-    if "cover" not in body:
-        raise APIException("You need to specify the cover", status_code=400)
 
     new_exercise = Exercises.query.filter_by(name=name).first()
     if new_exercise is not None:
         raise APIException("Exercise already exists", status_code=409)
 
-    new_exercise = Exercises( name=name, category=category, url_youtube=url_youtube, description=description, cover=cover)
+    new_exercise = Exercises( name=name, category=category, url_youtube=url_youtube, description=description)
 
     db.session.add(new_exercise)
     db.session.commit()
@@ -392,9 +392,32 @@ def get_exercises():
         exercise = exercise.filter_by(category=category)
         
     exercise = exercise.all()
-    print(exercise)
     exercise = list(map(lambda item: item.serialize(), exercise))
     return jsonify(exercise)
+
+@api.route('/getexercises/<int:id>', methods=['GET'])
+def get_specific_exercise(id):
+    exercise = Exercises.query.get(id)
+    if exercise is None:
+        return jsonify({'error': 'Exercise not found'}), 404
+
+    return jsonify(exercise.serialize()), 200
+
+
+@api.route('/deleteexercises', methods=['DELETE'])
+def delete_specific_exercise():
+    body = request.get_json()   
+    exercise_id = body["id"]
+
+    exercise = Exercises.query.get(exercise_id)
+
+    if exercise is None:
+        return jsonify({"error": "Exercise not found"}), 404
+
+    db.session.delete(exercise)
+    db.session.commit()  
+  
+    return jsonify({"msg": "Exercise deleted"}), 200 
 
 @api.route('/editexercises/<int:exercises_id>', methods=['PUT'])
 def edit_exercises(exercises_id):
@@ -440,21 +463,28 @@ def register_program():
 
 @api.route('/getprograms', methods=['GET'])
 def get_programs():
-    user_id = request.args.get("user_id")
-    day = request.args.get("day")
-    category = request.args.get("category")
+    user_id = request.args.get("user_id", None)
+    day = request.args.get("day", None)
+    category = request.args.get("category", None)
     
-    programs = Programs.query.filter_by(user_id=user_id)
+    programs = Programs.query
+    if user_id:
+        programs = programs.filter_by(user_id=user_id)
     if day:
         programs = programs.filter_by(day=day)
     if category:
         programs = programs.filter_by(category=category)
     programs = programs.all()
-    print(programs)
     programs = list(map(lambda item: item.serialize(), programs))
     return jsonify(programs)
 
+@api.route('/getprograms/<int:id>', methods=['GET'])
+def get_specific_program(id):
+    program = Programs.query.get(id)
+    if program is None:
+        return jsonify({'error': 'Program not found'}), 404
 
+    return jsonify(program.serialize()), 200
 
 @api.route('/editprograms/<int:programs_id>', methods=['PUT'])
 def edit_programs(programs_id):
@@ -467,6 +497,26 @@ def edit_programs(programs_id):
             setattr(program, key, body[key])
     db.session.commit()
     return jsonify({"msg": "Program modified correctly"}), 201
+
+@api.route('/deleteprograms', methods=['DELETE'])
+def delete_specific_program():
+    body = request.get_json()   
+    program_id = body["id"]
+
+    program = Programs.query.get(program_id)
+
+    if program is None:
+        return jsonify({"error": "Program not found"}), 404
+
+    program_organizer_items = ProgramOrganizer.query.filter_by(program_id=program_id).all()
+
+    for item in program_organizer_items:
+        db.session.delete(item)
+
+    db.session.delete(program)
+    db.session.commit()
+
+    return jsonify({"msg": "Exercise deleted"}), 200 
 
 @api.route('/programorganizer', methods=['POST'])
 def program_organizer():
@@ -566,9 +616,6 @@ def get_organized_programs(user_id):
                         organized_programs[program_name][day_key]["sessions"][session_key].append(session_data)
 
     return jsonify(organized_programs), 200
-
-
-
 
 @api.route('/programorganizer/<int:program_organizer_id>', methods=['PUT'])
 def edit_program_organizer(program_organizer_id):

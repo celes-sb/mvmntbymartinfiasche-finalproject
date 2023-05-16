@@ -18,10 +18,10 @@ import { Single } from "./pages/single";
 import { Signup } from "./pages/signup.jsx";
 import injectContext from "./store/appContext";
 import { Login } from "./pages/login";
-import { Backoffice } from "./pages/backoffice.jsx";
+import Backoffice from "./pages/backoffice.jsx";
 import { Programs } from "./pages/programs.jsx";
-import { AddPrograms } from "./pages/addPrograms.jsx";
-import { Diagnostico } from "./pages/diagnostico.jsx";
+import AddPrograms from "./pages/addPrograms.jsx";
+import Diagnostico from "./pages/diagnostico.jsx";
 import { Orders } from "./pages/orders.jsx";
 import { Nutrition } from "./pages/nutrition.jsx";
 import { Papers } from "./pages/papers.jsx";
@@ -43,6 +43,13 @@ import { EditPreferences } from "./pages/editPreferences.jsx";
 import { TermGoals } from "./pages/termGoals.jsx";
 import { EditTermGoals } from "./pages/editTermGoals.jsx";
 import { AdminLogin } from "./pages/adminLogin.jsx";
+import { HandlePapers } from "./pages/handlePapers.jsx";
+import { AddPapers } from "./pages/addPapers.jsx"
+import { HandleExercises } from "./pages/handleExercises.jsx";
+import { AddExercises } from "./pages/addExercises.jsx";
+import { EditExercises } from "./pages/editExercises.jsx";
+import { HandlePrograms } from "./pages/handlePrograms.jsx";
+import { EditSingleProgram } from "./pages/editSingleProgram.jsx";
 
 //create your first component
 const Layout = () => {
@@ -93,6 +100,13 @@ const Layout = () => {
             <Route element={<UserLayout><TermGoals /></UserLayout>} path="/user/term-goals" />
             <Route element={<UserLayout><EditTermGoals /></UserLayout>} path="/user/edit-term-goals" />
             <Route element={<UserLayout><AddPrograms /></UserLayout>} path="/admin/add-programs" />
+            <Route element={<UserLayout><HandlePapers /></UserLayout>} path="/admin/papers" />
+            <Route element={<UserLayout><AddPapers /></UserLayout>} path="/admin/add-papers" />
+            <Route element={<UserLayout><HandleExercises /></UserLayout>} path="/admin/exercises" />
+            <Route element={<UserLayout><AddExercises /></UserLayout>} path="/admin/add-exercises" />
+            <Route element={<UserLayout><EditExercises /></UserLayout>} path="/admin/edit-exercises/:exerciseId" />
+            <Route element={<UserLayout><HandlePrograms /></UserLayout>} path="/admin/programs" />
+            <Route element={<UserLayout><EditSingleProgram /></UserLayout>} path="/admin/edit-programs/:programId" />
           </Routes>
           <Footer />
         </ScrollToTop>

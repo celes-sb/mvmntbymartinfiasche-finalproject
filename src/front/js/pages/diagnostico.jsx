@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import WithAuth from "../component/Auth/withAuth";
 
 export const Diagnostico = () => {
     const previousButton = "http://drive.google.com/uc?export=view&id=1BOY8MUYO5QEMBGu6c2BB3WH-eiNcutSL";
@@ -145,4 +146,4 @@ export const Diagnostico = () => {
     </>)
 }
 
-export default Diagnostico;
+export default WithAuth(Diagnostico);
