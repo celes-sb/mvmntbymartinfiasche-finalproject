@@ -2,21 +2,24 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import { Card } from "@mui/material";
+import CropEasy from '../component/crop/cropeasy';
 
 export const EditProfile = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Active");
     const [dataUser, setDataUser] = useState(store.userData)
-
     const [name, setName] = useState(dataUser.first_name);
     const [lastname, setLastName] = useState(dataUser.last_name);
     const [username, setUsername] = useState(dataUser.username);
     const [email, setEmail] = useState(dataUser.email);
     const [phone, setPhone] = useState(dataUser.phone);
     const [country, setCountry] = useState(dataUser.country);
-
+    const [openCrop, setOpenCrop] = useState(false)
+    const [file, setFile] = useState(null);
+    var currentUser = store.userData;
+    const [photoURL, setPhotoURL] = useState(currentUser?.photoURL);
     const navigate = useNavigate();
-
     const obj = {
         "first_name": name,
         "last_name": lastname,
@@ -24,7 +27,6 @@ export const EditProfile = () => {
         phone,
         country
     }
-
     const handleEditUser = async (e) => {
         e.preventDefault(); // prevent form from submitting
         let { response } = await actions.editUser(obj); // call login action
@@ -43,8 +45,15 @@ export const EditProfile = () => {
     const linkClass = (linkName) => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
-
-    return (<>
+    const handleChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            setFile(file);
+            setPhotoURL(URL.createObjectURL(file));
+            setOpenCrop(true);
+        }
+    };
+    return (!openCrop ? (<>
         <div className="backofficeEditProfile">
             <ul className="nav nav-tabs">
                 <li className="nav-item">
@@ -141,6 +150,20 @@ export const EditProfile = () => {
                                 }}
                             />
                         </div>
+                        <div className="mb-3">
+                            <label htmlFor="formFile" className="form-label">Imagen de perfil</label>
+                            <input
+                                className="form-control" type="file" id="formFile"
+                                onChange={handleChange}
+                            />
+                            <img
+                                src={photoURL}
+                                sx={{ width: 75, height: 75, cursor: 'pointer' }}
+                            />
+                            {file && (
+                                <Card />
+                            )}
+                        </div>
                         <br />
                         <div className="pb-1">
                             <button
@@ -161,10 +184,11 @@ export const EditProfile = () => {
                             </Link>
                         </div>
                     </form>
+
                 </div>
             </div>
         </div>
-    </>)
+    </>) : (<CropEasy {...{ photoURL, setOpenCrop, setPhotoURL, setFile }} />))
 }
 
 export default EditProfile;
