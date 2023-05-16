@@ -168,6 +168,27 @@ def login():
     access_token = create_access_token(identity=user.id)
     return jsonify({"token": access_token}), 200
 
+@api.route('/admin-login', methods=['POST'])
+def admin_login():
+    body = request.get_json()
+    email_or_username = body.get("email_or_username")
+    password = body.get("password")
+    
+    if not email_or_username or not password:
+        raise APIException("You need to specify the email or username and password", status_code=400)
+
+    user = User.query.filter((User.email == email_or_username) | (User.username == email_or_username)).first()
+
+    if user is None or not bcrypt.check_password_hash(user.password, password):
+        return jsonify({"message": "Login failed"}), 401
+
+    # Check if the user has the admin role
+    if user.role != 'admin':
+        return jsonify({"message": "You do not have permissions to access this route"}), 403
+
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token}), 200
+
 @api.route('/change_password/<int:user_id>', methods=['PUT'])
 @jwt_required()
 def change_password(user_id):
@@ -195,6 +216,22 @@ def change_password(user_id):
 @api.route('/logout', methods=['POST'])
 @jwt_required()
 def logout():
+    jti = get_jwt()["jti"] #Identificador del JWT (es más corto)
+    now = datetime.utcnow()
+
+    #identificamos al usuario
+    current_user = get_jwt_identity()
+    user = User.query.get(current_user)
+
+    tokenBlocked = TokenBlockedList(token=jti , created_at=now, email=user.email)
+    db.session.add(tokenBlocked)
+    db.session.commit()
+
+    return jsonify({"message":"logout successfully"})
+
+@api.route('/admin-logout', methods=['POST'])
+@jwt_required()
+def admin_logout():
     jti = get_jwt()["jti"] #Identificador del JWT (es más corto)
     now = datetime.utcnow()
 
@@ -608,12 +645,6 @@ def create_new_nutrition():
 
     return jsonify({"msg": "Nutrition created successfully"}), 201
 
-
-
-
-
-
-
 @api.route('/deletenutrition', methods=['DELETE'])
 def delete_specific_nutrition():
     body = request.get_json()   
@@ -628,6 +659,13 @@ def delete_specific_nutrition():
     db.session.commit()  
   
     return jsonify({"msg": "Nutrition deleted"}), 200
+
+@api.route('/getpapers', methods=['GET'])
+def get_papers():
+    papers = Papers.query.all()
+    papers = list(map(lambda item: item.serialize(), papers))
+
+    return jsonify(papers), 200
 
 @api.route('/newpaper', methods=['POST'])
 def register_paper():

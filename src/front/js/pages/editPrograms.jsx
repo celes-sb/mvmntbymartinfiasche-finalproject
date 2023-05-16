@@ -76,7 +76,7 @@ export const EditPrograms = ({
                             const sessionEntries = data["sessions"] ? Object.entries(data["sessions"]) : [];
 
                             return (
-                                <table key={`${day}`} className="table align-middle">
+                                <table key={`${day}`} className="table align-middle bg-light border mt-3">
                                     <thead>
                                         <tr>
                                             <th>{day}</th>
@@ -89,28 +89,30 @@ export const EditPrograms = ({
                                         {workoutEntries.map(([exerciseType, exerciseData], exerciseIndex) => (
                                             <tr key={`${day}-${exerciseType}`}>
                                                 <td className="g-5">
-                                                    <strong>Ejercicio:</strong> {exerciseData.exercise_name}<br />
-                                                    <strong>URL:</strong> {exerciseData.url_youtube}<br />
-                                                    <strong>Descripción:</strong> {exerciseData.description}<br />
-                                                    <strong>Tipo:</strong> {exerciseData.type}<br />
+                                                    <strong>{exerciseData.exercise_name}</strong><br />
+                                                    URL: <a href={exerciseData.url_youtube} target="_blank">{exerciseData.url_youtube}</a><br />
+                                                    Comentarios: {exerciseData.description}<br />
+                                                    Categoría: {exerciseData.type}<br />
                                                 </td>
-                                                {sessionEntries.map(([sessionName, exercises], sessionIndex) => {
-                                                    const exercise = exercises.find(e => e.type === exerciseType);
-                                                    if (exercise) {
-                                                        return (
-                                                            <td key={`${day}-${sessionName}-${exerciseType}`}>
-                                                                <strong>Series:</strong> {exercise.series}<br />
-                                                                <strong>Repeticiones:</strong> {exercise.repetitions}<br />
-                                                                <strong>Peso:</strong> {exercise.weight}
-                                                            </td>
-                                                        );
-                                                    } else {
-                                                        return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
-                                                    }
-                                                })}
-                                                <button type="button" className="btn btn-primary" onClick={() => handleOpenModalEditProgram(exerciseData.day, exerciseType, sessionEntries, exerciseData.po_id)}>Edit</button>
+                                                {
+                                                    sessionEntries.map(([sessionName, exercises], sessionIndex) => {
+                                                        const exercise = exercises.find(e => e.type === exerciseType);
+                                                        if (exercise) {
+                                                            return (
+                                                                <td key={`${day}-${sessionName}-${exerciseType}`}>
+                                                                    <strong>Series:</strong> {exercise.series}<br />
+                                                                    <strong>Reps:</strong> {exercise.repetitions}<br />
+                                                                    <strong>Peso:</strong> {exercise.weight}
+                                                                </td>
+                                                            );
+                                                        } else {
+                                                            return <td key={`${day}-${sessionName}-${exerciseType}`}></td>;
+                                                        }
+                                                    })
+                                                }
+                                                < button type="button" className="btn btn-sm btn-outline-primary m-1 mt-3" onClick={() => handleOpenModalEditProgram(exerciseData.day, exerciseType, sessionEntries, exerciseData.po_id)}>Edit</button>
                                                 <ModalEditProgram userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} selectedProgramId={selectedProgramId} showModalEditProgram={showModalEditProgram} handleCloseModalEditProgram={handleCloseModalEditProgram} handleOpenModalEditProgram={handleOpenModalEditProgram} selectedPoId={selectedPoId} sessionValues={sessionValues} setSessionValues={setSessionValues} />
-                                                <button type="button" className="btn btn-danger" onClick={() => handleOpenModalDeleteProgram(exerciseData.po_id)}>Delete</button>
+                                                <button type="button" className="btn btn-sm btn-outline-danger m-1 mt-3" onClick={() => handleOpenModalDeleteProgram(exerciseData.po_id)}>Delete</button>
                                                 <ModalDeleteProgram handleUserPrograms={handleUserPrograms} showModalDeleteProgram={showModalDeleteProgram} handleCloseModalDeleteProgram={handleCloseModalDeleteProgram} selectedPoId={selectedPoId} />
                                             </tr>
                                         ))}
@@ -122,8 +124,9 @@ export const EditPrograms = ({
                     </>
                 ) : (
                     <><h1>Cargando...</h1></>
-                )}
-            </div>
+                )
+                }
+            </div >
         </>
     );
 };

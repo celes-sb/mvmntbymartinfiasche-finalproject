@@ -1,4 +1,5 @@
 import { userActions, userStore } from "./User.js";
+import { adminPanelStore, adminPanelActions } from "./adminPanel.js";
 import { diagnosticoActions, diagnosticoStore } from "./diagnosticoStore.js";
 import { testimonialStore, testimonialActions } from "./testimonialStore.js";
 
@@ -21,6 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			...testimonialStore,
 			...userStore,
 			...diagnosticoStore,
+			...adminPanelStore,
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -58,6 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			...testimonialActions(getStore, getActions, setStore),
 			...diagnosticoActions(getStore, getActions, setStore),
 			...userActions(getStore, getActions, setStore),
+			...adminPanelActions(getStore, getActions, setStore),
 			useFetch: async (endpoint, body = "", method = "GET") => {
 				let url = "http://127.0.0.1:3001/api" + endpoint;
 				let response = await fetch(url, {
