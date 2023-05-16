@@ -6,12 +6,18 @@ import { Navigate } from "react-router-dom";
 
 export const Sidebar = () => {
 
-    const logoMartin =
-        "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
-
+    
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Inicio");
+    const [dataUser, setDataUser] = useState(store.userData)
+    const logoMartin =
+    "http://drive.google.com/uc?export=view&id=1FMRd1hRzG_go40brsVGBzQe_Zc5uxu1a";
     const navigate = useNavigate();
+    
+    useEffect(() => {
+        setDataUser(store.userData);
+    }, [store.userData]);
+
 
     const handleClick = (linkName) => {
         setActiveLink(linkName);
@@ -28,8 +34,7 @@ export const Sidebar = () => {
         }
     };
 
-    const martin2 =
-        "http://drive.google.com/uc?export=view&id=157-QtUkfD1HbR5SiFRoSZUWUoE-Kig8G";
+    const martin2 = store.userData.image_profile;
 
     return (
         <>
@@ -38,7 +43,7 @@ export const Sidebar = () => {
                     <div className="dropdown dropdown mt-3 mb-3">
                         <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
-                            <strong>{store.userData.first_name} {store.userData.last_name}</strong>
+                            <strong>{store.userData.first_name} {store.userData.last_name}{console.log(dataUser)}</strong>
                         </Link>
                         <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                             <li><Link className="dropdown-item" to="/user/profile">Perfil</Link></li>

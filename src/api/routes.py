@@ -220,7 +220,6 @@ def edit_user(user_id):
     current_user_id = get_jwt_identity()
     if current_user_id != user_id:
         return jsonify({"message": "You can only edit your own user"}), 403
-
     body = json.loads(request.data)
     user = User.query.filter_by(id=user_id).first()
     if user is  None:
