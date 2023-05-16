@@ -39,13 +39,13 @@ export const AdminLogin = () => {
                             <div className="row m-5 gx-0">
                                 <div className="col-md-6 d-none d-md-block h-100">
                                     <img
-                                        src={martinVerti}
+                                        src=""
                                         className="img-fluid"
                                         style={{ objectFit: "cover", height: "100%" }}
                                     />
                                 </div>
                                 <div className="col-md-6 bg-white p-5">
-                                    <h3 className="pb-3 text-center">Ingresá en tu cuenta</h3>
+                                    <h3 className="pb-3 text-center">Ingreso de Administradores</h3>
                                     <div className="form-style">
                                         <br></br>
                                         <form>
@@ -84,16 +84,6 @@ export const AdminLogin = () => {
                                                 </button>
                                             </div>
                                         </form>
-                                        <br />
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <Link to="/recoverpassword">No recuerdo mi contraseña</Link>
-                                        </div>
-                                        <br />
-                                        <div className="text-center">
-                                            {" "}
-                                            ¿No tenés cuenta? <br></br>
-                                            <Link to="/signup">Registrate</Link>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

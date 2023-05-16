@@ -9,7 +9,7 @@ class Exercises(db.Model):
     category = db.Column(db.String(50), unique=False, nullable=False)
     url_youtube = db.Column(db.String(250), unique=False, nullable=False)
     description = db.Column(db.String(280), unique=False, nullable=False)
-    cover = db.Column(db.String(250), unique=False, nullable=False)
+    cover = db.Column(db.String(250), unique=False, nullable=True)
     
     def serialize(self):
         return {

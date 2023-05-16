@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import Modal from "./modal.jsx";
 import EditPrograms from "./editPrograms.jsx";
 import ModalAddProgram from "./modalAddProgram.jsx";
+import AdminWithAuth from "../component/Auth/adminWithAuth";
 
 export const AddPrograms = () => {
     const { store, actions } = useContext(Context);
@@ -99,66 +101,68 @@ export const AddPrograms = () => {
     }, [selectedUser, actions, numPrograms]);
 
     return (
-        <><div className="backofficeWelcome1 jumbotron m-3">
-            <h1 className="display-4">Agregar Programas</h1>
-            <p className="lead">Seleccioná el nombre de usuario al que le quieras crear un programa.</p>
-            <hr className="my-4" />
-            <div className="mt-3">
-                <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Buscar usuario..." />
-                <br />
-                <select value={selectedUser || ""} onChange={handleSelectChange}>
-                    <option value="">Selecccioná un usuario...</option>
-                    {filteredUsers.map((user) => (
-                        <option key={user.id} value={user.id}>
-                            {user.first_name} {user.last_name} - {user.email}
-                        </option>
-                    ))}
-                </select>
-                {selectedUser ? (
-                    userPrograms && userPrograms.length > 0 ? (
-                        <div>
-                            <h2 className="mt-3 mb-3">Programas del usuario:</h2>
-                            <select value={selectedProgramName} onChange={handleSelectAddProgram}>
+        <>
+            <div className="backofficeWelcome1 jumbotron m-3">
+                <h1 className="display-4">Agregar Programas</h1>
+                <p className="lead">Seleccioná el nombre de usuario al que le quieras crear un programa.</p>
+                <hr className="my-4" />
+                <Link to="/admin/programs">Volver</Link>
+                <div className="mt-3">
+                    <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Buscar usuario..." />
+                    <br />
+                    <select value={selectedUser || ""} onChange={handleSelectChange}>
+                        <option value="">Selecccioná un usuario...</option>
+                        {filteredUsers.map((user) => (
+                            <option key={user.id} value={user.id}>
+                                {user.first_name} {user.last_name} - {user.email}
+                            </option>
+                        ))}
+                    </select>
+                    {selectedUser ? (
+                        userPrograms && userPrograms.length > 0 ? (
+                            <div>
+                                <h2 className="mt-3 mb-3">Programas del usuario:</h2>
+                                <select value={selectedProgramName} onChange={handleSelectAddProgram}>
 
-                                <option className="mt-3 mb-3">Seleccioná un programa...</option>
-                                {Object.keys(userPrograms[0]).map((programName, index) => (
-                                    <option key={index} value={programName}>
-                                        {programName}
-                                    </option>
+                                    <option className="mt-3 mb-3">Seleccioná un programa...</option>
+                                    {Object.keys(userPrograms[0]).map((programName, index) => (
+                                        <option key={index} value={programName}>
+                                            {programName}
+                                        </option>
 
-                                ))}
-                                <option value="add_new_program">Agregar un programa nuevo...</option>
-                            </select>
-                            <Modal
-                                showModal={showModal}
-                                handleCloseModal={handleCloseModal}
-                                handleCreateNewProgram={handleCreateNewProgram}
-                                setProgramName={setProgramName}
-                                setCategory={setCategory}
-                            />
+                                    ))}
+                                    <option value="add_new_program">Agregar un programa nuevo...</option>
+                                </select>
+                                <Modal
+                                    showModal={showModal}
+                                    handleCloseModal={handleCloseModal}
+                                    handleCreateNewProgram={handleCreateNewProgram}
+                                    setProgramName={setProgramName}
+                                    setCategory={setCategory}
+                                />
 
-                            {selectedProgramName ? (
-                                <EditPrograms userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} showModal={showModal} setShowModal={setShowModal} handleCloseModal={handleCloseModal} selectedProgramName={selectedProgramName} />
-                            ) : (<><h3 className="mt-3 mb-3">Cargando...</h3></>)}
+                                {selectedProgramName ? (
+                                    <EditPrograms userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} showModal={showModal} setShowModal={setShowModal} handleCloseModal={handleCloseModal} selectedProgramName={selectedProgramName} />
+                                ) : (<><h3 className="mt-3 mb-3">Cargando...</h3></>)}
 
-                        </div>
+                            </div>
 
-                    ) : (
-                        <div>
-                            <p className="mt-3 mb-3">Este usuario no tiene programas cargados.</p>
-                            <button className="btn btn-outline-primary" onClick={handleOpenModal}>Crear Programa</button>
-                            <Modal
-                                showModal={showModal}
-                                handleCloseModal={handleCloseModal}
-                                handleCreateNewProgram={handleCreateNewProgram}
-                                setProgramName={setProgramName}
-                                setCategory={setCategory}
-                            />
-                        </div>
-                    )
-                ) : null}
-            </div >
-        </div>
+                        ) : (
+                            <div>
+                                <p className="mt-3 mb-3">Este usuario no tiene programas cargados.</p>
+                                <button className="btn btn-outline-primary" onClick={handleOpenModal}>Crear Programa</button>
+                                <Modal
+                                    showModal={showModal}
+                                    handleCloseModal={handleCloseModal}
+                                    handleCreateNewProgram={handleCreateNewProgram}
+                                    setProgramName={setProgramName}
+                                    setCategory={setCategory}
+                                />
+                            </div>
+                        )
+                    ) : null}
+                </div >
+            </div>
         </>
     );
 
@@ -166,4 +170,4 @@ export const AddPrograms = () => {
 
 };
 
-export default AddPrograms;
+export default AdminWithAuth(AddPrograms);
