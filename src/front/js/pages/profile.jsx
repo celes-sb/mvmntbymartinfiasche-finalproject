@@ -3,15 +3,18 @@ import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
 
+
 export const Profile = () => {
     const { store, actions } = useContext(Context);
     const [activeLink, setActiveLink] = useState("Active");
     const [dataUser, setDataUser] = useState(store.userData)
-
+    const [openCrop, setOpenCrop] = useState(false)
+    const [file, setFile] = useState(null);
+    var currentUser = store.userData;
+    const [photoURL, setPhotoURL] = useState(currentUser?.photoURL);
     useEffect(() => {
         setDataUser(store.userData);
     }, [store.userData]);
-
     const handleClick = (linkName) => {
         setActiveLink(linkName);
     };
@@ -19,7 +22,6 @@ export const Profile = () => {
     const linkClass = (linkName) => {
         return activeLink === linkName ? "nav-link active" : "nav-link";
     };
-
     return (<>
         <div className="backofficeProfile">
             <ul className="nav nav-tabs">

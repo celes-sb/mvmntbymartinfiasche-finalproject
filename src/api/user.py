@@ -77,6 +77,6 @@ class User(db.Model):
             "credit_card": self.credit_card,
             "exp_date": self.exp_date,
             "role": self.role,
-
+            "image_profile":self.image_profile,
             # do not serialize the password, its a security breach
         }
