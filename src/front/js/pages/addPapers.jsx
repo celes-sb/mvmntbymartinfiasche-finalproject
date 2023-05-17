@@ -28,58 +28,64 @@ export const AddPapers = () => {
         }
     }
 
-    return (<>
-        <Link to="/admin/papers">Volver</Link>
-        <h2>Agregar un nuevo Paper</h2>
-        <div className="form-style">
-            <br></br>
-            <form>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="Nombre del Paper"
-                        className="form-control"
-                        aria-describedby="emailHelp"
-                        onChange={(e) => {
-                            setName(e.target.value);
-                        }}
-                    />
+    return (
+        <>
+            <div className="container">
+                <div>
+                    <Link to="/admin/papers">Volver</Link>
+                    <h2>Agregar un nuevo Paper</h2>
+                    <div className="form-style">
+                        <br />
+                        <form>
+                            <div className="form-group pb-2">
+                                <input
+                                    type="text"
+                                    placeholder="Nombre del Paper"
+                                    className="form-control"
+                                    aria-describedby="emailHelp"
+                                    onChange={(e) => {
+                                        setName(e.target.value);
+                                    }}
+                                />
+                            </div>
+                            <br />
+                            <div className="form-group pb-2">
+                                <input
+                                    type="text"
+                                    placeholder="Descripcion del Paper"
+                                    className="form-control"
+                                    onChange={(e) => {
+                                        setDescription(e.target.value);
+                                    }}
+                                />
+                            </div>
+                            <br />
+                            <div className="form-group pb-2">
+                                <input
+                                    type="text"
+                                    placeholder="URL del Paper"
+                                    className="form-control"
+                                    onChange={(e) => {
+                                        setUrl(e.target.value);
+                                    }}
+                                />
+                            </div>
+                            <br />
+                            <div className="pb-2">
+                                <button
+                                    type="button"
+                                    className="btn btn-outline-primary w-100 font-weight-bold"
+                                    onClick={addPaper}
+                                >
+                                    Agregar Paper
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <br></br>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="Descripcion del Paper"
-                        className="form-control"
-                        onChange={(e) => {
-                            setDescription(e.target.value);
-                        }}
-                    />
-                </div>
-                <br></br>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="URL del Paper"
-                        className="form-control"
-                        onChange={(e) => {
-                            setUrl(e.target.value);
-                        }}
-                    />
-                </div>
-                <br />
-                <div className="pb-2">
-                    <button
-                        type="button"
-                        className="btn btn-primary w-100 font-weight-bold"
-                        onClick={addPaper}
-                    >
-                        Agregar Paper
-                    </button>
-                </div>
-            </form>
-        </div>
-    </>)
-}
+            </div>
+        </>
+    );
+};
 
 export default AdminWithAuth(AddPapers);

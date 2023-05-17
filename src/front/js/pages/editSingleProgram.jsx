@@ -80,59 +80,62 @@ export const EditSingleProgram = () => {
         }
     }, [user]);
 
-    return (<>
-        <Link to="/admin/programs">Volver</Link>
-        <h2>Editar Programa</h2>
-        <div className="form-style">
-            <br></br>
-            <form>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="Nombre del Programa"
-                        className="form-control"
-                        aria-describedby="emailHelp"
-                        value={name}
-                        onChange={(e) => {
-                            setName(e.target.value);
-                        }}
-                    />
-                </div>
+    return (
+        <>
+            <Link to="/admin/programs">Volver</Link>
+            <h2>Editar Programa</h2>
+            <div className="form-style">
                 <br></br>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="Categoría del Ejercicio"
-                        className="form-control"
-                        value={category}
-                        onChange={(e) => {
-                            setCategory(e.target.value);
-                        }}
-                    />
-                </div>
-                <br></br>
-                <div className="form-group pb-2">
-                    <input
-                        type="text"
-                        placeholder="Usuario"
-                        className="form-control"
-                        value={`${userFirstName} ${userLastName} - ${userUsername} - ${userEmail}`}
-                        disabled
-                    />
-                </div>
-                <br />
-                <div className="pb-2">
-                    <button
-                        type="button"
-                        className="btn btn-primary w-100 font-weight-bold"
-                        onClick={editProgram}
-                    >
-                        Editar Ejercicio
-                    </button>
-                </div>
-            </form>
-        </div>
-    </>)
+                <form>
+                    <div className="form-group pb-2">
+                        <input
+                            type="text"
+                            placeholder="Nombre del Programa"
+                            className="form-control"
+                            aria-describedby="emailHelp"
+                            value={name}
+                            onChange={(e) => {
+                                setName(e.target.value);
+                            }}
+                        />
+                    </div>
+                    <br></br>
+                    <div className="form-group pb-2">
+                        <input
+                            type="text"
+                            placeholder="Categoría del Ejercicio"
+                            className="form-control"
+                            value={category}
+                            onChange={(e) => {
+                                setCategory(e.target.value);
+                            }}
+                        />
+                    </div>
+                    <br></br>
+                    <div className="form-group pb-2">
+                        <input
+                            type="text"
+                            placeholder="Usuario"
+                            className="form-control"
+                            value={`${userFirstName} ${userLastName} - ${userUsername} - ${userEmail}`}
+                            disabled
+                        />
+                    </div>
+                    <br />
+                    <div className="pb-2">
+                        <button
+                            type="button"
+                            className="btn btn-outline-primary w-100 font-weight-bold"
+                            onClick={editProgram}
+                        >
+                            Editar Ejercicio
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </>
+
+    );
 }
 
 export default AdminWithAuth(EditSingleProgram);

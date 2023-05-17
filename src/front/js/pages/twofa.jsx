@@ -58,6 +58,7 @@ export const Twofa = () => {
                 </div>
             </div>
         </div>
+
     </>)
 }
 

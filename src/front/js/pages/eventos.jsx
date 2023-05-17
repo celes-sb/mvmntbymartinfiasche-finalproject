@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import { Context } from "../store/appContext";
 
 export const Eventos = () => {
 
@@ -19,48 +18,72 @@ export const Eventos = () => {
 
   return (
     <>
-      <div className="container-fluid p-5 mt-5 pt-5 border border-warning rounded" style={{
+      <div className="container-fluid p-5 border border-warning rounded" style={{
         backgroundImage: `url(${bgMartinAlumnos})`,
         backgroundSize: "100% auto",
         backgroundRepeat: "repeat-y",
         backgroundPosition: "center center"
       }}>
-        <section className="our-team bg-white bg-opacity-75 p-5 border border-warning rounded">
+        <section className="eventos bg-white bg-opacity-75 p-5 border border-warning rounded">
           <div className="container">
-            <div className="our-team-content">
+            <div className="eventos-content">
               <div className="text-content">
-                <h3>Sumate a los encuentros y conectá con la comunidad del movimiento en BA</h3>
+                <h3 className="text-center">Sumate a los encuentros y conectá con la comunidad del movimiento en BA</h3>
               </div>
-              <div className="team">
-                <div className="person">
-                  <img className="border border-warning mb-2" src={flyerCampus1} alt="Foto para campus Acrobático 1" />
-                  <h5 className="text-center">Campus Acrobático I</h5>
-                  <p className="p-2">Noviembre 2019</p>
+              <div className="row mt-5">
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={flyerCampus1} alt="Foto para campus Acrobático 1" />
+                    </div>
+                    <h5 className="text-center mt-2">Campus Acrobático I</h5>
+                    <p className="text-center mt-2">Noviembre 2019</p>
+                  </div>
                 </div>
-                <div className="person">
-                  <img className="border border-warning mb-2" src={flyerCampus2} alt="Flyer Campus Acrobático 2" />
-                  <h5 className="text-center">Campus Acrobático II</h5>
-                  <p className="p-2">Junio 2022</p>
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={flyerCampus2} alt="Flyer Campus Acrobático 2" />
+                    </div>
+                    <h5 className="text-center mt-2">Campus Acrobático II</h5>
+                    <p className="text-center mt-2">Junio 2022</p>
+                  </div>
                 </div>
-                <div className="person">
-                  <img className="border border-warning mb-2" src={flyerCampus3} alt="Flyer Campis Acrobático 3" />
-                  <h5 className="text-center">Campus Acrobático III</h5>
-                  <p className="p-2">Diciembre 2022</p>
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={flyerCampus3} alt="Flyer Campis Acrobático 3" />
+                    </div>
+                    <h5 className="text-center mt-2">Campus Acrobático III</h5>
+                    <p className="text-center mt-2">Diciembre 2022</p>
+                  </div>
                 </div>
-                <div className="person">
-                  <img className="border border-warning mb-2" src={eventoOnline} alt="" />
-                  <h5 className="text-center">Encuentro de Alumnos I</h5>
-                  <p className="p-2">2023 - online</p>
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={eventoOnline} alt="" />
+                    </div>
+                    <h5 className="text-center mt-2">Encuentro de Alumnos I</h5>
+                    <p className="text-center mt-2">2023 - online</p>
+                  </div>
                 </div>
-                <div className="person">
-                  <img className="border border-warning mb-2" src={eventoOnline} alt="" />
-                  <h5 className="text-center">Encuentro de Alumnos II</h5>
-                  <p className="p-2">Mayo 2023 - presencial / vacantes agotadas!</p>
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={eventoOnline} alt="" />
+                    </div>
+                    <h5 className="text-center mt-2">Encuentro de Alumnos II</h5>
+                    <p className="text-center mt-2">Mayo 2023 - presencial / vacantes agotadas!</p>
+                  </div>
                 </div>
-                <div className="person">
-                  <img className="border border-warning mb-2" src={eventoOnline} alt="" />
-                  <h5 className="text-center">Encuentro de Alumnos III </h5>
-                  <p className="p-2">2023 - online /fecha a confirmar</p>
+                <div className="col-lg-4 col-md-6 col-sm-12">
+                  <div className="eventoSingle">
+                    <div className="square-image">
+                      <img className="border border-warning img-fluid" src={eventoOnline} alt="" />
+                    </div>
+                    <h5 className="text-center mt-2">Encuentro de Alumnos III</h5>
+                    <p className="text-center mt-2">2023 - online / fecha a confirmar</p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -16,22 +16,22 @@ export const Orders = () => {
                 <p className="lead">Pagos de entrenamiento individualizado, clases de acro o encuentros de movimiento.</p>
                 <hr className="my-4" />
             </div>
-            <div className="d-flex flex-wrap">
-                <div className="card ms-3 mt-3 text-center border border-primary" style={{ width: "18rem" }}>
+            <div className="d-flex flex-wrap justify-content-center">
+                <div className="card m-3 text-center border border-primary" style={{ maxWidth: "18rem" }}>
                     <img src={acroJump} className="card-img-top" alt="..." style={{ height: "13rem" }} />
                     <div className="card-body">
                         <p className="card-title">Entrenamiento Individualizado</p>
                         <a href="https://buy.stripe.com/test_cN2cP146vcXq9hu5kk" className="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Pagar</a>
                     </div>
                 </div>
-                <div className="card ms-3 mt-3 text-center border border-primary" style={{ width: "18rem" }}>
+                <div className="card m-3 text-center border border-primary" style={{ maxWidth: "18rem" }}>
                     <img src={acroJump} className="card-img-top" alt="..." style={{ height: "13rem" }} />
                     <div className="card-body">
                         <p className="card-title">Clases de Acrobacia Mensual</p>
                         <a href="https://buy.stripe.com/test_cN2cP146vcXq9hu5kk" className="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Pagar</a>
                     </div>
                 </div>
-                <div className="card ms-3 mt-3 text-center border border-primary" style={{ width: "18rem" }}>
+                <div className="card m-3 text-center border border-primary" style={{ maxWidth: "18rem" }}>
                     <img src={acroJump} className="card-img-top" alt="..." style={{ height: "13rem" }} />
                     <div className="card-body">
                         <p className="card-title">Campus Acrobático</p>

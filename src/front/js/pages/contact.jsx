@@ -36,22 +36,18 @@ export const Contact = () => {
   };
 
   https: return (
-    <>{
-      <section
-        className="container-fluid customer-says p-5 mb-0 mt-5 pt-5 border border-warning rounded"
-        style={{
-          backgroundImage: `url(${martinVerti})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="container mb-3 border border-warning bg-white bg-opacity-75 rounded p-5 text-center">
+    <>
+      <section className="contact container-fluid p-5 mt-0 border border-warning rounded" style={{
+        backgroundImage: `url(${martinVerti})`,
+        backgroundSize: "cover",
+      }}>
+        <div className="container-contact container border border-warning bg-white bg-opacity-75 rounded p-5 w-75 w-sm-100 text-center">
           <div className="top mb-4">
             <h2>Escribime y sumate al movimiento</h2>
           </div>
           <div className="bottom">
             <form onSubmit={handleSubmit}>
-              <div className="form-group mb-4 text-start">
-
+              <div className="form-group text-start mb-3">
                 <input
                   type="text"
                   className="form-control"
@@ -61,8 +57,7 @@ export const Contact = () => {
                   onChange={(event) => setName(event.target.value)}
                 />
               </div>
-              <div className="form-group mb-4 text-start">
-
+              <div className="form-group text-start mb-3">
                 <input
                   type="text"
                   className="form-control"
@@ -72,8 +67,7 @@ export const Contact = () => {
                   onChange={(event) => setLastName(event.target.value)}
                 />
               </div>
-              <div className="form-group mb-4 text-start">
-
+              <div className="form-group text-start mb-3">
                 <input
                   type="email"
                   className="form-control"
@@ -83,8 +77,7 @@ export const Contact = () => {
                   onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
-              <div className="form-group mb-4 text-start">
-
+              <div className="form-group text-start mb-3">
                 <textarea
                   className="form-control"
                   id="comments"
@@ -94,14 +87,15 @@ export const Contact = () => {
                   onChange={(event) => setComments(event.target.value)}
                 ></textarea>
               </div>
-              <button id="contactButton" type="button" className="btn btn-primary mt-3 mb-2" onClick={handleSubmit}>
-                ¡Hablemos!
-              </button>
+              <div className="text-center">
+                <button id="contactButton" type="button" className="btn btn-primary mt-3 mb-2" onClick={handleSubmit}>
+                  ¡Hablemos!
+                </button>
+              </div>
             </form>
           </div>
         </div>
       </section>
-    }
     </>
   );
 };

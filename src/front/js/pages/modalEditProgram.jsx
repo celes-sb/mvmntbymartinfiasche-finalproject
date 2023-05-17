@@ -81,7 +81,7 @@ export const ModalEditProgram = ({
             tabIndex="-1"
             style={{ display: showModalEditProgram ? "block" : "none" }}
         >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Agregar Nuevo Ejercicio</h5>
@@ -93,9 +93,18 @@ export const ModalEditProgram = ({
                     </div>
                     <form>
                         <div className="modal-body">
-                            <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Search exercises..." />
-                            <br />
-                            <select className="mt-2 mb-2" value={selectedExercise || ""} onChange={handleSelectChange}>
+                            <input
+                                className="mb-2 form-control"
+                                type="text"
+                                value={searchText}
+                                onChange={handleInputChange}
+                                placeholder="Search exercises..."
+                            />
+                            <select
+                                className="mt-2 mb-2 form-control"
+                                value={selectedExercise || ""}
+                                onChange={handleSelectChange}
+                            >
                                 <option value="">Seleccionar un ejercicio...</option>
                                 {filteredExercises.map((exercise) => (
                                     <option key={exercise.id} value={exercise.id}>
@@ -104,7 +113,7 @@ export const ModalEditProgram = ({
                                 ))}
                             </select>
                             <div className="row gy-2 mt-2 mb-2">
-                                <div className="col mt-2 gx-2">
+                                <div className="col mt-2">
                                     <input
                                         type="text"
                                         className="form-control"
@@ -118,8 +127,7 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-
-                                <div className="col mt-2 gx-2 mt-2 mb-2">
+                                <div className="col mt-2">
                                     <input
                                         type="text"
                                         className="form-control"
@@ -141,8 +149,8 @@ export const ModalEditProgram = ({
                                     <p>Repes:</p>
                                     <p>Series:</p>
                                 </div>
-                                <div className="col mt-2 gx-2 mb-2">
-                                    Semana 1
+                                <div className="col mt-2">
+                                    <p>Semana 1</p>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -180,8 +188,8 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2 mb-2">
-                                    Semana 2
+                                <div className="col mt-2">
+                                    <p>Semana 2</p>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -219,8 +227,8 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2 mb-2">
-                                    Semana 3
+                                <div className="col mt-2">
+                                    <p>Semana 3</p>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -258,8 +266,8 @@ export const ModalEditProgram = ({
                                         required
                                     />
                                 </div>
-                                <div className="col mt-2 gx-2 mb-2">
-                                    Semana 4
+                                <div className="col mt-2">
+                                    <p>Semana 4</p>
                                     <input
                                         type="number"
                                         className="form-control"
@@ -304,7 +312,6 @@ export const ModalEditProgram = ({
                                 type="button"
                                 className="btn btn-outline-primary"
                                 onClick={handleEditExercise}
-
                             >
                                 Guardar cambios
                             </button>

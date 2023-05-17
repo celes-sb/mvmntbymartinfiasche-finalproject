@@ -25,31 +25,19 @@ export const Login = () => {
   };
 
   return (
-    <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
-      style={{
-        backgroundImage: `url(${acroJump})`,
-        backgroundSize: "cover",
-      }}
-    >
-      <div className="acrobacia bg-white bg-opacity-75 border border-warning rounded text-center">
+    <section className="container-fluid p-5 border border-warning rounded" style={{ backgroundImage: `url(${acroJump})`, backgroundSize: "cover" }}>
+      <div className="bg-white bg-opacity-75 border border-warning rounded text-center">
         <div className="login-container container-fluid">
-          <div
-            className="login-container2 d-flex flex-row flex-nowrap"
-            style={{ overflowX: "scroll" }}
-          >
+          <div className="login-container2 d-flex flex-row flex-nowrap" style={{ overflowX: "scroll" }}>
             <div className="login-content container">
               <div className="row m-5 gx-0">
                 <div className="col-md-6 d-none d-md-block h-100">
-                  <img
-                    src={martinBridge}
-                    className="img-fluid"
-                    style={{ objectFit: "cover" }}
-                  />
+                  <img src={martinBridge} className="img-fluid" style={{ objectFit: "cover" }} alt="Martin Bridge" />
                 </div>
                 <div className="col-md-6 bg-white p-5">
                   <h3 className="pb-3 text-center">Ingresá en tu cuenta</h3>
                   <div className="form-style">
-                    <br></br>
+                    <br />
                     <form>
                       <div className="form-group pb-2">
                         <input
@@ -63,7 +51,7 @@ export const Login = () => {
                           }}
                         />
                       </div>
-                      <br></br>
+                      <br />
                       <div className="form-group pb-2">
                         <input
                           type="password"
@@ -92,8 +80,7 @@ export const Login = () => {
                     </div>
                     <br />
                     <div className="text-center">
-                      {" "}
-                      ¿No tenés cuenta? <br></br>
+                      ¿No tenés cuenta? <br />
                       <Link to="/signup">Registrate</Link>
                     </div>
                   </div>

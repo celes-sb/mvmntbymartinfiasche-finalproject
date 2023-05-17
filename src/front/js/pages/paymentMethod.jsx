@@ -86,6 +86,7 @@ export const PaymentMethod = () => {
                 </div>
             </div>
         </div>
+
     </>)
 }
 

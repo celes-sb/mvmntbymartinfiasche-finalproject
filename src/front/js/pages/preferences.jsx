@@ -52,9 +52,7 @@ export const Preferences = () => {
             <div className="col-md-9 p-3">
                 <div className="form-style">
                     <form>
-                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-
-                        </div>
+                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group"></div>
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Querés que te lleguen correos con nuestros anuncios, promociones y contenido informativo?</div>
                             <div className="form-check">
@@ -74,41 +72,39 @@ export const Preferences = () => {
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Qué idioma preferís?</div>
                             <div className="form-group">
-                                <div>
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="radio"
-                                            name="Language"
-                                            value="Spanish"
-                                            checked={dataUser.language_preference === 'Spanish'}
-                                            disabled
-                                        />
-                                        <label className="form-check-label fs-6" htmlFor="Spanish">
-                                            Español
-                                        </label>
-                                    </div>
+                                <div className="form-check">
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        name="Language"
+                                        value="Spanish"
+                                        checked={dataUser.language_preference === 'Spanish'}
+                                        disabled
+                                    />
+                                    <label className="form-check-label fs-6" htmlFor="Spanish">
+                                        Español
+                                    </label>
+                                </div>
 
-                                    <div className="form-check">
-                                        <input
-                                            className="form-check-input"
-                                            type="radio"
-                                            name="Language"
-                                            value="English"
-                                            checked={dataUser.language_preference === 'English'}
-                                            disabled
-                                        />
-                                        <label className="form-check-label fs-6" htmlFor="English">
-                                            English
-                                        </label>
-                                    </div>
+                                <div className="form-check">
+                                    <input
+                                        className="form-check-input"
+                                        type="radio"
+                                        name="Language"
+                                        value="English"
+                                        checked={dataUser.language_preference === 'English'}
+                                        disabled
+                                    />
+                                    <label className="form-check-label fs-6" htmlFor="English">
+                                        English
+                                    </label>
                                 </div>
                             </div>
-
                         </div>
+
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Qué sistema de unidades preferís?</div>
-                            <div className="input-group" style={{ display: "flex", flexDirection: "column" }}>
+                            <div className="input-group">
                                 <div className="form-check">
                                     <input
                                         className="form-check-input"
@@ -118,7 +114,7 @@ export const Preferences = () => {
                                         checked={dataUser.numeric_preference === 'Kilograms'}
                                         disabled
                                     />
-                                    <label className="form-check-label fs-6 " htmlFor="Kilograms">
+                                    <label className="form-check-label fs-6" htmlFor="Kilograms">
                                         Kilogramos
                                     </label>
                                 </div>
@@ -153,6 +149,7 @@ export const Preferences = () => {
                 </div>
             </div>
         </div>
+
     </>)
 }
 

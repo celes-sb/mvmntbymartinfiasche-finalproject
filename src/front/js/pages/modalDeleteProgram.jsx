@@ -32,7 +32,7 @@ export const ModalDeleteProgram = ({
             tabIndex="-1"
             style={{ display: showModalDeleteProgram ? "block" : "none" }}
         >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Eliminar Ejercicio</h5>
@@ -58,12 +58,13 @@ export const ModalDeleteProgram = ({
                             className="btn btn-outline-secondary"
                             onClick={handleCloseModalDeleteProgram}
                         >
-                            Close
+                            Cerrar
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 

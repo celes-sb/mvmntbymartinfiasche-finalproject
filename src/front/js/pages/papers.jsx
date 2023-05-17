@@ -22,36 +22,31 @@ export const Papers = () => {
         cargaDatos();
     }, []);
 
-    return (<>
-
-        <div className="backofficeWelcome1 jumbotron m-3">
-            <h1 className="display-4">Papers</h1>
-            <p className="lead">Conocé la ciencia detrás del entrenamiento.</p>
-            <hr className="my-4" />
-        </div>
-        {papers && papers.length > 0 ? (
-            <>
+    return (
+        <>
+            <div className="backofficeWelcome1 jumbotron m-3">
+                <h1 className="display-4">Papers</h1>
+                <p className="lead">Conocé la ciencia detrás del entrenamiento.</p>
+                <hr className="my-4" />
+            </div>
+            {papers && papers.length > 0 ? (
                 <div className="d-flex flex-wrap">
-                    {papers.map((item, index) => {
-                        return (
-                            <div className="card ms-3 mt-3 text-center border border-primary" style={{ width: "18rem" }} key={index}>
-                                <img src={alumnosSpine} className="card-img-top" alt="Alumnos Extensión Torácica" />
-                                <div className="card-body">
-                                    <h5 className="card-title">{item.name}</h5>
-                                    <p className="card-text">{item.description}</p>
-                                    <a href={item.url} className="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Leé este paper</a>
-
-                                </div>
+                    {papers.map((item, index) => (
+                        <div className="card ms-3 mt-2 text-center border border-primary" style={{ width: "18rem" }} key={index}>
+                            <img src={alumnosSpine} className="card-img-top" alt="Alumnos Extensión Torácica" />
+                            <div className="card-body">
+                                <h5 className="card-title">{item.name}</h5>
+                                <p className="card-text">{item.description}</p>
+                                <a href={item.url} className="btn btn-sm btn-outline-primary" target="_blank" rel="noopener noreferrer">Leé este paper</a>
                             </div>
-
-                        )
-                    })}
+                        </div>
+                    ))}
                 </div>
-            </>
-        )
-            : (<h1>Loading</h1>)
-        }
-    </>)
+            ) : (
+                <h3>No hay papers para mostrar.</h3>
+            )}
+        </>
+    );
 }
 
 export default WithAuth(Papers);

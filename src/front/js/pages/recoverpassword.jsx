@@ -23,25 +23,17 @@ export const RecoverPassword = (props) => {
         }
     };
     return (
-        <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
-            style={{
-                backgroundImage: `url(${martinVerti})`,
-                backgroundSize: "cover",
-            }}
-        >
+        <section className="container-fluid p-5 border border-warning rounded" style={{ backgroundImage: `url(${martinVerti})`, backgroundSize: "cover" }}>
             <div className="recoverPass bg-white bg-opacity-75 border border-warning rounded text-center pt-5 mt-4 pb-5">
                 <div className="login-container container-fluid">
-                    <div
-                        className="login-container2 d-flex flex-row flex-nowrap"
-                        style={{ overflowX: "scroll" }}
-                    >
+                    <div className="login-container2 d-flex flex-row flex-nowrap" style={{ overflowX: "auto" }}>
                         <div className="login-content container">
                             <div className="container">
-                                <div className="row m-5 no-gutters justify-content-center">
-                                    <div className="col-5 bg-white p-5">
+                                <div className="row m-5 justify-content-center">
+                                    <div className="col-lg-5 col-md-8 col-sm-10 col-12 bg-white p-5">
                                         <h3 className="pb-3 text-center">Recuperá tu contraseña</h3>
                                         <div className="form-style">
-                                            <br></br>
+                                            <br />
                                             <form onSubmit={handleSubmit}>
                                                 <div className="form-group pb-3">
                                                     <input
@@ -54,7 +46,7 @@ export const RecoverPassword = (props) => {
                                                         }}
                                                     />
                                                 </div>
-                                                <br></br>
+                                                <br />
                                                 <div className="pb-2">
                                                     <button
                                                         id="recoverPasswordButton"
@@ -67,7 +59,7 @@ export const RecoverPassword = (props) => {
                                                     {errorMessage && <p>{errorMessage}</p>}
                                                 </div>
                                             </form>
-                                            <br></br>
+                                            <br />
                                             <div className="text-center">
                                                 <Link to="/login">Iniciar sesión</Link>
                                             </div>

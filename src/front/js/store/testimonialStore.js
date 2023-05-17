@@ -41,7 +41,7 @@ export const testimonialStore = {
             text: "(hablando sobre el proceso de aprendizaje de las pistolas) No sólo tengo mas disponible la disponibilidad del tobillo y la fuerza, sino que también siento que estoy ejecutando mucho mejor ese control motor. Martín pudo ver que yo ya estaba disponible para poder realizar ese rango.",
             name: "Gisela Baiardo",
             year: "Alumna desde 2021",
-            videoUrl: "https://www.youtube.com/embed/X6ONggNXDSg"
+            videoUrl: "https://www.youtube.com/embed/6GGugHmRaMU"
         },
         {
             //image: { anillasTestimoniosMono },

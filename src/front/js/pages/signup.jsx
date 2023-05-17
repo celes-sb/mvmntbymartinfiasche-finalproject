@@ -40,7 +40,7 @@ export const Signup = (props) => {
 
   return (
     <>
-      <section className="signup container-fluid p-5 mt-5 pt-5 border border-warning rounded"
+      <section className="signup container-fluid p-5 border border-warning rounded"
         style={{
           backgroundImage: `url(${martinEnsena})`,
           backgroundSize: "cover",

@@ -48,15 +48,9 @@ export const EditTermGoals = () => {
                         Datos Personales
                     </Link>
                 </li>
-
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
                         Info Entrenamiento
-                    </Link>
-                </li>
-                <li className="nav-item">
-                    <Link className={linkClass("Link2")} onClick={() => handleClick("Link2")} to="/user/emergency-contact">
-                        Contacto de Emergencia
                     </Link>
                 </li>
                 <li className="nav-item">
@@ -64,21 +58,53 @@ export const EditTermGoals = () => {
                         Objetivos
                     </Link>
                 </li>
+                <li className="nav-item">
+                    <Link className={linkClass("Link2")} onClick={() => handleClick("Link2")} to="/user/emergency-contact">
+                        Contacto de Emergencia
+                    </Link>
+                </li>
             </ul>
             <h4 className="mt-2 mb-2">3 meses</h4>
             <div className="form-floating mb-2">
-                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en 3 meses...." value={threeMonthsGoal} id="floatingTextarea1" style={{ height: "100px" }} onChange={(e) => { setThreeMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea1">Contame qué te gustaría lograr en 3 meses....</label>
+                <textarea
+                    className="form-control"
+                    placeholder="Contame qué te gustaría lograr en 3 meses...."
+                    value={threeMonthsGoal}
+                    id="floatingTextarea1"
+                    style={{ height: "100px" }}
+                    onChange={(e) => {
+                        setThreeMonthsGoal(e.target.value);
+                    }}
+                ></textarea>
+                <label htmlFor="floatingTextarea1">Contame qué te gustaría lograr en 3 meses....</label>
             </div>
             <h4 className="mt-2 mb-2">6 meses</h4>
             <div className="form-floating mb-2">
-                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en 6 meses..." value={sixMonthsGoal} id="floatingTextarea2" style={{ height: "100px" }} onChange={(e) => { setSixMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea2">Contame qué te gustaría lograr en 6 meses....</label>
+                <textarea
+                    className="form-control"
+                    placeholder="Contame qué te gustaría lograr en 6 meses..."
+                    value={sixMonthsGoal}
+                    id="floatingTextarea2"
+                    style={{ height: "100px" }}
+                    onChange={(e) => {
+                        setSixMonthsGoal(e.target.value);
+                    }}
+                ></textarea>
+                <label htmlFor="floatingTextarea2">Contame qué te gustaría lograr en 6 meses....</label>
             </div>
             <h4 className="mt-2 mb-2">12 meses</h4>
             <div className="form-floating mb-2">
-                <textarea className="form-control" placeholder="Contame qué te gustaría lograr en un año..." value={twelveMonthsGoal} id="floatingTextarea3" style={{ height: "100px" }} onChange={(e) => { setTwelveMonthsGoal(e.target.value); }}></textarea>
-                <label for="floatingTextarea3">Contame qué te gustaría lograr en un año....</label>
+                <textarea
+                    className="form-control"
+                    placeholder="Contame qué te gustaría lograr en un año..."
+                    value={twelveMonthsGoal}
+                    id="floatingTextarea3"
+                    style={{ height: "100px" }}
+                    onChange={(e) => {
+                        setTwelveMonthsGoal(e.target.value);
+                    }}
+                ></textarea>
+                <label htmlFor="floatingTextarea3">Contame qué te gustaría lograr en un año....</label>
             </div>
 
             <div className="pb-2 mt-4">
@@ -90,11 +116,7 @@ export const EditTermGoals = () => {
                     Guardar Cambios
                 </button>
                 <Link to="/user/term-goals">
-                    <button
-                        type="button"
-                        className="btn btn-outline-danger w-100 font-weight-bold mt-2"
-
-                    >
+                    <button type="button" className="btn btn-outline-danger w-100 font-weight-bold mt-2">
                         Cancelar
                     </button>
                 </Link>

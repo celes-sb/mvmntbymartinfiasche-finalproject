@@ -9,23 +9,28 @@ export const Home = () => {
 
   return (
     <>
-      <div className="container-fluid ms-0 pt-5 pb-1 mb-0 ps-0">
-        <section className="header position-relative mt-5">
-          <img href="/" className="imgheader border border-warning rounded" src={martinygrupocolor} style={{ width: "100%", height: "100%", position: "absolute", objectFit: "cover" }} />
-          <div className="hero">
-            <div className="hero-content">
-              <div className="hero-content-text text-dark bg-light bg-opacity-75 p-5 rounded h-100 d-flex flex-column justify-content-end align-items-end">
-                <h1 className="mb-4">
+      <div className="container-fluid">
+        <section className="header position-relative d-flex justify-content-center">
+          <div className="img-container">
+            <img href="/" className="imgheader border border-warning rounded" src={martinygrupocolor} alt="Header Image" />
+          </div>
+          <div className="home">
+            <div className="home-content">
+              <div className="home-content-text bg-light bg-opacity-75 p-5 rounded h-100 d-flex flex-column align-items-end align-lg-end">
+                <h1 className="mb-4 text-center text-lg-end">
                   ¿Entrenamos distinto?
                 </h1>
-                <h3 className="mb-4">Conocé una nueva forma integral de trabajar con tu cuerpo. <br /> Explorá los márgenes del movimiento y aprendé a disfrutar el proceso. <br /><span>Rompé con el molde</span> y sumate al nuevo paradigma del entrenamiento físico.</h3>
-                <Link to="/signup"><button type="button" className="btn btn-large p-2 opacity-75 align-self-end">¡Empezá ahora!</button></Link>
+                <h3 className="mb-4 text-center text-lg-end">Conocé una nueva forma integral de trabajar con tu cuerpo. <br /> Explorá los márgenes del movimiento y aprendé a disfrutar el proceso. <br /><span>Rompé con el molde</span> y sumate al nuevo paradigma del entrenamiento físico.</h3>
+                <div className="d-flex justify-content-center justify-content-lg-center">
+                  <Link to="/signup"><button type="button" className="btn btn-large p-2 opacity-75">¡Empezá ahora!</button></Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
+      </div>
 
-      </div >
+
     </>
   );
 };
