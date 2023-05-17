@@ -94,3 +94,5 @@ export const AdminLogin = () => {
         </section>
     );
 };
+
+export default AdminLogin
