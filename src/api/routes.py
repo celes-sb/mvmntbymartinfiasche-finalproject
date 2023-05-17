@@ -15,6 +15,7 @@ from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer
+import openai
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -33,6 +34,9 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended import get_jwt
+
+
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 api = Blueprint('api', __name__)
 
@@ -58,16 +62,12 @@ def sendEmail(message, to, subject):
     </html>
     '''
 
-    #crear elementos MIMEtext
+    
     text_mime = MIMEText(message, 'plain')
-    #html_mime = MIMEText(html, 'html')
-
-    #adjuntar los MIMEText al MIMEMultipart
+   
 
     messageMime.attach(text_mime)
-    #messageMime.attach(html_mime)
-
-    #conectarnos al puerto 465 de gmail para enviar el correo
+    
 
     context = ssl.create_default_context()
     emailfrom = EMAIL
@@ -161,7 +161,7 @@ def login():
     if user is None:
         return jsonify({"message": "Login failed"}), 401
 
-    # Validate the encrypted password
+    
     if not bcrypt.check_password_hash(user.password, password):
         return jsonify({"message": "Login failed"}), 401
     
@@ -185,7 +185,7 @@ def admin_login():
     if user is None or not bcrypt.check_password_hash(user.password, password):
         return jsonify({"message": "Login failed"}), 401
 
-    # Check if the user has the admin role
+    
     if user.role != 'admin':
         return jsonify({"message": "You do not have permissions to access this route"}), 403
 
@@ -207,9 +207,9 @@ def change_password(user_id):
     current_password = body.get('current_password')
     new_password = body.get('new_password')
 
-    # Check if current password matches the stored password
+   
     if bcrypt.check_password_hash(user.password, current_password):
-        # If the passwords match, hash and update the new password
+        
         user.password = bcrypt.generate_password_hash(new_password).decode('utf-8')
         db.session.commit()
         return jsonify({"msg":"Password updated successfully"}), 200
@@ -219,10 +219,10 @@ def change_password(user_id):
 @api.route('/logout', methods=['POST'])
 @jwt_required()
 def logout():
-    jti = get_jwt()["jti"] #Identificador del JWT (es más corto)
+    jti = get_jwt()["jti"] 
     now = datetime.utcnow()
 
-    #identificamos al usuario
+    
     current_user = get_jwt_identity()
     user = User.query.get(current_user)
 
@@ -235,10 +235,10 @@ def logout():
 @api.route('/admin-logout', methods=['POST'])
 @jwt_required()
 def admin_logout():
-    jti = get_jwt()["jti"] #Identificador del JWT (es más corto)
+    jti = get_jwt()["jti"] 
     now = datetime.utcnow()
 
-    #identificamos al usuario
+    
     current_user = get_jwt_identity()
     user = User.query.get(current_user)
 
@@ -569,7 +569,7 @@ def get_organized_programs(user_id):
         if program_name not in organized_programs:
             organized_programs[program_name] = {}
 
-        # add program_id to the organized_programs dictionary
+        
         organized_programs[program_name]["program_id"] = program_id
 
         program_organizer = ProgramOrganizer.query.filter_by(program_id=program.id).all()
@@ -624,7 +624,7 @@ def edit_program_organizer(program_organizer_id):
     if program_organizer is  None:
         raise APIException("PROGRAM NOT FOUND", status_code=409)
 
-    # Get the columns of the ProgramOrganizer model
+    
     columns = ProgramOrganizer.__table__.columns.keys()
 
     for key in body:
@@ -673,7 +673,7 @@ def create_new_nutrition():
     calories_intake = body["calories_intake"]
     protein_intake = body["protein_intake"]
 
-    # Create a new Nutrition object
+    
     new_nutrition = Nutrition(
         name=name,
         date=date,
@@ -771,3 +771,24 @@ def new_password():
     user.password = bcrypt.generate_password_hash(password, 10).decode('utf-8')
     db.session.commit()
     return jsonify({'message': 'Password reset successfully'})
+
+
+
+@api.route('/chat', methods=['POST'])
+def open_ai():
+    body = request.get_json()
+    prompt = "eres una pagina web de consejos para comer saludable, responde acorde a esto" + body["prompt"]
+
+    completion = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        n=1,
+        max_tokens=2048
+    )
+
+    response_text = completion.choices[0].text.strip()
+    response = {"message": response_text}
+
+    print(response)  
+
+    return jsonify(response), 200

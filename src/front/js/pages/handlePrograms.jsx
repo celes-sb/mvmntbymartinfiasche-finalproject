@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import AdminWithAuth from "../component/Auth/adminWithAuth";
 
 export const HandlePrograms = () => {
     const { store, actions } = useContext(Context);
@@ -101,4 +102,4 @@ export const HandlePrograms = () => {
     );
 };
 
-export default HandlePrograms;
+export default AdminWithAuth(HandlePrograms);

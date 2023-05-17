@@ -74,3 +74,5 @@ export const RecoverPassword = (props) => {
         </section>
     )
 }
+
+export default RecoverPassword

@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import AdminWithAuth from "../component/Auth/adminWithAuth";
 
 export const AddPapers = () => {
     const { store, actions } = useContext(Context);
@@ -87,4 +88,4 @@ export const AddPapers = () => {
     );
 };
 
-export default AddPapers;
+export default AdminWithAuth(AddPapers);

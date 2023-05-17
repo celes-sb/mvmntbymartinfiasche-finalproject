@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "../../styles/home.css";
+import AdminWithAuth from "../component/Auth/adminWithAuth";
 
 export const EditSingleProgram = () => {
     const { store, actions } = useContext(Context);
@@ -137,4 +138,4 @@ export const EditSingleProgram = () => {
     );
 }
 
-export default EditSingleProgram;
+export default AdminWithAuth(EditSingleProgram);

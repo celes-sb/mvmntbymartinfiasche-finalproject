@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import WithAuth from "../component/Auth/withAuth";
 
 export const Settings = () => {
     const { store, actions } = useContext(Context);
@@ -97,4 +98,4 @@ export const Settings = () => {
     </>)
 }
 
-export default Settings;
+export default WithAuth(Settings);

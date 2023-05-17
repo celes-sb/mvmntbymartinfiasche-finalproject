@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import WithAuth from "../component/Auth/withAuth";
 
 export const EditMeasures = () => {
     const { store, actions } = useContext(Context);
@@ -163,4 +164,4 @@ export const EditMeasures = () => {
     </>)
 }
 
-export default EditMeasures;
+export default WithAuth(EditMeasures);

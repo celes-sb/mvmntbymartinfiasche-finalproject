@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import WithAuth from "../component/Auth/withAuth";
 import { Card } from "@mui/material";
 import CropEasy from '../component/crop/cropeasy';
 
@@ -196,4 +197,4 @@ export const EditProfile = () => {
     );
 }
 
-export default EditProfile;
+export default WithAuth(EditProfile);
