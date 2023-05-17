@@ -15,6 +15,7 @@ from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer
+import openai
 
 import smtplib, ssl
 from email.mime.text import MIMEText
@@ -33,6 +34,9 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import jwt_required
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended import get_jwt
+
+
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 api = Blueprint('api', __name__)
 
@@ -724,3 +728,24 @@ def new_password():
     user.password = bcrypt.generate_password_hash(password, 10).decode('utf-8')
     db.session.commit()
     return jsonify({'message': 'Password reset successfully'})
+
+
+
+@api.route('/chat', methods=['POST'])
+def open_ai():
+    body = request.get_json()
+    prompt = "eres una pagina web de consejos para comer saludable, responde acorde a esto" + body["prompt"]
+
+    completion = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=prompt,
+        n=1,
+        max_tokens=2048
+    )
+
+    response_text = completion.choices[0].text.strip()
+    response = {"message": response_text}
+
+    print(response)  # Imprimir la respuesta en la consola
+
+    return jsonify(response), 200
