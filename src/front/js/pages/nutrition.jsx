@@ -14,7 +14,7 @@ export const Nutrition = () => {
     const mayonesaZanahoria =
         "http://drive.google.com/uc?export=view&id=1NMnrpXEBq6PjlWSY3HeJcO_Q72THRp85";
 
-    const sendMessage = () => {
+    {/*const sendMessage = () => {
         fetch("api/chat", {
             method: "POST",
             headers: {
@@ -29,7 +29,7 @@ export const Nutrition = () => {
             .catch((error) => {
                 console.error(error);
             });
-    };
+    };*/}
 
     return (
         <>
@@ -43,7 +43,7 @@ export const Nutrition = () => {
                     Aquí se irán subiendo recetas y videos informativos.
                 </p>
 
-                <div className="chat-container">
+                {/* <div className="chat-container">
                     <h3>Chat</h3>
                     <div className="chat-messages">
 
@@ -55,7 +55,7 @@ export const Nutrition = () => {
 
                         <button onClick={sendMessage}>Enviar</button>
                     </div>
-                </div>
+    </div>*/}
                 <hr className="my-4" />
                 <div className="nutricion-content text-center">
                     <h3>Aprendiendo sobre nutrición</h3>
