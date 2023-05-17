@@ -30,63 +30,94 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm fixed-top navbar-scroll">
+      <nav className="navbar navbar-expand-md navbar-expand-sm navbar-expand-xs">
         <div className="logo ps-3">
-          <Link className="nav-link badge badge-pill badge-success text-dark" to="/">
+          <Link className="nav-link text-dark" to="/">
             <img src={logoMartin} alt="Martín Fiasche Logo" style={{ width: "250px" }} />
           </Link>
         </div>
         <button
-          className="navbar-toggler bg-primary``"
+          className="navbar-toggler"
           type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon">
+            <i className="fas fa-bars"></i>
+          </span>
         </button>
-        {store.userLogin === false ? (
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-5">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          {store.userLogin === false ? (
+            <ul className="navbar-nav ms-auto ms-5">
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/sobremi">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/sobremi"
+                >
                   Sobre mí
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/testimonios">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/testimonios"
+                >
                   Testimonios
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/individualizado">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/individualizado"
+                >
                   Individualizado
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/movimiento">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/movimiento"
+                >
                   Movimiento
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/acrobacia">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/acrobacia"
+                >
                   Acrobacia
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/eventos">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/eventos"
+                >
                   Eventos
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link badge badge-pill text-dark" to="/escribime">
+                <Link
+                  className="nav-link text-dark mb-2 mb-md-0"
+                  to="/escribime"
+                >
                   Escribime
                 </Link>
               </li>
             </ul>
-            <div className="dropdown position-relative">
+          ) : (
+            <>
+              <h3 className="backoffice-navtext">Hola, {store.userData.first_name}!</h3>
+            </>
+          )}
+          {store.userLogin === false && (
+            <div className="dropdown position-relative ms-auto">
               <button
-                className="nav-btn btn btn-sm dropdown-toggle"
+                className="nav-btn btn btn-sm dropdown-toggle smaller-button"
                 type="button"
                 id="dropdownMenuButton"
                 data-bs-toggle="dropdown"
@@ -107,10 +138,8 @@ export const Navbar = () => {
                 </li>
               </ul>
             </div>
-          </div>
-        ) : (
-          <>
-            <h3 className="backoffice-navtext">Hola, {store.userData.first_name}!</h3>
+          )}
+          {store.userLogin && (
             <div>
               <button
                 type="button"
@@ -120,10 +149,9 @@ export const Navbar = () => {
                 Cerrar Sesión
               </button>
             </div>
-          </>
-        )}
+          )}
+        </div>
       </nav>
     </>
   );
 };
-
