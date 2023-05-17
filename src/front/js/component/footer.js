@@ -1,17 +1,4 @@
 import React, { Component } from "react";
-//dejo este whatsapp component acá porque capaz podés usarlo para agregar el chat bot
-const Whatsapp = () => {
-	const whatsappUrl = "https://wa.me/5491141874865";
-	const message = "Escribime!";
-	return (
-		<a href={`${whatsappUrl}?text=${message}`} target="_blank">
-			<button type="button" className="btn btn-success btn-floating mx-1">
-				<i className="fab fa-whatsapp"></i>
-			</button>
-		</a>
-	);
-};
-
 export const Footer = () => (
 	<div className="container-fluid py-3 my-4">
 		<footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
@@ -50,7 +37,8 @@ export const Footer = () => (
 					</a>
 				</li>
 				<li className="ms-3">
-					<Whatsapp />
+					<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-89c63be6-9ef8-410d-a953-21358ab8c6a4"></div>
 				</li>
 			</ul>
 		</footer>
