@@ -19,37 +19,37 @@ import { Signup } from "./pages/signup.jsx";
 import injectContext from "./store/appContext";
 import { Login } from "./pages/login";
 import Backoffice from "./pages/backoffice.jsx";
-import { Programs } from "./pages/programs.jsx";
+import Programs from "./pages/programs.jsx";
 import AddPrograms from "./pages/addPrograms.jsx";
 import Diagnostico from "./pages/diagnostico.jsx";
-import { Orders } from "./pages/orders.jsx";
-import { Nutrition } from "./pages/nutrition.jsx";
-import { Papers } from "./pages/papers.jsx";
-import { Profile } from "./pages/profile.jsx";
-import { EditProfile } from "./pages/editProfile.jsx";
-import { Settings } from "./pages/settings.jsx";
-import { Measures } from "./pages/measures.jsx";
-import { EmergencyContact } from "./pages/emergencyContact.jsx";
-import { PaymentMethod } from "./pages/paymentMethod.jsx";
-import { Twofa } from "./pages/twofa.jsx";
-import { Preferences } from "./pages/preferences.jsx";
+import Orders from "./pages/orders.jsx";
+import Nutrition from "./pages/nutrition.jsx";
+import Papers from "./pages/papers.jsx";
+import Profile from "./pages/profile.jsx";
+import EditProfile from "./pages/editProfile.jsx";
+import Settings from "./pages/settings.jsx";
+import Measures from "./pages/measures.jsx";
+import EmergencyContact from "./pages/emergencyContact.jsx";
+import PaymentMethod from "./pages/paymentMethod.jsx";
+import Twofa from "./pages/twofa.jsx";
+import Preferences from "./pages/preferences.jsx";
 import { UserLayout } from "./pages/userLayout";
-import { RecoverPassword } from "./pages/recoverpassword.jsx"
-import { NewPassword } from "./pages/newpassword.jsx";
-import { EditMeasures } from "./pages/editMeasures.jsx";
-import { EditEmergencyContact } from "./pages/editEmergencyContact.jsx";
-import { EditPaymentMethod } from "./pages/editPaymentMethod.jsx";
-import { EditPreferences } from "./pages/editPreferences.jsx";
-import { TermGoals } from "./pages/termGoals.jsx";
-import { EditTermGoals } from "./pages/editTermGoals.jsx";
-import { AdminLogin } from "./pages/adminLogin.jsx";
-import { HandlePapers } from "./pages/handlePapers.jsx";
-import { AddPapers } from "./pages/addPapers.jsx"
-import { HandleExercises } from "./pages/handleExercises.jsx";
-import { AddExercises } from "./pages/addExercises.jsx";
-import { EditExercises } from "./pages/editExercises.jsx";
-import { HandlePrograms } from "./pages/handlePrograms.jsx";
-import { EditSingleProgram } from "./pages/editSingleProgram.jsx";
+import RecoverPassword from "./pages/recoverpassword.jsx"
+import NewPassword from "./pages/newpassword.jsx";
+import EditMeasures from "./pages/editMeasures.jsx";
+import EditEmergencyContact from "./pages/editEmergencyContact.jsx";
+import EditPaymentMethod from "./pages/editPaymentMethod.jsx";
+import EditPreferences from "./pages/editPreferences.jsx";
+import TermGoals from "./pages/termGoals.jsx";
+import EditTermGoals from "./pages/editTermGoals.jsx";
+import AdminLogin from "./pages/adminLogin.jsx";
+import HandlePapers from "./pages/handlePapers.jsx";
+import AddPapers from "./pages/addPapers.jsx"
+import HandleExercises from "./pages/handleExercises.jsx";
+import AddExercises from "./pages/addExercises.jsx";
+import EditExercises from "./pages/editExercises.jsx";
+import HandlePrograms from "./pages/handlePrograms.jsx";
+import EditSingleProgram from "./pages/editSingleProgram.jsx";
 
 //create your first component
 const Layout = () => {
@@ -110,7 +110,7 @@ const Layout = () => {
           </Routes>
           <Footer />
         </ScrollToTop>
-      </BrowserRouter>     
+      </BrowserRouter>
     </div>
   );
 };

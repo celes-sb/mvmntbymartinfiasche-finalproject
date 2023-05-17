@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext"
 import { Link, useNavigate } from "react-router-dom";
 import "../../styles/home.css";
+import AdminWithAuth from "../component/Auth/adminWithAuth";
 
 export const AddExercises = () => {
     const { store, actions } = useContext(Context);
@@ -94,4 +95,4 @@ export const AddExercises = () => {
     </>)
 }
 
-export default AddExercises;
+export default AdminWithAuth(AddExercises);
