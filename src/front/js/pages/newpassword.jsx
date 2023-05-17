@@ -73,14 +73,11 @@ export const NewPassword = (props) => {
                                                     onChange={(e) => { setConfirmPassword(e.target.value) }}
                                                     required
                                                 />
-                                              </div>
+                                            </div>
                                             <button id="resetPasswordButton" type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>
-                    Reset Password
-                </button>
-                <button type="submit" className="btn btn-primary">
-                    Resetear Contraseña
-                </button>
-            </form>
+                                                Resetear Contraseña
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

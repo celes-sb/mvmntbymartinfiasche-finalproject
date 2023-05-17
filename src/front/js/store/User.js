@@ -202,7 +202,7 @@ export function userActions(getStore, getActions, setStore) {
         "POST"
       );
       if (response.ok) {
-        alert("Programa Añadido exitosamente");
+        alert("Programa agregado con éxito");
       } else {
         alert("No se pudo agregar el programa");
       }
@@ -240,9 +240,9 @@ export function userActions(getStore, getActions, setStore) {
       const store = getStore();
       const actions = getActions();
       let obj = {
-        message: `Hola ${name}, bienvenido a MVMNT by Martin Fiasche.`,
+        message: `Hola ${name}, bienvenido a la plataforma de entrenamiento de Martín Fiasche. Creá tu cuenta para acceder a la plataforma. `,
         to: email,
-        subject: `Bienvenido, ${name}`
+        subject: `Entrenamiento Individualizado de Martín Fiasche, ${name}`
       }
       let { respuestaJson, response } = await actions.useFetch(
         "/correo",

@@ -32,10 +32,10 @@ def generate_sitemap(app):
 
     links_html = "".join(["<li><a href='" + y + "'>" + y + "</a></li>" for y in links])
     return """
-        <div style="text-align: center;">
-        <img style="max-height: 80px" src='https://storage.googleapis.com/breathecode/boilerplates/rigo-baby.jpeg' />
-        <h1>Rigo welcomes you to your API!!</h1>
+        <div style="text-align: center; background-color: whitesmoke; margin-bottom: 200px;">
+        <img style="max-height: 100px; margin: 20px;" src='https://storage.googleapis.com/breathecode/boilerplates/rigo-baby.jpeg' />
+        <h1 style="margin-bottom: 70px;">Bienvenidos a nuestro proyecto final: MVMNT by Martín Fiasche</h1>
+        <h3 style="margin-bottom: 70px;">Integrantes: Celeste Bareiro, David Bravo, Sebastián Bonilla y Juan Pinto</h3>
         <p>API HOST: <script>document.write('<input style="padding: 5px; width: 300px" type="text" value="'+window.location.href+'" />');</script></p>
-        <p>Start working on your project by following the <a href="https://start.4geeksacademy.com/starters/full-stack" target="_blank">Quick Start</a></p>
-        <p>Remember to specify a real endpoint path like: </p>
+        <p style="text-align: left;">Endpoints: </p>
         <ul style="text-align: left;">"""+links_html+"</ul></div>"
