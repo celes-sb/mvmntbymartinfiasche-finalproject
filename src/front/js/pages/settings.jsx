@@ -93,6 +93,7 @@ export const Settings = () => {
                 </div>
             </div>
         </div>
+
     </>)
 }
 

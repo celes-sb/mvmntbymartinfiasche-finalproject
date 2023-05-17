@@ -12,7 +12,9 @@ export const Backoffice = () => {
             <h1 className="display-4">¡Hola!</h1>
             <p className="lead">Bienvenidx al programa de entrenamiento a distancia.</p>
             <hr className="my-4" />
-            <iframe className="border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/dwqfIca_1mY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            <div className="embed-responsive embed-responsive-16by9">
+                <iframe className="embed-responsive-item border border-primary m-3 ms-md-5" src="https://www.youtube.com/embed/dwqfIca_1mY" title="Bienvenido Personalizado" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
             <p>Seguramente estás acá porque ya te ha llegado tu primer programa de trabajo y espero que te sea de mucha utilidad para conseguir tus objetivos.</p>
             <h3>Puntos importantes a tener en cuenta:</h3>
             <ul className="list ps-3 pe-3 list-unstyled">
@@ -24,7 +26,7 @@ export const Backoffice = () => {
             <h3>Pasos a seguir:</h3>
             <ul className="list ps-3 pe-3 list-unstyled">
                 <li><i className="far fa-check-circle ms-2 ps-1"></i> Mirá este video detenidamente:</li>
-                <iframe className="videoBackoffice border border-primary m-3 ms-5" width="560" height="315" src="https://www.youtube.com/embed/n0N5aSVwU4M" title="Proceso inicial" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+                <iframe className="videoBackoffice embed-responsive-item border border-primary m-3 ms-md-5" src="https://www.youtube.com/embed/n0N5aSVwU4M" title="Proceso inicial" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
                 <li><i className="far fa-check-circle ms-2 ps-1"></i> Creá una carpeta en Drive con el nombre del mes en el que iniciás</li>
                 <li><i className="far fa-check-circle ms-2 ps-1"></i> Dentro de ella creá dos carpetas con los nombres SEMANA1 y SEMANA4.</li>
                 <li><i className="far fa-check-circle ms-2 ps-1"></i> SEMANA1 y SEMANA4 van a tener dentro cinco carpetas llamadas DIA1, DIA2, DIA3, VERTI y MOVILIDAD en donde vas a subir las ejecuciones así yo puedo ir estudiando tu trabajo en forma cronológica y analizar que cosas dan resultado y cuáles no a partir de ir entendiendo el proceso.</li>
@@ -40,9 +42,9 @@ export const Backoffice = () => {
             <hr />
             <p className="lead mt-3 mb-3">
                 Ya estás listx para la siguiente etapa: el diagnóstico. Hacé click en el botón azul que te llevará a la sección de diagnóstico donde realizarás unos tests iniciales que me ayudarán a hacer que tu programa sea lo más personalizado posible.
-                <Link to="/user/diagnostico" className="btn btn-ouline-primary mt-3 w-100" role="button">Comenzá el diagnóstico</Link>
+                <Link to="/user/diagnostico" className="btn btn-outline-primary mt-3 w-100" role="button">Comenzá el diagnóstico</Link>
             </p>
-        </div >
+        </div>
     </>)
 }
 

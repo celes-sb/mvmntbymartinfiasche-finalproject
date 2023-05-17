@@ -48,7 +48,7 @@ export const Navbar = () => {
           <span className="navbar-toggler-icon">
             <i className="fas fa-bars"></i>
           </span>
-        </button>
+        </button >
         <div className="collapse navbar-collapse" id="navbarNav">
           {store.userLogin === false ? (
             <ul className="navbar-nav ms-auto ms-5">
@@ -151,7 +151,7 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-      </nav>
+      </nav >
     </>
   );
 };

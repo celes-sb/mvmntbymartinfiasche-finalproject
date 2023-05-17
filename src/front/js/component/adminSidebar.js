@@ -28,7 +28,7 @@ export const AdminSidebar = () => {
         }
     };
 
-    const martin2 =
+    const profilePic =
         "http://drive.google.com/uc?export=view&id=157-QtUkfD1HbR5SiFRoSZUWUoE-Kig8G";
 
     return (
@@ -37,7 +37,7 @@ export const AdminSidebar = () => {
                 <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-primary text-decoration-none">
                     <div className="dropdown dropdown mt-3 mb-3">
                         <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src={martin2} alt="" width="32" height="32" className="rounded-circle me-2" />
+                            <img src={profilePic} alt="" width="32" height="32" className="rounded-circle me-2" />
                             <strong>{store.userData.first_name} {store.userData.last_name}</strong>
                         </Link>
                         <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">

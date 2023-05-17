@@ -6,8 +6,8 @@ import "../../styles/home.css";
 export const Nutrition = () => {
     const { store, actions } = useContext(Context);
 
-    const videoUltraprocesados = "http://drive.google.com/uc?export=view&id=1tcbBtUmk1nTFPHHAMLKD7V2w7G0MHgMz";
-    const mayonesaZanahoria = "http://drive.google.com/uc?export=view&id=1NMnrpXEBq6PjlWSY3HeJcO_Q72THRp85";
+    const videoUltraprocesados = "https://drive.google.com/file/d/1tcbBtUmk1nTFPHHAMLKD7V2w7G0MHgMz/preview";
+    const mayonesaZanahoria = "https://drive.google.com/file/d/1NMnrpXEBq6PjlWSY3HeJcO_Q72THRp85/preview";
 
     return (<>
         <div className="backofficeWelcome1 jumbotron m-3">
@@ -18,15 +18,18 @@ export const Nutrition = () => {
             <div className="nutricion-content text-center">
                 <h3>Aprendiendo sobre nutrición</h3>
                 <br />
-                <iframe className="border border-primary" src="https://drive.google.com/file/d/1tcbBtUmk1nTFPHHAMLKD7V2w7G0MHgMz/preview" width="640" height="480" allow="autoplay"></iframe>
+                <div className="embed-responsive embed-responsive-16by9">
+                    <iframe className="embed-responsive-item border border-primary" src={videoUltraprocesados} allow="autoplay"></iframe>
+                </div>
                 <br />
                 <br />
                 <h3>Receta para hacer en casa</h3>
                 <br />
-                <iframe className="border border-primary" src="https://drive.google.com/file/d/1NMnrpXEBq6PjlWSY3HeJcO_Q72THRp85/preview" width="640" height="480" allow="autoplay"></iframe>
+                <div className="embed-responsive embed-responsive-16by9">
+                    <iframe className="embed-responsive-item border border-primary" src={mayonesaZanahoria} allow="autoplay"></iframe>
+                </div>
             </div>
         </div>
-
     </>)
 }
 

@@ -54,20 +54,19 @@ export const EditMeasures = () => {
                         Datos Personales
                     </Link>
                 </li>
-
                 <li className="nav-item">
                     <Link className={linkClass("Link")} onClick={() => handleClick("Link")} to="/user/measures">
                         Info Entrenamiento
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className={linkClass("Link2")} onClick={() => handleClick("Link2")} to="/user/emergency-contact">
-                        Contacto de Emergencia
+                    <Link className={linkClass("Link3")} onClick={() => handleClick("Link3")} to="/user/term-goals">
+                        Objetivos
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link className={linkClass("Link3")} onClick={() => handleClick("Link3")} to="/user/term-goals">
-                        Objetivos
+                    <Link className={linkClass("Link2")} onClick={() => handleClick("Link2")} to="/user/emergency-contact">
+                        Contacto de Emergencia
                     </Link>
                 </li>
             </ul>
@@ -152,11 +151,7 @@ export const EditMeasures = () => {
                                 Guardar Cambios
                             </button>
                             <Link to="/user/measures">
-                                <button
-                                    type="button"
-                                    className="btn btn-outline-danger w-100 font-weight-bold mt-2"
-
-                                >
+                                <button type="button" className="btn btn-outline-danger w-100 font-weight-bold mt-2">
                                     Cancelar
                                 </button>
                             </Link>

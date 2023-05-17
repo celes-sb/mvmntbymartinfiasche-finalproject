@@ -33,54 +33,40 @@ export const NewPassword = (props) => {
         }
     };
     return (
-        <section className="container-fluid p-5 mt-5 pt-5 border border-warning rounded"
-            style={{
-                backgroundImage: `url(${acroJump})`,
-                backgroundSize: "cover",
-            }}
-        >
-            <div className="recoverPass bg-white bg-opacity-75 border border-warning rounded text-center pt-5 mt-4 pb-5">
-                <div className="login-container container-fluid">
-                    <div
-                        className="login-container2 d-flex flex-row flex-nowrap"
-                        style={{ overflowX: "scroll" }}
-                    >
-                        <div className="login-content container">
-                            <div className="container">
-                                <div className="row m-5 no-gutters justify-content-center">
-                                    <div className="col-5 bg-white p-5">
-                                        <h3 className="pb-3 text-center">Creá una contraseña nueva</h3>
-                                        {message && <div className="alert alert-danger">{message}</div>}
-                                        <form onSubmit={handleSubmit} className="text-start">
-                                            <div className="form-group">
-                                                <input
-                                                    type="password"
-                                                    className="form-control mb-3"
-                                                    id="password"
-                                                    placeholder="Ingresá tu nueva contraseña"
-                                                    value={password}
-                                                    onChange={(e) => { setPassword(e.target.value) }}
-                                                    required
-                                                />
-                                            </div>
-                                            <div className="form-group">
-                                                <input
-                                                    type="password"
-                                                    className="form-control mb-3"
-                                                    id="confirmPassword"
-                                                    placeholder="Repetí la misma contraseña"
-                                                    value={confirmPassword}
-                                                    onChange={(e) => { setConfirmPassword(e.target.value) }}
-                                                    required
-                                                />
-                                            </div>
-                                            <button id="resetPasswordButton" type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>
-                                                Resetear Contraseña
-                                            </button>
-                                        </form>
-                                    </div>
+        <section className="newPass container-fluid p-5 border border-warning rounded" style={{ backgroundImage: `url(${acroJump})`, backgroundSize: "cover" }}>
+            <div className="bg-white bg-opacity-75 border border-warning rounded text-center p-5">
+                <div className="container-fluid">
+                    <div className="d-flex flex-row flex-wrap justify-content-center">
+                        <div className="col-lg-5 col-md-8 col-sm-10 col-12 bg-white p-5">
+                            <h3 className="pb-3 text-center">Creá una contraseña nueva</h3>
+                            {message && <div className="alert alert-danger">{message}</div>}
+                            <form onSubmit={handleSubmit} className="text-start">
+                                <div className="form-group">
+                                    <input
+                                        type="password"
+                                        className="form-control mb-3"
+                                        id="password"
+                                        placeholder="Ingresá tu nueva contraseña"
+                                        value={password}
+                                        onChange={(e) => { setPassword(e.target.value) }}
+                                        required
+                                    />
                                 </div>
-                            </div>
+                                <div className="form-group">
+                                    <input
+                                        type="password"
+                                        className="form-control mb-3"
+                                        id="confirmPassword"
+                                        placeholder="Repetí la misma contraseña"
+                                        value={confirmPassword}
+                                        onChange={(e) => { setConfirmPassword(e.target.value) }}
+                                        required
+                                    />
+                                </div>
+                                <button id="resetPasswordButton" type="submit" className="btn btn-primary w-100" onClick={handleSubmit}>
+                                    Resetear Contraseña
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

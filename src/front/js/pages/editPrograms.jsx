@@ -63,7 +63,7 @@ export const EditPrograms = ({
 
     return (
         <>
-            <div className="table-responsive">
+            <div className="table-responsive-sm table-responsive-md table-responsive-lg">
                 <button type="button" className="btn btn-outline-primary mt-4" onClick={handleOpenModalAddProgram}>Agregar Ejercicio</button>
                 <ModalAddProgram userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} selectedProgramId={selectedProgramId} showModalAddProgram={showModalAddProgram} handleCloseModalAddProgram={handleCloseModalAddProgram} handleOpenModalAddProgram={handleOpenModalAddProgram} />
                 {userPrograms && userPrograms[0] && userPrograms[0][selectedProgramName] ? (
@@ -118,15 +118,13 @@ export const EditPrograms = ({
                                         ))}
                                     </tbody>
                                 </table>
-
                             );
                         })}
                     </>
                 ) : (
-                    <><h1>Cargando...</h1></>
-                )
-                }
-            </div >
+                    <><h3>Cargando...</h3></>
+                )}
+            </div>
         </>
     );
 };

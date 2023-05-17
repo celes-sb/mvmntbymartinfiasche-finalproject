@@ -27,57 +27,46 @@ export const Testimonios = () => {
 
   return (
     <>
-      <section
-        className="customer-says border border-warning rounded p-5 mt-0"
-        style={{
-          backgroundImage: `url(${grupoTestimoniosColor})`,
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="customer-says-content bg-white bg-opacity-75 rounded border border-warning p-3 m-3">
-          <div className="top">
-            <h2>Lo que dicen mis alumnos</h2>
-          </div>
-          <div className="bottom d-flex flex-column flex-md-row flex-lg-row">
-            <img
-              className="cursor mb-3"
-              src={previousButton}
-              alt=""
-              onClick={handlePreviousClick}
-            />
-            <div className="middle">
-              <img src={currentTestimonial.image} alt="" />
-              {currentTestimonial.videoUrl && (
-                <>
-                  <iframe
-                    className="embeddedVideo border border-warning"
-                    width="518"
-                    height="292"
-                    src={currentTestimonial.videoUrl}
-                    title="Testimonio Patricio"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  ></iframe>
-                </>
-              )}
-              <p>{currentTestimonial.text}</p>
-              <h5>{currentTestimonial.name}</h5>
-              <h6>{currentTestimonial.year}</h6>
+      <>
+        <section className="testimonios border border-warning rounded p-5" style={{ backgroundImage: `url(${grupoTestimoniosColor})`, backgroundSize: "cover" }}>
+          <div className="testimonios-content bg-white bg-opacity-75 rounded border border-warning p-5">
+            <div className="top text-center pb-3">
+              <h2>Lo que dicen mis alumnos</h2>
             </div>
-            {currentTestimonial.videoUrl ? (
-              <></>
-            ) : (
-              <img
-                className="cursor mt-3"
-                src={nextButton}
-                alt="next Button"
-                onClick={handleNextClick}
-              />
-            )}
+            <div className="bottom d-flex flex-column flex-md-row flex-lg-row align-items-center justify-content-center">
+              <img className="cursor mb-3" src={previousButton} alt="previousButton" onClick={handlePreviousClick} />
+              <div className="middle text-center">
+                <img src={currentTestimonial.image} alt="" />
+                {currentTestimonial.videoUrl && (
+                  <div className="video-container mb-4">
+                    <iframe
+                      className="embeddedVideo border border-warning"
+                      src={currentTestimonial.videoUrl}
+                      title="Testimonio Video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    ></iframe>
+                  </div>
+                )}
+                <p className="text-center">{currentTestimonial.text}</p>
+                <h5>{currentTestimonial.name}</h5>
+                <h6>{currentTestimonial.year}</h6>
+              </div>
+              <div className="d-flex">
+                <img className="cursor mt-3" src={nextButton} alt="next Button" onClick={handleNextClick} />
+              </div>
+              {currentTestimonial.videoUrl ? (
+                <></>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </>
+
     </>
+
   );
 };
 

@@ -31,50 +31,54 @@ export const HandlePapers = () => {
         cargaDatos();
     }, []);
 
-    return (<>
+    return (
+        <>
+            <div className="backofficeWelcome1 jumbotron m-3">
+                <h1 className="display-4">Papers</h1>
+                <p className="lead">Conocé la ciencia detrás del entrenamiento.</p>
+                <hr className="my-4" />
+            </div>
+            <div className="d-flex justify-content-start ms-3">
+                <Link to="/admin/add-papers">
+                    <button type="button" className="btn btn-outline-success mb-3">Agregar Paper</button>
+                </Link>
+            </div>
 
-        <div className="backofficeWelcome1 jumbotron m-3">
-            <h1 className="display-4">Papers</h1>
-            <p className="lead">Conocé la ciencia detrás del entrenamiento.</p>
-            <hr className="my-4" />
-        </div>
-        <Link to="/admin/add-papers">
-            <button type="button" className="btn btn-success">Add New Paper</button>
-        </Link>
-
-        {papers && papers.length > 0 ? (
-            <>
-                <table className="table">
-
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripcion</th>
-                            <th scope="col">URL</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {papers.map((item, index) => {
-                            return (<>
-                                <tr key={index}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{item.name}</td>
-                                    <td>{item.description}</td>
-                                    <td><a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a></td>
-                                    <button type="button" className="btn btn-danger" onClick={() => deletePaper(item.id)}>Delete</button>
-                                </tr>
-
-                            </>
-                            )
-                        })}
-                    </tbody>
-                </table>
-            </>
-        )
-            : (<h1>Loading</h1>)
-        }
-    </>)
+            <div className="table-responsive">
+                {papers && papers.length > 0 ? (
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {papers.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <th scope="row">{index + 1}</th>
+                                        <td>{item.name}</td>
+                                        <td>{item.description}</td>
+                                        <td><a href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a></td>
+                                        <td>
+                                            <div className="d-flex justify-content-center">
+                                                <button type="button" className="btn btn-sm btn-outline-danger mt-3" onClick={() => deletePaper(item.id)}>Borrar</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
+                        </tbody>
+                    </table>
+                ) : (
+                    <h3>Cargando...</h3>
+                )}
+            </div>
+        </>)
 }
 
 export default HandlePapers;

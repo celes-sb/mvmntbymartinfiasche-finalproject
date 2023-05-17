@@ -54,12 +54,14 @@ export const HandlePrograms = () => {
                 <p className="lead">Esta es la lista de programas completa.</p>
                 <hr className="my-4" />
             </div>
-            <Link to="/admin/add-programs">
-                <button type="button" className="btn btn-success">Add New Program</button>
-            </Link>
+            <div className="d-flex justify-content-start ms-2">
+                <Link to="/admin/add-programs">
+                    <button type="button" className="btn btn-outline-success mb-3">Agregar Programa</button>
+                </Link>
+            </div>
 
-            {programs && programs.length > 0 && users && users.length > 0 ? (
-                <>
+            <div className="table-responsive ms-2">
+                {programs && programs.length > 0 && users && users.length > 0 ? (
                     <table className="table">
                         <thead>
                             <tr>
@@ -67,6 +69,7 @@ export const HandlePrograms = () => {
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Categoría</th>
                                 <th scope="col">Usuario</th>
+                                <th scope="col">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,21 +80,24 @@ export const HandlePrograms = () => {
                                         <th scope="row">{index + 1}</th>
                                         <td>{item.program_name}</td>
                                         <td>{item.category}</td>
-                                        <td>{user ? `${user.first_name} ${user.last_name} - ${user.username} - ${user.email}` : "Unknown User"}</td>
+                                        <td>{user ? `${user.first_name} ${user.last_name} - ${user.username} - ${user.email}` : "Usuario desconocido"}</td>
                                         <td>
-                                            <Link to={"/admin/edit-programs/" + item.id}><button type="button" className="btn btn-primary">Edit</button></Link>
-                                            <button type="button" className="btn btn-danger" onClick={() => deleteProgram(item.id)}>Delete</button>
+                                            <div className="d-flex justify-content-center">
+                                                <Link to={"/admin/edit-programs/" + item.id}><button type="button" className="btn btn-sm btn-outline-primary me-1">Editar</button></Link>
+                                                <button type="button" className="btn btn-sm btn-outline-danger ms-1" onClick={() => deleteProgram(item.id)}>Borrar</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 );
                             })}
                         </tbody>
                     </table>
-                </>
-            ) : (
-                <h1>Loading</h1>
-            )}
+                ) : (
+                    <h3>Cargando...</h3>
+                )}
+            </div>
         </>
+
     );
 };
 

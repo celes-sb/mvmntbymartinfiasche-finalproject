@@ -63,12 +63,10 @@ export const EditPreferences = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-3">
+            <div className="p-3">
                 <div className="form-style">
                     <form>
-                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group">
-
-                        </div>
+                        <div className="btn-group" role="group" aria-label="Basic radio toggle button group"></div>
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Querés que te lleguen correos con nuestros anuncios, promociones y contenido informativo?</div>
                             <div className="form-check">
@@ -99,8 +97,6 @@ export const EditPreferences = () => {
                                             onChange={(e) => {
                                                 setLanguage(e.target.value);
                                             }}
-
-
                                         />
                                         <label className="form-check-label fs-6" htmlFor="Spanish">
                                             Español
@@ -117,7 +113,6 @@ export const EditPreferences = () => {
                                             onChange={(e) => {
                                                 setLanguage(e.target.value);
                                             }}
-
                                         />
                                         <label className="form-check-label fs-6" htmlFor="English">
                                             English
@@ -125,50 +120,44 @@ export const EditPreferences = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Qué sistema de unidades preferís?</div>
-                            <div className="input-group" style={{ display: "flex", flexDirection: "column" }}>
-                                <div className="form-check">
-                                    <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        name="Unit System"
-                                        value="Kilograms"
-                                        checked={unitSystem === 'Kilograms'}
-                                        onChange={(e) => {
-                                            setUnitSystem(e.target.value);
-                                        }}
-
-
-                                    />
-                                    <label className="form-check-label fs-6 " htmlFor="Kilograms">
-                                        Kilogramos
-                                    </label>
-                                </div>
-                                <div className="form-check">
-                                    <input
-                                        className="form-check-input"
-                                        type="radio"
-                                        name="Unit System"
-                                        value="Pounds"
-                                        checked={unitSystem === 'Pounds'}
-                                        onChange={(e) => {
-                                            setUnitSystem(e.target.value);
-                                        }}
-
-                                    />
-                                    <label className="form-check-label fs-6" htmlFor="Libras">
-                                        Libras
-                                    </label>
-                                </div>
+                            <div className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="Unit System"
+                                    value="Kilograms"
+                                    checked={unitSystem === 'Kilograms'}
+                                    onChange={(e) => {
+                                        setUnitSystem(e.target.value);
+                                    }}
+                                />
+                                <label className="form-check-label fs-6" htmlFor="Kilograms">
+                                    Kilogramos
+                                </label>
+                            </div>
+                            <div className="form-check">
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="Unit System"
+                                    value="Pounds"
+                                    checked={unitSystem === 'Pounds'}
+                                    onChange={(e) => {
+                                        setUnitSystem(e.target.value);
+                                    }}
+                                />
+                                <label className="form-check-label fs-6" htmlFor="Libras">
+                                    Libras
+                                </label>
                             </div>
                         </div>
 
                         <br />
                         <div className="pb-2">
-                            {console.log(obj)}
                             <button
                                 type="button"
                                 className="btn btn-outline-primary w-100 font-weight-bold"
@@ -180,7 +169,6 @@ export const EditPreferences = () => {
                                 <button
                                     type="button"
                                     className="btn btn-outline-danger w-100 font-weight-bold mt-2"
-
                                 >
                                     Cancelar
                                 </button>
@@ -190,6 +178,7 @@ export const EditPreferences = () => {
                 </div>
             </div>
         </div>
+
     </>)
 }
 

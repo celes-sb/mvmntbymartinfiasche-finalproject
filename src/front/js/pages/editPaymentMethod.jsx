@@ -101,7 +101,6 @@ export const EditPaymentMethod = () => {
                                 <button
                                     type="button"
                                     className="btn btn-outline-danger w-100 font-weight-bold mt-2"
-
                                 >
                                     Cancelar
                                 </button>

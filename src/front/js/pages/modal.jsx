@@ -16,7 +16,7 @@ export const Modal = ({
             tabIndex="-1"
             style={{ display: showModal ? "block" : "none" }}
         >
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">
                         <h5 className="modal-title">Agregar Nuevo Programa</h5>
@@ -27,29 +27,33 @@ export const Modal = ({
                         ></button>
                     </div>
                     <div className="modal-body">
-                        <div className="col mt-2">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Nombre del programa [Categoría Mes Año]"
-                                aria-label="Program name"
-                                onChange={(e) => {
-                                    setProgramName(e.target.value);
-                                }}
-                                required
-                            />
+                        <div className="row">
+                            <div className="col mt-2">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Nombre del programa [Categoría Mes Año]"
+                                    aria-label="Program name"
+                                    onChange={(e) => {
+                                        setProgramName(e.target.value);
+                                    }}
+                                    required
+                                />
+                            </div>
                         </div>
-                        <div className="col mt-2">
-                            <input
-                                type="text"
-                                className="form-control"
-                                placeholder="Categoría [Fuerza, Movimiento, Parada de Manos]"
-                                aria-label="Category"
-                                onChange={(e) => {
-                                    setCategory(e.target.value);
-                                }}
-                                required
-                            />
+                        <div className="row mt-2">
+                            <div className="col mt-2">
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Categoría [Fuerza, Movimiento, Parada de Manos]"
+                                    aria-label="Category"
+                                    onChange={(e) => {
+                                        setCategory(e.target.value);
+                                    }}
+                                    required
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="modal-footer">
@@ -71,6 +75,7 @@ export const Modal = ({
                 </div>
             </div>
         </div>
+
     );
 };
 

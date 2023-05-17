@@ -102,15 +102,16 @@ export const AddPrograms = () => {
 
     return (
         <>
+        <div className="container">
             <div className="backofficeWelcome1 jumbotron m-3">
                 <h1 className="display-4">Agregar Programas</h1>
                 <p className="lead">Seleccioná el nombre de usuario al que le quieras crear un programa.</p>
                 <hr className="my-4" />
                 <Link to="/admin/programs">Volver</Link>
                 <div className="mt-3">
-                    <input className="mb-2" type="text" value={searchText} onChange={handleInputChange} placeholder="Buscar usuario..." />
+                    <input className="mb-2 form-control" type="text" value={searchText} onChange={handleInputChange} placeholder="Buscar usuario..." />
                     <br />
-                    <select value={selectedUser || ""} onChange={handleSelectChange}>
+                    <select className="form-control" value={selectedUser || ""} onChange={handleSelectChange}>
                         <option value="">Selecccioná un usuario...</option>
                         {filteredUsers.map((user) => (
                             <option key={user.id} value={user.id}>
@@ -122,14 +123,12 @@ export const AddPrograms = () => {
                         userPrograms && userPrograms.length > 0 ? (
                             <div>
                                 <h2 className="mt-3 mb-3">Programas del usuario:</h2>
-                                <select value={selectedProgramName} onChange={handleSelectAddProgram}>
-
-                                    <option className="mt-3 mb-3">Seleccioná un programa...</option>
+                                <select className="form-control" value={selectedProgramName} onChange={handleSelectAddProgram}>
+                                    <option>Seleccioná un programa...</option>
                                     {Object.keys(userPrograms[0]).map((programName, index) => (
                                         <option key={index} value={programName}>
                                             {programName}
                                         </option>
-
                                     ))}
                                     <option value="add_new_program">Agregar un programa nuevo...</option>
                                 </select>
@@ -143,14 +142,18 @@ export const AddPrograms = () => {
 
                                 {selectedProgramName ? (
                                     <EditPrograms userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} showModal={showModal} setShowModal={setShowModal} handleCloseModal={handleCloseModal} selectedProgramName={selectedProgramName} />
-                                ) : (<><h3 className="mt-3 mb-3">Cargando...</h3></>)}
-
+                                ) : (
+                                    <>
+                                        <h3 className="mt-3 mb-3">Cargando...</h3>
+                                    </>
+                                )}
                             </div>
-
                         ) : (
                             <div>
                                 <p className="mt-3 mb-3">Este usuario no tiene programas cargados.</p>
-                                <button className="btn btn-outline-primary" onClick={handleOpenModal}>Crear Programa</button>
+                                <button className="btn btn-outline-primary" onClick={handleOpenModal}>
+                                    Crear Programa
+                                </button>
                                 <Modal
                                     showModal={showModal}
                                     handleCloseModal={handleCloseModal}
@@ -161,9 +164,10 @@ export const AddPrograms = () => {
                             </div>
                         )
                     ) : null}
-                </div >
+                </div>
             </div>
-        </>
+        </div>
+</>
     );
 
 
