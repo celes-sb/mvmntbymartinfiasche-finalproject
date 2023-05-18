@@ -64,7 +64,7 @@ export const EditTermGoals = () => {
                     </Link>
                 </li>
             </ul>
-            <h4 className="mt-2 mb-2">3 meses</h4>
+            <h4 className="mt-4 mb-4">3 meses</h4>
             <div className="form-floating mb-2">
                 <textarea
                     className="form-control"
@@ -78,7 +78,7 @@ export const EditTermGoals = () => {
                 ></textarea>
                 <label htmlFor="floatingTextarea1">Contame qué te gustaría lograr en 3 meses....</label>
             </div>
-            <h4 className="mt-2 mb-2">6 meses</h4>
+            <h4 className="mt-4 mb-4">6 meses</h4>
             <div className="form-floating mb-2">
                 <textarea
                     className="form-control"
@@ -92,7 +92,7 @@ export const EditTermGoals = () => {
                 ></textarea>
                 <label htmlFor="floatingTextarea2">Contame qué te gustaría lograr en 6 meses....</label>
             </div>
-            <h4 className="mt-2 mb-2">12 meses</h4>
+            <h4 className="mt-4 mb-4">12 meses</h4>
             <div className="form-floating mb-2">
                 <textarea
                     className="form-control"

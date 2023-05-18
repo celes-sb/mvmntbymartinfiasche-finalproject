@@ -8,7 +8,7 @@ export const Backoffice = () => {
     const { store, actions } = useContext(Context);
 
     return (<>
-        <div className="backofficeWelcome1 jumbotron m-3">
+        <div className="backofficeWelcome1 jumbotron mt-0 m-3">
             <h1 className="display-4">¡Hola!</h1>
             <p className="lead">Bienvenidx al programa de entrenamiento a distancia.</p>
             <hr className="my-4" />

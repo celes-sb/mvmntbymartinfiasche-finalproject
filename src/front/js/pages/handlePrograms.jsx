@@ -61,7 +61,7 @@ export const HandlePrograms = () => {
                 </Link>
             </div>
 
-            <div className="table-responsive ms-2">
+            <div className="table-responsive p-3">
                 {programs && programs.length > 0 && users && users.length > 0 ? (
                     <table className="table">
                         <thead>

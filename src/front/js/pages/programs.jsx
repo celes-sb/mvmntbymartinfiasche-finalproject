@@ -48,7 +48,7 @@ export const Programs = () => {
 
                         return (
                             <div key={`${day}`} className="table-responsive">
-                                <table className="table bg-light border align-middle mt-5 mb-5">
+                                <table className="table bg-light border align-middle mt-2 mb-2 p-3">
                                     <thead>
                                         <tr>
                                             <th className="border">{day}</th>
