@@ -48,16 +48,16 @@ export const PaymentMethod = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-3">
-                <div className="form-style">
-                    <form>
+            <div className="formSettings col-lg-12 col-md-9 p-3 w-100">
+                <div className="form-style w-100">
+                    <form className="form">
                         <div className="form-group pb-3">
                             <input
                                 type="text"
                                 placeholder="Número de Tarjeta"
                                 className="form-control"
                                 aria-describedby="Credit Card Number"
-                                value={dataUser.credit_card ? "xxxx xxxx xxxx " + dataUser.credit_card.substring(dataUser.credit_card.length - 4) : "No Credit Card Stored"}
+                                value={dataUser.credit_card ? "xxxx xxxx xxxx " + dataUser.credit_card.substring(dataUser.credit_card.length - 4) : "No hay ninguna tarjeta guardada"}
                                 disabled
                             />
                         </div>

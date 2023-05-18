@@ -49,8 +49,8 @@ export const Preferences = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-3">
-                <div className="form-style">
+            <div className="col-lg-12 col-md-9 p-3 w-100">
+                <div className="form-style w-100">
                     <form>
                         <div className="btn-group" role="group" aria-label="Basic radio toggle button group"></div>
                         <div className="form-group pb-3">
@@ -104,7 +104,7 @@ export const Preferences = () => {
 
                         <div className="form-group pb-3">
                             <div className="font-weight-bold mb-2">¿Qué sistema de unidades preferís?</div>
-                            <div className="input-group">
+                            <div>
                                 <div className="form-check">
                                     <input
                                         className="form-check-input"
@@ -133,7 +133,6 @@ export const Preferences = () => {
                                 </div>
                             </div>
                         </div>
-
                         <br />
                         <div className="pb-2">
                             <Link to="/user/edit-preferences">

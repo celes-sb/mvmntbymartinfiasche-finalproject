@@ -49,7 +49,7 @@ export const TermGoals = () => {
                     </Link>
                 </li>
             </ul>
-            <h4 className="mt-2">Objetivos a 3 meses</h4>
+            <h4 className="mt-4 mb-4">Objetivos a 3 meses</h4>
             <div className="form-floating">
                 <textarea
                     className="form-control"
@@ -59,9 +59,8 @@ export const TermGoals = () => {
                     style={{ height: "100px" }}
                     disabled
                 ></textarea>
-                <label htmlFor="floatingTextarea1">Comentarios</label>
             </div>
-            <h4 className="mt-2">Objetivos a 6 meses</h4>
+            <h4 className="mt-4 mb-4">Objetivos a 6 meses</h4>
             <div className="form-floating">
                 <textarea
                     className="form-control"
@@ -71,9 +70,8 @@ export const TermGoals = () => {
                     style={{ height: "100px" }}
                     disabled
                 ></textarea>
-                <label htmlFor="floatingTextarea2">Comentarios</label>
             </div>
-            <h4 className="mt-2">Objetivos a 12 meses</h4>
+            <h4 className="mt-4 mb-4">Objetivos a 12 meses</h4>
             <div className="form-floating">
                 <textarea
                     className="form-control"
@@ -83,7 +81,6 @@ export const TermGoals = () => {
                     style={{ height: "100px" }}
                     disabled
                 ></textarea>
-                <label htmlFor="floatingTextarea3">Comentarios</label>
             </div>
 
             <div className="pb-2 mt-4">

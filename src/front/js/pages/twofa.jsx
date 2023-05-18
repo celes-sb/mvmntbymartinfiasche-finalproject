@@ -43,9 +43,9 @@ export const Twofa = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-3">
-                <div className="form-style">
-                    <h5 className="font-weight-bold">¿Querés activar la Autenticación de dos pasos? <br /><br />Haz clic en el siguiente botón:</h5>
+            <div className="col-lg-12 col-md-9 p-3 w-100">
+                <div className="form-style w-100">
+                    <h5>¿Querés activar la Autenticación de dos pasos? <br /><br />Haz clic en el siguiente botón:</h5>
                     <br />
                     <div className="pb-2">
                         <button

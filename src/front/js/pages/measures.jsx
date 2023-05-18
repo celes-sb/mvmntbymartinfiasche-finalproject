@@ -52,9 +52,9 @@ export const Measures = () => {
                     </Link>
                 </li>
             </ul>
-            <div className="col-md-9 p-3">
-                <div className="form-style">
-                    <form>
+            <div className="col-md-9 p-3 w-100">
+                <div className="form-style w-100">
+                    <form className="form-profile">
                         <div className="form-group pb-3">
                             <input
                                 type="text"

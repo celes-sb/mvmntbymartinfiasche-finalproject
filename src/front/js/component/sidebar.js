@@ -38,9 +38,9 @@ export const Sidebar = () => {
 
     return (
         <>
-            <div className="d-flex flex-column flex-shrink-0 p-3" style={{ marginTop: "80px" }}>
+            <div className="d-flex flex-column flex-shrink-0 mt-5 p-3" style={{ marginTop: "80px" }}>
                 <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-primary text-decoration-none">
-                    <div className="dropdown dropdown mt-3 mb-3">
+                    <div className="dropdown dropdown mb-3">
                         <Link to="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={profilePic} alt="" width="35" height="35" className="rounded-circle me-2" />
                             <strong>{store.userData.first_name} {store.userData.last_name}{console.log(dataUser)}</strong>
@@ -94,6 +94,5 @@ export const Sidebar = () => {
                 </ul>
             </div>
         </>
-
     );
 };
