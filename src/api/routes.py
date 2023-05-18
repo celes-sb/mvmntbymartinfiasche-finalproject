@@ -15,7 +15,7 @@ from api.tokenBlockedList import TokenBlockedList
 from api.utils import generate_sitemap, APIException
 from datetime import datetime
 from itsdangerous import URLSafeTimedSerializer
-import openai
+#import openai
 
 import smtplib, ssl
 from email.mime.text import MIMEText
