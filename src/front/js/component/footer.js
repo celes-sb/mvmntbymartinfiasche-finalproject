@@ -38,7 +38,7 @@ export const Footer = () => (
 				</li>
 				<li className="ms-3">
 					<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-89c63be6-9ef8-410d-a953-21358ab8c6a4"></div>
+					<div className="elfsight-app-89c63be6-9ef8-410d-a953-21358ab8c6a4"></div>
 				</li>
 			</ul>
 		</footer>
