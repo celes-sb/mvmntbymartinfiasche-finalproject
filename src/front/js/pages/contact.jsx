@@ -14,8 +14,8 @@ export const Contact = () => {
 
   let obj = {
     message: `Nombre: ${name}, Apellido: ${lastName}, Email: ${email}, Comments: ${comments}`,
-    to: "davidbravoml@gmail.com",
-    subject: "Nuevo Lead"
+    to: "ignotus.sensatio@gmail.com",
+    subject: "Nuevo mensaje de Escribime en MVMT"
   }
 
   const handleSubmit = async (event) => {
