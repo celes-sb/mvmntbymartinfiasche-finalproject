@@ -32,7 +32,6 @@ const CropEasy = ({ photoURL, setOpenCrop, setPhotoURL, setFile }) => {
       );
       const imageurl = await uploadfile(file);
       const obj = {
-        "first_name": "asdasdasdasd",
         "image_profile": imageurl
       }
       let { response } = await actions.editUser(obj);
