@@ -15,7 +15,7 @@ export const Diagnostico = () => {
 
     let obj = {
         message: `Nombre: ${user.first_name} ${user.last_name}, Email: ${user.email}, Link de Google Drive: ${linkDiagnosis}`,
-        to: "ignotus.sensatio@gmail.com",
+        to: "davidbravoml@gmail.com",
         subject: "Nuevo Diagnostico"
     };
 
