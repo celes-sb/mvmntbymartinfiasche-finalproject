@@ -14,7 +14,7 @@ export const Contact = () => {
 
   let obj = {
     message: `Nombre: ${name}, Apellido: ${lastName}, Email: ${email}, Comments: ${comments}`,
-    to: "ignotus.sensatio@gmail.com",
+    to: "davidbravoml@gmail.com",
     subject: "Nuevo mensaje de Escribime en MVMT"
   }
 

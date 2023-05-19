@@ -108,7 +108,7 @@ export const EditExercises = () => {
                     <div className="form-group pb-2">
                         <button
                             type="button"
-                            className="btn btn-outline primary btn-block"
+                            className="btn btn-outline-primary btn-block"
                             onClick={editExercise}
                         >
                             Editar Ejercicio
