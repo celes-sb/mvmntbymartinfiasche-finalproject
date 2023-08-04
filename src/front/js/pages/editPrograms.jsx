@@ -110,9 +110,9 @@ export const EditPrograms = ({
                                                         }
                                                     })
                                                 }
-                                                < button type="button" className="btn btn-sm btn-outline-primary m-1 mt-3" onClick={() => handleOpenModalEditProgram(exerciseData.day, exerciseType, sessionEntries, exerciseData.po_id)}>Edit</button>
+                                                < button type="button" className="btn btn-sm btn-outline-primary m-1 mt-3" onClick={() => handleOpenModalEditProgram(exerciseData.day, exerciseType, sessionEntries, exerciseData.po_id)}>Editar</button>
                                                 <ModalEditProgram userPrograms={userPrograms} handleUserPrograms={handleUserPrograms} selectedProgramId={selectedProgramId} showModalEditProgram={showModalEditProgram} handleCloseModalEditProgram={handleCloseModalEditProgram} handleOpenModalEditProgram={handleOpenModalEditProgram} selectedPoId={selectedPoId} sessionValues={sessionValues} setSessionValues={setSessionValues} />
-                                                <button type="button" className="btn btn-sm btn-outline-danger m-1 mt-3" onClick={() => handleOpenModalDeleteProgram(exerciseData.po_id)}>Delete</button>
+                                                <button type="button" className="btn btn-sm btn-outline-danger m-1 mt-3" onClick={() => handleOpenModalDeleteProgram(exerciseData.po_id)}>Borrar</button>
                                                 <ModalDeleteProgram handleUserPrograms={handleUserPrograms} showModalDeleteProgram={showModalDeleteProgram} handleCloseModalDeleteProgram={handleCloseModalDeleteProgram} selectedPoId={selectedPoId} />
                                             </tr>
                                         ))}
