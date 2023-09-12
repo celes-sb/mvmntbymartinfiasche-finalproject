@@ -19,7 +19,7 @@ export const About = () => {
             />
           </div>
           <div className="textAbout col-lg-6 col-md-6 col-sm-12 col-12" style={{ paddingLeft: "20px" }}>
-            <h2>¿Quién es Martín Fiasche?</h2>
+            <h2>¿Quién es Martín Fiasche?????</h2>
             <h4>
               Docente curioso e inquieto de cualquier posibilidad que pueda ofrecer el cuerpo. Mi búsqueda es explorar las opciones de movimiento para nutrirme de su contenido sin asumir los costos de la especialización. Interpretar cuáles son los requisitos para construir un sistema abierto que permita acercar a todas las personas a una práctica que enriquezca sus posibilidades a partir de sus necesidades y no adiestrar a una persona a las condiciones de una práctica.
               <br />
